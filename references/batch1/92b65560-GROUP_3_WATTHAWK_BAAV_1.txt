@@ -1,0 +1,2066 @@
+POWER
+INDUSTRY
+           BUSINESS
+           ANALYSIS &
+           VALUATION
+
+
+            A Comprehensive Analysis of the
+                   Power Industry
+
+           Prepared by
+           GROUP 3 - WATTHAWK
+           ARNAV JAIN
+           ANURAG PANDIT
+           SHIVAM AGARWALA
+           ASHIT ARYAN
+           ARYAN
+
+           Under the guidance of
+           PROF. MOHIT KUMAR
+                                               1   INDUSTRY OVERVIEW
+ECON F355 PROJECT REPORT
+
+
+
+
+                                               2   COMPARATIVE ANALYSIS
+
+                                               3   BETA ANALYSIS
+
+                                               4   COST OF EQUITY CALCULATION
+                                    TABLE OF   5   COST OF DEBT CALCULATIONS
+                                    CONTENTS
+AN OVERVIEW OF THE POWER INDUSTRY
+
+
+
+
+                                               6   WACC ANALYSIS
+
+                                               7   DCF ANALYSIS
+
+                                               8   RELATIVE VALUATION
+
+                                               9   REFERENCES
+01                               INDUSTRY OVERVIEW
+
+
+ The global power industry was valued at $2.3 trillion USD in
+ 2023 and is expected to reach $3.7 trillion USD by 2030,
+ growing at a CAGR of 4.6% (2023–2030).
+
+ The Indian power industry, with a total installed capacity of
+ ~472 GW as of March 2025, is projected to grow at 5 – 5.5%
+ CAGR through 2030. India third-largest electricity producer
+ globally and aims to achieve 500 GW of non-fossil fuel
+ capacity by 2030.
+
+ The Indian power industry as of mid‑2025 is approximately
+ $245 billion USD in total market size shared by 48 listed
+ Indian companies as of today.
+02                        PORTER’S FIVE FORCES MODEL
+                                                        Rivalry among existing Competition: High
+                                                         Mix of public and private players, increasing
+                                                       renewable energy capacity and rising electricity
+                                                      demand, but constrained by significant regulatory
+                                                                influence and high fixed costs.
+
+
+
+                                                                                                             Threat of New Entrants: Medium
+        Bargaining Power of Buyers: Low                                                                   Capital-intensive traditional power
+     Individual consumers: low, due to regulated                                                          generation: low, due to high entry barriers
+     tariffs and limited switching options.                                                               and regulatory complexities.
+     Commercial buyers: high, can negotiate                                                               Renewable energy generation: high, owing
+     Power Purchase Agreements (PPAs) or invest
+     in captive power generation.                               P O RT E R ’ S                            to supportive policies, falling costs, and
+                                                                                                          increasing investment.
+                                                                    FIVE
+                                                                 F O RC E S
+                                                                                                         Bargaining Power of Suppliers: Moderate
+          Threat of Substitute Products: Medium
+                                                                                                    Thermal power : moderate, dependence on specific coal
+     Large Scale: Grid-supplied power remains dominant
+                                                                                                    grades or imported gas can give suppliers leverage.
+     Small Scale: Threat from decentralized solutions (eg:
+                                                                                                    Renewable energy: moderate, efforts to boost domestic
+     rooftop solar with battery storage, emerging green
+                                                                                                    manufacturing of components (e.g. solar panels,
+     hydrogen applications.
+                                                                                                    turbines), high-tech imports are costly.
+03                                                                                 BCG ANALYSIS
+We have analysed individual strategic business units (SBUs) or product lines, not the company as a whole as evident from the BCG Matrices below
+  High
+
+
+
+
+                                                                         High
+
+
+
+
+                                                                                                                                               High
+                                               Rooftop Solar
+                                                                                               Transmission &
+                                              Emerging green                                    Distribution      Ultra-supercritical                                                         Renewable
+                          Grid-Scale         hydrogen projects                                                     Thermal Plants                                      Grid-Scale               Energy
+                        Energy Storage                                                                                                                               Energy Storage
+                                                                                                Renewable
+  Market Growth
+
+
+
+
+                                                                         Market Growth
+
+
+
+
+                                                                                                                                               Market Growth
+                                                EV Charging                                       Energy                 Merchant
+                                                                                                                        Power Sales
+
+
+
+
+                          Thermal power                                                        Thermal power
+                                               Older Coal‑fired                                                       Unsecured                                                            Small scaled coal
+                                                  Facilities                                                         Merchant Coal                                   Thermal and Gas         operations
+                                                                                                                       Exposure                                        Generation
+                          Transmission &                                                          Backward-
+                           Distribution                                                        Integrated Coal
+                                                                                                Infrastructure
+  Low
+
+
+
+
+                                                                         Low
+
+
+
+
+                                                                                                                                               Low
+                  Low             Relative Market Share           High                   Low           Relative Market Share            High                   Low            Relative Market Share        High
+04                                                                                                                                    SPACE ANALYSIS
+                                                                                                                                                                   TATA POWER          ADANI POWER           TORRENT POWER
+
+
+
+      C O N S E RVAT I V E                                                                                                   AG G R E S S I V E                   More Diversified-       Significant              Involved in
+
+
+
+
+                                                                                      F i n a n c i a l S t re n g t h
+                                                                                                                                                                   Investment in        investments in          generation and
+                                                                                                                                                                        EVs             Thermal Power        distribution business
+
+
+
+                                                                                                                                                                      Growth in       Demand for Power       benefits from steady
+                                                                                                                                                                  renewable energy     in India increases     industry condition
+     C o m p et i t i ve A d va nt a g e
+
+                                                                                                                         I n d u st r y At t ra ct i ve n e s s
+                                                                                                                                                                      Brand
+                                           E nv i ro n m e nt a l S t a b i l i t y
+
+
+
+
+                                                                                                                                                                                      Vertical Integration
+                                                                                                                                                                    Reputation,                              Strong presence in
+                                                                                                                                                                                       is its Competitive
+                                                                                                                                                                    Diversified                               specific regions
+                                                                                                                                                                                            Advantage
+                                                                                                                                                                    Energy Mix
+
+
+          DEFENSIVE                                                                                                         COMPETITIVE
+                                                                                                                                                                                        Thermal power
+                                                                                                                                                                   Shifts towards
+                                                                                                                                                                                             raises            Faces regulatory
+                                                                                                                                                                    sustainable
+                                                                                                                                                                                        envirionmental           challenges
+                                                                                                                                                                       energy
+                                                                                                                                                                                          challenges
+05                                                                                                                                        SPACE ANALYSIS
+
+                                                                                                                                                                   TATA POWER                 ADANI POWER                 TORRENT POWER
+
+ C O N S E RVAT I V E                                                                                                    AG G R E S S I V E
+
+
+
+
+                                                                                  F i n a n c i a l S t re n g t h
+                                                                                                                                                                 Should aggressively                                       Should maintain its
+                                                                                                                                                                                           Needs to differentiate its
+                                                                                                                                                              pursue renewable energy                                     aggressive approach
+                                                                                                                                                                                           offerings and stabilize its
+                                                                                                                                                              projects and technological                                  with focus on regional
+                                                                                                                                                                                            financial position while
+                                                                                                                                                               innovations to maintain                                   efficiency and selective
+                                                                                                                                                                                             navigating regulatory
+                                                                                                                                                                 leadership position.                                          expansion in
+                                                                                                                                                                                                  challenges.
+                                                                                                                                                                                                                               renewables.
+
+
+ C o m p et i t i ve A d va nt a g e                                                                                                                                                           Limited financial
+                                                                                                                                                                  High financial and                                        High financial and
+                                                                                                                                                                                              strength, medium
+                                                                                                                     I n d u st r y At t ra ct i ve n e s s       industry strength,                                        industry strength,
+                                                                                                                                                                                           competitive advantage,
+                                       E nv i ro n m e nt a l S t a b i l i t y
+
+
+
+
+                                                                                                                                                               competitive advantage,                                    competitive advantage,
+                                                                                                                                                                                             attractive industry,
+                                                                                                                                                                 stable environment.                                       stable environment.
+                                                                                                                                                                                            unstable environment.
+
+
+
+      DEFENSIVE                                                                                                        COMPETITIVE                                                             Improve product
+                                                                                                                                                                                                                          Exploit opportunities
+                                                                                                                                                                                           differentiation, expand
+                                                                                                                                                               Exploit opportunities to                                    to enhance market
+                                                                                                                                                                                           product line, enhance
+                                                                                                                                                               enhance market share.                                              share.
+                                                                                                                                                                                           marketing and financial
+                                                                                                                                                                                                  resources
+06                                SPACE ANALYSIS
+
+
+
+
+     TATA POWER : (X, Y) = (3, 1.2) : AGGRESSIVE           ADANI POWER : (X, Y) = (1, -0.2) : COMPETITIVE
+
+
+
+
+                                TORRENT POWER : (X, Y) = (2.8 , 0.8) : AGGRESSIVE
+07                                                       SWOT ANALYSIS
+
+                                                               TATA POWER
+                  STRENGTHS                                                              WEAKNESSES
+     India’s most diversified private utility (~14 GW)                      Only 38% renewable—below global ESG leaders
+     with 38% from renewables.                                              (>70%), limiting ESG fund interest.
+     Fully integrated across generation, transmission,                      Delays in payments from state Distribution
+
+
+
+                                                           S        W
+     distribution (Delhi, Mumbai, Odisha), and EV                           Companies (DISCOMs) like Odisha and Delhi
+     charging (5,000+ points).                                              increase working capital stress.
+     Low Aggregate Technical & Commercial (AT&C)                            High debt (~₹44,000 crore) from legacy coal assets;
+     losses (<10%) in cities due to smart meters and                        regulatory and land hurdles slowing solar projects
+     underground cables, stable EBITDA                                      under the Production-Linked Incentive (PLI) scheme.
+
+
+
+                OPPORTUNITIES                                                               THREATS
+     India’s 2030 non-fossil target (500 GW) boosts                         Price wars from L&T, ReNew, and Chinese EPC
+
+
+
+                                                           O         T
+     utility-scale and rooftop solar growth across                          (Engineering, Procurement, and Construction)
+     Rajasthan, Gujarat.                                                    players pressure margins.
+     PLI and PM-KUSUM (Kisan Urja Suraksha                                  Import dependency (mainly Chinese modules)
+     evam Utthaan Mahabhiyan) schemes support                               adds forex and trade risk.
+     solar manufacturing and agri-solar expansion.                          UDAY 2.0 (Ujwal DISCOM Assurance Yojana)
+     Smart grids and digital Advanced Metering                              delays and ESG tightening increase financial and
+     Infrastructure (AMI) enable data monetization                          operational risk for thermal assets.
+     and urban growth.
+08                                                      SWOT ANALYSIS
+
+                                                              ADANI POWER
+
+
+                  STRENGTHS                                                               WEAKNESSES
+                                                                            Extremely coal-dependent (~95%), increasing
+     India’s largest private thermal player (13.6 GW)
+                                                                            carbon risk and exposure to regulatory tightening.
+
+
+
+                                                          S        W
+     with strong merchant market and Power
+                                                                            Highly leveraged (~₹45,000 crore) with ongoing tariff
+     Purchase Agreement (PPA) presence.
+                                                                            litigation (e.g., Mundra PPA) affecting financial
+     Strong FY24 merchant sales (~₹6–₹10/unit on
+                                                                            flexibility.
+     Indian Energy Exchange, IEX) captured peak
+                                                                            No in-house renewable energy or distribution
+     demand gains.
+                                                                            segment—Adani Green operates separately.
+
+
+
+                OPPORTUNITIES                                                                THREATS
+     Rising base-load from Indian manufacturing,                            ESG regulations (e.g., SEBI-BRSR: Securities and
+
+
+
+                                                          O         T
+     data centers ensures demand for continuous                             Exchange Board of India – Business
+     power.                                                                 Responsibility and Sustainability Reporting) raise
+     Cross-border exports (Bangladesh, Nepal)                               cost of capital for coal-heavy firms.
+     provide foreign exchange revenue.                                      Coal import price fluctuations (Indonesia, Australia)
+     Power sector reforms like General Network                              and INR-USD swings hurt profitability.
+     Access (GNA) and Market Coupling allow real-                           Post-Hindenburg governance issues increase
+     time pricing and better margins.                                       political, regulatory, and investor scrutiny.
+09                                                    SWOT ANALYSIS
+
+                                                            TORRENT
+                                                             POWER
+                STRENGTHS                                                           WEAKNESSES
+     Efficient urban distribution operations in                       Limited renewable exposure (~15%) compared to
+     Ahmedabad, Surat, Agra with <10% AT&C                            industry peers; growth is geographically
+                                                                      concentrated in western and northern India.
+
+
+
+                                                        S      W
+     losses and >98% bill collection.
+     Secures long-term city franchise contracts                       Conservative expansion strategy restricts entry into
+     (15–25 years), reducing revenue volatility.                      high-growth or high-risk markets.
+     FY24 profitability (~18% margins) supported                      Gas-based power plants face risks from global LNG
+     by smart meters, digital billing, and                            (Liquefied Natural Gas) price spikes and pipeline
+     automation.                                                      supply issues.
+
+
+
+             OPPORTUNITIES                                                             THREATS
+     UDAY 2.0 reforms and urban DISCOM                                Competitive pressure from Adani Electricity,
+
+
+
+                                                        O       T
+     privatization open new city franchise                            ReNew, and state boards in urban markets.
+     opportunities.                                                   Political interference in tariffs—especially during
+     Advanced smart grids and AI-based energy                         elections—limits pricing freedom.
+     analytics can improve cost-efficiency and                        High capital needed for renewable transition;
+     profitability.                                                   climate events (e.g., 2023 Gujarat floods) disrupt
+     Rooftop solar, hybrid bundles (solar + battery                   thermal operations.
+     + retail power) present monetization potential
+     in urban hubs.
+10                                               PESTEL ANALYSIS
+     POLITICAL FACTORS                                                                   TECHNOLOGICAL FACTORS
+        Government-backed initiatives like DDUGJY, UDAY, IPDS support grid                  Smart grid rollouts (14.5 mil meters), AI-driven forecasting improving grid
+
+
+
+ P                                                                                   T
+        modernization, electrification.                                                     efficiency, outages, load management.
+        DISCOM financial restructuring - Time-of-Use (TOU) tariffs are being                Energy storage granted infrastructure status (₹60,000+ crore funding),
+        rolled out to large consumers to shift usage from peak hours.                       supporting floating solar, microgrids, EV-grid integration.
+        2025–26 Union Budget launched Nuclear Energy Mission (US $2.33                      Newer storage solutions (eg: Green hydrogen) still in demonstration stage.
+        billion) for R&D of Small Modular Reactors (SMRs), targeting five
+        indigenous SMRs by 2033.
+
+
+     ECONOMIC FACTORS                                                                    ENVIRONMENTAL FACTORS
+
+
+
+ E
+        Renewable capacity is rapidly expanding, government plans to invest US              Power sector is a major CO₂ emitter (~70% of India’s), primarily from coal.
+
+
+                                                                                     E
+        $107 billion in transmission infrastructure by 2032.                                India committed to net-zero by 2070, 45% emissions intensity reduction by
+        Heavy reliance on imported coal (2,128 MT from 2013–2022) poses price               2030 (from 2005 levels), 50% non-fossil energy by 2030.
+        and geopolitical risks.                                                             Fossil fuel subsidies have significantly dropped (~70% over last decade),
+        Sector requires US $400 billion and 3.78 million skilled professionals by
+        2032 to meet future demand.
+
+
+     SOCIETAL FACTORS                                                                    LEGAL FACTORS
+
+
+
+                                                                                     L
+       Rural electrification reached 99.2% by 2023, with daily power availability           Electricity (Amendment) Bill, 2014: Proposed separation of
+
+
+ S
+       significantly increasing from 12.5 to 21.9 hours in (2015 to 2024).                  distribution/supply, multiple suppliers, and a Renewable Generation
+       Surging Rooftop Solar & Regional Disparities: Rooftop solar capacity                 Obligation (RGO) for thermal plants .
+       jumped 86% YoY, driven primarily by residential adoption, yet affordability          2018 Draft Amendment: Enforceable RGOs, penalties.
+       issue.                                                                               Legal recognition of smart grids and licensing exemptions for suppliers
+                                                                                            and open access for 1 MW+ consumers.
+11               BLINDSPOT ANALYSIS
+     TATA POWER
+        Green reputation but <40% renewables—lags global ESG benchmarks (>70%).
+        Heavy reliance on government-run DISCOMs delays payments, impacting liquidity.
+        Regulatory delays and land clearance bottlenecks hinder solar project execution under PLI.
+        Limited play in emerging segments like battery storage, virtual power plants, or
+        international exports.
+
+     ADANI POWER
+       Global coal price and FX volatility impact cost base (Indonesia/Australia imports).
+       Heavy leverage (~₹45,000 crore) and unresolved legal disputes (e.g., Mundra PPA).
+       Post-Hindenburg governance spotlight raises long-term investor and reputational risk.
+
+
+     TORRENT POWER
+        Slower digital adoption in grids, analytics, and smart energy services.
+        Misses growth in EV infra, battery storage, and hybrid retail bundles.
+        Thermal plants exposed to LNG price shocks and weather disruptions
+        Efficient but geographically concentrated—mostly western India (Gujarat, UP, Maharashtra).
+12                                                           PROFITABILITY RATIOS
+                                           Net Profit Margin                                                                               Return on Assets
+                           Adani Power Ltd.              Tata Power          Torrent Power                             Adani Power Ltd.              Tata Power          Torrent Power
+                 50                                                                                          30
+
+
+
+
+                                                                                                             20
+                  0
+Percentage(%)
+
+
+
+
+                                                                                             Percentage(%)
+                                                                                                              10
+
+                -50
+
+                                                                                                              0
+
+                             INDUSTRY                                                                                                                                    INDUSTRY
+                -100        IDEAL VALUE                                                                                                                                 IDEAL VALUE
+                               13.72%                                                                        -10                                                           2.62%
+
+
+
+
+                -150                                                                                         -20
+                                                                   21
+
+
+
+
+                                                                                                                                                               21
+                                                        19
+
+
+
+
+                                                                                                                                                    19
+                                   16
+
+
+
+
+                                                                                                                               16
+                                                                              23
+
+
+
+
+                                                                                                                                                                          23
+                                                 18
+
+
+
+
+                                                             20
+
+
+
+
+                                                                                                                                             18
+
+
+
+
+                                                                                                                                                         20
+                                                                        22
+
+
+
+
+                                                                                                                                                                    22
+                            15
+
+
+
+
+                                                                                        25
+
+
+
+
+                                                                                                                        15
+
+
+
+
+                                                                                                                                                                                      25
+                                                                                   24
+
+
+
+
+                                                                                                                                                                               24
+                     14
+
+
+
+
+                                                                                                                 14
+                                          17
+
+
+
+
+                                                                                                                                      17
+                                                                  20
+
+
+
+
+                                                                                                                                                              20
+                                        20
+
+
+
+
+                                                                                                                                    20
+                          20
+
+
+
+
+                                                                                                                      20
+                                               20
+
+
+
+
+                                                                                                                                           20
+                                 20
+
+
+
+
+                                                      20
+
+
+
+
+                                                                                                                             20
+
+
+
+
+                                                                                                                                                  20
+                   20
+
+
+
+
+                                                                                                               20
+                                                                       20
+
+
+
+
+                                                                                                                                                                   20
+                                                                            20
+
+
+
+
+                                                                                                                                                                        20
+                                                                                      20
+
+
+
+
+                                                                                                                                                                                  20
+                                                                                 20
+
+
+
+
+                                                                                                                                                                             20
+                                                         20
+
+
+
+
+                                                                                                                                                     20
+                                                         Years                                                                                       Years
+13                                                          PROFITABILITY RATIOS
+                          Return on Capital Employed (ROCE)                                                                                Return on Equity
+                           Adani Power Ltd.             Tata Power          Torrent Power                              Adani Power Ltd.              Tata Power          Torrent Power
+                 25                                                                                          50
+
+
+
+                 20
+
+                                                                                                              0
+
+                 15
+ Percentage(%)
+
+
+
+
+                                                                                            Percentage(%)
+                 10                                                                                         -50
+
+
+
+                  5
+                          INDUSTRY                                                                                                                                       INDUSTRY
+                         IDEAL VALUE                                                                        -100                                                        IDEAL VALUE
+                            8.69%                                                                                                                                          7.46%
+                 0
+
+
+
+                 -5                                                                                         -150
+                                                                  21
+
+
+
+
+                                                                                                                                                               21
+                                                       19
+
+
+
+
+                                                                                                                                                    19
+                                  16
+
+
+
+
+                                                                                                                               16
+                                                                             23
+
+
+
+
+                                                                                                                                                                          23
+                                                18
+
+
+
+
+                                                            20
+
+
+
+
+                                                                                                                                             18
+
+
+
+
+                                                                                                                                                         20
+                                                                       22
+
+
+
+
+                                                                                                                                                                    22
+                           15
+
+
+
+
+                                                                                       25
+
+
+
+
+                                                                                                                        15
+
+
+
+
+                                                                                                                                                                                      25
+                                                                                  24
+
+
+
+
+                                                                                                                                                                               24
+                    14
+
+
+
+
+                                                                                                                 14
+                                         17
+
+
+
+
+                                                                                                                                      17
+                                                                 20
+
+
+
+
+                                                                                                                                                              20
+                                       20
+
+
+
+
+                                                                                                                                    20
+                         20
+
+
+
+
+                                                                                                                      20
+                                              20
+
+
+
+
+                                                                                                                                           20
+                                20
+
+
+
+
+                                                     20
+
+
+
+
+                                                                                                                             20
+
+
+
+
+                                                                                                                                                  20
+                  20
+
+
+
+
+                                                                                                               20
+                                                                      20
+
+
+
+
+                                                                                                                                                                   20
+                                                                           20
+
+
+
+
+                                                                                                                                                                        20
+                                                                                     20
+
+
+
+
+                                                                                                                                                                                  20
+                                                                                20
+
+
+
+
+                                                                                                                                                                             20
+                                                        20
+
+
+
+
+                                                                                                                                                     20
+                                                        Years                                                                                        Years
+14                                                                  PROFITABILITY RATIOS
+                                               Dividend Payout Ratio                                                                   Price to Earnings Ratio
+                                  Adani Power Ltd.              Tata Power          Torrent Power                         Adani Power Ltd.              Tata Power          Torrent Power
+                        300                                                                                     120
+
+
+                        250                                                                                     100                                                         INDUSTRY
+                                                                                                                                                                           IDEAL VALUE
+                                                                                                                                                                              2.62%
+                        200                                                                                     80
+Dividend Payout Ratio
+
+
+
+
+                        150                                                                                     60
+
+
+
+
+                                                                                                    P/E Ratio
+                        100                                                                                     40
+
+
+                         50                                                                                     20
+
+
+                         0                                                                                       0
+
+
+                        -50                                                                                     -20
+                                                                          21
+
+
+
+
+                                                                                                                                                                  21
+                                                               19
+
+
+
+
+                                                                                                                                                       19
+                                          16
+
+
+
+
+                                                                                                                                  16
+                                                                                     23
+
+
+
+
+                                                                                                                                                                             23
+                                                        18
+
+
+
+
+                                                                    20
+
+
+
+
+                                                                                                                                                18
+
+
+
+
+                                                                                                                                                            20
+                                                                               22
+
+
+
+
+                                                                                                                                                                       22
+                                   15
+
+
+
+
+                                                                                               25
+
+
+
+
+                                                                                                                           15
+
+
+
+
+                                                                                                                                                                                         25
+                                                                                          24
+
+
+
+
+                                                                                                                                                                                  24
+                            14
+
+
+
+
+                                                                                                                    14
+                                                 17
+
+
+
+
+                                                                                                                                         17
+                                                                         20
+
+
+
+
+                                                                                                                                                                 20
+                                               20
+
+
+
+
+                                                                                                                                       20
+                                 20
+
+
+
+
+                                                                                                                         20
+                                                      20
+
+
+
+
+                                                                                                                                              20
+                                        20
+
+
+
+
+                                                             20
+
+
+
+
+                                                                                                                                20
+
+
+
+
+                                                                                                                                                     20
+                          20
+
+
+
+
+                                                                                                                  20
+                                                                              20
+
+
+
+
+                                                                                                                                                                      20
+                                                                                   20
+
+
+
+
+                                                                                                                                                                           20
+                                                                                             20
+
+
+
+
+                                                                                                                                                                                     20
+                                                                                        20
+
+
+
+
+                                                                                                                                                                                20
+                                                                20
+
+
+
+
+                                                                                                                                                        20
+                                                                Years                                                                                   Years
+15                                                               LIQUIDITY RATIOS
+                                              Current Ratio                                                                             Quick Ratio
+                         Adani Power Ltd.              Tata Power          Torrent Power                          Adani Power Ltd.              Tata Power          Torrent Power
+                40                                                                                       40
+
+
+
+                                                                             INDUSTRY                                                                                 INDUSTRY
+                                                                            IDEAL VALUE                                                                              IDEAL VALUE
+                30                                                              1.27                     30                                                              1.08
+Current Ratio
+
+
+
+
+                                                                                           Quick Ratio
+                20                                                                                       20
+
+
+
+
+                10                                                                                       10
+
+
+
+
+                0                                                                                        0
+                                                                 21
+
+
+
+
+                                                                                                                                                          21
+                                                      19
+
+
+
+
+                                                                                                                                               19
+                                 16
+
+
+
+
+                                                                                                                          16
+                                                                            23
+
+
+
+
+                                                                                                                                                                     23
+                                               18
+
+
+
+
+                                                           20
+
+
+
+
+                                                                                                                                        18
+
+
+
+
+                                                                                                                                                    20
+                                                                      22
+
+
+
+
+                                                                                                                                                               22
+                          15
+
+
+
+
+                                                                                      25
+
+
+
+
+                                                                                                                   15
+
+
+
+
+                                                                                                                                                                               25
+                                                                                 24
+
+
+
+
+                                                                                                                                                                          24
+                   14
+
+
+
+
+                                                                                                            14
+                                        17
+
+
+
+
+                                                                                                                                 17
+                                                                20
+
+
+
+
+                                                                                                                                                         20
+                                      20
+
+
+
+
+                                                                                                                               20
+                        20
+
+
+
+
+                                                                                                                 20
+                                             20
+
+
+
+
+                                                                                                                                      20
+                               20
+
+
+
+
+                                                    20
+
+
+
+
+                                                                                                                        20
+
+
+
+
+                                                                                                                                             20
+                 20
+
+
+
+
+                                                                                                          20
+                                                                     20
+
+
+
+
+                                                                                                                                                              20
+                                                                          20
+
+
+
+
+                                                                                                                                                                   20
+                                                                                    20
+
+
+
+
+                                                                                                                                                                             20
+                                                                               20
+
+
+
+
+                                                                                                                                                                        20
+                                                       20
+
+
+
+
+                                                                                                                                                20
+                                                       Years                                                                                    Years
+16                                                  CAPITAL STRUCTURE RATIOS
+                                               Debt to Equity Ratio                                                                               Interest Coverage Ratio
+                                Adani Power Ltd.              Tata Power          Torrent Power                                      Adani Power Ltd.              Tata Power          Torrent Power
+                        6                                                                                                   8
+
+
+
+                        5                                                           INDUSTRY                                          INDUSTRY
+                                                                                   IDEAL VALUE                              6        IDEAL VALUE
+                                                                                       0.7                                               2.8
+
+
+
+
+                                                                                                  Interest Coverage Ratio
+ Debt to Equity Ratio
+
+
+
+
+                        4
+                                                                                                                            4
+
+                        3
+
+                                                                                                                            2
+                        2
+
+
+                                                                                                                            0
+                        1
+
+
+
+                        0                                                                                                   -2
+                                                                        21
+
+
+
+
+                                                                                                                                                                             21
+                                                             19
+
+
+
+
+                                                                                                                                                                  19
+                                        16
+
+
+
+
+                                                                                                                                             16
+                                                                                   23
+
+
+
+
+                                                                                                                                                                                        23
+                                                      18
+
+
+
+
+                                                                  20
+
+
+
+
+                                                                                                                                                           18
+
+
+
+
+                                                                                                                                                                       20
+                                                                             22
+
+
+
+
+                                                                                                                                                                                  22
+                                 15
+
+
+
+
+                                                                                             25
+
+
+
+
+                                                                                                                                      15
+
+
+
+
+                                                                                                                                                                                                  25
+                                                                                        24
+
+
+
+
+                                                                                                                                                                                             24
+                          14
+
+
+
+
+                                                                                                                               14
+                                               17
+
+
+
+
+                                                                                                                                                    17
+                                                                       20
+
+
+
+
+                                                                                                                                                                            20
+                                             20
+
+
+
+
+                                                                                                                                                  20
+                               20
+
+
+
+
+                                                                                                                                    20
+                                                    20
+
+
+
+
+                                                                                                                                                         20
+                                      20
+
+
+
+
+                                                           20
+
+
+
+
+                                                                                                                                           20
+
+
+
+
+                                                                                                                                                                20
+                        20
+
+
+
+
+                                                                                                                             20
+                                                                            20
+
+
+
+
+                                                                                                                                                                                 20
+                                                                                 20
+
+
+
+
+                                                                                                                                                                                      20
+                                                                                           20
+
+
+
+
+                                                                                                                                                                                                20
+                                                                                      20
+
+
+
+
+                                                                                                                                                                                           20
+                                                              20
+
+
+
+
+                                                                                                                                                                   20
+                                                              Years                                                                                                Years
+17                                                                    TURNOVER RATIOS
+                                        Inventory Turnover Ratio                                                                           Debtors Turnover Ratio
+                               Adani Power Ltd.              Tata Power          Torrent Power                                Adani Power Ltd.              Tata Power          Torrent Power
+                     300                                                                                            100
+
+
+
+                     250                                                           INDUSTRY                                                                                      INDUSTRY
+                                                                                  IDEAL VALUE                       80                                                          IDEAL VALUE
+                                                                                       2                                                                                            4.79
+
+                     200
+Inventory Turnover
+
+
+
+
+                                                                                                 Debtors Turnover
+                                                                                                                    60
+
+                     150
+
+                                                                                                                    40
+                     100
+
+
+                                                                                                                    20
+                      50
+
+
+
+                      0                                                                                              0
+                                                                       21
+
+
+
+
+                                                                                                                                                                      21
+                                                            19
+
+
+
+
+                                                                                                                                                           19
+                                       16
+
+
+
+
+                                                                                                                                      16
+                                                                                  23
+
+
+
+
+                                                                                                                                                                                 23
+                                                     18
+
+
+
+
+                                                                 20
+
+
+
+
+                                                                                                                                                    18
+
+
+
+
+                                                                                                                                                                20
+                                                                            22
+
+
+
+
+                                                                                                                                                                           22
+                                15
+
+
+
+
+                                                                                            25
+
+
+
+
+                                                                                                                               15
+
+
+
+
+                                                                                                                                                                                           25
+                                                                                       24
+
+
+
+
+                                                                                                                                                                                      24
+                         14
+
+
+
+
+                                                                                                                        14
+                                              17
+
+
+
+
+                                                                                                                                             17
+                                                                      20
+
+
+
+
+                                                                                                                                                                     20
+                                            20
+
+
+
+
+                                                                                                                                           20
+                              20
+
+
+
+
+                                                                                                                             20
+                                                   20
+
+
+
+
+                                                                                                                                                  20
+                                     20
+
+
+
+
+                                                          20
+
+
+
+
+                                                                                                                                    20
+
+
+
+
+                                                                                                                                                         20
+                       20
+
+
+
+
+                                                                                                                      20
+                                                                           20
+
+
+
+
+                                                                                                                                                                          20
+                                                                                20
+
+
+
+
+                                                                                                                                                                               20
+                                                                                          20
+
+
+
+
+                                                                                                                                                                                         20
+                                                                                     20
+
+
+
+
+                                                                                                                                                                                    20
+                                                             20
+
+
+
+
+                                                                                                                                                            20
+                                                             Years                                                                                          Years
+10
+18                            PROFITABILITY ANALYSIS
+
+     Across the three firms, Adani Power shows the strongest financial turnaround post-2022.
+        Key ratios like Net Profit Margin, ROA, ROCE, and ROE, which were negative until 2021, have now
+        crossed ideal benchmarks.
+        Operating margin remained steady at 21%, and a zero dividend payout supports its reinvestment-
+        heavy growth strategy.
+
+     Torrent Power presents a mixed picture.
+        NPM and OPM at 8% and 23% are slightly below ideal, but ROA, ROCE, and ROE have
+        outperformed since 2016.
+        However, a high dividend payout of 39% suggests limited reinvestment,
+
+     Tata Power has shown steady recovery.
+        NPM and OPM at 8% and 22% improved post-2022, with ROA and ROE now at or above ideal.
+        ROCE remains slightly below benchmark, and the dividend payout was erratic, peaking at 283%
+        in 2020—raising reinvestment concerns.
+19   DU PONT ANALYSIS- TATA POWER
+
+
+                                     GOOLE SHEET LINK
+                                     FOR TATA POWER
+
+
+
+
+                                     This shows that the
+                                      calculated Du Pont
+                                     values for ROE and
+                                       ROA are close to
+                                    actual industry values
+20   DU PONT ANALYSIS- ADANI POWER LTD.
+
+
+                                     GOOLE SHEET LINK
+                                     FOR ADANI POWER
+
+
+
+
+                                     This shows that the
+                                      calculated Du Pont
+                                     values for ROE and
+                                       ROA are close to
+                                    actual industry values
+21   DU PONT ANALYSIS- TORRENT POWER
+
+
+                                   GOOLE SHEET LINK
+                                  FOR TORRENT POWER
+
+
+
+
+                                   This shows that the
+                                    calculated Du Pont
+                                   values for ROE and
+                                     ROA are close to
+                                  actual industry values
+22                 BETA - REGRESSION ANALYSIS
+
+
+
+
+          REGRESSION                 REGRESSION                 REGRESSION
+           STATISTICS                 STATISTICS                 STATISTICS
+
+     R Square   0.2730154358    R Square   0.1000960784    R Square   0.1326677629
+
+
+      Slope         1.40         Slope         1.52         Slope         0.99
+
+
+     Adjusted                   Adjusted                   Adjusted
+                0.2694863845               0.09572761281              0.1284574122
+     R Square                   R Square                   R Square
+
+
+     Standard                   Standard                   Standard
+                0.04159095418              0.08293568622              0.04601021551
+       Error                      Error                      Error
+23
+
+                    BETA DRIFITNG                             BETA DRIFITNG                            BETA DRIFITNG
+
+
+         Levered Raw Beta             1.4          Levered Raw Beta            1.52         Levered Raw Beta            0.99
+
+
+          Raw Beta weight            75.00%         Raw Beta weight           75.00%         Raw Beta weight           75.00%
+
+
+             Market Beta              1.00             Market Beta             1.00             Market Beta             1.00
+
+
+        Market Beta weight           25.00%       Market Beta weight          25.00%       Market Beta weight          25.00%
+
+
+       Adjusted Beta for Tata         1.30      Adjusted Beta for Adani        1.39     Adjusted Beta for Torrent       0.99
+
+
+                                                                    Beta 1                                   Beta 1
+ Slope Method          Beta 1 TATA    1.40    Slope Method                     1.52    Slope Method                     0.99
+                                                                   ADANI                                   TORRENT
+
+
+     Covariance                                Covariance          Beta 2               Covariance          Beta 2
+                       Beta 2 TATA    1.40                                     1.52                                     0.99
+      Method                                    Method             ADANI                 Method            TORRENT
+
+
+      Statistical                               Statistical        Beta 3                Statistical        Beta 3
+                       Beta 3 TATA    1.40                                     1.52                                     0.99
+     Regression                                Regression          ADANI                Regression         TORRENT
+24                    BOTTOM UP BETA - COST OF EQUITY
+
+
+
+
+A peer comparison of Tata Power and power sector firms on basis of their (Debt to equity ratio) , and later using that and levered
+and unlevered beta by Bottom Up approach, we have calculated the Required Returns or Cost of equity (Ke by CAPM model).
+
+                       Using Bottom Up Beta, the following two formulas have been used,
+                    1. Levered Beta= Unlevered Beta * [1 + (1 - Tax Rate) * (Debt / Equity)]
+                    2.Unlevered Beta = Levered Beta / [1 + (1 - Tax Rate) * (Debt / Equity)]
+25
+26        BOTTOM UP BETA - COST OF EQUITY
+
+
+
+     Companies average beta (unlevered)     0.67      0.73      0.64
+
+
+            Current debt/equity            48.121%   17.478%   12.080%
+
+
+                  Tax rate                  30%       30%       30%
+
+
+               Levered Beta                 0.895    0.820      0.697
+
+
+            Risk free rate (India)         6.316%    6.316%    6.316%
+
+
+     Market return (NIFTY 50 : 25 years)   16.62%    16.62%    16.62%
+
+
+            Equity Risk premium             10%       10%       10%
+
+
+                     Ke                    15.544%   14.773%   13.500%
+27                                           COST OF DEBT
+     We have used a table that relates the interest coverage ratio of a firm to a "synthetic" rating and a default spread
+     that goes with that rating.
+         The link between interest coverage ratios and ratings was developed by looking at all rated companies in the
+         United States.
+          The default spreads are obtained from traded bonds.
+         Adding that number to a riskfree rate should yield the pre-tax cost of borrowing for a firm.
+
+
+          *Since this synthetic ratings are US based we are adjusting the default spread for India
+
+
+                 USA                    0.00%                 4.33%                0.00%                 25.00%
+
+
+                India                    2.18%                7.26%                 2.93%                30.00%
+
+
+                                     Adj. Default          Equity Risk          Country Risk         Corporate Tax
+                                       Spread               Premium              Premium                 Rate
+
+
+
+         COST OF DEBT (Kd) = RFR (India) + Default spread of the BA rated bond (India) (adjusted) (by US
+         based spread + adjusted default spread of India relative to US)
+28                     COST OF DEBT CALCULATIONS
+
+
+
+                               Kd = RFR (India) + Default spread   Kd = interest
+                                                                                    Cost of
+                                  of the AA rated bond (India)      expenses/
+     CRISIL RATINGS            (adjusted) (by US based spread +      (interest
+                                                                                   Debt After
+                                                                                     Tax
+                                adjusted default spread of India   bearing debt)
+
+
+
+  Tata Power rating      Ba1               10.05%                    10.441%       7.0322%
+
+
+ Adani Power rating      AA                 9.10%                     8.92%         6.37%
+
+
+ Torent Power rating     A+                 9.27%                    13.682%       6.4862%
+29     WACC (WEIGHTED AVERAGE COST OF CAPITAL)
+
+
+
+       Weight of Debt         32%        Weight of Debt       14.88%      Weight of Debt         11%
+
+
+      Weight of Equity        68%       Weight of Equity      85.12%     Weight of Equity       89%
+
+
+     Pre Tax Cost of Debt    10.05%    Pre Tax Cost of Debt    9.10%    Pre Tax Cost of Debt    9.27%
+
+
+          Tax Rate            30%           Tax Rate           30%           Tax Rate           30%
+
+
+        Risk Free Rate       6.316%       Risk Free Rate      6.316%       Risk Free Rate      6.316%
+
+
+        Risk Premium        10.304%       Risk Premium        10.304%      Risk Premium        10.304%
+
+
+        Levered Beta         0.895        Levered Beta         0.820       Levered Beta         0.697
+
+
+     Cost of Equity (Ke)    15.544%    Cost of Equity (Ke)    14.773%   Cost of Equity (Ke)    13.500%
+
+
+           WACC             12.7787%         WACC             13.52%          WACC             12.74%
+30   GRAPHICAL REPRESENTATION OF KD, KE, WACC
+
+                                     Differences in Cost of Capital for each Firm
+                                        TATA Power       ADANI Power        TORRENT Power
+
+
+                                                                                15.554
+
+                            Ke                                              14.773
+
+                                                                       13.500
+        Cost of Capital
+
+
+
+
+                                                 7.032
+
+                            Kd               6.370
+
+                                             6.486
+
+
+                                                                   12.779
+
+                          WACC                                         13.520
+
+                                                                   12.744
+
+                                 0           5                10                     15     20
+                                                         Percentage (%)
+31                       INFERENCES FROM KE, KD, WACC
+
+     Ke (Cost of Equity)
+        Tata Power has the highest equity risk (15.55%), indicating greater return expectations from
+        shareholders.
+        Adani Power follows closely (14.77%), reflecting high perceived volatility.
+        Torrent Power has the lowest equity cost (13.50%), suggesting relatively lower market risk.
+
+     Kd (Cost of Debt)
+        Tata Power pays the highest interest on debt (7.03%), likely due to a higher leverage or credit risk.
+        Adani Power enjoys the lowest borrowing cost (6.37%), indicating better credit terms.
+        Torrent Power’s debt cost (6.49%) is moderate, showing balanced risk perception.
+
+     WACC (Weighted Average Cost of Capital)
+        Adani Power has the highest WACC (13.52%), suggesting the most expensive capital structure.
+        Tata Power (12.78%) and Torrent Power (12.74%) have similar WACC, indicating comparable capital
+        efficiency despite differences in Ke and Kd.
+32              TATA POWER GROWTH CALCULATION
+ Assumptions:
+  1. The growth calculation of Tata Power was conducted using its consolidated
+     financial statements rather than the standalone statements, as the latter did not
+     provide a comprehensive view of the company's financial position.
+  2.This is primarily because Tata Power is actively investing in its subsidiaries as part
+     of its strategic shift towards green energy and renewable initiatives.
+  3. The consolidated balance sheet, therefore, more accurately reflects the overall
+     financial health and growth trajectory of the firm, capturing the impact of its
+     diversification and expansion through its group entities.
+
+ The intrinsic growth calculation is derived for all three firms. The calculations for Tata
+ Power are shown for reference. Other metrics are calculated similarly for other firms.
+
+                        Google sheet link attached for reference
+33                     TATA POWER GROWTH RATE CALCULATION
+
+       Dates           Mar-19   Mar-20     Mar-21     Mar-22     Mar-23     Mar-24      Mar-25
+
+
+Total Current Assets   22,863   23,767     24,186     29,726     33,097      34,817      37,073
+
+
+   Total Current
+                       15,095   15,839     26,697     35,327     40,969      47,032      50,721
+      Liablity
+
+                                                                                                    For Tata Power,
+Net Working Capital    7,768     7,928      -2,511     -5,601     -7,872     -12,215    -13,648
+                                                                                                        Reinvestment
+ Invested Capital      52,073   55,595     49,668      51,788    53,874      55,095      64,832
+                                                                                                        Rate = 0.52
+                                                                                                        Average ROIC =
+        PBT            3,693     1,958      1,941      2,535      5,457      5,732       6,320          0.15
+                                                                                                        Average Intrinsic
+      Interest         4,170     4,494      4,010      3,859      4,372      4,633       4,702          Growth = 9.926%
+
+       EBIT            7,863    6,452.00   5,951.00   6,394.00   9,829.00   10,365.00   11,022.00
+
+
+       ROIC             0.15      0.12       0.12       0.12       0.18       0.19        0.17
+
+
+ Reinvestment rate               0.49       (1.94)      0.86      0.72        1.13        1.89
+34                 CONSOLIDATED METRICS
+
+
+                                     AVERAGE      AVERAGE
+                   AVERAGE ROIC   REINVESTMENT   INTRINSIC
+                                       RATE       GROWTH
+
+
+     TATA POWER        0.15           0.52        9.926%
+
+
+     ADANI POWER       0.17           0.39        12.74%
+
+
+      TORRENT
+                       0.15           1.34        17.742%
+       POWER
+35                                DCF ANALYSIS - TATA POWER
+
+                                                                                                           Note :
+ Calculation of PV of FCFF     Mar-25      Mar-26       Mar-27        Mar-28       Mar-29       Mar-30
+                                                                                                               The mid-year
+                                                                                                              convention better
+           EBIT              11022.0000   12116.0437   13318.6822   14640.6946   16093.9300   17691.4135      reflects the reality
+                                                                                                              that cash flows
+         Tax Rate             0.3000       0.3000       0.3000       0.3000       0.3000       0.3000         are received
+                                                                                                              throughout the
+         EBIT (1-T)          7715.4000    8481.2306    9323.0776    10248.4862   11265.7510   12383.9894      year, not all at
+                                                                                                              once at year-end.
+  Less: Reinvestment Rate      0.5247      0.4255       0.3262        0.2269       0.1277       0.0284
+
+                                                                                                              It leads to slightly
+  Free Cash Flow to Firm     7674.9152    8445.1457    9292.6650    10225.2276   11251.3661   12380.4690      higher valuations
+                                                                                                              due to less
+   Mid Year Convention                     0.5000       1.5000       2.5000       3.5000       4.5000
+                                                                                                              discounting and is
+                                                                                                              widely used in
+     Discounting Factor                    0.9416       0.8349        0.7403       0.6564       0.5820        professional
+                                                                                                              valuations
+        PV of FCFF                        7952.2698    7758.7569    7569.9456    7385.7217    7205.9740
+                                                                                                              (investment
+                                                                                                              banking, PE, etc.).
+36   DCF ANALYSIS
+
+
+
+
+                    Verdict
+                    Slightly Overvalued (close to Par Value) - SELL
+                    As the market share price is greater than the equity
+                    value per share calculated.
+
+                    Verdict
+                    Slightly Undervalued (close to Par Value) - BUY
+                    As the market share price is greater than the equity
+                    value per share calculated.
+
+                    Verdict
+                    Highly Overvalued - SELL
+                    As the market share price is greater than the equity
+                    value per share calculated.
+37          RELATIVE VALUATION
+
+
+
+
+     Regression of each Multiple v/s Growth
+38               RELATIVE VALUATION - TATA POWER
+
+                                                                         % deviation from
+                                Tata Power   Predicted    Conclusion
+                                                                            predicted
+
+
+
+     Regression P/E vs growth     34.29x      32.51x      Overvalued       5.484141951
+
+
+
+                                                            Slight
+     Regression P/B vs growth     3.63x        3.68x     undervalued /    -1.349877265
+                                                          par valued
+
+
+
+     Regression P/S vs growth     1.96x        5.54x     Undervalued       -64.6235102
+
+
+
+
+     PEG vs Growth Regression     0.75x        0.02x     Overvalued       4704.077634
+39                 RELATIVE VALUATION - ADANI POWER
+
+                                                                        %deviation from
+                                Adani Power   Predicted   Conclusion
+                                                                          predicted
+
+
+
+     Regression P/E vs growth      18.14x      33.08x     Undervalued    -45.16396658
+
+
+
+
+     Regression P/B vs growth      4.15x        3.83x     Overvalued     8.421836605
+
+
+
+
+     Regression P/S vs growth      4.11x        5.48x     Undervalued    -24.99296528
+
+
+
+
+     PEG vs Growth Regression      0.28x       -0.07x     Overvalued     -481.8045146
+40              RELATIVE VALUATION - TORRENT POWER
+
+                                                                         %deviation from
+                                Adani Power   Predicted   Conclusion
+                                                                           predicted
+
+
+
+     Regression P/E vs growth     23.97x       32.80x     Undervalued      -26.9253533
+
+
+
+
+     Regression P/B vs growth      4.05x        3.76x     Overvalued       7.833774304
+
+
+
+
+     Regression P/S vs growth      2.46x        5.51x     Undervalued     -55.34636498
+
+
+
+                                                                        Irrelevant parameter
+     PEG vs Growth Regression      1.65x       -0.07x     Overvalued       (One is positive,
+                                                                           other negative)
+41       RELATIVE VALUATION - AVERAGE & MEDIAN
+
+                 Tata Power             Median                           Average
+
+
+     P/E ratio     34.29x      23.85x        Over Valued        33.43x     Slightly Over Valued
+
+
+     P/B ratio      3.63x      2.86x         Over Valued        3.70x     Slightly Under Valued
+
+
+     P/S ratio      1.96x      4.36x        Under Valued        5.78x         Under Valued
+
+
+     PEG ratio      0.75x      0.83x      Slight under Valued   -0.04x        Over Valued
+
+
+                 Adani Power            Median                           Average
+
+
+     P/E ratio      18.14x     23.85x       Under Valued        33.43x        Under Valued
+
+
+     P/B ratio      4.15x      2.86x         Over Valued        3.70x          Over Valued
+
+
+     P/S ratio      4.11x      4.36x        Under Valued        5.78x         Under Valued
+
+
+     PEG ratio      0.28x      0.83x        Under Valued        -0.04x         Over Valued
+42          RELATIVE VALUATION - AVERAGE & MEDIAN
+
+                          Torrent Power                      Median                                  Average
+
+
+     P/E ratio                23.97x             23.85x              Par Valued             33.43x         Under Valued
+
+
+     P/B ratio                4.05x               2.86x             Over Valued              3.70x          Over Valued
+
+
+     P/S ratio                 2.46x              4.36x            Under Valued              5.78x         Under Valued
+
+
+     PEG ratio                 1.65x              0.83x             Over Valued             -0.04x          Over Valued
+
+
+
+                                                CONCLUSION
+     This comprehensive analysis of the power industry, from Module 1's industry overview to Module 8's relative
+     valuation, provides a complete picture of its dynamics.
+     The study included comparative analysis, beta calculation, cost of equity/debt, WACC, and DCF analysis, providing a
+     solid framework for valuation.
+     The Indian power industry is expected to increase dramatically, with a target of 500 GW of non-fossil fuel capacity
+     by 2030, signalling a strong shift towards renewables.
+     Despite constraints such as regulatory barriers and dependency on imported coal, the future picture suggests
+     ongoing growth driven by rising demand and supportive government initiatives.
+THANK YOU
+

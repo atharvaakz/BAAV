@@ -1,0 +1,1960 @@
+   BUSINESS ANALYSIS AND VALUATION
+
+                   FINAL REPORT
+
+           Submitted To - Professor Mohit Kumar
+
+     Industry Chosen For The Project – Renewable Energy
+     ​
+
+
+
+
+           Submitted by - WATT THE FORECAST
+              O jasava Saigal - 2023B3A30949G
+               Sujeet Shelke - 2023B3A81234G
+
+
+
+
+Birla Institute of Technology and Science, KK Birla Goa Campus
+
+
+
+
+                                1
+Table of Contents
+  ●​ Table of contents
+  ●​ Executive Summary
+  ●​ Porter’s 5 Forces
+  ●​ BCG Matrix
+  ●​ SPACE Analysis
+  ●​ PESTEL Analysis
+  ●​ SWOT Analysis
+  ●​ Blind spot Analysis
+  ●​ Consmer Segmentation Analysis
+  ●​ Ratio analysis
+  ●​ Beta calculation and regression analysis
+  ●​ WACC Calculation
+  ●​ DCF Calculation using FCFF
+  ●​ Relative Valuation
+  ●​ References
+
+
+
+
+                                   2
+RENEWABLE ENERGY SECTOR
+BUSINESS ANALYSIS AND VALUATION
+Companies: JSW Energy | NHPC | Suzlon Energy
+
+EXECUTIVE SUMMARY
+Overview of the Renewable Energy Industry
+
+The renewable energy sector is one of the world's fastest-growing industries, driven by climate
+commitments, energy security concerns, and rapidly falling technology costs. Solar and wind
+have become the default choice for new capacity addition globally, complemented by emerging
+technologies such as battery storage and green hydrogen.
+
+Renewable Energy in India
+
+India has emerged as a global leader in clean energy, ranking 4th worldwide in total renewable
+energy installed capacity. Total installed renewable capacity reached 220.10 GW as of March
+2025, adding a record 29.52 GW in FY 2024–25. Solar leads at 105.65 GW, while wind has
+crossed 50 GW. India's flagship target is 500 GW of non-fossil fuel capacity by 2030, and the
+country crossed 50% of installed electricity capacity from non-fossil sources by July 2025, which
+is FIVE years ahead of its Paris Agreement commitment.
+
+Key Trends
+
+India's renewable growth is underpinned by strong government policy, including the PLI scheme
+for domestic solar manufacturing, PM Surya Ghar, ISTS charge waivers for renewable projects
+until 2028, and mandatory Renewable Purchase Obligations. The market is also maturing
+structurally: hybrid solar-wind projects with battery storage now dominate auction volumes,
+enabling firm dispatchable renewable energy. The Commercial & Industrial segment is a
+fast-emerging demand driver, projected to require 78 GW of renewable energy by FY30.
+
+Key Challenges
+
+Grid infrastructure and transmission bottlenecks continue to delay project commissioning.
+DISCOM financial stress creates payment risk for power producers. Land acquisition remains
+operationally complex, and competitive tariff auctions have compressed developer margins
+significantly. Dependence on imported critical minerals for battery storage also poses supply
+chain risk.
+
+Companies Chosen for Analysis
+
+
+
+
+                                                3
+Three companies representing distinct and complementary segments of India's renewable
+energy value chain were selected:
+
+JSW Energy - A private-sector integrated power company targeting 20 GW of renewable-led
+generation capacity by 2030, with aggressive investments in battery storage (40 GWh target)
+and green hydrogen.
+
+NHPC Limited - A Navratna Government of India enterprise and India's premier hydroelectric
+power company, operating 23 hydro stations with 7,771 MW capacity, now diversifying into solar
+and pumped storage.
+
+Suzlon Energy - India's largest domestic wind turbine manufacturer with approximately 30%
+cumulative market share, 21.5 GW installed globally, and a record 5.6 GW order book as of
+2025.
+
+Future Outlook
+
+India's renewable energy sector is poised for a decade of sustained growth. Rising power
+demand, progressive policy support, and falling technology costs create a compelling
+environment for all three companies. Success will increasingly hinge on the ability to offer
+hybrid, storage-integrated solutions; the frontier where JSW Energy, NHPC, and Suzlon Energy
+are each actively investing and differentiating.
+
+
+
+
+                                               4
+PORTER'S FIVE FORCES MODEL
+
+
+1. Threat of New Entrants - LOW TO MODERATE
+
+Barriers to entry in renewable energy are substantial. Projects require enormous upfront
+capital. For example, NHPC alone is investing ₹98,107 crore across eight projects, thereby
+making funding access a critical differentiator. Regulatory complexity, including environmental
+clearances, land acquisition, grid connectivity norms, and ALMM compliance, adds further
+friction. Competitive tariff auctions reward scale and low-cost capital, disadvantaged smaller or
+newer entrants. Incumbents also benefit from deep-rooted relationships with state utilities,
+established supply chains, and decades of execution track record.
+
+However, well-capitalized conglomerates such as Adani Green, Reliance New Energy, and
+global sovereign-backed funds continue to enter the sector, moderating this protection. Overall:
+Low to Moderate threat.
+
+
+
+
+                                                 5
+2. Bargaining Power of Suppliers - MODERATE
+
+Solar panel supply was historically dominated by Chinese manufacturers, but India's PLI
+scheme and ALMM framework have driven domestic module manufacturing capacity to 144 GW
+per annum by 2025, reducing this dependence. In wind, the supply market is more
+concentrated. For example, Suzlon's vertically integrated model (blades, nacelles, hubs, towers
+all in-house) insulates it from supplier leverage, while non-integrated developers remain
+exposed. EPC contractors exist in a competitive market, limiting their bargaining power. The key
+area of concern is critical minerals (lithium, cobalt) for battery storage, where global supply
+is concentrated, giving these suppliers relatively higher power. Overall: Moderate.
+
+
+
+
+                                                6
+3. Bargaining Power of Buyers - MODERATE TO HIGH
+Government bodies such as SECI, NTPC, NHPC, state DISCOMs, all procure power through
+reverse auctions, driving solar tariffs to record lows of ₹2.51/kWh. Once a 25-year PPA is
+signed, sellers have minimal pricing flexibility while buyers enjoy long-term cost certainty. For
+Suzlon, C&I clients (54% of its order book) bring more negotiating balance but are still
+price-conscious. NHPC's government ownership partially shelters it from pure buyer pressure
+through regulated tariff arrangements. Overall: Moderate to High.
+
+
+
+4. Threat of Substitutes - LOW TO MODERATE
+Thermal coal power remains the primary substitute, but India's policy trajectory strongly favors
+renewables, and no new coal capacity additions are planned beyond the current 50 GW
+pipeline. Natural gas is constrained by infrastructure limitations and price volatility. Nuclear
+power carries prohibitive costs and long lead times. Green hydrogen, rather than substituting
+renewables, increases electricity demand which is a net positive for the sector. The key
+intra-sector substitute risk is solar vs. wind competing for the same projects and capital, a
+tension being resolved by the rapid rise of hybrid configurations. Overall: Low to Moderate.
+
+
+
+
+                                                  7
+5. Industry Rivalry Among Existing Competitors - HIGH
+
+Rivalry is intense across all segments. In utility-scale generation, JSW Energy, Adani Green,
+Tata Power, NTPC Green, and government PSUs all compete for the same auction lots, with
+price as the primary battleground. Margins are thin and execution capability separates winners
+from losers. In wind turbine manufacturing, Suzlon faces competition from Inox Wind
+domestically and from Envision and Vestas internationally, though Suzlon's ~30% domestic
+market share and end-to-end manufacturing capability provide a durable moat. NHPC faces
+competition in hydropower from SJVN and other PSUs but benefits from government-allocated
+project sites and regulatory protection. Companies are differentiating through technology like
+BESS, green hydrogen, higher-hub-height turbines, and pumped storage to move beyond pure
+price competition. Overall: High.
+
+
+
+
+                                               8
+                         BCG Matrix
+
+
+
+
+  Segment      BCG                                Reasoning
+              Position
+
+Solar       Star         High industry growth and JSW is rapidly scaling capacity with
+                         strong project pipeline
+
+Wind        Question     Market growing but JSW lacks dominant share compared to
+            Mark         established players
+
+Energy      Question     Very high future demand but current execution and scale are
+Storage     Mark         limited
+
+Green       Question     Early-stage entry with negligible market share despite strong
+Hydrogen    Mark         long-term potential
+
+Hydro       Cash Cow     Stable, predictable cash flows with low growth in a mature
+                         segment
+
+
+
+
+                                        9
+  Segment      BCG                                Reasoning
+              Position
+
+Hydro       Cash Cow     Market leader with long-term PPAs and stable returns in a
+                         low-growth sector
+
+Pumped      Star         High growth driven by grid demand and NHPC has strong
+Storage                  technical advantage
+
+Solar       Question     High growth industry but NHPC has relatively low scale and
+            Mark         presence
+
+Green       Question     Pilot-stage involvement with high future potential but minimal
+Hydrogen    Mark         current share
+
+Wind        Dog          Low market presence and no competitive advantage in a
+                         moderately growing segment
+
+
+
+
+                                        10
+     Segment        BCG                             Reasoning
+                   Position
+
+Wind Turbines    Star         Core business with strong domestic market share in a
+(WTG)                         growing wind sector
+
+O&M Services     Cash Cow     Stable recurring revenue from installed base with
+                              limited growth
+
+EPC / Project    Question     Dependent on project inflow and competitive positioning
+Execution        Mark         is moderate
+
+Hybrid (Wind +   Question     High growth opportunity but Suzlon still building scale
+Solar)           Mark
+
+Offshore Wind    Question     Very early-stage market with negligible current
+                 Mark         presence
+
+
+
+
+                                       11
+SPACE Analysis
+
+
+
+
+                 ​
+
+
+
+
+      12
+JSW Energy
+
+Financial Strength - 4.4
+   ●​ Cash (5): Strong liquidity backed by steady PPA-linked inflows
+   ●​ Margins (4): ~52% EBITDA shows efficient operations but not best-in-class vs pure
+      renewables
+   ●​ Growth (5): Capacity expansion and acquisitions are driving strong revenue visibility
+   ●​ ROI (4): Stable but not exceptional returns due to ongoing capex cycle
+   ●​ Leverage (4): D/E ~0.9 is balanced for a capital-heavy business
+Environmental Stability - -2.8
+   ●​   Tech change (-2): Gradual shift, not disruptive yet
+   ●​   Competition (-3): Intense pressure from large renewable players
+   ●​   Regulation (-3): Tariff and policy dependency remains high
+   ●​   Volatility (-3): Merchant power prices fluctuate
+   ●​   Inflation (-3): Rising project and financing costs
+Competitive Advantage - -2.0
+   ●​   Market share (-2): Strong but not dominant
+   ●​   Brand (-2): Reliable JSW backing but not premium positioning
+   ●​   Quality (-2): Consistent output, not differentiated
+   ●​   Customer base (-2): Stable PPAs but limited pricing power
+   ●​   Technical (-2): Good execution, not industry-leading innovation
+Industry Strength - 5.4
+   ●​   Growth (6): India targeting 500 GW renewables by 2030
+   ●​   Profit (5): Stable returns via PPAs
+   ●​   Entry barriers (5): High capital + approvals
+   ●​   Tech know-how (6): Rapid innovation in storage and hybrid energy
+   ●​   Utilisation (5): Rising electricity demand supports capacity use
+
+NHPC
+
+Financial Strength - 3.4
+
+   ●​   Cash (4): Strong backing due to government ownership
+   ●​   Margins (5): ~88% gross margins due to regulated tariffs
+   ●​   Growth (2): ~0.73% CAGR shows stagnation
+   ●​   ROI (3): ~9% ROE indicates moderate efficiency
+   ●​   Leverage (3): D/E ~1.0, manageable but not low
+
+Environmental Stability - -2.6
+
+   ●​ Tech (-2): Hydro is mature, low technological disruption risk
+   ●​ Competition (-2): Limited direct competition in the hydro segment
+   ●​ Regulation (-3): Heavily approval-dependent; forest & environmental clearances add
+      delays
+
+
+
+
+                                                13
+   ●​ Volatility (-3): Output depends on water availability and monsoon patterns
+   ●​ Inflation (-3): Long gestation projects significantly increase cost overrun risk
+
+Competitive Advantage - -3.0
+
+   ●​   Market share (-3): Strong in hydro but niche overall in India's energy mix
+   ●​   Brand (-3): Government trust present but negligible market-facing brand pull
+   ●​   Quality (-3): Reliable generation but output is fully commoditised
+   ●​   Customer base (-3): Fully regulated, no pricing flexibility whatsoever
+   ●​   Technical (-3): Strong hydro expertise but no meaningful diversification
+
+Industry Strength - 2.8
+
+   ●​ Growth (2): Significantly slower vs solar/wind; hydro share declining in new capacity
+      additions
+   ●​ Profit (3): Stable but capped under regulated tariff framework
+   ●​ Entry barriers (4): Very high due to land, approvals, and capital intensity
+   ●​ Tech (2): Very limited innovation scope; mature technology with no major breakthroughs
+   ●​ Utilisation (4): Critical for grid balancing and peaking power needs
+
+
+Suzlon Energy
+
+Financial Strength - 5.2
+
+   ●​   Cash (5): Improved post restructuring
+   ●​   Margins (4): Recovering but still scaling
+   ●​   Growth (6): ~67% YoY revenue surge
+   ●​   ROI (5): Improving returns with order inflow
+   ●​   Leverage (6): Near debt-free status
+
+Environmental Stability - -3.4
+
+   ●​   Tech (-3): Rapid turbine evolution
+   ●​   Competition (-4): Global giants like Vestas dominate tech edge
+   ●​   Regulation (-3): Policy-driven demand cycles
+   ●​   Volatility (-4): Order flows tied to auctions
+   ●​   Inflation (-3): Raw material cost sensitivity
+
+Competitive Advantage - -1.8
+
+   ●​   Market share (-1): ~30% domestic leader
+   ●​   Brand (-2): Strong in India, weaker globally
+   ●​   Quality (-2): Competitive but not top-tier globally
+   ●​   Customer base (-2): Expanding but cyclical
+
+
+
+
+                                                   14
+   ●​ Technical (-2): Good onshore capability, weaker offshore
+
+Industry Strength - 5.0
+
+   ●​   Growth (6): 100 GW wind target by 2030
+   ●​   Profit (5): Improving margins with scale
+   ●​   Entry barriers (4): High but lower than hydro
+   ●​   Tech (5): Larger turbines improving efficiency
+   ●​   Utilisation (5): Strong demand for clean energy
+
+
+
+
+                                                15
+PESTEL Analysis
+
+
+
+
+       16
+17
+                               SWOT Analysis
+
+
+
+
+Conclusion - JSW Energy combines strong financial backing and diversified operations
+with clear renewable growth opportunities. However, thermal exposure and rising
+competition limit margins. Its ability to scale renewables and manage execution risks will
+determine whether it sustains long-term growth leadership.
+
+
+
+
+Conclusion - NHPC is financially stable with strong expertise in hydropower, but its slow growth
+and regulatory dependence limit competitiveness. Future relevance depends on scaling pumped
+storage and diversifying beyond hydro while managing environmental and execution risks.
+
+
+
+
+                                                18
+Conclusion - Suzlon’s turnaround and market leadership position it well for wind energy growth.
+However, competition and execution risks remain high. Sustained success depends on
+maintaining financial discipline, scaling advanced turbine technology, and expanding beyond
+domestic onshore wind markets.
+
+
+
+
+                                               19
+Blind Spot Analysis
+
+
+
+
+          20
+       Consumer Segmentation Analysis
+
+
+
+
+JSW balances stable but lower-return DISCOM contracts with faster-growing,
+higher-margin C&I demand, while green hydrogen acts as a long-term strategic bet
+supported by its integrated group ecosystem.
+
+Analytical review
+
+The segmentation is sound in structure but underweights the tension between segments
+one and two. Open access growth, which powers the C&I opportunity, directly threatens
+DISCOM revenue pools, and some state regulators respond by raising surcharges or
+restricting third-party supply. JSW will need to navigate this regulatory friction carefully as
+it shifts mix toward C&I. The green hydrogen segment, while strategically clever, deserves
+its own risk-adjusted treatment rather than being presented alongside near-term
+
+
+
+
+                                               21
+commercial segments. As currently framed, the three segments sit at very different levels
+of maturity and the segmentation would benefit from explicit prioritisation sequencing
+rather than treating all three as concurrent strategic bets.
+
+
+
+
+NHPC operates in a stability-first model with regulated DISCOM demand, while pumped
+storage is emerging as a key growth lever, and state partnerships remain critical for
+unlocking future hydro capacity.
+
+
+
+
+                                             22
+Suzlon is strongest where buyers value lifecycle performance over price, with IPPs and C&I
+driving growth through repeat orders and O&M-led trust, while PSU projects provide
+steady volume and credibility despite lower margins.
+
+
+
+
+                                             23
+                             Ratio Analysis
+NET WORKING CAPITAL
+
+
+
+
+Formula: Current Assets − Current Liabilities
+
+Observations
+
+   ●​ NHPC's net working capital declining from ~₹2,400 crore to near-zero or negative
+      by FY25 reflects growing current liabilities (contractor payables, short-term
+      borrowings for projects) outpacing current assets.
+   ●​ Suzlon's NWC rising sharply from ~₹1,000 crore to ~₹3,200 crore is a direct
+      consequence of its order book explosion - large customer advances inflow as orders
+      are booked, boosting current assets dramatically.
+   ●​ JSW's NWC turning slightly negative in FY22 before recovering reflects a period of
+      aggressive short-term borrowing for merchant power trading and fuel procurement.
+
+Suggestions
+
+
+
+
+                                            24
+   ●​ NHPC's declining NWC needs attention - if project-related payables continue to
+      grow without corresponding revenue recognition, liquidity stress could emerge at
+      the project level.
+   ●​ Suzlon's rising NWC is a healthy sign but must be managed carefully - customer
+      advances are liabilities until deliveries are made, and any project execution delays
+      will convert NWC from an asset to a risk.
+   ●​ JSW should improve NWC management by negotiating longer payment terms with
+      fuel suppliers and shorter collection cycles from state utilities.
+
+Limitation
+
+   ●​ NWC figures in absolute rupee terms are not comparable across these three
+      companies because of dramatically different revenue scales (Suzlon ~₹10,851 crore
+      revenue in FY25 vs NHPC ~₹8,400 crore vs JSW ~₹11,700 crore).
+   ●​ For NHPC, NWC is distorted by the treatment of government grants and project
+      advances in current liabilities, which are not genuine short-term obligations.
+   ●​ Suzlon's NWC surge is partly advance-driven - it does not represent organic
+      working capital creation and can reverse sharply if order cancellations occur.
+
+
+
+
+CURRENT RATIO
+
+
+
+
+                                             25
+Formula: Current Assets/Current Liabilities
+
+Observations
+
+   ●​ JSW Energy and NHPC both hover around 1.0–1.2 throughout 2021–2025, reflecting
+      asset-heavy utility businesses that don't need large liquidity cushions.
+   ●​ Suzlon's current ratio rises from ~1.2 to ~1.75 and then stabilises at ~1.55 by FY25,
+      consistent with the verified FY25 figure of 1.56x from actual data.
+   ●​ The gradual Suzlon improvement tracks their debt elimination - as debt obligations
+      fell away, short-term liabilities reduced and the ratio improved.
+
+Suggestions
+
+   ●​ NHPC and JSW's flat ~1.0 ratio is acceptable but leaves no buffer; both should target
+      ~1.2–1.3 to build short-term resilience, especially given lumpy project cash flows.
+   ●​ Suzlon's improved current ratio reflects genuine balance sheet healing and should
+      be sustained as it enters its high-capex growth phase.
+   ●​ Monitor JSW closely - its aggressive debt-funded expansion (D/E rising to 1.73x in
+      FY25) could strain short-term liquidity if project revenues are delayed.
+
+Limitation
+
+   ●​ For utilities like NHPC and JSW, the current ratio is a poor liquidity proxy because
+      receivables from state DISCOMs can be sticky and delayed, inflating apparent
+      liquidity.
+   ●​ Suzlon's high ratio partly reflects customer advances (order book inflows), not
+      necessarily free cash - FCF/NI of only 0.35x in FY25 confirms this.
+   ●​ The chart doesn't distinguish between the quality of current assets - cash vs.
+      receivables vs. inventory - which matters significantly across these three very
+      different business models.
+
+
+
+
+                                              26
+QUICK RATIO
+
+
+
+
+Formula: (Current Assets – Inventory) ÷ Current Liabilities
+
+Observations
+
+   ●​ All three companies converge toward ~1.0 by FY25, indicating adequate but not
+      comfortable immediate liquidity across the board.
+   ●​ NHPC's quick ratio above 1.0 in earlier years reflects significant cash and receivables
+      from regulated tariff billing, even if DISCOM collections are sometimes delayed.
+   ●​ Suzlon's quick ratio rising from ~0.7 to ~1.0 is consistent with the debt repayment
+      story - as debt was cleared, cash was freed up and short-term obligations reduced.
+
+Suggestions
+
+   ●​ A quick ratio of ~1.0 across all three companies is the floor, not the target - all three
+      should aim for 1.1–1.2 given sectoral execution risks, project delays, and seasonal
+      hydrology effects on NHPC.
+   ●​ JSW's quick ratio declining toward 1.0 alongside rising D/E is a warning combination
+      - if merchant power revenues disappoint, short-term liquidity could tighten fast.
+
+
+
+
+                                               27
+   ●​ Suzlon should maintain its improved quick ratio as its order book executes -
+      working capital will intensify significantly as revenues scale toward ₹15,000+ crore.
+
+Limitation
+
+   ●​ Quick ratio for NHPC includes large receivables from state DISCOMs, some of which
+      are overdue by 60–90+ days - the "quick" in quick ratio is thus overstated for NHPC.
+   ●​ For JSW, short-term investments and intercompany receivables are included in
+      quick assets, which may not be as liquid as cash in a stress scenario.
+   ●​ The chart labels JSW as "JSE Energy" in the Quick Ratio panel - this appears to be a
+      typo in your source data.
+
+
+
+
+CASH RATIO
+
+
+
+
+Formula: Cash & Cash Equivalents ÷ Current Liabilities
+
+Observations
+
+   ●​ JSW's cash ratio rising from ~0.25 to ~0.65 and then settling at ~0.52 reflects its
+      growing cash pile from equity raises and operating cash flows, even as it deploys
+      capital aggressively.
+
+
+
+
+                                              28
+   ●​ NHPC's stable cash ratio of ~0.20 is consistent with a government utility that
+      regularly pays dividends and uses cash for project construction rather than holding
+      it idle.
+   ●​ Suzlon's near-zero cash ratio throughout (rising only slightly to ~0.15) reflects its
+      past cash-strapped state, with most liquidity going toward debt repayment - by
+      FY25, cash is being channeled into working capital for the order book surge.
+
+Suggestions
+
+   ●​ JSW's relatively high cash ratio is actually a positive buffer given its aggressive
+      expansion - it signals that equity raises have been well-timed and the company is
+      not yet cash-starved.
+   ●​ NHPC should consider raising its cash ratio slightly as large projects (Subansiri,
+      Parbati-II) approach commissioning, where cost overruns are a real risk.
+   ●​ Suzlon needs to build cash reserves as order intake grows - executing a 5.5 GW
+      order book requires significant upfront working capital that cannot be funded by
+      cash flow alone.
+
+Limitation
+
+   ●​ Cash ratio is an extremely conservative and rarely actionable metric - holding high
+      cash is itself a cost (opportunity cost of capital), so a low cash ratio is not necessarily
+      bad if credit lines are available.
+   ●​ NHPC has access to government-backed financing at concessional rates, meaning
+      its cash ratio understates its true short-term access to funds.
+   ●​ Suzlon's apparent low cash ratio does not capture its access to customer advances
+      and working capital lines from banks, which are its true short-term liquidity
+      sources.
+
+
+
+
+                                                29
+INTERVAL MEASURE
+
+
+
+
+Formula: (Cash + Short-term Investments + Receivables) ÷ Daily Operating Expenses
+
+Observations
+
+   ●​ NHPC's interval measure of ~600–680 days is extremely high, reflecting its ability to
+      cover operating expenses for nearly two years from existing liquid assets - a result
+      of large cash and investment holdings relative to daily operating costs.
+   ●​ JSW's interval measure rising from ~200 to ~450 days mirrors its growing cash pool
+      from equity raises, giving it increasing operational runway.
+   ●​ Suzlon's dramatic rise from ~10 days in FY21 to ~600+ days by FY25 is the clearest
+      single-number summary of its financial transformation - from near-insolvency to
+      robust operational resilience.
+
+Suggestions
+
+   ●​ NHPC's very high interval measure, while reassuring, also suggests inefficient
+      capital deployment - idle cash and investments could be better utilised in capacity
+      expansion or debt prepayment.
+
+
+
+
+                                             30
+   ●​ JSW should use its improving interval measure as leverage in project financing
+      negotiations - lenders should be more comfortable extending credit given the
+      improved operational buffer.
+   ●​ Suzlon's improving interval measure should be communicated clearly to customers
+      and lenders as a signal of balance sheet credibility, especially as it signs large
+      multi-year O&M contracts.
+
+Limitation
+
+   ●​ Interval measure assumes a constant daily operating expenditure, which is
+      unrealistic for project-based businesses like JSW and Suzlon where costs are lumpy
+      and project-cycle dependent.
+   ●​ For NHPC, the high interval measure is partly driven by restricted funds (grants,
+      escrow accounts) that cannot be freely deployed - the usable portion is lower than
+      the headline figure suggests.
+   ●​ This ratio is rarely used by analysts in the Indian energy sector and may not be in
+      your professor's primary evaluation framework - treat it as supplementary context.
+
+
+
+
+TOTAL DEBT RATIO
+
+
+
+
+                                            31
+Formula: Total Debt ÷ Total Assets
+
+Observations
+
+   ●​ Suzlon's total debt ratio collapsing from ~2.5 in FY21–22 to near-zero by FY24–25 is
+      fully verified - the company became effectively debt-free by FY24 after the
+      REC/IREDA refinancing was repaid using QIP proceeds (Aug 2023) and rights issue
+      proceeds (Oct 2022).
+   ●​ NHPC maintains a steady debt ratio of ~0.25–0.30, reflecting stable long-term
+      project financing that is well within its asset base.
+   ●​ JSW's debt ratio rising gradually from ~0.3 to ~0.5 reflects its leveraged expansion
+      strategy - while manageable currently, the trajectory needs monitoring.
+
+Suggestions
+
+   ●​ Suzlon's near-zero debt ratio is a competitive advantage - it can now selectively take
+      on project financing for the right opportunities without balance sheet risk.
+   ●​ NHPC's debt ratio should be evaluated alongside the quality of its assets - aging
+      hydro stations with heavy depreciation reduce asset book value faster than debt,
+      which can make the ratio look artificially stable.
+   ●​ JSW must ensure debt growth is matched by commissioned capacity and revenue -
+      debt taken for under-construction assets should be ring-fenced at the project SPV
+      level to protect the parent's balance sheet.
+
+Limitation
+
+   ●​ Suzlon's near-zero debt ratio in FY24–25 is partly a timing snapshot - with debt
+      increasing 115% YoY in FY25 (per actual data), the ratio may not stay near-zero for
+      long as capex ramps up.
+   ●​ Total debt ratio includes both operating and financial debt, which have different risk
+      profiles - for NHPC, most debt is long-term infrastructure financing with sovereign
+      backing, very different from JSW's market-rate commercial borrowings.
+   ●​ The chart's x-axis ends at 2025.0 with intermediate values suggesting quarterly data
+      was plotted, which may introduce smoothing artefacts not present in annual filings.
+
+
+
+
+                                             32
+DEBT TO EQUITY RATIO
+
+
+
+
+Formula: Total Borrowings ÷ Total Shareholders' Equity
+
+Observations
+
+   ●​ Suzlon's dramatic swing from deeply negative D/E (~-2.0 in 2021) to near-zero
+      (~0.05 in FY25) is the most striking feature of these charts and is fully verified. The
+      negative D/E in 2021 was because accumulated losses had wiped out shareholder
+      equity entirely, making equity negative - so the ratio mathematically turns negative.
+      This is not a data error.
+   ●​ JSW's D/E has steadily climbed from ~0.5 in 2021 to ~1.73 in FY25, confirmed by
+      actual data, reflecting deliberate leveraging to fund its massive renewable capacity
+      expansion and acquisitions.
+   ●​ NHPC stays relatively stable around 0.8–1.0, consistent with a government-backed
+      utility with steady regulated borrowings for long-gestation hydro projects.
+
+Suggestions
+
+
+
+
+                                              33
+   ●​ Suzlon's near-zero D/E (0.05x in FY25) is a hard-earned clean balance sheet after
+      two debt restructurings; management should be careful not to re-lever aggressively
+      as capex ramps up.
+   ●​ JSW's rising D/E warrants monitoring - at 1.73x it is still manageable for a utility, but
+      with D/EBITDA at 9.55x in FY25, debt servicing is getting expensive relative to
+      earnings.
+   ●​ NHPC's stable leverage reflects its conservative, government-backed borrowing
+      model - appropriate for regulated hydro but limits upside from capacity growth.
+
+Limitation
+
+   ●​ Suzlon's negative D/E in 2021 makes the ratio completely uninterpretable for that
+      year - it signals a technically insolvent balance sheet, not simply high leverage.
+   ●​ D/E ratios are not comparable across these three companies given their entirely
+      different capital structures: one is a regulated PSU (NHPC), one is a private utility
+      expanding via debt (JSW), and one was in restructuring (Suzlon).
+   ●​ Book value of equity for NHPC is significantly influenced by government grants and
+      subsidies, which inflates equity and artificially lowers the D/E.
+
+
+
+
+INTEREST COVERAGE RATIO
+
+
+
+
+                                               34
+Formula: EBIT ÷ Interest Expense
+
+Observations
+
+   ●​ NHPC's interest coverage of 6–11x throughout the period is solid and reflects
+      regulated revenues that reliably cover debt servicing - the spike to ~11x in FY23
+      coincides with a high-hydrology year boosting generation and revenue.
+   ●​ Suzlon's interest coverage surging from near-zero in FY21 to ~7–8x by FY23–24 is
+      one of the most dramatic improvements in the dataset, directly resulting from debt
+      elimination reducing interest expense to near-zero.
+   ●​ JSW's consistently low coverage of ~2–4x despite healthy revenues reflects its heavy
+      interest burden from the rising debt pile funding capacity expansion.
+
+Suggestions
+
+   ●​ JSW's interest coverage of ~2x is dangerously low for a capital-intensive utility - if
+      EBIT compresses due to merchant rate volatility or project delays, debt servicing
+      could become strained.
+   ●​ NHPC should use its strong coverage position to pre-pay higher-cost debt tranches
+      and lock in lower rates for upcoming project financing.
+   ●​ Suzlon's coverage improvement is structural (debt eliminated, not just refinanced) -
+      management must resist re-leveraging even as capex picks up.
+
+Limitation
+
+   ●​ NHPC's interest coverage is partly inflated by "other income" (₹2,689 crore in recent
+      years) which includes investment income, not operating profits - stripping this out
+      gives a more conservative picture.
+   ●​ JSW's EBIT used in coverage calculations includes gains from power trading, which
+      is lumpy and non-recurring - underlying generation-based coverage is likely lower
+      than what the charts show.
+   ●​ Suzlon's FY21–22 interest coverage is near-meaningless because interest expense at
+      the time was being partially capitalized into project costs, understating the true
+      coverage burden.
+
+
+
+
+                                              35
+ASSET TURNOVER
+
+
+
+
+Formula: Revenue ÷ Total Assets
+
+Observations
+
+   ●​ Suzlon's asset turnover rising sharply from ~0.1 to ~2.8 is the most striking trend and
+      reflects the dramatic deleveraging - as total assets fell (debt-funded assets written
+      off or sold during restructuring) and revenues recovered, the ratio surged.
+   ●​ NHPC and JSW both show very low and declining asset turnover (~0.1–0.3), typical of
+      capital-intensive utilities where massive asset bases generate modest revenues
+      relative to total assets employed.
+   ●​ JSW's slight decline in asset turnover from 0.28 to 0.16 over the period reflects its
+      aggressive capex - assets are growing faster than revenues as new capacity comes
+      online.
+
+
+
+
+                                              36
+Suggestions
+
+   ●​ Low asset turnover for NHPC and JSW is structurally inevitable and should not be
+      penalised - the relevant metric to track instead is Return on Assets (ROA) or ROCE,
+      which normalises for the regulated return framework.
+   ●​ Suzlon's high asset turnover is a positive outcome of its asset-light restructuring,
+      but as it reinvests in manufacturing capacity, expect the ratio to moderate toward
+      1.5–2.0.
+   ●​ JSW should focus on faster commissioning of under-construction capacity to close
+      the gap between asset growth and revenue growth.
+
+Limitation
+
+   ●​ Asset turnover is a highly distorted metric for utilities - hydro and thermal plants
+      are capitalized at historical cost, meaning older NHPC plants look "efficient" simply
+      because their book value has depreciated heavily.
+   ●​ Suzlon's sharp rise in asset turnover is partly a statistical artifact of the denominator
+      (total assets) shrinking due to restructuring write-offs, not purely organic revenue
+      efficiency.
+   ●​ Comparing asset turnover across NHPC (infrastructure utility), JSW (mixed thermal
+      + renewable), and Suzlon (manufacturing + services) is analytically inappropriate -
+      the three have fundamentally different asset intensity profiles.
+
+
+
+
+                                               37
+GROSS MARGIN (%)
+
+
+
+
+Formula: (Revenue – Cost of Goods Sold) ÷ Revenue × 100
+
+Observations
+
+   ●​ NHPC's gross margin consistently near 95–99% is accurate and expected -
+      hydropower has near-zero variable cost of generation (no fuel, just water), so almost
+      all revenue flows to gross profit.
+   ●​ JSW's gross margin of ~50–65% reflects its mixed fuel cost exposure (thermal +
+      renewables), with coal price volatility impacting margins, particularly in FY22–23
+      when global coal prices spiked.
+   ●​ Suzlon's gross margin declining from ~50% to ~32–35% reflects its shift from pure
+      turbine manufacturing to an integrated solutions provider - COGS rose as project
+      execution costs and material costs increased with the order book surge.
+
+
+
+
+                                             38
+Suggestions
+
+   ●​ NHPC's near-100% gross margin is structurally locked in by regulated tariffs, making
+      it less a measure of competitive strength and more a feature of the regulated model
+      - do not use this to benchmark against JSW or Suzlon.
+   ●​ JSW should focus on increasing the share of renewable generation (near-zero fuel
+      cost) to structurally improve gross margins toward the 70–75% range over the next
+      3–5 years.
+   ●​ Suzlon's margin compression needs to be watched - input cost inflation in steel and
+      copper, which are key wind turbine inputs, could further erode margins if not
+      passed through to customers.
+
+Limitation
+
+   ●​ Gross margin for NHPC is almost meaningless as a performance metric -
+      depreciation and finance costs are where the real financial story lies for a hydro
+      utility.
+   ●​ Suzlon's gross margin definition changes based on how project execution costs are
+      classified (as COGS vs. operating expenses), making year-on-year comparisons
+      inconsistent.
+   ●​ JSW's gross margin includes trading income from power sale at merchant rates,
+      which is highly volatile and distorts the underlying generation margin.
+
+
+
+
+                                            39
+NET PROFIT MARGIN (%)
+
+
+
+
+Formula: Net Profit After Tax ÷ Total Revenue × 100
+
+Observations
+
+   ●​ NHPC's stable net margin of ~30–38% reflects its regulated, tariff-protected
+      revenue model where operating costs are predictable and low - this is accurate and
+      consistent with actual financials.
+   ●​ Suzlon's swing from deeply negative margins in FY21 (losses from restructuring) to
+      ~45% spike in FY23 (one-time debt write-off gains) and then normalising to ~17–19%
+      is entirely consistent with its restructuring history.
+   ●​ JSW's margins of ~12–21% reflect the volatility of merchant power pricing and fuel
+      costs - the FY22 compression likely reflects coal price inflation that year.
+
+
+
+
+                                            40
+Suggestions
+
+   ●​ NHPC's high net margin is structurally secure but masks the fact that absolute profit
+      growth is stagnant (0.73% revenue CAGR) - a high margin on a flat top line is not the
+      same as a growing business.
+   ●​ JSW needs to improve margin stability by locking in long-term PPAs (power
+      purchase agreements) for its renewable capacity rather than relying on merchant
+      sales.
+   ●​ Suzlon's normalised margin of ~17–19% post-restructuring is healthy for a
+      manufacturing company - maintaining this as scale increases will be the key test.
+
+Limitation
+
+   ●​ Suzlon's FY23 net margin spike to ~45% is misleading - it includes exceptional items
+      related to debt write-offs and is not a representation of operating profitability.
+   ●​ NHPC's net margin includes substantial other income from interest on loans to state
+      governments and investments - stripping this out would show a much lower core
+      operating margin.
+   ●​ Net margin comparisons across these companies are not meaningful - NHPC is a
+      regulated utility, JSW is mixed regulated + merchant, and Suzlon is a manufacturer -
+      their cost and revenue structures are categorically different.
+
+
+
+
+                                             41
+ROE (%)
+
+
+
+
+Formula: Net Profit After Tax ÷ Average Shareholders' Equity × 100
+
+Observations
+
+   ●​ Suzlon's ROE spiking to ~260% in FY23 is not a sign of extraordinary profitability - it
+      is a mathematical artifact of near-zero equity base (denominator near zero after
+      years of losses eroding equity) amplifying any positive net income.
+   ●​ NHPC and JSW both show stable, modest ROE of ~7–10%, consistent with regulated
+      utility returns - verified: NHPC's 3-year average ROE is ~9.19%, JSW's FY25 ROE is
+      ~7.92%.
+   ●​ By FY25, Suzlon's ROE normalises to ~33.9% as equity base rebuilds, which is
+      genuine and reflects strong profitability on a now-healthy balance sheet.
+
+Suggestions
+
+   ●​ NHPC's consistently sub-10% ROE is the core strategic problem - government
+      ownership and regulated tariffs cap the return ceiling; diversification into pumped
+      storage or solar is the only route to higher ROE.
+
+
+
+
+                                              42
+   ●​ JSW's ROE declining despite rising profits reflects equity dilution from QIPs and
+      rights issues to fund expansion - management must ensure new capacity additions
+      generate returns above the cost of equity.
+   ●​ Suzlon's high ROE (33.9%) should not be extrapolated - as equity grows with
+      retained earnings, ROE will naturally compress toward the 18–22% range, which is
+      still excellent.
+
+Limitation
+
+   ●​ Suzlon's FY23 ROE of ~260% is statistically meaningless - the denominator (equity)
+      was near-zero or recovering from negative, making the ratio explosive for any
+      positive numerator.
+   ●​ ROE for NHPC is heavily influenced by the government's equity infusion pattern and
+      dividend payout policy (54.9% payout), both of which are non-market driven
+      decisions.
+   ●​ Comparing ROE across a PSU utility (NHPC), a private infrastructure company
+      (JSW), and a manufacturing turnaround story (Suzlon) without adjusting for leverage
+      and business cycle position leads to misleading conclusions.
+
+
+
+
+                                            43
+                     Beta estimation and
+                       Regression Analysis
+3.1 Data and Methodology
+Estimating beta is the first quantitative step in this valuation framework. It grounds the
+discount rate in market-observed risk rather than assumption. Monthly stock return data for
+JSW Energy, NHPC, and Suzlon Energy, along with Nifty 50 index returns, were compiled across
+a 60-month window from April 2020 to March 2025, covering FY2021 through FY2025. Returns
+are computed as simple percentage price changes using NSE end-of-month closing prices
+sourced from Screener.in and Tijori Finance.
+
+
+Monthly data is preferred over daily returns because it substantially reduces noise from
+intraday liquidity effects and short-term market microstructure quirks, neither of which
+reflects the genuine co-movement between a stock and the broader economy that beta is
+designed to capture. A 60-month window is the practitioner standard: large enough to be
+statistically meaningful, recent enough to capture the current business cycle.
+
+
+
+
+3.2 Beta Computation: Dual-Method Verification
+Two algebraically equivalent methods were applied to compute raw beta, providing a built-in
+internal consistency check:
+
+
+ B = SLOPE(R_stock, R_nifty)                       Regression slope method: Excel SLOPE function
+
+
+
+ B = COVAR(R_stock, R_nifty) / VAR(R_nifty)        Covariance decomposition: algebraically identical
+
+
+
+Both methods converge to near-identical values for all three companies, with only immaterial
+decimal-level differences arising from floating-point precision. This confirms that the
+underlying return data and formula linkages are consistent throughout the model.
+
+
+
+
+                                              44
+3.3 Regression Statistics
+              Metric                      JSW Energy                 NHPC             Suzlon Energy
+
+ Raw Beta (Slope Method)             1.1455                 0.5978                 1.4109
+
+ Raw Beta (Covariance Method)        1.1264                 0.5878                 1.3874
+
+ Alpha (Monthly Intercept)           -0.43%                 +0.14%                 +2.25%
+
+ R-Squared (R2)                      39.6%                  24.5%                  22.0%
+
+ Blume-Adjusted Beta                 1.0975                 0.7305                 1.2753
+
+
+
+The R-squared statistics are worth examining carefully. JSW Energy's 39.6% is the highest of
+the three, meaning roughly 40% of its monthly return variation tracks the Nifty 50 , a
+reasonable level for a large-cap listed utility with broad institutional ownership. NHPC and
+Suzlon show lower R-squared values of 24.5% and 22.0% respectively, indicating that
+company-specific factors dominate over market-wide movements. For NHPC, these include
+government tariff decisions, monsoon-dependent hydrology, and CWIP commissioning
+timelines. For Suzlon, they include wind tender outcomes, debt restructuring milestones, and
+order book momentum, all of which operated largely independently of market direction during
+this period.
+3.4 Blume's Adjustment: Forward-Looking Beta
+Raw regression betas are backward-looking by construction. Blume (1971) documented a
+well-replicated empirical regularity: betas tend to mean-revert toward 1.0 over time as
+companies mature and their risk profiles converge toward the market average. Applying a
+purely historical beta as a forward-looking cost-of-capital input therefore introduces a
+systematic bias. The standard correction weights the empirical estimate against the theoretical
+market average:
+
+
+ Adjusted B = 0.67 x Raw B + 0.33 x 1.0                 Blume (1971) mean-reversion adjustment
+
+
+
+This moderates extreme values in both directions, pulling high betas slightly down and low
+betas slightly up, producing a more conservative and empirically grounded forward estimate.
+
+
+
+
+3.5 Unlevering and Re-Levering: Isolating Business Risk
+A regression beta blends two distinct components: business risk (the inherent volatility of
+operations) and financial risk (the amplification caused by debt in the capital structure). To
+make meaningful cross-firm comparisons of fundamental risk, we first strip financial risk out
+
+
+
+
+                                                   45
+using the Hamada equation, and then reintroduce it at the target capital structure before
+plugging the result into CAPM:
+
+
+ B_unlevered = B_adjusted / [1 + (D/E)_book x          Remove financial risk: uses book-value D/E
+ (1-t)]
+
+
+
+ B_re-levered = B_unlevered x [1 + (D/E)_market        Restore at market-value D/E for CAPM
+ x (1-t)]
+
+
+
+Book D/E is used for unlevering because it reflects the capital structure over which the beta
+was actually observed. Market D/E is used for re-levering because it reflects the leverage that
+equity investors face today, the correct input for a forward-looking discount rate.
+
+
+               Step                   JSW Energy                    NHPC              Suzlon Energy
+
+ Blume-Adjusted Beta              1.0975                   0.7305                 1.2753
+
+ Book D/E Ratio (FY25)            1.703x                   1.219x                 0.043x
+
+ Tax Rate                         25.0%                    20.0%                  25.0%
+
+ Unlevered Beta                   0.4820                   0.3698                 1.2356
+
+ Market Cap (Rs Cr, FY25)         Rs 79,145                Rs 78,351              Rs 79,072
+
+ Market D/E Ratio                 0.589x                   0.617x                 0.003x
+
+ Re-Levered Beta                  0.6948                   0.5524                 1.2387
+
+
+
+
+3.6 Interpreting the Re-Levered Betas
+JSW Energy: B = 0.6948 (re-levered)
+JSW Energy's raw beta of 1.15 correctly captures its above-market historical volatility. The stock
+swings more than the index, driven by merchant power price sensitivity, regulatory exposure,
+and the project execution cycle. However, after stripping out leverage and re-levering at its
+market D/E of 0.589x, the beta comes in at 0.6948, reflecting a genuine structural
+characteristic: JSW Energy's revenues are substantially backed by long-duration Power
+Purchase Agreements (PPAs), which dampen earnings volatility even as the stock trades with
+sentiment around its ambitious capacity expansion.
+
+
+
+
+                                                  46
+NHPC: B = 0.5524 (re-levered)
+NHPC's re-levered beta of 0.5524 is the most intuitive result of the three and the most
+defensible. As a Central PSU hydropower utility with regulated tariffs, sovereign backing, and
+revenues tied to contracted generation rather than spot markets, NHPC is insulated from most
+of the economic volatility that drives the broader index. Its beta reflects its character: a
+slow-moving, predictable, income-generating asset with very limited downside correlation to
+market cycles.
+
+
+Suzlon Energy: B = 1.2387 (re-levered)
+Suzlon's re-levered beta of 1.2387 is the most analytically interesting result. Its raw beta of 1.41,
+the highest of the three, accurately describes its historical behaviour as a distressed,
+high-leverage company under active restructuring. The updated model corrects for the reality
+that Suzlon has transformed dramatically: as of FY2025, total debt stands at just Rs 261.55 crore
+versus Rs 6,858 crore in FY2021, resulting in a market D/E ratio of a mere 0.003x. When we
+re-lever at this near-zero debt ratio, the financial risk component of the raw beta almost
+entirely disappears. The re-levered beta today is driven primarily by the company's underlying
+business risk.
+
+
+
+
+                                                  47
+4. WACC CALCULATION
+
+4.1 Global Macro Assumptions
+The following macro-economic parameters are applied uniformly across all three companies.
+They are hardcoded inputs in the model and sourced from authoritative, publicly available
+references:
+
+
+          Parameter                Value                                    Source
+
+ Risk-Free Rate (Rf)            6.80%          10-yr GOI Bond Yield, March 2025: RBI / NSE
+
+ Equity Risk Premium (ERP)      7.00%          Damodaran India ERP 2024: damodaran.com
+
+ Corporate Tax Rate             25.00%         Income Tax Act: domestic base rate (simplified from
+                                               25.17%)
+
+ Terminal Growth Rate (g)       7.00%          Nominal India GDP CAGR: IMF / RBI estimate
+
+ Country Default Spread         2.18%          India vs. US sovereign spread: Damodaran CDS table
+
+
+
+One notable update in this model: the terminal growth rate has been revised upward from 6.0%
+to 7.0%, in line with India's nominal GDP CAGR projections from the IMF and RBI. This
+seemingly small change has a meaningful compounding effect on terminal values, as the
+Gordon Growth Model is sensitive to the (WACC minus g) spread in the denominator. A one
+percentage point increase in g reduces that spread and proportionally inflates the terminal
+value, underscoring the importance of treating this assumption with care.
+
+
+
+
+4.2 Cost of Equity: CAPM
+With re-levered betas established, the cost of equity follows directly from the Capital Asset
+Pricing Model:
+
+
+ Ke = Rf + B_re-levered x ERP                           CAPM: Required return on equity
+
+
+
+            Component                    JSW Energy                  NHPC               Suzlon Energy
+
+ Risk-Free Rate (Rf)               6.80%                    6.80%                    6.80%
+
+ Re-Levered Beta (B)               0.6948                   0.5524                   1.2387
+
+ Equity Risk Premium (ERP)         7.00%                    7.00%                    7.00%
+
+
+
+
+                                                   48
+            Component                   JSW Energy                 NHPC            Suzlon Energy
+
+ Cost of Equity (Ke)                11.66%                10.67%             15.47%
+
+
+
+The cost-of-equity estimates diverge more noticeably in this updated model. NHPC's lower
+re-levered beta of 0.5524 translates into the lowest Ke at 10.67%, a direct dividend of its PSU,
+low-leverage character. Suzlon's high re-levered beta of 1.2387 produces a notably higher Ke of
+15.47%, reflecting the operating risk of a company still in its post-restructuring growth phase.
+JSW Energy sits between the two at 11.66%.
+
+
+
+
+4.3 Cost of Debt: Synthetic Rating Methodology
+The cost of debt is estimated using Damodaran's synthetic rating framework, which maps the
+Interest Coverage Ratio (ICR = EBIT / Interest Expense) to a credit rating and then to a default
+spread. Each company's US-calibrated spread is then adjusted upward by the India country
+default spread of +2.18%:
+
+
+ Kd = Rf + Default Spread (India-adjusted)            Pre-tax cost of debt
+
+
+
+              Metric                    JSW Energy                 NHPC            Suzlon Energy
+
+ EBIT FY25 (Rs Cr)                  4,613                 2,278              1,211
+
+ Interest Expense FY25 (Rs Cr)      1,724                 1,467              312
+
+ Interest Coverage Ratio (ICR)      2.68x                 1.55x              3.88x
+
+ Synthetic Rating                   BBB                   BB                 A-
+
+ US Default Spread (Damodaran)      1.11%                 1.84%              0.89%
+
+ + India Country Spread             +2.18%                +2.18%             +2.18%
+
+ Total Default Spread               3.29%                 4.02%              3.07%
+
+ Pre-Tax Cost of Debt (Kd)          10.09%                10.82%             9.87%
+
+ After-Tax Cost of Debt             7.57%                 8.66%              7.40%
+
+
+
+JSW Energy's ICR of 2.68x maps to a BBB rating, reflecting that its coverage, while not fully
+comfortable, sits in investment-grade territory. NHPC's 1.55x maps to BB, a
+sub-investment-grade designation that may appear harsh for a sovereign-backed PSU, but is
+mechanically correct given its thin EBIT-to-interest headroom. Suzlon's strong 3.88x earns the
+best rating of the three at A-, a tangible reward for its debt restructuring journey.
+
+
+
+
+                                                 49
+The India country default spread of +2.18% represents a structural premium across all ratings.
+India's sovereign risk is embedded in every corporate's borrowing cost, regardless of individual
+creditworthiness. This is the Damodaran methodology's way of anchoring cost-of-debt
+estimates to real-world INR borrowing conditions.
+
+
+
+
+4.4 Capital Structure Weights and Final WACC
+ WACC = Ke x We + Kd(1-t) x Wd                        Weighted Average Cost of Capital
+
+
+
+            Component                 JSW Energy                   NHPC              Suzlon Energy
+
+ Market Cap (Rs Cr, FY25)         Rs 79,145               Rs 78,351              Rs 79,072
+
+ Total Debt (Rs Cr, FY25)         Rs 46,586               Rs 48,373              Rs 262
+
+ Weight of Equity (We)            62.9%                   61.8%                  99.7%
+
+ Weight of Debt (Wd)              37.1%                   38.2%                  0.3%
+
+ Cost of Equity (Ke)              11.66%                  10.67%                 15.47%
+
+ After-Tax Cost of Debt Kd(1-t)   7.57%                   8.66%                  7.40%
+
+ WACC                             10.15%                  9.90%                  15.44%
+
+
+
+A few structural observations stand out. First, despite JSW Energy having a higher debt weight
+of 37.1%, its significant leverage still provides a meaningful tax shield that keeps its WACC at
+10.15%. Second, NHPC's WACC of 9.90% is the lowest of the three, benefiting from both its
+lower cost of equity and the tax shield on a substantial debt position. Third, Suzlon's WACC of
+15.44% sits significantly above both infrastructure peers. With essentially no debt (0.3% weight),
+there is almost no benefit from the interest tax shield, and the company's higher re-levered
+beta pushes the cost of equity up considerably. As an almost entirely equity-funded business,
+Suzlon's WACC converges closely to its cost of equity.
+
+
+
+
+                                                 50
+5. DCF VALUATION: FCFF MODEL
+
+5.1 Methodological Refinement: Normalised NOPAT as Base FCFF
+This iteration of the model introduces a significant and well-reasoned methodological
+refinement: the base FCFF for all three companies is set to NOPAT (Net Operating Profit After
+Tax = EBIT x (1 minus t)), rather than the mechanically computed FCFF that includes actual
+capital expenditure. This is not an ad hoc assumption. It reflects a deliberate analytical choice
+grounded in the economics of infrastructure valuation.
+
+
+The actual FY2025 FCFFs for JSW Energy and NHPC are deeply negative, because both
+companies are deploying capex that is 2 to 3 times their EBITDA to build assets with 25 to 30
+year useful lives. Applying the Gordon Growth Model to a deeply negative starting FCFF would
+generate a mathematically valid but economically meaningless negative terminal value and
+negative enterprise value, not because the companies are worthless, but because the model
+cannot capture the value of assets currently under construction.
+
+
+The normalised NOPAT base resolves this by treating the business as if it were in a steady state
+where maintenance capex equals depreciation, meaning net reinvestment is zero. This is a
+recognised practitioner approach for capital-intensive businesses where the growth capex in
+the explicit forecast period is reflected through the growing FCFF projections, while the base
+anchors the model to current operating earnings power.
+
+
+ Base FCFF = NOPAT = EBIT x (1-t)                    Maintenance Capex = D&A assumed; net
+                                                     reinvestment = 0
+
+
+
+Suzlon's base FCFF of Rs 908 crore similarly uses NOPAT rather than the actual FY2025 FCFF of
+Rs -91 crore, the latter being negative primarily due to large NWC build-up from rapid order
+book expansion, which is a growth-phase working capital effect rather than a structural
+earnings problem.
+
+
+
+
+5.2 Growth Rate Assumptions: Tapered Stage 1
+A further refinement in this model is the use of tapering growth rates within Stage 1, rather
+than a flat high-growth rate throughout the five-year explicit forecast period. This better
+captures the natural S-curve of corporate growth: companies grow fastest in their early
+
+
+
+
+                                                51
+expansion years, then moderate as they scale. The terminal growth rate has also been updated
+from 6.0% to 7.0% to align with India's long-run nominal GDP CAGR:
+
+
+           Year                  JSW Energy                   NHPC                 Suzlon Energy
+
+ FY26                     14%                       14%                    20%
+
+ FY27                     13%                       12%                    18%
+
+ FY28                     11%                       10%                    15%
+
+ FY29                     9%                        10%                    12%
+
+ FY30                     9%                        10%                    10%
+
+ Terminal Growth (g)      7.0%                      7.0%                   7.0%
+
+ WACC                     10.15%                    9.90%                  15.44%
+
+
+
+JSW Energy's growth profile tapers from 14% to 9% over five years, reflecting the realistic
+moderation in NOPAT growth as the company's capacity base grows larger. NHPC starts at 14%
+and moderates to 10% by FY28, which is then held flat. Suzlon starts highest at 20% and tapers
+most steeply to 10% by FY30, acknowledging that hyper-growth rates are rarely sustained at
+scale.
+
+
+
+
+5.3 JSW Energy: FCFF Valuation
+Base: NOPAT FY25 = Rs 3,460 Cr | WACC = 10.15%
+
+
+    Year           Growth Rate       FCFF (Rs Cr)     Discount Factor           PV of FCFF (Rs Cr)
+
+ FY26             14%              3,944             0.9078             3,581
+
+ FY27             13%              4,457             0.8243             3,674
+
+ FY28             11%              4,947             0.7483             3,702
+
+ FY29             9%               5,392             0.6794             3,664
+
+ FY30             9%               5,878             0.6168             3,625
+
+ PV of Stage                                                            Rs 18,246 Cr
+ 1 FCFFs
+
+
+
+
+                                                    52
+                   Stage 2: Terminal Value                             Rs Crore
+
+ FCFF in Year 6 (Rs Cr)                               6,289
+
+ Terminal Value (Rs Cr)                               1,99,925
+
+ PV of Terminal Value (Rs Cr)                         1,23,319
+
+
+
+                   Bridge to Equity Value                              Rs Crore
+
+ PV of Stage 1 FCFFs                                  18,246
+
+ PV of Terminal Value                                 1,23,319
+
+ Enterprise Value (EV)                                1,41,565
+
+ (+) Cash (FY25)                                      4,695
+
+ (-) Total Debt (FY25)                                46,586
+
+ Equity Value                                         99,674
+
+ Shares Outstanding                                   1,751 Mn
+
+ Intrinsic Value per Share                            Rs 569.2
+
+ Market Price (Mar-25)                                Rs 452
+
+
+
+ JSW Energy: Stock at Rs 452 is approximately 20.6% below intrinsic value of Rs 569.2. DCF
+ suggests BUY.
+
+
+The DCF captures current operating earnings power well, and the updated WACC of 10.15%
+brings the discount rate closer to the cost of equity, resulting in a meaningfully higher intrinsic
+value than prior iterations of this model.
+
+
+
+
+                                                 53
+5.4 NHPC: FCFF Valuation
+Base: NOPAT FY25 = Rs 1,822 Cr | WACC = 9.90%
+
+
+     Year          Growth Rate       FCFF (Rs Cr)    Discount Factor           PV of FCFF (Rs Cr)
+
+ FY26              14%             2,078            0.9099             1,890
+
+ FY27              12%             2,327            0.8280             1,927
+
+ FY28              10%             2,560            0.7534             1,928
+
+ FY29              10%             2,815            0.6855             1,930
+
+ FY30              10%             3,097            0.6238             1,932
+
+ PV of Stage                                                           Rs 9,607 Cr
+ 1 FCFFs
+
+
+
+                   Bridge to Equity Value                                Rs Crore
+
+ PV of Stage 1 FCFFs                                     9,607
+
+ PV of Terminal Value                                    71,295
+
+ Enterprise Value (EV)                                   80,902
+
+ (+) Cash (FY25)                                         2,751
+
+ (-) Total Debt (FY25)                                   48,373
+
+ Equity Value                                            35,280
+
+ Shares Outstanding                                      10,045 Mn
+
+ Intrinsic Value per Share                               Rs 35.1
+
+ Market Price (Mar-25)                                   Rs 78
+
+
+
+ NHPC: Stock at Rs 78 trades 122.1% above intrinsic value of Rs 35.1. However, this gap reflects
+ Rs 42,345 Cr of CWIP not captured in the NOPAT base. HOLD / ACCUMULATE.
+
+
+The key driver of the valuation gap is the Rs 48,373 crore in total debt (including CWIP-linked
+borrowings) that gets subtracted in the bridge to equity value. NHPC's NOPAT base of Rs 1,822
+crore substantially understates its eventual earnings capacity once the large CWIP pipeline is
+commissioned. The market is not wrong to pay a premium; it is pricing in future earnings that
+the DCF cannot yet see.
+
+
+
+
+                                                    54
+5.5 Suzlon Energy: FCFF Valuation
+Base: NOPAT FY25 = Rs 908 Cr | WACC = 15.44% | Shares: 14,120 Mn (corrected)
+
+
+An important correction has been made in this version of the model: Suzlon's shares
+outstanding have been revised from 1,412 Mn to 14,120 Mn, computed as Market Cap (Rs 79,072
+Cr) divided by Share Price (Rs 56). The previous figure was a 10x error. This correction
+materially changes the per-share intrinsic value output.
+
+
+     Year          Growth Rate       FCFF (Rs Cr)    Discount Factor         PV of FCFF (Rs Cr)
+
+ FY26              20%             1,090            0.8662             944
+
+ FY27              18%             1,286            0.7503             965
+
+ FY28              15%             1,479            0.6500             961
+
+ FY29              12%             1,656            0.5630             933
+
+ FY30              10%             1,822            0.4877             889
+
+ PV of Stage                                                           Rs 4,692 Cr
+ 1 FCFFs
+
+
+
+                   Bridge to Equity Value                                Rs Crore
+
+ PV of Stage 1 FCFFs                                     4,692
+
+ PV of Terminal Value                                    11,260
+
+ Enterprise Value (EV)                                   15,952
+
+ (+) Cash (FY25)                                         1,113
+
+ (-) Total Debt (FY25)                                   262
+
+ Equity Value                                            16,803
+
+ Shares Outstanding                                      14,120 Mn
+
+ Intrinsic Value per Share                               Rs 11.9
+
+ Market Price (Mar-25)                                   Rs 56
+
+
+
+ Suzlon: Stock at Rs 56 trades 370.6% above DCF intrinsic value of Rs 11.9. The premium reflects
+ growth optionality and turnaround re-rating. MONITOR closely.
+
+
+The NOPAT base of Rs 908 crore is the correct steady-state operating earnings measure, but
+Suzlon's market price reflects the extreme operating leverage in its model, where every
+
+
+
+
+                                                    55
+incremental unit of revenue drops through to EBITDA at improving margins, and the order
+book growth trajectory has been consistently stronger than historical base rates.
+
+
+
+
+5.6 Interpreting the Results
+The shift from actual negative FCFFs to normalised NOPAT-based starting values is the single
+most important change in this model iteration. It transforms the DCF outputs from
+economically nonsensical negative equity values into positive, interpretable intrinsic values, a
+necessary precondition for meaningful analysis. However, significant gaps between intrinsic
+value and market price remain for all three companies, and understanding why is at least as
+instructive as the numbers themselves.
+
+
+For JSW Energy, the model yields Rs 569.2 per share against a market price of Rs 452,
+suggesting the stock may actually be trading at a discount to its intrinsic value on a normalised
+earnings basis. For NHPC, the intrinsic value of Rs 35.1 per share against Rs 78 is heavily
+influenced by the Rs 48,373 crore debt burden that gets subtracted in the equity bridge. And for
+Suzlon, the corrected share count of 14,120 Mn produces an intrinsic value of Rs 11.9 per share
+against Rs 56, a gap that is best understood through the lens of operating leverage and order
+book momentum rather than current earnings alone.
+
+
+
+
+                                                56
+6. RELATIVE VALUATION: EV/EBITDA AND P/E
+
+6.1 The Role of Multiples in This Analysis
+Given that the FCFF DCF still produces intrinsic values well below market prices for NHPC and
+Suzlon, relative valuation multiples serve as the essential market reality check. They tell us what
+investors are actually paying for comparable cash flows and growth profiles today, and whether
+the premiums to DCF value are consistent with sector norms or represent genuine mispricing.
+
+
+Two multiples are used: EV/EBITDA and P/E. EV/EBITDA is capital-structure-neutral and
+strips out non-cash depreciation, making it the superior metric for comparing utilities with
+different leverage and asset lives. P/E connects to headline earnings and is the most widely
+cited benchmark by retail and institutional investors alike, but must be interpreted carefully
+when earnings are in a rapid growth or turnaround phase.
+
+
+
+
+6.2 EV/EBITDA Analysis
+     Company         Mkt Cap (Rs     Debt (Rs Cr)        Cash (Rs    EBITDA (Rs      EV/EBITDA
+                         Cr)                               Cr)           Cr)
+
+ JSW Energy         79,145          46,586           4,695          6,115         22.7x
+
+ NHPC               78,351          48,373           2,751          6,869         17.4x
+
+ Suzlon Energy      79,072          262              1,113          1,961         39.0x
+
+ Sector Avg.                                                                      ~22-25x
+
+
+
+JSW Energy (22.7x EV/EBITDA):
+JSW Energy now trades broadly in line with the Indian renewables sector average of 22 to 25
+times, reflecting its position as a large-cap utility with strong EBITDA growth. EBITDA margins
+expanded from 42% in FY2021 to 44% in FY2025. Looking forward, if JSW delivers on its 20 GW
+capacity target and EBITDA grows at even a moderate pace, the forward EV/EBITDA on today's
+enterprise value could compress to 8 to 10 times within 3 to 4 years, an outcome the market
+appears to be pricing in.
+
+
+NHPC (17.4x EV/EBITDA):
+NHPC's multiple looks below sector average, which is partly explained by its high EBITDA from
+commissioned hydro assets (operating margins around 51%) and the PSU discount that markets
+
+
+
+
+                                                    57
+apply. Once the large CWIP pipeline commissions and generates income, the forward multiple
+compresses further. NHPC arguably looks undervalued relative to private-sector peers when
+adjusted for its CWIP optionality and sovereign backing.
+
+
+Suzlon Energy (39.0x EV/EBITDA):
+The highest multiple of the three, and deliberately so. Suzlon is no longer a capital-heavy power
+generator but an asset-light wind turbine supply and O&M business. Markets price such
+businesses on earnings growth optionality rather than current EBITDA. With margins
+expanding from 16% in FY2021 to 16.5% in FY2025 on a much larger revenue base, the story is
+one of operating leverage releasing value as revenue scales.
+
+
+
+
+6.3 P/E Analysis
+    Company          Mkt Cap (Rs       Net Profit (Rs Cr)     P/E (FY25)         EPS (Rs)     5-Yr Avg P/E
+                         Cr)
+
+ JSW Energy         79,145             1,951                 48.1x           Rs 11.18       ~30x
+
+ NHPC               78,351             3,007                 27.5x           Rs 2.99        ~20-22x
+
+ Suzlon Energy      79,072             2,072                 37.3x           Rs 1.52        N/A
+
+Note: Suzlon's EPS of Rs 1.52 uses the corrected share count of 14,120 Mn.
+
+
+JSW Energy (48.1x P/E):
+The multiple sits above its 5-year average of around 30x, a premium that reflects rising
+earnings quality. EBITDA margins expanded from 42% to 44% over FY2021 to FY2025, and the
+net profit CAGR of approximately 25% over the same period is well above the sector median.
+The current multiple is unlikely to contract meaningfully as long as capacity additions deliver
+on schedule.
+
+
+NHPC (27.5x P/E):
+The multiple represents a moderate discount to private-sector renewable peers. NHPC's net
+profit CAGR of approximately 8% over FY2021 to FY2025 and its near-zero default risk make the
+stock look reasonable at current levels. As institutional ESG mandates grow and CWIP
+commissions, the PSU discount could narrow, providing a re-rating catalyst.
+
+
+Suzlon Energy (37.3x trailing P/E):
+Trailing earnings of Rs 2,072 crore represent the FY2025 actual, a significant step up from the
+Rs 660 crore in FY2024. The net profit margin expanded from 10% to 19% in a single year.
+Projecting forward on the current trajectory, Suzlon's forward P/E compresses to
+
+
+
+
+                                                        58
+approximately 25 to 30 times, which is in line with high-growth renewable equipment and
+services businesses globally.
+
+
+
+
+6.4 Consolidated Valuation Summary
+  Company         DCF         Market     EV/EBITD     P/E (FY25)               Verdict
+                IV/Share       Price        A
+
+ JSW Energy    Rs 569.2     Rs 452      22.7x         48.1x        BUY: DCF undervalued by 20.6%;
+                                                                   multiples in line with sector
+
+ NHPC          Rs 35.1      Rs 78       17.4x         27.5x        HOLD / ACCUMULATE:
+                                                                   CWIP-adj. basis looks
+                                                                   undervalued; PSU discount
+                                                                   overstated
+
+ Suzlon        Rs 11.9      Rs 56       39.0x         37.3x        MONITOR: Growth optionality
+ Energy                                                            real; normalised forward P/E
+                                                                   compressing
+
+
+
+
+6.5 Triangulation: Why No Single Method Tells the Full Story
+The methodological journey across this report illustrates a core principle of equity valuation: no
+single tool is sufficient, and the most dangerous mistake is to treat any one output as the
+answer rather than as one piece of evidence.
+
+
+The FCFF DCF (normalised) provides the theoretical anchor. It tells us what the business earns
+in steady state and what that is worth at the required discount rate. Its limitation is that it
+cannot capture growth investments not yet reflected in current NOPAT.
+
+
+EV/EBITDA provides the market cross-check. It anchors value to what comparable businesses
+trade at today, and it surfaces the CWIP discount for NHPC and the growth premium for Suzlon
+far more clearly than the DCF does.
+
+
+P/E connects to the earnings story. For JSW Energy and NHPC, it provides a clean read on how
+the market is pricing earnings quality. For Suzlon, the forward P/E is the more relevant lens,
+given the recency of full profitability.
+
+
+
+
+                                                 59
+Capacity-based valuation (Rs per MW of installed and pipeline capacity) provides the fourth leg
+for JSW Energy and NHPC, where the infrastructure asset base is the primary store of value.
+
+
+The renewable energy sector's structural tailwinds, India's 500 GW target by 2030, falling LCOE
+curves, PLI schemes, and ESG-driven fund flows, create a valuation environment where
+long-duration growth is being priced in well ahead of cash flow realisation. In that context, DCF
+models anchored to current earnings will consistently appear to understate market values for
+some companies while correctly identifying undervaluation in others. The analyst's job is to
+understand the gap, explain it, and judge whether the market's implied growth assumptions are
+reasonable.
+
+
+
+
+                                                60
+                                       References
+Financial Data & Company Filings
+
+
+1. JSW Energy Limited - Annual Report FY2024-25.
+https://www.jsw.in/energy/investor-relations/annual-reports
+
+
+2. NHPC Limited - Annual Report FY2024-25. https://www.nhpcindia.com/annual-report.aspx
+
+
+3. Suzlon Energy Limited - Annual Report FY2024-25.
+https://www.suzlon.com/investor-relations/annual-reports
+
+
+4. BSE India - Historical Share Price Data (JSW Energy, NHPC, Suzlon Energy, Nifty 50).
+https://www.bseindia.com
+
+
+5. NSE India - Historical Share Price Data & Market Capitalisation. https://www.nseindia.com
+
+
+6. Screener.in - Financial Statements, Ratio Data, and 10-Year Historical Financials.
+https://www.screener.in
+
+
+
+
+Valuation & Beta Methodology
+
+
+7. Damodaran, A. - Implied Equity Risk Premiums (India ERP 2024). Stern NYU.
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/implprem.html
+
+
+8. Damodaran, A. - Default Spreads and Synthetic Ratings Table. Stern NYU.
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ratings.html
+
+
+9. Damodaran, A. - Country Risk Premiums (India). Stern NYU.
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/ctryprem.html
+
+
+10. Blume, M.E. (1971) - "On the Assessment of Risk." Journal of Finance, 26(1), pp. 1–10.
+https://doi.org/10.1111/j.1540-6261.1971.tb00588.x
+
+
+11. Damodaran, A. - Betas by Sector (India). Stern NYU.
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betaregion.html
+
+
+Industry & Sector Data
+
+
+
+
+                                                   61
+12. Central Electricity Authority (CEA), Government of India - Installed Capacity Report, March
+2025. https://cea.nic.in/installed-capacity-report
+
+
+13. Ministry of New and Renewable Energy (MNRE) - Annual Report 2024-25.
+https://mnre.gov.in/annual-report
+
+
+14. Indian Energy Exchange (IEX) - Market Statistics & Power Trading Reports.
+https://www.iexindia.com/marketdata
+
+
+15. REC Limited - Green Energy Financing Reports. https://www.recpdcl.in
+
+
+16. IREDA - Annual Report FY2024-25. https://www.ireda.in/annual-report
+
+
+
+Strategic Frameworks & Academic References
+
+
+17. Porter, M.E. (1980) - Competitive Strategy: Techniques for Analyzing Industries and
+Competitors. Free Press, New York.
+
+
+18. Boston Consulting Group (BCG) - Growth-Share Matrix Framework.
+https://www.bcg.com/about/overview/our-history/growth-share-matrix
+
+
+19. Rowe, W.D., Mason, R.O., Dickel, K.E. (1982) - Strategic Management and Business Policy: A
+Methodological Approach. Addison-Wesley. [SPACE Analysis Framework]
+
+
+20. Bhatia, H.L. -Public Finance Vikas Publishing House. [Referenced for Public Finance concepts]
+
+
+
+Government Policy & Regulatory Sources
+
+
+21. Securities and Exchange Board of India (SEBI) - BRSR Framework.
+https://www.sebi.gov.in/legal/circulars/may-2021/business-responsibility-and-sustainability-re
+porting-by-listed-entities_50096.html
+
+
+22. Ministry of Finance, Government of India - Union Budget 2025-26.
+https://www.indiabudget.gov.in
+
+
+23. CERC (Central Electricity Regulatory Commission) - Tariff Regulations.
+https://www.cercind.gov.in
+
+
+
+
+                                                 62
+24. Press Information Bureau - PM Surya Ghar Muft Bijli Yojana.
+https://pib.gov.in/PressReleasePage.aspx?PRID=2001417
+
+
+25. Press Information Bureau - PM-KUSUM Scheme Updates. https://pib.gov.in
+
+
+
+
+Credit Ratings
+
+
+26. CRISIL Ratings - JSW Energy, NHPC, Suzlon Energy Credit Ratings.
+https://www.crisil.com/en/home/our-businesses/ratings.html
+
+
+27. India Ratings & Research (Fitch Group) - Power Sector Outlook.
+https://www.indiaratings.co.in
+
+
+
+
+                                                63
+

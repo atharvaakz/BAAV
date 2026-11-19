@@ -1,0 +1,1283 @@
+ PHARMACEUTICAL
+ INDUSTRY
+
+
+
+
+BUSINESS
+ANALYSIS &
+VALUATION
+                  End semester
+                  course project
+                  report
+
+
+                  Prepared by
+
+                  Harshini Gandhi
+                  Swayam Shah
+                  Aman Kapadia
+                  Vidhi Bhutani
+                  Amish K Singhal
+                  Abhijeet Satpathy
+
+                   Prepared for
+
+                   Prof Mohit
+                   Kumar
+                                                                                    Exports have surged – from $15B (2013-14) to
+01
+                           Industry                                                 $26.5B (2023-24) - reflecting India’s role as
+                                                                                    the “Pharmacy of the World.” Major export
+                                                                                    markets include the regulated U.S. and EU,
+
+
+
+                           Overview
+                                                                                    where      Indian   generics    and   contract
+                                                                                    manufacturers have a strong presence.
+                                                                                    The Indian industry is fragmented with 3,000+
+                                                                                    companies and 10,500 manufacturing units
+                           The      global    prescription     pharmaceutical       Leading firms include Sun Pharmaceutical
+                           market was valued at roughly $1.39 trillion in           Industries, Dr. Reddy’s Laboratories, Cipla,
+                           2023. It is projected to grow at a ~6–7%                 Lupin, Aurobindo Pharma, Zydus Cadila,
+                                                                                    Torrent Pharma, Alkem, Divi’s Laboratories
+                           CAGR through 2030, reaching over $2.3–3.1
+                                                                                    (APIs), Biocon (biologics), and Serum Institute
+                           trillion by the early 2030s. North America is
+                                                                                    (vaccines).
+                           the largest regional market (~45% share in
+                                                                                    Many of these are global generics suppliers;
+                           2023), followed by Europe and emerging
+                                                                                    for example, Sun Pharma is India’s largest
+ECON F355 PROJECT REPORT
+
+
+
+
+                           markets (China ~7–8% share).
+                                                                                    drugmaker with diversified offerings. The
+                           India is a global powerhouse in generics. As
+                                                                                    country also has a vibrant contract R&D and
+                           of 2023, India’s pharma market was valued                manufacturing (CDMO/CRO) sector.
+                           around       $50      billion     (with     domestic
+                           consumption       ≈$23.5B and exports $26.5B in
+                           FY2023–24)
+                           The sector has grown at a 6–8% CAGR during
+                           2018–2023.(exports up ~8%, domestic sales
+                           ~6%).
+                           Industry projections forecast $120–130B by
+                           2030. The government aims to reach $450B
+                           by 2047 through initiatives like “Pharma Vision
+                           2047” and production-linked incentives
+
+                           India’s competitive advantages include low-
+                           cost     manufacturing,     a   skilled     scientific
+                           workforce, and established API supply chains.
+                           Indian    firms    often   integrate      production
+                           (intermediates, APIs, formulations) to achieve           The industry faces very high R&D costs
+                           cost efficiency. Over 2,000 units comply with            (∼$2.2–2.3 billion per new drug) with failure
+                           WHO GMP standards and ~500 facilities are                rates up to ~90%. Pricing pressures are
+                           US FDA-approved, enabling exports to strict              mounting          worldwide:         payers      and
+                           markets.                                                 governments (e.g. US Medicare reforms, EU
+                                                                      ≈
+                           The industry offers a wide portfolio ( 60,000            reimbursement policies) are demanding lower
+                           generic     brands    across    60+       therapeutic    prices
+                           categories) making it a key global generics              Intense    competition        from   generics    and
+                           provider.                                                biosimilars (37% of industry leaders cite
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                                                                    generic competition as a top trend erodes
+                           India ranks as the 3rd largest producer of               margins    after    patent     expirations.     Other
+                           pharmaceuticals by volume. It supplies ~20%              challenges include complex global regulatory
+                           of global generic drug exports and 60% of                requirements and vulnerabilities in supply
+                           global vaccine demand. Notably, Indian firms             chains    (e.g.    reliance    on    overseas     API
+                           provide ~40% of U.S. generic medicines and               producers, highlighted during COVID-19).
+                           ~25% of U.K. medicines.                                  The market remains highly fragmented and
+                                                                                    intensely competitive, with price wars and
+                                                                                    thin margins posing ongoing pressure.
+                                                                             Any disruption or price hike in China can
+02
+                           Industry                                          impact costs in India. However, because
+                                                                             there are multiple alternative suppliers
+                                                                             globally (and many Indian companies are
+
+
+
+                           Overview
+                                                                             investing in local API production), supplier
+                                                                             power      is  tempered.     Equipment      and
+                                                                             technology suppliers (fermentation systems,
+                                                                             chromatography devices) are fewer, but such
+                           Threat of New Entrants: LOW                       costs are a small fraction of drug costs.
+                           The Indian pharma industry has high entry         Labor supply (chemists, technicians) is
+                           barriers. Developing new pharmaceuticals          plentiful, so labor as a “supplier” has low
+                           especially novel drugs, demands enormous          power. In short, supplier power is moderate
+                           R&D investment and regulatory approval,           as it is dominated by a few critical API source
+                           making entry difficult Existing companies         countries, but offset by domestic sourcing
+                           benefit from large-scale manufacturing            and multiple global options.
+                           facilities and extensive distribution networks.
+ECON F355 PROJECT REPORT
+
+
+
+
+                           Government support (e.g. production-linked        Threat of Substitutes: Low.
+                           incentives ) encourages capacity expansion        There are few true substitutes for
+                           but tends to favor established firms with         pharmaceuticals. Some Indian consumers
+                           proven compliance records. In the generics        turn to traditional/alternative medicines
+                           space, while founding a small generics            (Ayurveda, homeopathy), but these remain a
+                           company is feasible, achieving the volumes        small fraction of the overall healthcare
+                           and regulatory approvals to be competitive        market and do not substitute for modern
+                           (e.g. filing many ANDAs/DMFs) is challenging.     drugs in treating most diseases. Preventive
+                                                                             health measures and lifestyle changes (e.g.
+                           Bargaining Power of Buyers: High to               diet,   exercise)   can     reduce    disease
+                           Moderate.                                         prevalence, but are not direct replacements
+                           Buyers in India include large public and          for medications. Within pharmaceuticals,
+                           private health institutions, pharmacies, and      generic drugs themselves substitute branded
+                           ultimately patients. The government (through      ones (but this is within the industry, not an
+                           public health programs and hospitals) is a        external force). Emerging alternatives like
+                           major buyer and exerts bargaining power by        gene therapies or advanced biologics may
+                           setting price ceilings and bulk procuring         replace certain drugs in the future, but
+                           drugs. Large hospital chains and pharmacy         currently these are still produced and
+                           chains can demand discounts on volumes.           regulated as pharmaceuticals. Hence, the
+                           Insurance coverage is limited, so consumers       threat of non-pharma substitutes is minimal in
+                           often pay out-of-pocket and are price-            the near term.
+                           sensitive. In export markets, regulated buyers
+                           (e.g. U.S. or EU purchasers) also negotiate
+                           terms, but Indian exporters often accept
+                           lower margins in return for scale. Overall, the
+                           buyer power is relatively strong, since
+                           products      are    largely   undifferentiated
+                           generics and buyers can switch suppliers.
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                           However, India’s large population and
+                           growing demand provide some leverage to
+                           sellers.
+
+                           Bargaining Power of Suppliers: Moderate.
+                           The main supplier inputs are active
+                           pharmaceutical ingredients and raw materials.
+                           India has a significant domestic API industry,
+                           but still relies heavily on China for critical
+                           chemical inputs (~72% of bulk drug imports ).
+                           This concentration gives Chinese suppliers
+                           significant bargaining clout (price setting,
+                           supply terms).
+03
+                           Industry
+                           Overview
+                           Competitive Rivalry: Very High.
+                           Competition in India’s pharma sector is
+                           intense. The market is highly fragmented
+                           around 3,000+ firms and 10,500+ facilities
+                           (many      WHO-GMP       or   USFDA-certified)
+                           compete domestically . Thousands of generic
+                           brands around 60,000 across 60+ categories
+                           fight for market share. In generics, products
+ECON F355 PROJECT REPORT
+
+
+
+
+                           are virtually identical, so firms compete
+                           aggressively on price, sales and distribution
+                           reach. Major players (Sun Pharma, Dr.
+                           Reddy’s, Cipla, etc.) have scale advantages
+                           and broad pipelines, but they face stiff
+                           competition from mid-sized companies and
+                           niche specialists. Government price caps
+                           further squeeze margins, intensifying price
+                           rivalry. On the global stage, Indian exporters
+                           also compete with other generics producers
+                           (especially     China).  This   rivalry   limits
+                           profitability and drives a focus on efficiency.
+                           Mergers and consolidations are common
+                           strategies to gain scale. In sum, competitive
+                           rivalry is very strong in the Indian pharma
+                           industry
+PHARMACEUTICAL INDUSTRY
+04
+                           Comparative Analysis
+                                     Particulars
+
+
+
+                                                                                                                          Generics, Biosimilars, Active
+                                                            Respiratory, HIV, Chronic    Specialty, Chronic therapies,
+                                     Segment Catered                                                                      Pharmaceutical Ingredients
+                                                              therapies, Generics          Generics, Dermatology
+                                                                                                                                     (APIs)
+
+
+
+                                                             Chronic – strong focus;      Specialty (global) leading;
+                                                                                                                         Global generics – core; APIs –
+                                     Segment Breakup         Respiratory leadership;     Domestic branded generics
+                                                                                                                         significant; Biosimilars growing
+                                                           Domestic branded generics        strong; US generics
+
+
+
+                                                                                                                          Asset moderate + vertically
+                                       Business Model       Asset light to moderate            Asset moderate
+ECON F355 PROJECT REPORT
+
+
+
+
+                                                                                                                                 integrated
+
+
+                                                                                          40+ manufacturing plants
+                             Manufacturing and Global       34+ manufacturing sites                                        25+ manufacturing plants
+                                                                                                worldwide
+                                           Presence             80+ countries                                                   60+ countries
+                                                                                              100+ countries
+
+
+                                                                                                                         Promoter Group holds minority
+                                             Promoters    Cipla Family (Hamied Family)     Dilip Shanghvi & Family
+                                                                                                                         stake; professionally managed
+
+
+
+
+                           SWOT
+                                                                                                It also faces significant regulatory and
+                                                                                              compliance risks, where any deviation from
+                                                                                              strict global standards could lead to recalls,
+                           Analysis                                                           approval delays, or reputational damage.
+                                                                                              Additionally, pricing controls under India’s
+                           CIPLA                                                              DPCO put pressure on margins, particularly in
+                                                                                              chronic therapy segments.
+                           STRENGTHS-
+                           A diverse portfolio of 2,000+ products, a
+                                                                                              OPPORTUNITIES-
+                           balanced        global    presence,         and     strong         led by a growing oncology pipeline with new
+                           regulatory acceptance across major markets.                        generics     and     biologics    expected     to
+                           With 34 manufacturing units and exports to                         strengthen its specialty portfolio. There is
+                           80+ countries, the company benefits from                           significant    room      for   emerging-market
+                                                                                              expansion, especially in Africa, where the
+                           wide      international       reach    and        strategic
+                                                                                              One Africa region delivered strong double-
+                           partnerships with global pharma leaders.                           digit growth, with further plans to scale in
+                           Cipla is the market leader in respiratory                          Morocco, Algeria, and other markets
+                           therapies in India and maintains a strong                          supported by its respiratory portfolio. In the
+                           chronic        care      presence.       Backed         by         U.S., Cipla’s pipeline of complex generics,
+                           investments in advanced R&D, the company                           including inhalers, injectables, and biosimilars,
+                                                                                              offers a major growth avenue. Additionally, its
+                           continues to innovate in respiratory products,
+                                                                                              in-licensing strategy continues to gain
+                           biosimilars, complex generics, and next-gen
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                                                                              traction, with partnered portfolios growing at
+                           areas like cell & gene therapy and mRNA                            a 40% CAGR over the past five years,
+                           platforms.                                                         boosting access to high-value therapies.
+
+                                                                                              THREATS-
+                           WEAKNESSES-
+                                                                                              Currency volatility due to its exposure to
+                           Cipla’s        weaknesses           include         limited
+                                                                                              African and other emerging markets, which
+                           penetration       in    specialty     and     developed            can erode INR-denominated revenues. Patent
+                           markets, with specialty drugs contributing                         expiries in major inhaler products may
+                           less than 10% of revenues, keeping the                             intensify pricing pressure as generics enter
+                           company heavily reliant on generics and                            the market.
+                           respiratory products.
+                           The company faces several key threats,                         SUNPHARMA
+05                         including    currency        volatility     due    to    its   STRENGTHS-
+                           exposure to African and other emerging                         India’s largest pharmaceutical company by
+                           markets, which can erode INR-denominated                       revenue and the fourth-largest specialty
+                           revenues. Patent expiries in major inhaler                     generics player globally, supported by strong
+                           products may intensify pricing pressure as                     brand equity in both India and the U.S. Its
+                           generics enter the market. The rising global                   strengths include a highly diversified portfolio
+                           adoption of GLP-1 drugs poses competitive                      spanning generics, specialty drugs, OTC
+                           challenges to traditional metabolic and anti-                  products, and APIs, along with an exceptional
+                           diabetic therapies. Additionally, regulatory                   ability   to    rapidly        launch    new   products.
+                           and     quality       compliance          risks    remain      Consistent R&D investment of around 6–8%
+                           significant, as adverse USFDA findings at                      of   revenues          fuels    a   strong     innovation
+                           facilities like Goa or Pithampur could result in               pipeline,      while     its    high-margin     specialty
+                           warning letters, recalls, approval delays, and                 segment-        contributing        nearly     19.3%    of
+                           reputational damage.                                           revenues through therapies in dermatology
+ECON F355 PROJECT REPORT
+
+
+
+
+                                                                                          and neurology- enhances profitability and
+                           INSIGHTS-                                                      positions the company for sustained long-
+                           Cipla’s strong R&D pipeline, broad portfolio                   term growth.
+                           across generics, biosimilars, and respiratory
+                           therapies,      and     solid      global      regulatory      WEAKNESSES-
+                           credibility create pathways to expand into                     The company faces weaknesses stemming
+                           high-value      areas       such     as     Alzheimer’s,       from underperforming subsidiaries and a
+                           oncology, and anti-diabetes, particularly as                   relatively high debt burden, which together
+                           U.S. revenues continue to grow. However, its                   dilute overall profitability. Its limited presence
+                           dependence         on   India      and     exposure      to    in key emerging markets such as Africa and
+                           emerging-market currency volatility heighten                   Latin America reduces global diversification
+                           vulnerability to pricing controls and policy                   compared to peers like Cipla. The legacy
+                           risks, while a limited specialty drug mix leaves               challenges from the Ranbaxy acquisition
+                           it exposed to patent expiries and intense                      continue to impact integration efficiency and
+                           generic competition. These weaknesses are                      compliance due to inherited FDA issues and
+                           partly mitigated by strong growth in emerging                  the complexity of merging large operations.
+                           markets and the U.S., along with in-licensing                  Ongoing regulatory exposures—particularly
+                           deals    and      digital   health       initiatives    that   repeated          FDA            concerns         around
+                           diversify revenues and improve specialty                       manufacturing and quality at facilities like
+                           positioning. Additionally, Cipla’s technological               Halol, Mohali, and Dadra—pose operational
+                           capabilities,       regulatory       strength,          and    and reputational risks. Additionally, the highly
+                           leadership in chronic therapies—especially                     competitive and low-margin nature of the
+                           respiratory—help buffer threats from supply                    generics market exerts continuous pressure
+                           chain disruptions, climate regulations, and                    on growth and profitability.
+                           potential USFDA compliance challenges.
+                                                                                          OPPORTUNITIES-
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                                                                          The company is well-positioned to capitalize
+                                                                                          on rising demand for innovative therapies,
+                                                                                          with expanding investments in areas such as
+                                                                                          dermatology,           oncology,        neurology,     and
+                                                                                          obesity treatments. Strategic acquisitions—
+                                                                                          including         Concert           Pharmaceuticals—
+                                                                                          strengthen its specialty portfolio and provide
+                                                                                          access to late-stage, high-value products. .
+                           Growing      emerging        markets     across       Asia,   DR REDDY’S
+06                         Africa, and Latin America, combined with the                  STRENGTHS-
+                           company’s               low-cost         manufacturing        The company has a strong global presence
+                           capabilities, offer significant potential for                 across 83 countries, with over half its
+                           expanding        both      branded      generics       and    revenues coming from international markets,
+                           contract           manufacturing             businesses.      including 45% from the U.S. Its high R&D
+                           Additionally, an advancing biosimilars pipeline               intensity (8.4% of sales) supports advanced
+                           in oncology and immunology opens high-                        pipelines in CAR-T, oncology, and biosimilars
+                           growth avenues in global specialty markets,                   such as Rituximab and Denosumab. It leads in
+                           enhancing long-term revenue prospects.                        biosimilars          and       novel     therapies,       having
+                                                                                         launched India’s first PD-1 immunotherapy
+                           THREATS-                                                      with orphan drug designation in the U.S. and
+                           The company faces rising regulatory and                       EU. The company is also a sustainability
+                           pricing pressures, with U.S. FDA observations                 leader, achieving 68% renewable energy use,
+                           risking     supply        disruptions    and        slower    60% carbon neutrality, and water-positive
+ECON F355 PROJECT REPORT
+
+
+
+
+                           approvals. Loss of exclusivity on key products                operations, with an MSCI ESG rating of A.
+                           in the U.S. is eroding margins amid intensifying              Strategic consumer health acquisitions and
+                           generic          and       biosimilar        competition.     strong digital capabilities—through AI, IIoT,
+                           Dependence on critical raw materials makes                    and Digital Twin initiatives delivering 20–30%
+                           the supply chain vulnerable to price volatility,              productivity          gains—further         strengthen       its
+                           shortages,         and       geopolitical       tensions.     diversified          and       innovation-driven         growth
+                           Emerging-market instability- such as currency                 model.
+                           swings       and        inflation-   further        affects
+                           profitability,     while     growing     climate       and    WEAKNESSES-
+                           environmental risks may increase costs and                    The company remains vulnerable due to high
+                           require significant compliance investments.                   geographic revenue concentration, with the
+                                                                                         U.S. and Russia contributing more than half its
+                           INSIGHTS-                                                     revenues and exposing it to pricing and
+                           Sun Pharma’s strong R&D capabilities, global                  geopolitical          risks.     Regulatory       complexity,
+                           scale, and financial strength create room to                  including past USFDA warning letters, adds
+                           expand into specialty therapies, biosimilars,                 compliance costs and can delay key product
+                           and strategic acquisitions, building a higher-                approvals. Despite heavy R&D spending,
+                           margin       and        innovation-driven       portfolio.    innovation           outcomes           remain        uncertain,
+                           However,            weaknesses               such       as    especially           for     complex           generics     and
+                           underperforming units, regulatory exposures,                  biosimilars. The company also faces cultural
+                           and debt heighten vulnerability to pricing                    and integration challenges from acquisitions,
+                           pressure, loss of exclusivity, and compliance                 gaps       in    its       portfolio,     and     profitability
+                           risks. These challenges can be partly offset                  pressures, with margins, marketing strength,
+                           by     opportunities        in   emerging        markets,     and       workforce          stability     lagging       behind
+                           specialty medicines, and biosimilars, which                   industry peers.
+                           help      reduce       dependence       on    low-margin
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                           generics. At the same time, the company’s                     OPPORTUNITIES-
+                           brand strength and solid financial position                   The       company           can       leverage    its     strong
+                           allow continued investment in compliance,                     cytotoxic        and        biologics      capabilities       to
+                           ESG,      and     diversification    efforts,       helping   expand          in     high-growth         oncology         and
+                           mitigate        threats      from       supply       chain    biologics markets, projected to reach $25
+                           disruptions, pricing wars, and environmental                  billion    by        2027.      Its    focus     on     complex
+                           risks.                                                        generics, biosimilars, peptides, injectables,
+                                                                                         and advanced therapies like CAR-T offers
+                                                                                         several first-to-market opportunities.
+07
+                            Rapidly growing emerging markets—up 13%
+                           YoY and now 19% of generic sales—along                         BCG
+                           with    digital     expansion         provide
+                           momentum. Strategic partnerships and in-
+                                                                                further
+                                                                                          Matrix
+                           licensing deals with companies like Sanofi,
+                                                                                          Organizations should adopt tailored strategies
+                           Gilead, and Takeda enable faster entry into
+                                                                                          based on their business segments. For Stars,
+                           high-value therapies with lower R&D risk.
+                                                                                          the focus should be on maintaining leadership in
+                           Additionally,      digital     initiatives     such      as
+                                                                                          high-growth,        high-market-share        sectors     by
+                           OpsNext, using AI, Digital Twins, and IIoT,
+                                                                                          investing in technology and partnerships. Cash
+                           enhance efficiency through better yields, cost
+                                                                                          Cows       should        optimize        efficiency     and
+                           reductions, and productivity gains.
+                                                                                          profitability in mature segments, using market
+                                                                                          dominance to reduce costs and fund growth
+                           THREATS-
+                                                                                          investments. Question Marks require strategic
+                           The company faces significant regulatory and
+                                                                                          investments to capture market share in high-
+                           compliance risks, as strict global standards
+                                                                                          growth, low-market-share areas, while closely
+ECON F355 PROJECT REPORT
+
+
+
+
+                           and potential approval delays can raise costs,
+                                                                                          monitoring performance. For Dogs, businesses
+                           hinder launches, or trigger plant shutdowns.
+                                                                                          should divest or phase out underperforming
+                           Its dependence on non-substitutable raw
+                                                                                          segments and explore niche markets to extract
+                           material      suppliers      creates     supply       chain
+                                                                                          residual value.
+                           vulnerabilities to shortages, sanctions, and
+                           cost spikes. Heavy revenue exposure to the
+                                                                                          Cipla’s key Stars are its respiratory franchise—
+                           U.S. and Russia increases macroeconomic
+                                                                                          where it leads the Indian inhaler market—and its
+                           and geopolitical risks, including currency
+                                                                                          strong chronic therapy portfolio in diabetes,
+                           volatility,   trade      disruptions,    and      ongoing
+                                                                                          cardiac care, and oncology. Its Cash Cows
+                           Russia-Ukraine conflict impacts on about 15%
+                                                                                          include emerging markets and the South Africa
+                           of revenue. Additionally, pricing pressure from
+                                                                                          OTC and branded Rx businesses, which provide
+                           India’s price controls and 6–8% annual U.S.
+                                                                                          stable,    predictable        margins.    U.S.     generics,
+                           generic price erosion, along with strong
+                                                                                          especially complex inhalers and injectables,
+                           biosimilar competition from global players like
+                                                                                          remain     Question      Marks      due    to    regulatory
+                           Amgen and Sandoz and peers such as
+                                                                                          challenges and tough competition, while APIs
+                           Biocon, continue to strain margins.
+                                                                                          and simple generics fall into the Dogs category
+                                                                                          given      intense     price     pressure        and    low
+                           INSIGHTS-
+                                                                                          profitability. Strategically, Cipla should build on
+                           High    R&D       intensity     and     strong       global
+                                                                                          its   global      respiratory   and      chronic    therapy
+                           partnerships enable the company to expand
+                                                                                          strengths, hold its strong positions.                  South
+                           into   biosimilars,        oncology,     and    specialty
+                                                                                          Africa and emerging markets, and gradually
+                           therapies in major markets, supported by
+                                                                                          harvest low-margin APIs and simple generics
+                           advanced       digital      operations     that      deliver
+                                                                                          while     reallocating     R&D      toward       high-value,
+                           productivity gains beyond peers. However,
+                                                                                          innovative segments.
+                           regulatory history and heavy reliance on the
+                           U.S. and Russia heighten pricing, currency,
+                                                                                          Sun Pharma’s Stars include its fast-growing U.S.
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                           and    geopolitical        risks,   made       worse     by
+                                                                                          specialty portfolio—especially in dermatology
+                           integration challenges from past acquisitions.
+                                                                                          and oncology—and its strong branded generics
+                           These weaknesses are partly offset by
+                                                                                          presence across emerging markets in LATAM,
+                           opportunities         in      biosimilars,        complex
+                                                                                          Asia, and Africa. Its India formulations business
+                           generics, digital pricing tools, and fast-
+                                                                                          acts as a reliable Cash Cow, delivering steady
+                           growing       emerging        markets,       which     help
+                                                                                          cash      flows     despite     modest      growth.     U.S.
+                           reduce dependence on low-margin generics.
+                                                                                          generics remain a Question Mark due to
+                           Strong financials, high ROCE, solid cash
+                                                                                          persistent pricing pressure and unclear long-
+                           reserves, and a growing consumer health
+                                                                                          term opportunities, while RoW generics and
+                           portfolio further strengthen resilience against
+                                                                                          simple APIs fall into the Dogs category given
+                           compliance,        cost,      and      macroeconomic
+                                                                                          their low margins and commoditized nature.
+                           threats.
+                                                                                                                         Justification of Results:
+                           Strategically, Sun Pharma should continue
+                                                                                                                         1) SUN PHARMA:
+08                         building its specialty and emerging-market
+                                                                                                                         India-branded formulations are placed in Cash Cows
+                           businesses, hold and sustain its dominant
+                                                                                                                         because Sun has industry-leading share (~8.2%) in a
+                           India formulations segment, and gradually
+                                                                                                                         mature but stable market. Its Specialty Portfolio in
+                           harvest or divest low-margin APIs and RoW
+                                                                                                                         dermatology & ophthalmology and its Emerging
+                           generics to improve profitability.
+                                                                                                                         Markets branded generics were classified as Stars
+                                                                                                                         because they show high growth and Sun has
+                           Dr. Reddy’s Stars are its fast-expanding
+                                                                                                                         meaningful competitive strength there. The U.S.
+                           biosimilars pipeline and its strong branded
+                                                                                                                         Generics business is a Question Mark, since the
+                           generics presence in Russia and CIS markets,
+                                                                                                                         market is growing moderately, but Sun’s relative
+                           both                  offering           high-margin                     growth
+                                                                                                                         share is low compared to Teva/Viatris. Finally, RoW
+                           opportunities.                     India’s       branded       generics
+                                                                                                                         generics and commodity APIs were classified as
+                           business acts as a dependable Cash Cow,
+                                                                                                                         Dogs due to low growth and fragmented competitive
+                           generating steady earnings. U.S. generics
+                                                                                                                         positions.
+                           remain a Question Mark because the market
+                           is large but challenged by pricing pressure
+ECON F355 PROJECT REPORT
+
+
+
+
+                                                                                                                         2) CIPLA:
+                           and regulatory risks, while APIs and other low-
+                                                                                                                         Cipla’s Respiratory portfolio and Chronic therapies in
+                           margin commodity products fall into the Dogs
+                                                                                                                         India were placed in Stars due to strong leadership
+                           category due to intense competition and
+                                                                                                                         (over 22% share in inhalation) and high therapy-area
+                           limited profitability. Strategically, Dr. Reddy’s
+                                                                                                                         growth. Its South Africa Branded/OTC and EM
+                           should continue building its biosimilars and
+                                                                                                                         Branded Generics operations were classified as
+                           specialty                drug         capabilities,          hold                and
+                                                                                                                         Cash Cows, reflecting stable revenues with smaller
+                           strengthen its Indian branded generics base,
+                                                                                                                         growth. U.S. complex generics were placed in
+                           and gradually harvest or reduce focus on low-
+                                                                                                                         Question Marks due to high potential but low relative
+                           margin APIs and commoditized generics.
+                                                                                                                         share. APIs and basic generics were placed in Dogs
+                           Making BCG matrix:                                                                            as they are low-margin, commoditized businesses.
+                           Step 1 - Identifying Strategic Business Units
+                           (SBUs)                                                                                        3) DR. REDDY’S:
+                           We selected the major revenue-generating or                                                   Dr. Reddy’s Biosimilars and Russia/CIS Branded
+                           strategically important product/therapy units
+                                                                                                                         Generics were placed in Stars because these are
+                           for each company. These were extracted from
+                           annual reports, investor presentations, and                                                   high-growth markets where the company is a top-tier
+                           financial statements.                                                                         player. Its India Branded Formulations are stable and
+                           Step 2 - Determining Market Growth (Y-Axis of                                                 profitable, making them Cash Cows. The U.S.
+                           BCG)                                                                                          Generics business is categorized as a Question Mark
+                           We used industry CAGR for each segment to
+                                                                                                                         because although it has large revenue, DRL’s share is
+                           determine whether a segment is high-growth
+                           or low-growth.                                                                                low and pricing pressure is high. Finally, APIs and
+                           Step 3 - Determining Relative Market Share (X-                                                commoditized chemical products are Dogs,
+                           Axis of BCG)                                                                                  reflecting low market share in a low-growth segment
+
+
+                                                      SUN PHARMA                                                         CIPLA                                           DR REDDY’S
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                                 Complex           Branded Generics in                                              Chronic                                           Biological
+                                                Injectables         Emerging Markets                                                Therapy                                           Pipelines
+                                                                                                                                    Portfolio
+                                                                                                                                                                  US Generics
+                                                   US                    Specialty                         US Complex              Respiratory
+                                                 Generics                Portfolio                          Generics                                                                 Biosimilars
+                                                                                                                                   Leadership
+                                                                                          Market Growth
+                               Market Growth
+
+
+
+
+                                                                                                                                                 Market Growth
+
+
+
+
+                                               Question Marks              Stars                          Question Marks            Stars                        Question Marks        Stars
+                                                   Dogs                 Cash Cows                             Dogs               Cash Cows                           Dogs            Cash Cows
+
+
+                                                Commodity                                                  Commodity            Emerging                                              India Branded
+                                                                                                                                                                 Commoditized
+                                                  APIs                                                       APIs             Market Branded                                           Formulations
+                                                                                                                                                                  Molecules
+                                                                                                                                 Generics
+                                                                        India Branded
+                                                 Low Scale               Fomulations                       Simple Oral
+                                                                                                                                South Africa                       Low Margin
+                                                   ROW                                                       Solids
+                                                                                                                             Branded and OTC                          APIs
+                                                  Generics
+                                                                                                                                 Franchise
+
+                                                            Market Share                                             Market Share                                           Market Share
+09
+                           Ratio Analysis
+
+                                       Cipla’s ratio analysis shows a financially
+                                       strong and operationally efficient company.
+                                       Revenue grows steadily, while margins
+                                       improve significantly over time, indicating
+                                       better pricing power and cost control.
+                                       Liquidity remains healthy, and the company
+                                       has aggressively reduced its leverage,
+ECON F355 PROJECT REPORT
+
+
+
+
+                                       making it low-risk and highly stable. Return
+                                       ratios such as ROE and ROCE trend upward,
+                                       reflecting improved capital efficiency.
+                                       Working capital cycles are long but well-
+                                       managed, typical for the pharmaceutical
+                                       sector. Cash flow generation is strong, and
+                                       interest coverage is extremely high due to
+                                       low debt. Overall, Cipla is a fundamentally
+                                       robust company with improving profitability,
+                                       low financial risk, and strong operational
+                                       efficiency.
+
+
+
+
+                                       Dr.Reddy’s      financials    show     strong
+                                       improvement in profitability, with margins
+                                       and ROCE now well above both historical
+                                       levels and industry averages, reflecting
+                                       highly efficient operations. The company
+                                       has also significantly strengthened its
+                                       balance sheet by reducing debt sharply,
+                                       resulting in extremely high interest coverage
+                                       and very low financial risk. However, its
+                                       growth performance remains volatile, with
+                                       large year-to-year swings in sales and
+                                       earnings, indicating dependence on irregular
+                                       events rather than steady expansion. Cash
+                                       generation is solid, but working-capital
+                                       efficiency has weakened, as seen in the
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                       rising cash-conversion cycle, meaning more
+                                       cash is tied up in receivables and inventory.
+10
+
+
+
+
+                           Sun Pharmaceutical's financials show a successful      OVERALL INFERENCES
+                           recovery in profitability and a position of
+                           exceptional financial strength. After a volatile         Sun Pharma outperforms in profitability
+ECON F355 PROJECT REPORT
+
+
+
+
+                           period, its profit margins have rebounded to levels      margins, reflecting strong pricing power and
+                           that now exceed industry averages. The company's         better cost control, though its sales growth is
+                           standout feature is its aggressive deleveraging,         slightly below peers.
+                           resulting in a nearly debt-free balance sheet and an     Dr. Reddy’s shows the strongest net profit
+                           extremely high 54x interest coverage ratio.              growth      (21.23%),   driven  by    efficiency
+                           Commendably, it has also improved operational            improvements and global expansion.
+                           efficiency by significantly reducing its inventory       Cipla remains steady but shows moderate
+                           days, thereby shortening its cash conversion cycle.      growth and thinner margins — likely reflecting
+                           The primary remaining concern is the high volatility     its domestic focus and generics-heavy
+                           and unpredictability of its year-over-year sales and     portfolio.
+                           profit growth, which appears "lumpy" and event-          All three companies maintain strong liquidity
+                           driven.                                                  and low leverage, signifying robust financial
+                                                                                    health.
+                                                                                    Sun Pharma has the best interest coverage
+                                                                                    and lowest debt reliance — ideal for downturn
+                                                                                    resilience.
+                                                                                    Dr. Reddy’s shows balanced liquidity and
+                                                                                    efficiency, managing leverage prudently.
+                                                                                    Sun Pharma slightly leads on ROE/ROCE due
+                                                                                    to superior margins despite slower turnover.
+                                                                                    Dr. Reddy’s compensates with high asset
+                                                                                    utilization (2.33x turnover).
+                                                                                    Cipla lags a bit in return ratios but maintains
+                                                                                    strong operational consistency.
+                                                                                    Sun Pharma exhibits the most efficient cash
+                                                                                    conversion cycle (96 days) — strong supplier
+                                                                                    negotiations and receivables control.
+                                                                                    Cipla and Dr. Reddy’s have slightly longer
+                                                                                    cycles, suggesting more capital locked in
+                                                                                    operations.
+PHARMACEUTICAL INDUSTRY
+                            Beta Analysis
+ 11
+
+
+
+                                              Dr. Reddy’s                                          SunPharma
+ECON F355 PROJECT REPORT
+
+
+
+
+                                                                                     2) Financial Leverage
+                                                                                        Overall: All three large-cap Indian pharma
+                           Determinants of Beta:                                        companies operate with conservative
+                           1) Operating Leverage-                                       balance sheets, so financial leverage is
+                              Sector context: Pharma companies have high                not the primary driver of their equity risk.
+                              fixed costs (manufacturing plants, quality                The difference between their levered and
+                              control, R&D) and relatively low variable                 (implied) unlevered betas is therefore
+                              costs. This tends to increase operating                   relatively small.
+                              leverage and can make profits more sensitive              Cipla: Lower debt levels and comfortable
+                              to revenue changes.                                       interest    coverage           suggest    limited
+                              Cipla: Despite meaningful fixed costs, Cipla’s            financial leverage. This dampens the
+                              focus on chronic and essential therapies and              amplification of business risk into equity
+                              a strong domestic portfolio leads to stable               risk and is consistent with Cipla’s sub-1
+                              revenues and margins, which keeps the                     beta and defensive profile.
+                              impact     of    operating   leverage     on   beta       Dr.   Reddy’s:      Slightly    higher   leverage
+                              moderate. This supports its lowest beta in the            (relative to Cipla/Sun, as seen in your D/E
+                              sample.                                                   ratios) means any volatility in operating
+                              Dr. Reddy’s: Higher exposure to US generics               profits is magnified more into equity
+                              and global markets means profitability is more            returns.   This     helps      explain   why   Dr.
+                              affected by price erosion, product launches               Reddy’s beta is the highest, even though
+                              and    regulatory     events.    Combined       with      all three operate in the same sector.
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                              significant fixed R&D/manufacturing spend,                Sun Pharma: Sun’s leverage is modest,
+                              this   implies     higher    effective    operating       often supported by strong cash flows and
+                              leverage, contributing to the highest beta                sizeable    equity      base.     Financial    risk
+                              among the three.                                          therefore adds only moderately to beta,
+                              Sun      Pharma:      Sun       has      large-scale      keeping its risk level between Cipla’s
+                              manufacturing and R&D like the others, but its            low-beta profile and Dr. Reddy’s higher-
+                              diversified portfolio (India branded, specialty,          beta profile
+                              generics) gives a mix of stable chronic
+                              revenues and some lumpy export income.
+                              This results in moderate operating leverage,
+                              placing its beta between Cipla and Dr.
+                              Reddy’s.
+12                         3) Cyclicality of the Business                                            CIPLA
+                             Sector        defensiveness:        Demand        for
+                             medicines       is    relatively     inelastic    to
+                             economic cycles. Chronic therapies and
+                             essential drugs continue to be consumed
+                             even during downturns, which naturally
+                             leads to betas below 1 for the pharma
+                             sector.
+                             Cipla:    A     greater     share     of    chronic
+                             therapies      and     India-focused        branded
+                             portfolio      makes       its    revenue      least
+                             sensitive to GDP cycles and discretionary
+                             spending. This low cyclicality is a key
+                             reason for Cipla’s lowest beta.
+                             Dr.   Reddy’s:        Higher     dependence       on    OVERALL INFERENCES
+ECON F355 PROJECT REPORT
+
+
+
+
+                             export      markets       and    tender-driven      /     Defensive Sector: Betas < 1 for all three
+                             generics        pricing     cycles         increases      confirm that pharmaceuticals behave as a
+                             exposure to global demand, currency                       defensive sector, with returns less volatile
+                             movements and regulatory shocks. These                    than the broader market.
+                             factors introduce more cyclicality and                    Ranking of Risk: In terms of exposure to
+                             event risk, pushing Dr. Reddy’s beta                      systematic risk:
+                             above its peers.                                          Cipla (lowest) ⟶ Sun Pharma (moderate) ⟶
+                             Sun Pharma: Sun is cushioned by a large                   Dr. Reddy’s (highest).
+                             chronic and specialty portfolio, but also                 Drivers:
+                             has meaningful exposure to US generics                       Operating leverage + cyclicality of
+                             and global markets, which adds some                          revenue    (domestic    vs   export   mix,
+                             cyclicality     and     regulatory     risk.     This        chronic vs acute) are the dominant
+                             balances out to a moderately defensive                       drivers of beta.
+                             but not completely insulated risk profile,                   Financial leverage plays a secondary
+                             reflected in its mid-range beta.                             role, as all three maintain relatively
+                                                                                          conservative capital structures.
+PHARMACEUTICAL INDUSTRY
+13
+                           Cost of Equity
+                           Analysis
+ECON F355 PROJECT REPORT
+
+
+
+
+                                                                             Inferences
+                           Methodology
+                                                                             1. Sun pharma:
+                           To estimate the Cost of Equity (COE) for
+                                                                                Sun Pharma’s COE of 16.02.% reflects its
+                           SunPharma, Cipla, and Dr. Reddy, the Capital
+                                                                                moderately high equity risk due to its high
+                           Asset Pricing Model (CAPM) was employed.
+                                                                                beta     (0.664)    and     moderate         financial
+                           The CAPM formula is:
+                                                                                leverage (D/E of 0.03301).
+                              Cost of Equity (COE)=Rf​+β×(Rm​−Rf​)
+                                                                                A moderately high COE indicates that
+                           Where:
+                                                                                equity investors in Sun pharma expect
+                              Rf​: Risk-free rate
+                                                                                moderately higher returns for the risk they
+                              β: Beta of the company (a measure of its
+                                                                                undertake, aligning with the stable and
+                              risk relative to the market).
+                                                                                diversified       nature     of      Sunpharma’s
+                              Rm: Expected market return (e.g., stock
+                                                                                operations.
+                              market index return).
+                                                                             2. Dr. Reddy:
+                              (Rm−Rf): Market risk premium (the extra
+                                                                                Dr. Reddy’s COE of 16.85% is the highest
+                              return expected from the market over the
+                                                                                among the three companies, driven by its
+                              risk-free rate).
+                                                                                higher beta (0.7217), reflecting amplified
+                           1. Risk-Free Rate (Rf​):
+                                                                                equity risk due to its high financial
+                              The 10-year government bond yields for
+                                                                                leverage (D/E of 0.1431).
+                              India were used as a proxy for the risk-free
+                                                                                The      higher    COE     implies    that     equity
+                              rate.
+                                                                                investors      require     higher     returns     for
+                              Daily returns for 10 years were calculated
+                                                                                investing in Dr Reddy, given its greater
+                              from bond data, and the average daily
+                                                                                sensitivity to market fluctuations and
+                              return was annualized using 245 trading
+                                                                                elevated financial risk.
+                              days to derive the yearly Rf​.
+                                                                             3. Cipla:
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                           2. Market Return (Rm​):
+                                                                                Cipla’s COE of 15.5% is the lowest among
+                              NIFTY 500 was used as the benchmark
+                                                                                the three, reflecting its beta (0.627), which
+                              index to calculate the expected market
+                                                                                accounts for moderate business and
+                              return.
+                                                                                equity risk.
+                              Similar to the Rf​, daily returns were
+                                                                                The company’s low D/E ratio of 0.014
+                              computed over 10 years, averaged, and
+                                                                                limits its financial risk, keeping the COE
+                              annualized using 245 trading days.
+                                                                                relatively close to Sun pharma’s.
+                           3. COE Calculation:
+                                                                             4. General Observations:
+                              The levered betas estimated earlier for
+                                                                                Their     respective      betas      and     financial
+                              Sunpharma (0.664), Cipla (0.627), and Dr.
+                                                                                leverage primarily drives the differences
+                              Reddy (0.7217) were used to calculate the
+                                                                                in     COE     values      across      the      three
+                              COE for each company.
+                                                                                companies.
+14                         Cost of Debt
+                           Analysis
+ECON F355 PROJECT REPORT
+
+
+
+
+                           Methodology
+                           The Synthetic Credit Rating Approach was
+                                                                                       2. Cipla COD: 9.91%
+                           applied to estimate the cost of debt (COD) for
+                                                                                          Cipla’s interest coverage ratio of 97.10 indicates
+                           Dr Reddy, Sun pharma, and Cipla. This
+                                                                                          a very strong debt servicing ability, reflective of
+                           method, developed by Professor Aswath
+                                                                                          its stable operations and larger scale. Despite
+                           Damodaran, estimates a company’s cost of
+                                                                                          the very high coverage, Cipla’s COD stands at
+                           debt     when    traditional       methods     such   as
+                                                                                          9.91%, slightly higher than what might be
+                           interest/debt or yield-to-maturity (YTM) are                   expected purely from its coverage ratio. This
+                           not suitable. Key steps include:                               suggests     that    while   Cipla     demonstrates
+                           1. Synthetic Credit Rating Approach:                           excellent debt-servicing capacity, factors such
+                              The interest coverage ratio (EBIT/Interest                  as its capital structure, market risk perception,
+                              Expense) was used as a primary indicator                    or credit market conditions may be influencing
+                              to estimate a synthetic credit rating.                      lender expectations..
+                              Adjustments were made based on the size                  3. Dr Reddy’s COD: 6.39%
+                              and type of the company, reflecting the                  Dr. Reddy’s interest coverage ratio of 24.19 places
+                              differing levels of risk associated with                 it comfortably in the low-to-moderate risk bucket,
+                              large and medium-sized firms.                            indicating healthy earnings relative to interest
+                           2. Key Considerations :                                     obligations. While its coverage is lower than those
+                              Traditional      COD         calculations      using     of Sun Pharma and Cipla, it still reflects a strong
+                                                                                       ability to service debt without strain.
+                              interest/debt      are      not    applicable      for
+                                                                                       The resulting COD of 6.39% is surprisingly low
+                              negative      EBITDA.       A    negative    interest
+                                                                                       relative to its peers, suggesting that the market
+                              coverage        ratio       indicates     significant
+                                                                                       perceives Dr. Reddy as a high-quality borrower.
+                              financial risk, making lending to a much
+                              riskier and justifying a substantially higher
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                              COD.
+
+                           Inferences
+                           1. Sun pharma COD: 6.86%
+                              Sun Pharma’s interest coverage ratio of
+                              54.2 reflects a very strong debt-servicing
+                              capacity, indicating minimal default risk .
+                              This is reflected in its COD, which aligns
+                              closely with what might be calculated
+                              using the traditional interest/debt method.
+                           This confirms that Sun pharma has a strong
+                           credit   profile   for     a    fair-sized     company,
+                           resulting in a reasonable cost of borrowing.
+15
+                              Cost of Debt
+                              Analysis
+                           Key Insights
+
+                           1. Synthetic Credit Rating Remains Highly           Effective for      3. Comparison of Synthetic vs. Traditional
+                           Pharma Companies:                                                      COD:
+ECON F355 PROJECT REPORT
+
+
+
+
+                              For Sun Pharma, Cipla, and Dr. Reddy — all of which                    For all three companies, the computed
+                              have high and stable interest coverage ratios — the                    synthetic COD aligns closely with what
+                              synthetic credit rating approach provides a clear and                  would      be    expected       using       the
+                              reliable assessment of borrowing costs.
+                                                                                                     interest/debt   method,    highlighting     the
+                              Unlike companies with volatile earnings, these firms
+                                                                                                     consistency between synthetic ratings
+                              exhibit     consistent    operational      strength,     making
+                                                                                                     and actual borrowing costs.
+                              synthetic COD estimation both valid and insightful.
+                                                                                                  4. Borrowing Costs as a Reflection of Risk:
+                           2. Impact of Size and Risk:
+                                                                                                     COD values highlight each company’s
+                              Larger pharmaceutical companies such as Sun
+                                                                                                     financial health and operational risk.
+                              Pharma and Cipla benefit from strong earnings
+                              stability    and   global       product    portfolios,    which        Overall, the COD values emphasize that
+                              translate into extremely high interest coverage ratios                 while all three companies maintain low
+                              (54.2 and 97.10).                                                      default risk, the market differentiates
+                              Dr. Reddy, while slightly lower in coverage at 24.19,                  them    based   on    subtle   variations     in
+                              still   displays    a    very    healthy   financial     profile,      earnings   quality,   leverage,   and       risk
+                              comfortably servicing its debt obligations.                            perception.
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                                                                Synthetic Ratings
+16
+                           WACC
+                           Analysis
+ECON F355 PROJECT REPORT
+
+
+
+
+                                                                                    2. SunPharma WACC: 15.73%
+                           Methodology
+                                                                                       Sun Pharma has the lowest WACC among
+                           The   Weighted    Average        Cost    of    Capital
+                                                                                       the three companies because it benefits
+                           (WACC) for SunPharma, Cipla and Dr.Reddy
+                                                                                       from a low cost of debt (6.86%), reflecting
+                           was calculated using the following formula:
+                                                                                       cheaper borrowing due to its strong
+                           WACC=(E​×Cost     of    Equity    (COE))/(E+D)+(D​
+                                                                                       balance sheet and credit profile, and a
+                           ×Cost of Debt (COD)×(1−Tax Rate))/(E+D)
+                                                                                       moderate        cost   of    equity     (16.02%),
+                           Where:
+                                                                                       showing that investors view it as a stable
+                              E: Market value of equity
+                                                                                       market leader.
+                              D: Market value of debt
+                                                                                       Its low D/E ratio (3.27%) also indicates
+                              COE: Cost of Equity (calculated using
+                                                                                       conservative      leverage,     which      keeps
+                              CAPM)
+                                                                                       financial risk controlled.
+                              COD: Cost of Debt (calculated using
+                                                                                       Overall, Sun Pharma has the most efficient
+                              synthetic credit rating)
+                                                                                       capital structure, the lowest financing
+                              T: Effective corporate tax rate
+                                                                                       cost, and is perceived as a lower-risk
+                                                                                       company, enabling it to scale its specialty
+                           Inferences                                                  pharma business, invest in R&D, and
+                           1. Cipla WACC: 15.81%                                       pursue acquisitions more cost-effectively.
+                              Cipla has a conservative capital structure
+                              and stable risk profile. However, its high            3. Dr. Reddy’s WACC: 15.94%
+                              borrowing cost pushes WACC up.                           Dr. Reddy’s shows the highest cost of
+                              Cipla could reduce WACC by using more                    equity (16.75%), indicating that the market
+                              low-cost debt for expansion.                             views it as a riskier company due to
+                              Despite having very low debt, its WACC                   factors such as its significant exposure to
+                              does not fall further because the company                Russia   and     the   US,    past    regulatory
+                              carries a high cost of debt (9.91%),                     challenges, and greater earnings volatility.
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                              indicating moderate credit risk. At the                  While it enjoys a low cost of debt (4.58%)
+                              same time, its cost of equity (15.9%) is                 because of strong creditworthiness and
+                              lower than that of its peers, reflecting                 access     to     cheap       borrowing,     this
+                              investor perception of Cipla as a stable                 advantage is offset by its highest debt-to-
+                              but slower-growth company. Although its                  equity ratio (13.94%), which increases
+                              D/E ratio is extremely low (1.40%), being                financial risk and pushes the overall
+                              almost debt-free also means the firm is                  WACC upward.
+                              not   using    the   benefits        of    cheaper       As a result, despite efficient borrowing,
+                              leverage, preventing further optimization                the elevated business and equity risk
+                              of its WACC.                                             make Dr. Reddy’s the company with the
+                                                                                       highest perceived risk profile among the
+                                                                                       three.
+17                         DCF
+                           Analysis
+                           Company Valuation Using Free Cash Flow to
+                           the Firm                                          6. Equity Value and Market Price:
+                                                                                Equity value was calculated by adding cash
+                           Methodology
+                                                                                and subtracting debt from the enterprise
+                           The valuation process was conducted using
+                                                                                value:
+                           the Free Cash Flow to Firm (FCFF) method,
+                           which employs a five-year forecast horizon
+                                                                                The current expected market price was
+                           (FY25–FY30) followed by a perpetual growth
+                                                                                then determined by dividing the equity
+                           phase.
+                                                                                value by the total outstanding shares:
+ECON F355 PROJECT REPORT
+
+
+
+
+                           1. Calculation of FCFF:
+                               Based on historical data over the past 10
+                               years, EBIT is projected into FY25 and
+                               adjusted for taxes to derive NOPAT. FCFF      Key Insights
+                               is then computed as:
+                                                                             1. Market expectations versus intrinsic value:
+                           FCFF = NOPAT X (1−Reinvestment Rate)                  All three stocks trade at a substantial
+                                                                                 premium to our DCF estimates (5.8×–6.5×).
+                           2. Growth & Reinvestment Rate Projections:
+                                                                                 This suggests that investors expect the
+                               Growth Rates and Reinvestment Rates
+                                                                                 companies to sustain growth and
+                               were calculated year-on-year from
+                                                                                 profitability beyond what is implied by our
+                               historical data, and their median was used.
+                                                                                 one‑year forecast.
+                           3. FCFF Forecast for 5 Years:                         Such expectations may be justified for Sun
+                               FCFF forecasts were calculated from the           Pharma and Dr Reddy's, given their robust
+                               projected reinvestment rate and EBIT              pipelines, international expansion, and
+                               forecasts based on the projected growth           strong balance sheets, while Cipla’s high
+                               rate.                                             reinvestment needs temper the upside.
+                               Forecasted FCFF is discounted using the           Our recommendations reflect both these
+                               weighted average cost of capital (WACC)           qualitative considerations and quantitative
+                               and by applying the mid‑year convention,          valuations. Perpetual growth rates were
+                               with discount periods of 0.5 to 4.5 years.        capped below GDP or industry growth
+                           4. Terminal Value Calculation:                        rates to ensure realistic assumptions,
+                               A perpetual growth rate of 6.25 % is              aligning with Aswath Damodaran's
+                               assumed. The terminal value is computed           recommendation.
+                               using the perpetuity growth formula and       2. Impact of WACC and Growth Assumptions:
+                               discounted back to FY25.                          WACC serves as a critical discount factor,
+                                                                                 ensuring that the present value of future
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                                                                 cash flows accurately reflects the
+                                                                                 company's specific risk.
+                              Where:                                             The intrinsic values derived here depend
+                                g = perpetual growth rate                        heavily on the WACC (15–16%) and terminal
+                                FCFF5​= free cash flow to firm in Year 5         growth rate (6.25%). Slight reductions in
+                           5. Enterprise Value Calculation:                      WACC or higher terminal growth would
+                               The enterprise value (EV) was obtained by         materially increase valuations.
+                               summing the present value (PV) of the             Conversely, lower growth or higher risk
+                               projected 5-year FCFF and the present             premiums would depress values. Investors
+                               value of the terminal value:                      should therefore interpret these valuations
+                                                                                 as conservative baselines.
+                           Cipla Limited
+18
+ECON F355 PROJECT REPORT
+
+
+
+
+                           1. Cipla Limited:
+                              WACC and Growth Rates:
+                                WACC rate: 15.81 %
+                                Expected Growth rate: 17.73 %
+                                Perpetual Growth rate: 6.25 %                                       HOLD
+                              Valuation Results:
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                 Terminal Value: ₹24,996.05 Crores
+                                 Enterprise Value: ₹19,529.67 Crores
+                                 Equity Value: ₹20,237.51 Crores
+
+                              Conclusion: The intrinsic value per share (₹250.54) is far below the market price (₹1,545).
+                              High growth assumptions and a substantial reinvestment rate yield modest free cash flow,
+                              and more than 60% of Cipla’s value is attributed to the terminal period. While its product
+                              pipeline is strong, the valuation offers limited upside, so we advise holding the stock.
+                           Sun Pharmaceutical Industries Limited
+19
+ECON F355 PROJECT REPORT
+
+
+
+
+                           2. Sun Pharma:
+                             WACC and Growth Rates:
+                               WACC rate: 15.73 %
+                               Expected Growth rate: 6.49 %
+                               Perpetual Growth rate: 6.25 %
+
+                             Valuation Results:
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                Terminal Value: ₹68,965.52 Crores
+                                Enterprise Value: ₹59,189.42 Crores
+                                Equity Value: ₹68,651.04 Crores
+
+                             Conclusion: Sun Pharma’s intrinsic value per share (₹286.13) is lower than its current price
+                             (₹1,675), but the company generates stable cash flows, has a large cash buffer and requires
+                             less reinvestment. Its leadership in speciality generics and a healthy international portfolio
+                             point to robust future cash flows. We therefore recommend buying Sun Pharma.
+20
+ECON F355 PROJECT REPORT   Dr. Reddy's Laboratories Ltd.
+
+
+
+
+                           3. Dr. Reddy's:
+                              WACC and Growth Rates:
+                                WACC rate: 15.49 %
+                                Expected Growth rate: 21.89 %
+                                Perpetual Growth rate: 6.25 %
+
+                              Valuation Results:
+                                 Terminal Value: ₹23,710.56 Crores
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                                 Enterprise Value: ₹18,024.05 Crores
+                                 Equity Value: ₹16,300.25 Crores
+
+                              Conclusion: Our model yields an intrinsic value of ₹195.30, compared to a market price of
+                              around ₹1,260. Dr Reddy’s invests heavily in growth and operates with the highest
+                              expected growth rate among its peers. Its strong generics pipeline and net cash position
+                              support continued expansion, suggesting that the market premium is justified. We
+                              recommend buying the stock.
+20                         FINAL INFERENCES
+
+                           SUNPHARMA                                       DR REDDY
+
+                           Bullish view                                    Bullish view
+                           •Sun Pharma’s innovative medicine portfolio     •Dr. Reddy’s Laboratories continues
+                           is outpacing generics in the US and             to leverage its strong generics
+                           globally, with specialty sales showing          portfolio, with a 17% growth in
+                           double-digit growth. Flagship products like     Q2FY25 and strategic launches
+                           Ilumya, Cequa, and recently launched            supporting stability despite Revlimid’s
+                           Leqselvi are driving strong momentum, and       anticipated erosion. Expansion in
+                           pipeline expansions are on track to maintain    emerging markets and a robust new
+                           growth rates. A robust R&D commitment           product pipeline are set to mitigate
+                           underpins future specialty launches.            U.S. headwinds.
+                                                                           •The       anticipated     launch     of
+ECON F355 PROJECT REPORT
+
+
+
+
+                           Bearish view                                    Semaglutide,       despite    regulatory
+                           •Sun Pharma’s sales growth has been             setbacks in Canada, is seen as a
+                           declining, while its P/E remains elevated       major catalyst for growth. Analysts
+                           compared to peers. If growth doesn't            expect regulatory hurdles to be
+                           accelerate as investors hope, a valuation       temporary and believe successful
+                           correction is likely. Increased operational     launches across India and key
+                           expenses and tax rates put pressure on          international markets could drive
+                           margins, threatening near-term upside.          significant revenue and strengthen Dr.
+                           •Declining US generics sales and ongoing        Reddy’s      diabetes    and     obesity
+                           FDA      compliance      challenges     pose    portfolio.
+                           significant risks. Regulatory warning letters
+                           at key facilities and heightened scrutiny       Bearish view
+                           threaten uninterrupted supply and margin        •The company trades at 18x FY27E
+                           growth                                          P/E, implying valuations already
+                                                                           factor in base business margin
+                           CIPLA                                           recovery and pipeline benefits.
+                                                                           Limited visibility on offsetting near-
+                           Bullish view                                    term erosion and fluctuating U.S.
+                           •Cipla’s partnership with Eli Lilly for         sales makes the current premium
+                           tirzepatide (Yurpeak) positions the company     challenging to justify, prompting
+                           to capture early share in a rapidly growing     caution from analysts on future
+                           diabetes and obesity segment. Leveraging        earnings growth.
+                           its chronic therapy expertise and vast
+                           distribution, analysts expect Yurpeak to
+                           meaningfully enhance long-term growth and
+                           elevate Cipla’s presence in metabolic care.
+PHARMACEUTICAL INDUSTRY
+
+
+
+
+                           Bearish view
+                           •Earnings per share are projected to decline
+                           by 11% in the coming year, with Cipla’s
+                           growth rate slightly lagging behind the
+                           broader pharma sector. Some analysts
+                           argue that recent downgrades and a dip in
+                           sentiment suggest earnings could face
+                           ongoing pressure, casting doubt on Cipla’s
+                           ability to outperform peers.
+THANK
+YOU
+
