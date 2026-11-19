@@ -16,7 +16,7 @@ plt.rcParams.update({"font.family": "Carlito", "font.size": 10, "axes.edgecolor"
                      "xtick.color": INK, "ytick.color": INK, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True,
                      "figure.dpi": 200, "savefig.bbox": "tight", "axes.titleweight": "bold", "axes.titlesize": 11,
-                     "axes.titlelocation": "left"})
+                     "axes.titlelocation": "left", "axes.facecolor": "none"})
 
 
 def find_row(ws, label, start=1, col=1):
@@ -31,7 +31,9 @@ def block_rows(ws, label):
 
 
 def save(fig, name):
-    fig.savefig(OUT / f"{name}.png", facecolor="white"); plt.close(fig)
+    fig.savefig(OUT / f"{name}.png", facecolor="white")
+    (OUT / "deck").mkdir(exist_ok=True)
+    fig.savefig(OUT / "deck" / f"{name}.png", facecolor="#F7F5F0"); plt.close(fig)
 
 
 cos = ["DLF", "GPL", "PML"]
@@ -203,3 +205,34 @@ for ax, co in zip(axs, cos):
     ax.set_title(f"{NM[co]}: revenue (₹ cr, bars) & core EBIT margin (line)")
 fig.tight_layout(); save(fig, "dcf_paths")
 print("charts:", sorted(p.name for p in OUT.glob("*.png")))
+
+# 10. What FY26 profit is made of
+import pandas as pd
+mix = {}
+for co, tk in [("DLF", "DLF"), ("GPL", "GODREJPROP"), ("PML", "PHOENIXLTD")]:
+    t = pd.read_csv(ROOT / f"data/processed/{tk}.csv", index_col=0)
+    ws = wb["Recast"]
+    rr = [r for r in range(1, ws.max_row + 1) if ws.cell(r, 1).value == "NOPAT = core EBIT × (1 − t)"][cos.index(co)]
+    nopat = ws.cell(rr, 6).value
+    jv = ws.cell(rr + 1, 6).value
+    ni_mi = float(t.loc["NetIncomeInclMI", "2026"])
+    ni = float(t.loc["NetIncome", "2026"])
+    mix[co] = {"Core operations (NOPAT)": nopat, "JV / associate share": jv,
+               "Treasury, exceptional & financing (net, after tax)": ni_mi - nopat - jv, "Minority share": -(ni_mi - ni)}
+fig, ax = plt.subplots(figsize=(8, 3.2))
+cols_ = ["#2F5D62", "#88A6A8", "#C08A3E", "#B9C6C8"]
+for i, co in enumerate(cos):
+    pos, neg = 0, 0
+    for (k, v), cc in zip(mix[co].items(), cols_):
+        if v >= 0:
+            ax.barh(i, v, left=pos, color=cc, label=k if i == 0 else None); pos += v
+        else:
+            ax.barh(i, v, left=neg, color=cc, label=k if i == 0 else None); neg += v
+    total = sum(mix[co].values())
+    ax.plot(total, i, marker="D", color=INK, ms=6); ax.text(pos + 60, i, f"PAT to owners ₹{total:,.0f} cr", va="center", fontsize=8.5)
+ax.set_yticks(range(3)); ax.set_yticklabels([NM[c] for c in cos]); ax.invert_yaxis()
+ax.axvline(0, color=MUTE, lw=0.8); ax.set_xlabel("₹ crore, FY26")
+ax.legend(frameon=False, fontsize=7.5, loc="lower center", bbox_to_anchor=(0.5, -0.55), ncol=2)
+ax.set_title("What FY26 profit is actually made of"); ax.set_xlim(min(-600, ax.get_xlim()[0]), ax.get_xlim()[1] * 1.35)
+save(fig, "profit_mix")
+print("profit mix", {k: {a: round(b) for a, b in v.items()} for k, v in mix.items()})
