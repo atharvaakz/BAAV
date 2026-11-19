@@ -20,7 +20,7 @@ def pc(x, d=1):
 
 
 def cr(x):
-    return f"₹{x:,.0f} cr"
+    return f"−₹{abs(x):,.0f} cr" if x < 0 else f"₹{x:,.0f} cr"
 
 
 def rs(x):
@@ -142,12 +142,12 @@ para(f"We analyse three listed real-estate companies with deliberately different
      f"recasting, financial analysis, cost of capital, intrinsic valuation and relative valuation — and every number is "
      f"produced by formulas in our Excel model.")
 bullets([
-    ("Accounting changes the picture.", f"Reported profits mix three very different things. For DLF, {pc(D['JV/associate share of PAT'][3],0)} of FY26 profit is its share of DCCDL rental income and a further large slice is treasury interest; core development EBIT was only {cr(D['RC Core operating EBIT'][3])}. Godrej's core EBIT is negative ({cr(G['RC Core operating EBIT'][3])}) because revenue is recognised only on completion while overheads hit the P&L immediately, and {cr(G['RC Interest capitalised (cash paid − P&L cost)'][3])} of interest was capitalised into inventory in FY26."),
-    ("Returns are modest; growth is funded by customers.", f"Average ROE in FY26 was {pc(D['DP ROE (3-step product)'][2])} (DLF), {pc(G['DP ROE (3-step product)'][2])} (Godrej) and {pc(P['DP ROE (3-step product)'][2])} (Phoenix) — below each firm's cost of equity. Customer advances now equal {xx(D['Customer advances / revenue (x)'][3])} DLF's annual revenue and {xx(G['Customer advances / revenue (x)'][3])} Godrej's, which is why DLF's invested capital fell even as bookings rose."),
+    ("Accounting changes the picture.", f"Reported profits mix three very different things. For DLF, {pc(D['JV/associate share of PAT'][3],0)} of FY26 profit is its share of joint-venture profits (mainly the DCCDL rental platform) and a further large slice is treasury interest; core development EBIT was only {cr(D['RC Core operating EBIT'][3])}. Godrej's core EBIT is negative ({cr(G['RC Core operating EBIT'][3])}) because revenue is recognised only on completion while overheads hit the P&L immediately, and {cr(G['RC Interest capitalised (cash paid − P&L cost)'][3])} of interest was capitalised into inventory in FY26."),
+    ("Returns are modest; growth is funded by customers.", f"Average ROE in FY26 was {pc(D['DP ROE (3-step product)'][2])} (DLF), {pc(G['DP ROE (3-step product)'][2])} (Godrej) and {pc(P['DP ROE (3-step product)'][2])} (Phoenix) — below each firm's cost of equity. Customer advances now equal {xx(D['Customer advances / revenue (x)'][3])} DLF's annual revenue and {xx(G['Customer advances / revenue (x)'][3])} Godrej's, which is why DLF's invested capital fell even as the business grew."),
     ("Cost of capital.", f"Using a rupee risk-free rate of {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)} and an India equity risk premium of {pc(I['India total ERP = mature ERP + CRP'],2)}, the cost of equity is {pc(D['W Cost of equity (CAPM)'])} for DLF, {pc(G['W Cost of equity (CAPM)'])} for Godrej and {pc(P['W Cost of equity (CAPM)'])} for Phoenix; WACC is {pc(D['W WACC'])}, {pc(G['W WACC'])} and {pc(P['W WACC'])}."),
     ("Intrinsic value is well below price.", f"A 10-year FCFF model gives {rs(D['DCF']['Intrinsic value per share (Rs)'])} for DLF (price {rs(D['DCF']['Current market price (Rs)'])}), {rs(G['DCF']['Intrinsic value per share (Rs)'])} for Godrej ({rs(G['DCF']['Current market price (Rs)'])}) and {rs(P['DCF']['Intrinsic value per share (Rs)'])} for Phoenix ({rs(P['DCF']['Current market price (Rs)'])}). A reverse DCF shows today's prices imply discount rates of only {pc(D['implied WACC'])}, {pc(G['implied WACC'])} and {pc(P['implied WACC'])}."),
-    ("Relative value tells a different story.", f"Against five listed peers, Godrej trades at {xx(N['RelVal'][1][12])} earnings and {xx(N['RelVal'][1][13],2)} book versus peer medians of {xx(N['RelStats']['Median'][0])} and {xx(N['RelStats']['Median'][1],2)}; DLF sits inside the peer range; Phoenix is the most expensive on every multiple."),
-    ("Conclusion.", "The sector as a whole is priced for a long runway of growth that standard CAPM discount rates do not justify. Within the sector, Godrej Properties is the relatively cheapest, DLF is fairly priced relative to peers but expensive intrinsically, and Phoenix Mills carries the richest valuation. Ranking: Godrej Properties > DLF > Phoenix Mills."),
+    ("Relative value tells a different story.", f"Against five listed peers, Godrej trades at {xx(N['RelVal'][1][12])} earnings and {xx(N['RelVal'][1][13],2)} book versus peer medians of {xx(N['RelStats']['Median'][0])} and {xx(N['RelStats']['Median'][1],2)}; DLF sits inside the peer range; Phoenix has the highest P/B in the set and trades above the peer median on every multiple."),
+    ("Conclusion.", "The sector as a whole is priced for a long runway of growth that standard CAPM discount rates do not justify. Within the sector, Godrej Properties is the cheapest of our three relative to peers, DLF is fairly priced relative to peers but expensive intrinsically, and Phoenix Mills carries the richest valuation. Ranking: Godrej Properties > DLF > Phoenix Mills."),
 ])
 
 # ---------------------------------------------------------------- 1 scope
@@ -264,7 +264,7 @@ table(["FY26 (₹ cr)", "DLF", "Godrej", "Phoenix"],
        ["Customer advances & other op. liabilities", f"{D['RC Customer advances & other op. liabilities (derived)'][3]:,.0f}", f"{G['RC Customer advances & other op. liabilities (derived)'][3]:,.0f}", f"{P['RC Customer advances & other op. liabilities (derived)'][3]:,.0f}"]],
       [6.5, 3.2, 3.2, 3.2])
 para(f"Two results stand out. DLF's invested capital fell from {cr(D['RC Net operating assets = invested capital'][0])} in FY23 to "
-     f"{cr(D['RC Net operating assets = invested capital'][3])} in FY26 even though bookings grew, because customer advances "
+     f"{cr(D['RC Net operating assets = invested capital'][3])} in FY26 even though the business grew, because customer advances "
      f"({cr(D['RC Customer advances & other op. liabilities (derived)'][3])}) now fund construction. Godrej's invested capital "
      f"doubled over the same period to {cr(G['RC Net operating assets = invested capital'][3])}, reflecting land purchases.")
 
@@ -363,8 +363,8 @@ module_tag("Module 7 · growth estimation, FCFF DCF, DDM; limitations (TB2 Ch-6)
 doc.add_heading("Growth estimation", 3)
 para(f"Historical growth was strong — revenue CAGR FY23–26 of {pc(D['Revenue CAGR FY23→FY26'])} (DLF), {pc(G['Revenue CAGR FY23→FY26'])} (Godrej) and {pc(P['Revenue CAGR FY23→FY26'])} (Phoenix) — "
      f"but fundamental growth (reinvestment rate × ROIC) is unusable for developers: DLF's reinvestment rate is negative because customer advances shrink its invested "
-     f"capital, and Godrej's is meaningless while its ROIC is near zero. Phoenix's fundamental growth averaged about {pc(sum(P['Fundamental growth = RR × ROIC'])/3)}, close to its revenue growth. We "
-     f"therefore set revenue growth from the business pipeline (bookings already made but not yet recognised) and tie reinvestment to growth through a "
+     f"capital, and Godrej's is meaningless while its ROIC is near zero. Phoenix's fundamental growth averaged about {pc(sum(P['Fundamental growth = RR × ROIC'])/3)}, roughly half its recent revenue growth. We "
+     f"therefore set revenue growth from the business pipeline (sales already made but not yet recognised, visible in customer advances) and tie reinvestment to growth through a "
      f"sales-to-capital ratio, so growth in the model is always paid for.")
 doc.add_heading("FCFF model design", 3)
 bullets([("Two phases.", "Five years of explicit growth, then five years in which growth fades linearly to the terminal rate."),
@@ -379,12 +379,12 @@ table(["Assumption", "DLF", "Godrej", "Phoenix"],
        ["WACC (years 1–5 → stable)", f"{pc(D['W WACC'])} → {pc(D['DCF stableWACC'])}", f"{pc(G['W WACC'])} → {pc(G['DCF stableWACC'])}", f"{pc(P['W WACC'])} → {pc(P['DCF stableWACC'])}"]],
       [5.0, 3.8, 3.8, 3.8], size=8)
 para("Why these numbers. DLF's growth reflects luxury projects already sold in Gurugram that will be recognised on completion over FY27–30; its target margin of 40% reflects "
-     "the high-ticket mix. Godrej's revenue converges toward its booking run-rate, which is several times current revenue, and its margin normalises to 22% as "
+     "the high-ticket mix. Godrej's revenue converges toward its sales run-rate — customer advances of 7.8x revenue show how far sales are ahead of recognition — and its margin normalises to 22% as "
      "overheads are spread over more completed projects. Phoenix grows with the ramp-up of malls opened in FY24–25 and the projects already in CWIP; its margin "
      "is already about 55%. Developers need little new capital per rupee of revenue (inventory and land are already on the balance sheet), while malls need a lot.")
 fig("dcf_paths", "Figure 6 — Forecast revenue and margin paths used in the FCFF models (FY26 actual in colour).")
 table(["Valuation bridge (₹ cr)", "DLF", "Godrej", "Phoenix"],
-      [[k, *[f"{d['DCF'][k]:,.0f}" if abs(d['DCF'][k]) > 50 else (pc(d['DCF'][k]) if abs(d['DCF'][k]) < 1.5 else f"{d['DCF'][k]:,.2f}") for d in (D, G, P)]]
+      [[k, *[(pc(d['DCF'][k]) if "%" in k else f"{d['DCF'][k]:,.0f}") for d in (D, G, P)]]
        for k in ["PV of FCFF FY27–FY36", "PV of terminal value", "Value of operating assets", "Terminal value as % of operating value",
                  "Add: cash & liquid investments (FY26)", "Add: JV / associate investments", "Less: total debt incl. leases",
                  "Less: minority interest (proportional)", "Equity value to owners", "Intrinsic value per share (Rs)", "Current market price (Rs)"]],
@@ -396,7 +396,7 @@ gA = D["gridA"]
 para(f"Shifting WACC by ±2 percentage points and terminal growth by ±1 point moves DLF's value between {rs(D['gridA_min'])} and {rs(D['gridA_max'])}; Godrej's between "
      f"{rs(G['gridA_min'])} and {rs(G['gridA_max'])}; Phoenix's between {rs(P['gridA_min'])} and {rs(P['gridA_max'])}. No reasonable combination reaches the market price. "
      f"Because value is linear in the target margin, we can also solve exactly for the margin the market price requires: {pc(D['implied margin'],0)} for DLF, "
-     f"{pc(G['implied margin'],0)} for Godrej and {pc(P['implied margin'],0)} for Phoenix. Margins above 100% are impossible, so the gap is not about margins. Solving instead "
+     f"{pc(G['implied margin'],0)} for Godrej and {pc(P['implied margin'],0)} for Phoenix. Margins above 100% are impossible, so for DLF and Phoenix the gap cannot be about margins; for Godrej a 45% core margin is possible but about double what developers typically sustain. Solving instead "
      f"for the discount rate shows that today's prices are consistent with our cash flows only at a WACC of roughly {pc(D['implied WACC'])} (DLF), {pc(G['implied WACC'])} (Godrej) "
      f"and {pc(P['implied WACC'])} (Phoenix) — in Phoenix's case, about the government bond yield.")
 fig("implied_wacc", "Figure 7 — The discount rate implied by market prices versus our CAPM-based WACC.", 12.5)
@@ -434,11 +434,11 @@ doc.add_heading("9. Synthesis and recommendation", 1)
 fig("football_field", "Figure 9 — Football field: intrinsic and relative value ranges against the market price.")
 para("Two conclusions follow from the football field. First, intrinsic and relative valuation disagree sharply. Relative valuation compares each company with "
      "peers that are themselves priced at high multiples, so it cannot detect a sector-wide premium; the DCF and reverse DCF show that such a premium exists — "
-     "investors are discounting real-estate cash flows at rates close to the government bond yield, which implies they expect growth well beyond our ten-year horizon "
+     "investors are discounting real-estate cash flows at 7.5–12%, well below CAPM-based rates (and, for Phoenix, close to the government bond yield), which implies they expect growth well beyond our ten-year horizon "
      "or treat land banks as valuable options. Second, within the sector the ranking is clear:")
-bullets([("Godrej Properties — relatively undervalued.", f"Cheapest on P/E and P/B; peer-median P/E implies {rs(ri['Godrej Properties'][0])} against a price of {rs(G['DCF']['Current market price (Rs)'])}. Risk: negative operating cash flow and rising leverage; value depends on converting bookings into cash."),
+bullets([("Godrej Properties — relatively undervalued.", f"Below the peer median on P/E and P/B and the cheapest of our three; peer-median P/E implies {rs(ri['Godrej Properties'][0])} against a price of {rs(G['DCF']['Current market price (Rs)'])}. Risk: negative operating cash flow and rising leverage; value depends on converting bookings into cash."),
          ("DLF — fairly valued against peers, expensive intrinsically.", f"Inside the peer P/E range ({rs(ri['DLF Ltd'][1])}–{rs(ri['DLF Ltd'][2])}); strongest balance sheet; but the DCF ({rs(D['DCF']['Intrinsic value per share (Rs)'])}) requires a discount rate of about {pc(D['implied WACC'])} to justify the price."),
-         ("Phoenix Mills — richly valued.", f"Most expensive on every multiple and the lowest implied discount rate ({pc(P['implied WACC'])}); a high-quality annuity business, but the price already assumes many years of rental growth.")])
+         ("Phoenix Mills — richly valued.", f"Highest P/B in the peer set, above the peer median on every multiple, and the lowest implied discount rate ({pc(P['implied WACC'])}); a high-quality annuity business, but the price already assumes many years of rental growth.")])
 doc.add_heading("Limitations", 2)
 bullets(["Four years of statements from one aggregated source; key figures should be reconciled to annual reports before relying on them.",
          "Bookings, land-bank and occupancy data (the main value drivers for developers) are disclosed in investor presentations, not in the statements we used; a NAV approach would capture them better.",

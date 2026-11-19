@@ -627,12 +627,12 @@ wb._ctx = dict(TARGETS=TARGETS, NAMES=NAMES, D=D, R=R, W=W, PX=PX, YC=YC)
 # =====================================================================================
 ASSUME = {
     "DLF": dict(g=[0.40, 0.45, 0.30, 0.15, 0.10], m=0.40, s2c=2.0,
-                why="Luxury launches booked FY24–26 (Privana, Dahlias, Arbour) are recognised on completion (Ind AS 115) in FY27–30, so "
-                    "recognised revenue jumps toward the Rs 20k cr+/yr booking run-rate; margin moves from ~21% core to 40% as high-ticket "
+                why="Luxury launches sold FY24–26 (Gurugram: Privana, Dahlias, Arbour) are recognised on completion (Ind AS 115) in FY27–30, so "
+                    "recognised revenue catches up with sales (customer advances = 2.9x revenue); margin moves from ~21% core to 40% as high-ticket "
                     "Gurugram projects dominate. Inventory/land already sits on the balance sheet and customer advances fund construction, "
                     "so incremental capital per rupee of revenue is low (S/C 2.0)."),
     "GPL": dict(g=[0.60, 0.50, 0.40, 0.25, 0.15], m=0.22, s2c=2.0,
-                why="Bookings (~6x FY26 revenue) are recognised with a 3–4 year lag, so revenue converges toward bookings. Core margin is "
+                why="Sales are recognised with a 3–4 year lag (customer advances = 7.8x FY26 revenue), so revenue converges toward the sales run-rate. Core margin is "
                     "negative today because marketing/overheads hit P&L before project revenue (Ind AS 115 timing) and interest is capitalised "
                     "into inventory; it normalises to ~22%. Rs 57.8k cr of inventory already funded = low incremental capital (S/C 2.0)."),
     "PML": dict(g=[0.15, 0.14, 0.12, 0.10, 0.08], m=0.57, s2c=0.50,

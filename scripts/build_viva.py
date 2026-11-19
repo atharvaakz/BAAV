@@ -39,7 +39,7 @@ doc.add_paragraph(
     f"Using a rupee risk-free rate of {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)} and ERP of {pc(I['India total ERP = mature ERP + CRP'],2)}, WACCs are {pc(D['W WACC'])}, {pc(G['W WACC'])} and {pc(P['W WACC'])}. "
     f"A 10-year FCFF DCF gives {rs(D['DCF']['Intrinsic value per share (Rs)'])}, {rs(G['DCF']['Intrinsic value per share (Rs)'])} and {rs(P['DCF']['Intrinsic value per share (Rs)'])} against prices of "
     f"{rs(D['DCF']['Current market price (Rs)'])}, {rs(G['DCF']['Current market price (Rs)'])} and {rs(P['DCF']['Current market price (Rs)'])}. The reverse DCF shows the market is discounting at about "
-    f"{pc(D['implied WACC'],0)}, {pc(G['implied WACC'],0)} and {pc(P['implied WACC'],0)}. Relative to peers, Godrej is cheapest and Phoenix most expensive. Conclusion: the sector is priced for "
+    f"{pc(D['implied WACC'],0)}, {pc(G['implied WACC'],0)} and {pc(P['implied WACC'],0)}. Relative to peers, Godrej trades below the peer median and Phoenix well above it. Conclusion: the sector is priced for "
     "long-duration growth; within it Godrej > DLF > Phoenix.")
 
 doc.add_heading("B. Numbers to know cold", 1)
@@ -135,7 +135,7 @@ PQ = [
  ("Why does DDM give such low values?", "Payout is low (DLF ~34%, Phoenix ~7%); value sits in reinvestment. Godrej pays no dividend → DDM not applicable."),
  ("Why is P/B regression R² so low?", "Book values are distorted (malls at cost; capitalised interest) and current ROE doesn't capture land banks. Used as cross-check only."),
  ("Why exclude the targets from peer medians?", "To avoid circularity — a company shouldn't be compared with a set that includes itself."),
- ("Which is your final recommendation?", "Relative: Godrej cheapest, Phoenix richest. Intrinsic: all above value at CAPM rates. Ranking Godrej > DLF > Phoenix, with the caveat that Godrej carries cash-flow and execution risk."),
+ ("Which is your final recommendation?", "Relative: Godrej below peer median (cheapest of our three), Phoenix well above (highest P/B in the set). Intrinsic: all above value at CAPM rates. Ranking Godrej > DLF > Phoenix, with the caveat that Godrej carries cash-flow and execution risk."),
  ("What would change your view on Godrej?", "Bookings not converting to collections, further rise in net debt, margins not normalising toward ~22%. Grid B shows value at 12–32% margins."),
  ("What would you do with more time?", "NAV model using project-level bookings and land bank; value DCCDL on its own cash flows; reconcile lines to annual reports."),
  ("What did each member do?", "Prepare your own honest answer: who built which sheets, who wrote which sections — and be ready to walk through those sheets live."),

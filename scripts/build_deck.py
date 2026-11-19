@@ -238,7 +238,7 @@ table(s, 0.6, 4.85, 12.13, [["Assumption", "DLF", "Godrej", "Phoenix"],
                             ["Sales-to-capital · WACC → stable (β→1)", f"{D['DCF s2c']:.1f} · {pc(D['W WACC'])} → {pc(D['DCF stableWACC'])}", f"{G['DCF s2c']:.1f} · {pc(G['W WACC'])} → {pc(G['DCF stableWACC'])}", f"{P['DCF s2c']:.1f} · {pc(P['W WACC'])} → {pc(P['DCF stableWACC'])}"]],
       [3.8, 2.8, 2.8, 2.73], 11, 0.3)
 method(s, "10 years: 5 explicit + 5 fade · FCFF = NOPAT − reinvestment · terminal reinvestment = g/RONIC · beta → 1 in stable phase · mid-year discounting", y=6.25)
-notes(s, "Our DCF corrects the most common error in past projects: growing cash flows without paying for growth. Reinvestment equals the change in revenue divided by sales-to-capital, and in the terminal year g over return on new capital. Growth for the developers comes from bookings already made but not yet recognised. After year five, growth fades to 5.5 percent and beta moves to 1, so the discount rate falls to a stable level.")
+notes(s, "Our DCF corrects the most common error in past projects: growing cash flows without paying for growth. Reinvestment equals the change in revenue divided by sales-to-capital, and in the terminal year g over return on new capital. Growth for the developers comes from sales already made but not yet recognised — visible in customer advances. After year five, growth fades to 5.5 percent and beta moves to 1, so the discount rate falls to a stable level.")
 
 # 10 ----------------------------------------------------------------- DCF result
 n += 1
@@ -257,7 +257,7 @@ notes(s, "Our base values are well below price. The sensitivity grids show no re
 
 # 11 ----------------------------------------------------------------- relative
 n += 1
-s = base("Module 8 · Relative valuation", "Against peers, Godrej is cheapest and Phoenix is the most expensive", n, "RelVal")
+s = base("Module 8 · Relative valuation", "Against peers, Godrej trades below the median; Phoenix far above it", n, "RelVal")
 rows = [["", "P/E", "P/B", "EV/EBITDA", "ROE"]]
 for r in N["RelVal"]:
     rows.append([r[0].replace(" Ltd", "").replace(" (Macrotech)", ""), f"{r[12]:.1f}", f"{r[13]:.2f}", f"{r[15]:.1f}", pc(r[11])])
@@ -268,7 +268,7 @@ pp = pic(s, "pb_roe", 6.9, 1.72, h=3.2)
 reg = N["Reg"]
 tb(s, 6.9, below(pp), 5.8, 1.1, f"Step 4 controls for profitability: R² is only {reg['r2']:.2f} — cost-based book values (Phoenix) and land banks break the P/B–ROE link, so the regression is a cross-check, not the anchor.", 12)
 method(s, "Four steps: comparables → standardise (FY26, same price date) → distribution (median, IQR; Sobha P/E > 70x skews mean) → control for differences (P/B = a + b·ROE, n = 8)")
-notes(s, "Relative valuation follows the four steps from Damodaran. Godrej trades at about 31 times earnings and 3 times book, below the peer medians of 35 and 3.7. DLF is inside the peer range. Phoenix is the most expensive on every multiple. When we control for ROE, the regression explains little — Phoenix's malls are at historical cost, so its book value is understated — so we use it only as a check.")
+notes(s, "Relative valuation follows the four steps from Damodaran. Godrej trades at about 31 times earnings and 3 times book, below the peer medians of 35 and 3.7. DLF is inside the peer range. Phoenix has the highest price-to-book in the set and sits above the peer median on every multiple. When we control for ROE, the regression explains little — Phoenix's malls are at historical cost, so its book value is understated — so we use it only as a check.")
 
 # 12 ----------------------------------------------------------------- synthesis
 n += 1
