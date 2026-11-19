@@ -1,0 +1,1531 @@
+A Comprehensive Analysis of the Automobile Industry
+
+  Submitted To
+
+  Prof. Mohit Kumar
+
+  Business Analysis and Valuation: ECON F355
+
+  []
+
+  BITS Pilani, K.K. Birla Goa Campus
+
+  Done by Group 26:
+
++--------------------------------------+-------------------------------+
+|   Name                               |   ID No.                      |
++======================================+===============================+
+|   Shriya Rode                        |   2023A3PS0223G               |
++--------------------------------------+-------------------------------+
+|   Tejas Bakre                        |   2023A8PS0239G               |
++--------------------------------------+-------------------------------+
+|   Harshil Salvi                      |   2023A3PS0177G               |
++--------------------------------------+-------------------------------+
+|   Saatvik Chaturvedi                 |   2023A8PS1192G               |
++--------------------------------------+-------------------------------+
+|   Pangoria Manashvi Rahul            |   2022A3PS0417G               |
++--------------------------------------+-------------------------------+
+|   Rohan Rao Joginipally              |   2022B3A80688G               |
++--------------------------------------+-------------------------------+
+
+ TABLE OF CONTENTS
+
+  -----------------------------------------------------------------------
+  Sr.No.   TITLE                                             Page No.
+  -------- ------------------------------------------------- ------------
+  1)       Industry Overview                                 3
+
+  2)       Porter’s Five Forces Analysis                     4
+
+  3)       SPACE Analysis                                    6
+
+  4)       Strategy Analysis                                 8
+
+  5)       PESTEL Analysis                                   10
+
+  6)       SWOT Analysis                                     14
+
+  7)       Consumer Analysis Frameworks                      19
+
+  8)       Value Chain Analysis                              20
+
+  9)       Ratio Analysis                                    22
+
+  10)      Dupont Analysis                                   28
+
+  11)      Beta Calculation                                  31
+
+  12)      WACC Calculation                                  34
+
+  13)      DCF Valuation                                     39
+
+  14)      Dividend Discount Model                           43
+
+  15)      Relative Valuation                                45
+  -----------------------------------------------------------------------
+
+  Industry Overview
+
+  The Indian automotive industry is seeing strong growth. It is becoming
+  one of the most dynamic parts of the country’s manufacturing sector.
+  This growth is driven by higher disposable incomes, urbanization, and
+  changing consumer preferences. Over the last decade, the industry has
+  expanded steadily. The market, which had about 3.4 million units in
+  2020, is expected to reach nearly 8.4 million units by 2030. This
+  reflects rising demand across all major vehicle categories.
+
+  Passenger vehicles are the largest segment, boosted by better
+  affordability, a wider range of models, and improved safety and
+  technology features. At the same time, three-wheelers and light
+  commercial vehicles are also gaining popularity due to their role in
+  urban mobility and last-mile logistics.
+
+  Commercial segments like heavy trucks and buses are likely to grow
+  slowly as economic activity picks up and infrastructure development
+  speeds up. The steady increase across all segments shows broad growth
+  rather than isolated pockets of expansion. This rise is backed by
+  improvements in manufacturing, local supply chains, and a shift toward
+  cleaner mobility solutions. Overall, the Indian automotive sector is
+  set for significant growth, offering many opportunities for OEMs,
+  component manufacturers and new mobility companies over the next
+  decade.
+
+  []
+
+  Figure1: India Automobile Industry Market Size (2020–2030)
+
+  Porter’s Five Forces Model
+
+  1. Threat of New Entrants: MODERATE
+
+  Traditional barriers still exist, but the shift to electric vehicles
+  (EVs) is drawing new players.
+
+  Capital & Regulation: High factory costs and strict safety and
+  emission rules protect established companies like Toyota and VW.
+
+  The "Tech" Loophole: The ease of making EVs allows tech companies like
+  Xiaomi and Sony to team up with partners like Foxconn, letting them
+  skip building their own factories.
+
+  Service Barriers: New companies struggle to set up service networks,
+  often called "service hell." However, over-the-air software updates
+  are gradually easing this need.
+
+  2. Bargaining Power of Suppliers: HIGH
+
+  Power is split between commodity suppliers and tech monopolies.
+
+  Critical Tech Oligopoly: Suppliers for batteries, such as CATL, and
+  chips, like Nvidia, hold significant power. Automakers can’t easily
+  switch suppliers and must accept their terms.
+
+  Commodity Suppliers: Suppliers of standard parts like tires and steel
+  have little power due to many competitors and competitive bidding.
+
+  Strategic Lock-in: Automakers are forming joint ventures (JVs) to
+  secure parts. However, this can tie them to certain technologies and
+  limit their options in supply chain disruptions.
+
+  3. Bargaining Power of Buyers: HIGH
+
+  Digital tools and economic factors give consumers more power.
+
+  Transparency: Online price comparisons and direct-to-consumer sales,
+  like those from Tesla, have removed dealers' ability to negotiate.
+
+  Eroding Loyalty: Buyers now focus more on tech specs, such as range
+  and screen size, than on brand loyalty. Switching brands now costs
+  almost nothing.
+
+  Price Sensitivity: High interest rates push Chinese manufacturers like
+  BYD to price aggressively, forcing traditional brands to cut profit
+  margins. Fleet buyers, such as Uber and Lyft, further push down prices
+  with their buying power.
+
+  4. Threat of Substitutes: HIGH
+
+  Competition extends beyond other cars; it includes options other than
+  owning a vehicle.
+
+  Urban Mobility: In crowded cities, efficient public transit and
+  congestion fees make owning a vehicle less attractive.
+
+  Robotaxis: As self-driving technology improves, using a ride-hailing
+  service, like Waymo, may become cheaper than owning a car, threatening
+  sales.
+
+  Micro-Mobility: Electric bikes and scooters are taking over short
+  trips under five miles, often replacing second vehicles in homes.
+
+  5. Competitive Rivalry: INTENSE
+
+  This is the strongest force, marked by fierce competition in a crowded
+  market.
+
+  Zero-Sum Game: Growth in developed markets is flat; sales must come
+  from competitors, leading to higher marketing costs.
+
+  Price Wars: Tesla and Chinese manufacturers have begun aggressive
+  price cuts, hurting profit margins across the industry.
+
+  High Exit Barriers: Unions and government pressures keep struggling
+  factories open, creating an oversupply situation.
+
+  Tech Warfare: The focus has shifted from hardware, like engines, to
+  software, creating a clash between traditional car companies and agile
+  tech firms in Silicon Valley.[][]
+
+  []
+
+  SPACE ANALYSIS
+
+  1. TVS MOTOR COMPANY
+
+  Financial Strength: Strong balance sheet with improving EBITDA margins
+  (~12.5%) & rising ROE (28-30%), thus enabling capital for R&D and
+  acquisitions.
+
+  Competitive Advantage: Only player with a Complete Portfolio (Mopeds
+  to Premium) and early EV Leadership (~20% Market Share with iQube).
+
+  Industry Attractiveness: Well-positioned for the industry's shift
+  toward premium "lifestyle" biking.
+
+  Environmental Stability: Faces risks, which involve rapid
+  technological obsolescence for EV batteries.
+
+  2. BAJAJ AUTO
+
+  Financial Strength: 'Profit Fortress' with Industry-leading margins
+  (>20%); zero debt; and high ROCE (>35%)
+
+  Competitive Advantage: CA, dominant exporter-natural hedge, leveraging
+  smart alliances with KTM/Triumph for tech without high costs.
+
+  Industry Attractiveness: Cash-rich monopoly in the lucrative 3-wheeler
+  segment.
+
+  Environmental Stability: Subject to geopolitical instability in
+  significant African export markets.
+
+  3. HERO MOTOCORP
+
+  Financial Strength: Volume leader with huge cash flow and dividends,
+  though margins are thinner because of entry-level focus.
+
+  Competitive Advantage: CA has an unbeatable rural distribution and
+  brand trust ("Rural Fortress"), but lags peers in EV transition.
+
+  Industry Attractiveness: Set to gain from the anticipated recovery of
+  rural economy.
+
+  Environmental Stability: faces an existential threat from the
+  regulatory phase-out of the internal combustion engine.
+
+  [][][]
+
+  [][]
+
+  Corporate strategy
+
+  TVS
+
+  Global Expansion: TVS has built a robust export engine, with nearly
+  25% of its revenue coming in from exports. The company dominates
+  markets in Africa, Latin America, and Southeast Asia. A strategic
+  partnership with Emil Frey allows entry into European markets without
+  having to build up a new distribution network from scratch.
+
+  Aggressive Premiumization: Acquiring Norton Motorcycles (£200M
+  Investment) propels TVS into the global super-premium market.
+  Similarly, the acquisition of Swiss E-Mobility Group (SEMG) gives
+  immediate access to the high-margin e-bike market in the DACH region.
+
+  "Smart Mobility" Transition: TVS has established a separate vertical
+  for EVs to ensure agility and speed. Substantial investments in
+  software, electronics, and digital connectivity are transforming the
+  company from a traditional manufacturer to a smart mobility provider.
+
+  Bajaj
+
+  Global Expansion: A strategic shift to local manufacturing in Brazil
+  with its Manaus plant allows Bajaj to bypass tariffs and capture the
+  Latin American market. Exports have been shifted to resilient markets
+  in LatAm and the Middle East, achieving record revenues.
+
+  Strategic Alliances: Bajaj will assume majority control of KTM to lead
+  operational turnarounds at the company and leverage its partnership
+  with Triumph for a global play in the mid-weight premium segment.
+
+  Subsidiary Structure: The company founded separate focused
+  subsidiaries for EV innovation, Chetak Technology Ltd, and financing,
+  Bajaj Auto Credit Ltd, to ensure focus and agility.
+
+  Hero
+
+  Aggressive Premiumization: A strategic partnership with
+  Harley-Davidson allowed the co-development of the X440 and Hero's own
+  Maverick 440, thus fast-tracking entry into the 400cc+ segment. Retail
+  is being transformed with exclusive "Hero Premia" stores for top-tier
+  products.
+
+  Global Expansion: Under the 'Make in India for the World', Hero aims
+  for 10% revenue from international markets. It has entered the
+  Philippines and Brazil and is planning to launch EVs in the UK/Europe
+  by mid-2025.
+
+  Multi-pronged EV strategy: Hero adopts a hybrid approach-building its
+  own brand Vida, hedging with a major investment in Ather Energy, and
+  also partnering with Zero Motorcycles for high-performance electric
+  bikes.
+
+  Competitive strategy
+
+  TVS
+
+  How TVS Wins: It competes based on Product Differentiation and Quality
+  Leadership. TVS uses feature-rich, high-quality product offerings to
+  avoid low-price wars.
+
+  "Power of Choice" - EV Portfolio: TVS provides an assortment of EVs.
+  The iQube targets the mass-premium segment with a focus on reliability
+  and familiarity, while the TVS X targets enthusiasts who crave high
+  performance and showcases the brand's technological capabilities
+
+  Differentiation through Technology: Early adoption of advanced
+  features like the SmartConnect platform for navigation and analytics
+  positions TVS as a technology leader that appeals more to a young
+  audience..
+
+  Service Network Leverage: Backed by a legacy network of more than
+  4,000 touchpoints, TVS offers unmatched service assurance to State
+  Bank of India customers and helps overcome "service anxiety" about
+  digital-first competitors.
+
+  Bajaj
+
+  How Bajaj Wins: Bajaj competes based on Premiumization and
+  Differentiation to avoid low-margin price wars.
+
+  Premium Focus: The company is dominant in the high-margin 125cc+
+  "sports" segment and has created a separate "Pro-Biking" vertical to
+  provide a distinct retail experience for its premium brands.
+
+  EV Strategy: Differing from competitors with gadget-focused bikes, the
+  Chetak is being sold on reliability and durability ("metal body").
+  Bajaj uses its extensive pan-India network of over 4,000 touchpoints
+  to promise better after-sales service.
+
+  Multi-fuel defense: Bajaj is defending its leadership in commercial
+  vehicles with both CNG and Electric three-wheelers to offer a
+  practical, cost-effective transition for the fleet operators.
+
+  Hero
+
+  ​How Hero Wins: Hero competes via Cost Leadership in the mass market
+  and "Value Premium" in higher segments.
+
+  Unmatched Distribution: Hero boasts the world's largest network of
+  9,000+ touchpoints, superior rural reach, and accessibility of service
+  as a huge barrier to entry against EV startups.
+
+  Scale Advantage: As the volume leader, Hero uses economies of scale to
+  price entry-level models like Splendor aggressively and remains
+  dominant in price sensitive segments.
+
+  Differentiation: Hero creates new categories with innovations like the
+  Surge S32 (convertible 3-wheeler to 2-wheeler) and addresses high EV
+  costs through Battery-as-a-Service models.
+
+PESTEL ANALYSIS
+
+  The PESTEL framework analyses the macro-environmental factors
+  influencing an industry, offering insights into opportunities and
+  challenges. It examines Political, Economic, Social, Technological,
+  Environmental, and Legal aspects that shape industry dynamics.
+  For the Indian Automobile Industry, PESTEL highlights key drivers such
+  as government policies, technological advancements, rising consumer
+  expectations, and sustainability pressures. Together, these factors
+  define the growth trajectory and competitive environment of the
+  sector.
+
+Political Factors
+
+  Government Policies:
+  The Indian government plays an active role in shaping the sector
+  through initiatives such as the FAME-II scheme, which incentivizes the
+  adoption of electric vehicles (EVs) via subsidies and reduced GST.
+  Policies supporting hybrid vehicles, battery manufacturing, and
+  mobility electrification continue to influence manufacturer
+  strategies.
+
+  Emission and Safety Regulations:
+  Regulations like Bharat Stage VI (BSVI) norms and mandatory safety
+  features (airbags, ABS, crash test compliance) have increased
+  technological requirements and manufacturing costs. However, these
+  have improved overall product quality and pushed companies toward
+  cleaner technologies.
+
+  Manufacturing Incentives:
+  Policies under Make in India, PLI schemes, and localization mandates
+  aim to enhance domestic production, reduce reliance on imports, and
+  boost job creation. This encourages automakers to set up local
+  manufacturing and component sourcing networks.
+
+  Geopolitical Influence:
+  Tensions with countries that supply critical inputs (e.g., China for
+  batteries, semiconductors) impact supply chains. Changes in trade
+  agreements, import tariffs, and international relations can affect
+  availability and cost of key parts.
+
+Economic Factors
+
+  Rising Disposable Income:
+  India’s expanding middle class continues to drive demand for
+  two-wheelers and passenger vehicles. Increased urban employment and
+  income growth support sustained industry expansion.
+
+  Inflation & Interest Rates:
+  Volatile fuel prices, inflation, and rising interest rates directly
+  influence consumer purchasing decisions. Higher EMIs and operating
+  costs may delay purchases or shift demand toward fuel-efficient and
+  electric models.
+
+  Supply Chain Costs & Disruptions:
+  Global shortages of semiconductors, fluctuations in raw material
+  prices (steel, aluminium, lithium), and shipping delays increase
+  production costs and extend delivery wait times.
+
+  Export Opportunities:
+  India is developing as a manufacturing hub for small cars and
+  two-wheelers. Growth in exports to Southeast Asia, Africa, and Latin
+  America provides diversification and revenue stability.
+
+Social Factors
+
+  Shift in Consumer Preferences:
+  Consumers are increasingly prioritizing sustainability, fuel
+  efficiency, and safety features. Digital additions like connected
+  tech, navigation, and infotainment are now expected in even mid-range
+  vehicles.
+
+  Urbanization:
+  Rapid urban growth boosts demand for compact cars and two-wheelers
+  suited to congested environments. This supports high sales for
+  commuter motorcycles and small family cars.
+
+  Affordability as Key Driver:
+  India remains one of the world’s most price-sensitive automobile
+  markets. This constrains aggressive pricing and makes efficiencies
+  critical for competitiveness.
+
+  Rural Market Growth:
+  The rural economy has shown increasing purchasing power, making it an
+  important market for entry-level motorcycles, scooters, and low-cost
+  commuter cars.
+
+Technological Factors
+
+  EV and Battery Technology:
+  Manufacturers are investing heavily in electric drivetrains, battery
+  innovation, and hybrid systems. Advances in battery range, charging
+  speed, and durability are reshaping product development.
+
+  Digital & Connected Technologies:
+  Features like telematics, connectivity, AI-based diagnostics, ADAS,
+  and IoT-enabled features are increasingly included across segments.
+  This pushes firms to invest in advanced electronics and software
+  capabilities.
+
+  Automation & Smart Manufacturing:
+  The industry is adopting robotics, automation, and data-driven
+  manufacturing to reduce costs, improve quality, and enhance
+  efficiency.
+
+  Emerging Mobility Models:
+  Growth in shared mobility, subscription-based ownership, and digital
+  retail platforms is transforming traditional dealership-driven sales
+  models.
+
+Environmental Factors
+
+  Sustainability Focus:
+  Growing concerns about pollution and climate change drive consumers
+  and regulators toward clean mobility solutions such as EVs, hybrids,
+  and CNG vehicles.
+
+  Resource Scarcity:
+  Dependence on imported lithium, cobalt, and other rare metals affects
+  EV affordability and supply stability. Battery recycling and circular
+  economy initiatives are gaining importance.
+
+  Air Pollution Concerns:
+  Major Indian cities exceed global pollution norms, prompting stricter
+  emission laws and public pushes for cleaner transport solutions.
+
+  Green Manufacturing:
+  Automakers increasingly adopt renewable energy sources and
+  eco-friendly processes to reduce carbon footprints across production
+  facilities.
+
+Legal Factors
+
+  Taxation Structure:
+  ICE vehicles attract higher GST (28% + cess), while EVs enjoy a
+  concessional 5% GST rate. This price differential strongly impacts
+  consumer choice and industry pricing strategies.
+
+  Safety Regulations:
+  Mandatory features — including dual airbags, ABS, rear parking
+  sensors, and crash testing — have increased manufacturing costs but
+  improved product safety across the market.
+
+  Intellectual Property & Technology Laws:
+  Stronger IP laws encourage global players to bring advanced
+  technologies to India while protecting proprietary EV and software
+  innovations.
+
+  Labour Compliance:
+  Manufacturers must adhere to strict labour laws regarding wages,
+  worker safety, and unionisation. These influence productivity, costs,
+  and plant operations.
+
+SWOT ANALYSIS
+
+  A SWOT analysis examines the Strengths, Weaknesses, Opportunities, and
+  Threats of a company, offering a structured framework to evaluate
+  internal capabilities and external industry pressures. For Hero
+  MotoCorp, Bajaj Auto, and TVS Motor, this analysis highlights their
+  distinct competitive positions within the Indian two-wheeler industry,
+  revealing key advantages, strategic gaps, and areas requiring
+  attention. It also helps identify emerging growth avenues such as
+  electrification, premiumisation, and global expansion while assessing
+  risks from competition, regulatory changes, and shifting consumer
+  preferences.
+
+  1) Hero MotoCorp
+
+  []
+
+ Strengths
+
+-   Market Leadership in Two-Wheelers:
+      Hero continues to command one of the largest market shares in the
+      Indian commuter motorcycle segment, supported by strong brand
+      recall and reliability.
+
+-   Extensive Distribution Network:
+      A widespread dealer and service network ensures superior
+      accessibility across rural and semi-urban markets.
+
+-   Strong Financial Position:
+      Consistent cash flows and low debt levels provide resilience and
+      capacity for long-term investments.
+
+-   Operational Efficiency:
+      High-scale manufacturing and lean operating structures drive cost
+      efficiency, enabling competitive pricing.
+
+Weaknesses
+
+-   Limited Premium Portfolio:
+      Compared to peers, Hero has a weaker presence in the premium
+      motorcycle segment, limiting margin expansion opportunities.
+
+-   Slow EV Penetration:
+      Hero’s entry into the electric mobility space has been slower
+      relative to market expectations, creating a strategic gap.
+
+-   Dependence on Domestic Sales:
+      A large share of revenues comes from India, exposing the firm to
+      domestic economic cycles.
+
+Opportunities
+
+-   Premiumisation Trend:
+      Growing demand for high-performance and feature-rich motorcycles
+      presents room to grow through partnerships and new model launches.
+
+-   Expansion in EV Segment:
+      Increased government support for EVs creates long-term expansion
+      opportunities in electric scooters and motorcycles.
+
+-   Global Market Expansion:
+      Growing markets in Africa, Latin America, and Southeast Asia
+      provide avenues for export growth.
+
+Threats
+
+-   Intense Competition:
+      Aggressive launches from TVS, Bajaj, and emerging EV startups
+      increase competitive pressures.
+
+-   Regulatory Uncertainty:
+      Frequent changes in emission and safety norms elevate compliance
+      costs.
+
+-   Rising Raw Material Prices:
+      Fluctuations in steel, aluminium, and battery inputs can impact
+      margins.
+
+  2) Bajaj Auto[]
+
+Strengths
+
+-   Strong Presence in Premium & Performance Segments:
+      Successful brands like Pulsar, Dominar, and KTM strengthen Bajaj’s
+      appeal among young and performance-oriented riders.
+
+-   Global Leadership in Exports:
+      Bajaj is India’s top two-wheeler exporter with a diversified
+      geographic footprint across over 70 countries.
+
+-   Cost-Optimized Manufacturing:
+      Efficient operations and strategic partnerships support superior
+      margins versus industry peers.
+
+-   Robust R&D Capabilities:
+      Strong product innovation pipeline with global brand
+      collaborations (e.g., KTM, Triumph).
+
+Weaknesses
+
+-   Lower Penetration in Entry-Level Commuter Segment:
+      The company’s weaker rural reach compared to Hero limits volume
+      growth in the mass commuter market.
+
+-   Limited Scooter Portfolio:
+      Minimal participation in the scooter segment, which has shown
+      consistent growth in India.
+
+-   Still Developing EV Portfolio:
+      Although strengthened, Bajaj’s EV offerings are not yet broad
+      enough to cover multiple consumer segments.
+
+Opportunities
+
+-   Premium Segment Growth:
+      Rising demand for high-performance motorcycles supports Bajaj’s
+      core strength and partnership ecosystems.
+
+-   Expansion of Electric Mobility (Chetak):
+      Bajaj’s efforts in EV scooters and upcoming EV motorcycles provide
+      new revenue streams.
+
+-   Export Market Potential:
+      Stabilization in African and Latin-American economies could boost
+      export sales significantly.
+
+Threats
+
+-   Foreign Exchange Volatility:
+      Heavy dependence on exports exposes margins to currency
+      fluctuations.
+
+-   Increasing Competition in Premium Segment:
+      Entry of global brands and strengthened offerings from TVS and
+      Hero may pressure market share.
+
+-   Regulatory & Compliance Risks:
+      Environmental norms and import restrictions can affect cost
+      structures and supply chains.
+
+3) TVS Motor Company
+
+[]
+
+Strengths
+
+-   Diverse Product Portfolio:
+      TVS has strong offerings across scooters, commuter bikes, and
+      performance motorcycles, providing balanced revenue streams.
+
+-   Rapid EV Adoption (iQube):
+      TVS has established itself as one of the early movers in electric
+      two-wheelers with strong sales traction in major cities.
+
+-   High R&D Intensity & Innovation:
+      Strong engineering capabilities enable advanced models with
+      connectivity, telematics, and premium features.
+
+-   Growing Global Presence:
+      TVS’ international footprint and recent acquisitions (e.g., Norton
+      Motorcycles) expand global brand presence.
+
+Weaknesses
+
+-   Moderate Rural Penetration:
+      TVS’ rural presence is improving but still trails Hero, limiting
+      growth in price-sensitive segments.
+
+-   Lower Brand Equity in Premium Segment:
+      Though improving, TVS still lags Bajaj in strong performance-brand
+      perception globally.
+
+-   High Capex in EV & Technology:
+      Aggressive investment in EVs and premium bikes increases cost
+      pressures.
+
+Opportunities
+
+-   Strong EV Growth Outlook:
+      Expansion of charging infrastructure and supportive policies can
+      boost iQube and upcoming EV models.
+
+-   Premiumisation & Product Upgradation:
+      Scope for expanding Apache and Norton-driven performance
+      offerings.
+
+-   Export Expansion:
+      Growing demand in ASEAN, Middle East, and Latin America supports
+      long-term export growth.
+
+Threats
+
+-   Rising Competition in EV Space:
+      Established firms and well-funded EV start-ups intensify
+      competitive pressure.
+
+-   Regulatory Changes:
+      Emission, taxation, and safety norms may require constant cost
+      adjustments.
+
+-   Macroeconomic Sensitivity:
+      Sales of two-wheelers are highly correlated to economic cycles,
+      rural incomes, and fuel prices.
+
+  CONSUMER ANALYSIS FRAMEWORKS
+
+SEGMENTATION ANALYSIS
+
+-   Hero MotoCorp:
+      Targets mass-market commuters, price-sensitive buyers, and
+      rural/urban middle-class consumers seeking fuel-efficient and
+      low-maintenance motorcycles.
+
+-   Bajaj Auto:
+      Focuses on performance-oriented riders, mid-segment buyers, and
+      young urban consumers looking for sporty styling, power, and
+      value-for-money bikes.
+
+-   TVS Motor:
+      Caters to a wide mix of customers—urban riders, families
+      purchasing scooters, and premium-performance enthusiasts through
+      Apache and iQube EV segments.
+
+CUSTOMER LIFETIME VALUE
+
+-   Hero MotoCorp:
+      High CLV due to strong brand trust, robust service network,
+      affordable spare parts, and repeat purchases in commuter
+      categories.
+
+-   Bajaj Auto:
+      Moderate to high CLV driven by appealing performance motorcycles
+      and strong export presence, ensuring loyalty among power-bike
+      riders.
+
+-   TVS Motor:
+      High CLV supported by product diversity (scooters, commuters,
+      EVs), reliable service, and strong engagement with younger riders.
+
+CONSUMER PREFERENCES
+
+-   Hero MotoCorp:
+      Consumers value fuel efficiency, low maintenance cost,
+      practicality, and extensive service accessibility. Hero bikes are
+      seen as dependable and economical for daily commuting.
+
+-   Bajaj Auto:
+      Preferred for performance, aggressive styling, and superior
+      power-to-price ratio. Buyers seeking sporty rides and innovative
+      features often choose Bajaj.
+
+-   TVS Motor:
+      Customers appreciate refined engines, advanced technology,
+      connected features, and strong build quality. TVS scooters and
+      sport bikes resonate with urban buyers seeking comfort +
+      performance.
+
+VALUE CHAIN ANALYSIS
+
+HERO MOTOCORP
+
+  Inbound Logistics:
+  Strong domestic supplier network, high localisation, and
+  cost-efficient sourcing for commuter motorcycles.
+
+  Operations:
+  High-volume manufacturing with automation and lean processes enabling
+  low-cost, large-scale production.
+
+  Outbound Logistics:
+  Extensive dealer reach across rural and urban markets, ensuring wide
+  accessibility.
+
+  Marketing & Sales:
+  Focused on affordability, reliability, and mileage-driven messaging
+  appealing to mass-market buyers.
+
+  Service:
+  One of the largest service networks in India, ensuring low ownership
+  cost and strong customer loyalty.
+
+BAJAJ AUTO
+
+  Inbound Logistics:
+  Balanced domestic and international procurement supporting performance
+  motorcycle components.
+
+  Operations:
+  Highly efficient plants specialising in premium and export-oriented
+  motorcycle production.
+
+  Outbound Logistics:
+  Strong export logistics to 70+ countries, along with a robust domestic
+  distribution network.
+
+  Marketing & Sales:
+  Branding around performance, power, and innovation; targeted toward
+  younger and global audiences.
+
+  Service:
+  Reliable service infrastructure with focus on performance maintenance
+  and high-quality spare parts.
+
+TVS MOTOR
+
+  Inbound Logistics:
+  Integrated sourcing for both ICE and EV components with emphasis on
+  quality, technology, and efficiency.
+
+  Operations:
+  Diversified manufacturing for scooters, commuters, performance bikes,
+  and electric vehicles with advanced R&D capabilities.
+
+  Outbound Logistics:
+  Strong domestic reach and expanding global distribution, especially in
+  emerging markets.
+
+  Marketing & Sales:
+  Positioned around refinement, technology, and premium experience;
+  strong presence in both scooter and sport bike segments.
+
+  Service:
+  Customer-centric service ecosystem with emphasis on digital
+  integration, quality support, and EV-related services.
+
+Ratio Analysis[]
+
+1.  Net Profit Margin
+
+  []
+
+  Hero: Mostly between 8–12%, staying stable despite industry cycles.
+  This is in line with Indian 2-wheeler benchmarks, showing solid
+  pricing and cost control.
+
+  Bajaj: Consistently high range of 13–17.6%, significantly superior to
+  mass-market peers.Indicates exceptional pricing power and a profitable
+  product mix dominated by premium segments.
+
+  TVS: Improved from ~3.3% to ~7.5%.Indicates meaningful profitability
+  expansion driven by scale, mix improvement, and better cost control.
+
+  []
+
+2.  Operating Margin
+
+  []
+
+  Hero: Expanded from 6% to 12%.Reflects stronger operating leverage and
+  sustained efficiency improvements in manufacturing.
+
+  Bajaj: Held strong between 16–21% across all years.Demonstrates
+  industry-leading operational efficiency and tight cost structures.
+
+  TVS: Expanded from 6% to 12%.Reflects stronger operating leverage and
+  sustained efficiency improvements in manufacturing.
+
+3.  Return on Equity []
+
+  []
+
+  Hero: Reduced from ~35–38% to ~20–22% in recent years.Despite
+  moderation, still above sector benchmarks and remains value-accretive
+  for shareholders.
+
+  Bajaj: Declined from ~42% to ~19% mid-decade, but rebounded strongly
+  to ~30–34% recently.Despite the dip, returns remain well above the
+  cost of capital, signaling strong value creation.
+
+  TVS: Increased from ~18.5% to ~27.3%.Even with lower leverage, equity
+  returns strengthened—signaling strong operating performance.
+
+4.  Return on Asset[]
+
+  []
+
+  Hero: Fell from ~25% to ~10–16% as growth matured.Still remains above
+  the industry norm, meaning assets are used more efficiently than
+  peers.
+
+  Bajaj: Ranged from ~14% to 23% over the decade.Consistently high
+  figures show efficient management of the total asset base to generate
+  earnings.
+
+  TVS: Risen from ~7.3% to ~15%.Demonstrates efficient use of assets as
+  earnings have grown significantly faster than the asset base.
+
+5.  Price to Earnings []
+
+  []
+
+  Hero: Range of 8.5–25 depending on market sentiment.Generally trades
+  around industry averages, except during down-cycles.
+
+  Bajaj: Expanded from ~10x in 2020 to ~29x recently.Reflects increasing
+  market confidence and a "premium valuation" for its profitable growth.
+
+  TVS: Moved sharply from ~20x to ~49x.Shows the market has
+  substantially re-rated the company, pricing in higher growth and
+  profitability.
+
+  []
+
+6.  Current Ratio
+
+  []
+
+  Hero: Mostly 0.7–1.0, occasionally slightly above 1.Indicates tight
+  but well-managed liquidity with minimal idle capital.
+
+  Bajaj: Generally tightly managed between 0.8 and 1.3.Indicates an
+  aggressive working capital strategy where funds are not left idle.
+
+  TVS: Stayed tight between 0.64 and 1.09.Suggests highly optimized
+  working capital with minimal idle resources.
+
+[]
+
+7.  Debt to Equity Ratio
+
+  []
+
+  Hero: Near-zero for over a decade, showing Hero runs almost entirely
+  on internal funds.Extremely low financial risk and no dependence on
+  borrowing.
+
+  Bajaj: Maintained at near-zero levels (0.006–0.038) throughout the
+  entire decade.Reflects a debt-free, cash-rich balance sheet with
+  virtually zero insolvency risk.
+
+  TVS: Declined steadily from ~0.34 to ~0.17 over the decade. Shows a
+  shift toward a lighter, more conservative capital structure with
+  improving solvency.
+
+  []
+
+8.  Inventory Ratio
+
+  []
+
+  Hero: Fell from ~43× to ~26–28× over the decade.Slower movement
+  signals a maturing business and longer stock holding.
+
+  Bajaj: High velocity, ranging from ~21x to 35x.Indicates very fast
+  stock movement and a lean, demand-driven supply chain.
+
+  TVS: Increased from ~14.5× to ~23.4×.Shows very rapid stock movement
+  and strong demand-driven production planning.
+
+  Dupont Analysis
+
+  TVS motors
+
+-   ROE improves steadily from 23% (2018) to ~27% (2025), showing strong
+      shareholder return growth.
+
+-   Net profit margin rises sharply from ~4% to ~7%, indicating major
+      profitability improvement over the years.
+
+-   Asset turnover remains high (1.7–2.3), showing efficient use of
+      assets to generate revenue.
+
+-   Equity multiplier decreases gradually (from 2.26 to ~1.81), meaning
+      TVS is reducing leverage over time.
+
+-   ROE increase is driven mostly by margin improvement, not higher
+      leverage.
+
+-   ROA strengthens from 10% to 15%, reinforcing that operational
+      efficiency—not debt—is driving performance.
+
+  []
+
+  Bajaj auto
+
+-   ROE stays between 18–34%, showing overall strong shareholder
+      returns.
+
+-   Profit margin is the main driver of ROE, improving after 2021.
+
+-   Equity multiplier remains low (1.2–1.4) → company uses very little
+      debt.
+
+-   Asset turnover slightly declines, indicating slower revenue growth
+      vs. asset base.
+
+-   ROE recovery post-2021 is mainly due to better margins, not higher
+      leverage.
+
+  []
+
+  Hero motors
+
+-   ROE ranges from ~14% to 37%, with the highest values in earlier
+      years (2014–2017) and a decline after 2020.
+
+-   Net profit margin is low (~8–12%), much lower than Bajaj, showing
+      weaker profitability.
+
+-   Asset turnover is strong (2.0–2.6) → Hero generates high revenue per
+      asset compared to Bajaj.
+
+-   Equity multiplier is around 1.3–1.8, meaning moderate but still low
+      leverage.
+
+-   Post-2020 ROE decline is mainly due to falling profit margins, not
+      asset turnover or leverage.
+
+-   Recent improvement (FY24–25) shows slow recovery in ROE, driven by
+      improved margins, but still below earlier peak levels.
+
+[]
+
+  Beta Calculation
+
+  Beta is a critical financial metric used to measure a stock’s
+  volatility relative to the overall market. It quantifies the
+  sensitivity of a company’s stock returns to changes in market returns,
+  providing insight into the level of systematic (market) risk. A higher
+  Beta indicates greater risk and reward potential, while a lower Beta
+  signifies stability and lesser market sensitivity.
+
+  In this analysis, Beta was calculated for three companies: Hero
+  Motocorp, Bajaj , TVS. This helps understand how each company’s stock
+  performs relative to the broader market and its risk profile.
+
+  Methodology for Beta Calculation:
+
+  The Beta for each company was determined using regression analysis in
+  Excel. The steps involved are detailed below:
+
+  1. Data Selection:
+
+  For Hero,TVS and Bajaj, we used their respective stock prices listed
+  on the Indian stock market.
+
+  2. Data Inputs:
+
+  Historical daily or monthly stock prices of the company.
+
+  Historical values of the NIFTY 50 index (representing the Indian
+  market).
+
+  3.Calculation of Returns:
+
+  The percentage returns for both the stock and the NIFTY 50 index were
+  calculated using the formula:[]
+
+  4. Regression Analysis:
+
+  Regression analysis was conducted in Excel with the stock returns as
+  the dependent variable (Y) and the market returns as the independent
+  variable (X).
+
+  The formula used was:
+
+  Where:[]
+
+  [] : Stock returns.
+
+  [] : Market returns (NIFTY 50 returns).
+
+  []: The slope of the regression line, representing the sensitivity of
+  the stock to market movements.
+
+  The Beta value ([]) was extracted as the slope coefficient from the
+  regression output using the LINEST function or the Data Analysis
+  Toolpack in Excel.
+
+  Results:
+
+  -------------------------------------------------------------------------
+  BAJAJ                        HERO                        TVS
+  ---------------- ----------- --------------- ----------- ----------------
+  𝜷=0.85                       𝜷=0.96                      𝜷=1.07
+
+  -------------------------------------------------------------------------
+
+  [][][]
+
+  Interpretation of results
+
+  Bajaj auto
+
+-   Bajaj Auto has a beta below 1, meaning it is less volatile than the
+      market.
+
+-   The stock shows defensive behaviour, reacting mildly to market
+      movements.
+
+-   It carries lower systematic risk, making it relatively stable during
+      market fluctuations.
+
+-   Suitable for risk-averse investors looking for steady performance.
+
+  Hero motors
+
+-   Hero's beta is close to 1, meaning its returns move almost in line
+      with the market.
+
+-   It has moderate risk, neither highly defensive nor highly
+      aggressive.
+
+-   Market movements are fairly well reflected in Hero’s stock returns.
+
+-   Offers a balanced risk–return profile for investors.
+
+  TVS motors
+
+-   TVS Motor has a beta greater than 1, indicating higher volatility
+      than the market.
+
+-   The stock is more sensitive to market ups and downs, amplifying
+      market movements.
+
+-   It carries higher systematic risk, suitable for investors seeking
+      higher returns with higher risk.
+
+-   Performs strongly in bullish markets but can drop more in bearish
+      phases
+
+  Assumptions:
+
+-   The relationship between stock and market returns is assumed to be
+      linear.
+
+-   Market efficiency is presumed, with stock prices reflecting all
+      available information.
+
+-   The Beta calculated is considered stable over the analyzed period.
+
+-   The analysis excludes unsystematic risk, focusing only on
+      market-related (systematic) movements.
+
+  WACC Calculation
+
+1.  Hero motors
+
+1. Cost of Equity (Re): 13.80%
+
+  The cost of equity is calculated using the Capital Asset Pricing Model
+  (CAPM):
+
+  Re=Rf+β(Rm−Rf)
+
+  Where:
+
+-   Risk-Free Rate (Rf) = 6.4985%
+      (Yield on Indian 10-year government bonds)
+
+-   Market Risk Premium (Rm − Rf) = 10.16%
+      (Expected return over risk-free investments in India)
+
+-   Beta (β) = 0.96
+      Hero’s stock volatility closely tracks the Indian market,
+      indicating moderate exposure to market risk.
+
+2. Cost of Debt (Rd): 6.39%
+
+  Hero MotoCorp has excellent credit quality and very low leverage. Its
+  cost of debt is derived using:
+
+  Rd=Corporate Bond Yield+Credit Default Spread
+
+  Credit Spread for Hero = 0.45%
+
+  Pre-Tax Cost of Debt=9.13%
+
+  After-Tax Cost of Debt
+
+  Hero enjoys tax-deductible interest payments:
+
+  Rd(1−Tc)=9.13%×(1–0.3)=6.39%
+
+  3. Capital Structure Weights
+
+-   Weight of Equity (We): 0.99
+
+-   Weight of Debt (Wd): 0.0063
+
+  Hero is almost fully equity financed, relying minimally on borrowing.
+  This conservative structure reduces financial risk and protects the
+  company during economic downturns.
+
+4. WACC Calculation
+
+  WACC=(We×Re)+(Wd×Rd(1−Tc))
+
+  Substituting values:
+
+  WACC=(0.99×13.80%)+(0.0063×6.39%)=13.70%
+
+5. Implications
+
+1.  Benchmark for Investments – Hero should only pursue projects earning
+      above 13.70%, ensuring long-term shareholder value creation.
+
+2.  Capital Structure Reflection – The heavy equity reliance indicates a
+      risk-averse approach, prioritizing financial stability over
+      leverage-driven growth.
+
+3.  Competitive Position – Higher WACC combined with a market-beta stock
+      suggests Hero faces standard industry risk and must generate
+      stronger returns to stay competitive.
+
+4.  Growth Financing – Lower debt usage limits tax savings but provides
+      flexibility for future borrowings if expansion plans intensify (EV
+      division, exports, premium bikes).
+
+6. Conclusion
+
+  Hero MotoCorp’s WACC of 13.55 % reflects a highly equity-driven
+  structure with limited dependence on debt financing. While this
+  strategy ensures long-term stability and reduces bankruptcy risk, the
+  higher cost of equity elevates the company’s required return
+  threshold. Hero could potentially lower WACC through controlled
+  leverage policies or cost-efficient global borrowings, improving
+  capital efficiency without increasing financial risk significantly.
+
+2.  Bajaj auto
+
+1. Cost of Equity (Re): 16.94%
+
+  The cost of equity is calculated using the Capital Asset Pricing Model
+  (CAPM):
+
+  Re=Rf+β(Rm−Rf)
+
+  Where:
+
+-   Risk-Free Rate (Rf) = 6.4985%
+      (Yield on Indian 10-year government bonds)
+
+-   Market Risk Premium (Rm − Rf) = 10.16%
+      (Expected return over risk-free investments in India)
+
+-   Beta (β) = 0.85
+
+2. Cost of Debt (Rd): 6.40%
+
+  Bajaj’s pre-tax borrowing cost is:
+
+  Rd (pre-tax)=9.14%
+
+  After adjusting for 30% corporate tax benefit:
+
+  After-Tax Rd=Rd(1−Tc)=9.14×(1−0.30)=6.40%
+
+ 3. Capital Structure Weights
+
+-   Weight of Equity (We): 96.39%
+
+-   Weight of Debt (Wd): 3.61%
+
+  Bajaj is financed primarily through equity, maintaining a very low
+  leverage profile similar to Hero and Maruti.
+
+4. WACC Calculation
+
+  WACC=(We×Re)+(Wd×Rd(1−Tc))
+
+  Substituting values:
+
+  WACC=(0.9639×16.94%)+(0.0361×6.40%)=16.56%
+
+5. Implications
+
+1.  Investment Benchmark – New projects must return above 16.56% to
+      create shareholder value.
+
+2.  Capital Structure Insight – Highly equity-reliant financing limits
+      financial risk but increases capital cost.
+
+3.  Risk Perception – Higher cost of equity reflects the company’s
+      exposure to:
+
+    -   Export volatility (44% revenue from outside India)
+
+    -   Currency swings
+
+    -   Product mix cyclicality (2-wheeler + 3-wheeler reliance)
+
+4.  Growth Financing – Low debt gives Bajaj the flexibility to raise
+      future borrowings if it expands in EVs, ASEAN, or premium
+      motorcycle segments.
+
+6.Conclusion
+
+  Bajaj Auto’s WACC of 16.56% indicates a high return requirement driven
+  mainly by an expensive cost of equity and a conservative capital
+  structure. Although this approach ensures strong financial resilience
+  and minimal bankruptcy risk, Bajaj may strategically introduce
+  low-cost debt financing to optimize tax efficiency and reduce overall
+  WACC, especially while expanding globally and investing in EV
+  technologies.
+
+3.  TVS motors
+
+1. Cost of Equity (Re): 18.71%
+
+  The cost of equity is derived using the Capital Asset Pricing Model
+  (CAPM):
+
+  Re=Rf+β(Rm−Rf)
+
+  A cost of equity of 18.71% suggests that equity investors demand a
+  high return for bearing risk in TVS.
+
+2. Cost of Debt (Rd): 9.29% (Pre-Tax)
+
+  TVS’ borrowing cost includes:
+
+-   Corporate lending rate
+
+-   Industry credit spread
+
+  Even though debt is more expensive than Hero or Bajaj, TVS gets tax
+  benefit:
+
+  Rd after tax=9.29%×(1−0.30)=6.51%
+
+3. Capital Structure Weights
+
+-   Weight of Equity (We): 85.15%
+
+-   Weight of Debt (Wd): 14.85%
+
+  Unlike Hero and Bajaj, TVS uses more debt financing, improving
+  leverage efficiency but increasing financial risk.
+
+4. WACC Calculation
+
+  WACC=(We×Re)+(Wd×Rd(1−Tc))
+
+  Substituting the values:
+
+  WACC=(0.8515×18.71%)+(0.1485×6.51%)
+
+5. Implications
+
+1.  Investment Benchmark -TVS should accept only those projects
+      generating above 16.89% return.
+
+2.  Capital Structure Insight - Higher debt ratio (15%) signals
+      strategic use of leverage unlike Hero/Bajaj’s conservative policy.
+
+3.  Risk-Return Trade-Off - Higher WACC is driven by a very high cost of
+      equity due to growth volatility and market perception.
+
+4.  Growth Strategy Impact - TVS’ EV investments, global expansion, and
+      premium bike launches justify higher risk and cost of capital.
+
+6. Conclusion
+
+  TVS Motor’s WACC of 16.89% indicates a more aggressive capital
+  structure and a higher required return than Hero, Bajaj, and Maruti.
+  While this reflects higher growth potential, it also implies increased
+  financial and operational risk. TVS can improve capital efficiency by
+  reducing equity cost – either through earnings stability, export
+  hedging, or lower-risk financing instruments.
+
+DCF VALUATION
+
+  1)Hero
+
+  []
+
+  Growth Rate= Average ROIC x Average Retention Ratio []
+
+Key Inputs and Assumptions:
+
+1.  Revenue & Growth Assumptions:
+      Historical financial performance over multiple years was analysed
+      to estimate long-term growth trends.
+      The intrinsic growth rate was derived using the fundamental
+      relationship: g = ROIC × Reinvestment Rate. Average historical
+      ROIC and reinvestment metrics were used to capture sustainable
+      firm-level growth. This method ensures that projected growth is
+      consistent with the firm’s ability to reinvest and generate
+      returns on capital.
+
+2.  Reinvestment Rate:
+      Reinvestment rates were calculated using:
+      Reinvestment Rate = (Net Capex+ΔWC)/EBIT(1−T). Since reinvestment
+      can fluctuate due to working-capital releases or temporary capex
+      reductions, abnormal negative values were normalised to avoid
+      overstating FCFF. A stabilised reinvestment assumption aligned
+      with long-term expected growth was used for forward projections.
+
+3.  ROIC (Return on Invested Capital):
+      ROIC was computed using NOPAT and invested capital based on
+      operating assets. ROIC = EBIT(1−T)/Invested Capital. A multi-year
+      average ROIC was applied for forecasting, as ROIC reflects the
+      fundamental efficiency with which the firm generates returns on
+      its deployed capital (both debt and equity).
+
+4.  Cost of Capital (WACC):
+      The discount rate for FCFF valuation was derived using the
+      Weighted Average Cost of Capital formula:
+      WACC = we ⋅ ke + wd ⋅ kd(1−T)
+
+  Cost of Equity was estimated using CAPM with an adjusted levered beta.
+
+  Cost of Debt was derived from the firm’s borrowing profile or
+  synthetic credit rating–based spreads.
+
+  Capital structure weights were based on current market values of
+  equity and debt.
+  The resulting WACC represents the opportunity cost of capital for both
+  debt and equity holders.
+
+5.  Terminal Growth Rate:
+      The terminal growth rate applied in the perpetuity calculation
+      reflects long-term industry expectations and macroeconomic growth
+      assumptions.
+
+  The DCF valuation for Hero MotoCorp indicates that the company’s
+  intrinsic value is approximately ₹3,821 per share, based on projected
+  FCFF for FY25–FY30 and a terminal growth assumption aligned with
+  long-term industry expectations. The enterprise value is driven
+  primarily by stable operating cash flows and moderate reinvestment
+  requirements, with the terminal value contributing a significant share
+  typical for mature automobile companies. Using a WACC of ~16.5%, the
+  discounted cash flows and terminal value together yield an equity
+  valuation of roughly ₹76,424 crore. When compared to the market price
+  (₹4,912 average for the past six months), the analysis suggests that
+  Hero MotoCorp is overvalued, implying that the current market
+  valuation factors in more optimistic growth and profitability
+  assumptions than those supported by the company’s fundamental
+  cash-flow outlook. Overall, while Hero continues to demonstrate strong
+  operational efficiency and cash generation, the DCF model indicates
+  limited upside at current market levels.
+
+  2)TVS
+
+[]
+
+  []
+
+  The DCF valuation for TVS Motor Company yields an intrinsic equity
+  value of approximately ₹1,335 per share, based on projected FCFF from
+  FY25–FY30 and a terminal value computed using a long-term industry
+  growth rate of 8.20%. TVS shows steadily rising EBIT and expanding
+  free cash flows over the projection period, reflecting strong
+  operating efficiency and consistent performance in the premium and
+  commuter motorcycle segments. After discounting cash flows at a WACC
+  of ~16.6%, the enterprise value is estimated at ₹28,206 crore, which,
+  after adjusting for debt and cash, results in an equity valuation of
+  roughly ₹26,728 crore. Compared to the market share price of ₹1,738
+  (last-year average), TVS appears slightly overvalued but close to fair
+  value, suggesting that the stock price already incorporates optimistic
+  growth expectations and the company’s improving margins. Overall, the
+  DCF indicates that while TVS remains a fundamentally strong and
+  cash-generating company, the current market valuation leaves limited
+  upside based purely on intrinsic value.
+
+  3)Bajaj
+
+[][]
+
+  The DCF valuation for Bajaj Auto indicates an intrinsic equity value
+  of approximately ₹9,328 per share, derived from projected FCFF between
+  FY25–FY30 and a terminal value based on an industry long-term growth
+  rate of 8.20%. Bajaj demonstrates consistently rising EBIT and strong
+  free cash flow expansion, supported by its dominant export presence
+  and high operating margins. The discounting of future cash flows at a
+  WACC of ~16.56% produces an enterprise value of roughly ₹1,01,960
+  crore, which, after adjusting for cash and debt, results in a total
+  equity valuation of ₹2,79,302 crore. When compared against the average
+  market price of ₹8,946, the stock appears slightly undervalued,
+  suggesting a modest upside potential. This implies that despite market
+  volatility and competitive pressures, Bajaj’s strong cash generation,
+  efficient reinvestment strategy, and diversified product portfolio
+  support a valuation that is marginally higher than current market
+  expectations. Overall, the DCF suggests that Bajaj Auto remains
+  fundamentally robust, with its intrinsic value aligning closely with
+  market pricing but offering a slight undervaluation opportunity
+
+Dividend Discount Model
+
+  1)Hero
+
+  []
+
+  2)TVS
+
+  []
+
+  3)Bajaj
+
+  []
+
+-   The Dividend Discount Model indicates that all three companies,
+      Hero, TVS, and Bajaj, appear overvalued when valued purely on the
+      basis of expected future dividends.
+
+-   Although each firm shows consistent growth in earnings and
+      dividends, their market prices remain significantly higher than
+      the values implied by discounted future dividends.
+
+-   This suggests that investors are pricing in additional factors
+      beyond dividend payouts, such as future expansion prospects, brand
+      strength, market leadership, or potential non-dividend returns
+      like buybacks.
+
+-   The results also highlight a limitation of the DDM for companies
+      that:
+
+    -   retain a large portion of earnings,
+
+    -   reinvest heavily in growth, or
+
+    -   have evolving dividend policies.
+
+-   Overall, the DDM inference is that current market valuations reflect
+      optimism about long-term growth and business fundamentals that the
+      dividend model alone does not capture, leading to an overvalued
+      classification for all three firms under this method.
+
+Relative Valuation
+
+  1)Hero
+
+  []
+
+  []
+
+  2)TVS
+
+  []
+
+  []
+
+  3)Bajaj
+
+[]
+
+[]
