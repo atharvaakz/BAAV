@@ -1,0 +1,28 @@
+# Core numerics / data
+numpy
+pandas
+scipy
+statsmodels
+# Excel read/write
+openpyxl
+xlsxwriter
+# Market & fundamentals data
+yfinance
+pandas-datareader
+requests
+# Charts & notebooks
+matplotlib
+plotly
+jupyterlab
+# Reporting
+tabulate
+python-dotenv
+# Optional integrations (APIs)
+anthropic
+openai
+gspread
+google-auth
+supabase
+pymongo
+# Dev
+pytest
