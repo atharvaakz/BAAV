@@ -286,7 +286,7 @@ n += 1
 s = base("Limitations · CLO3", "What would change our answer", n)
 tb(s, 0.6, 1.9, 6.0, 4.2, [[("Data  ", True, ACC), ("four years from one aggregated source; bookings, land bank and occupancy sit in investor presentations, not statements.", False, INK)],
                            [("Method  ", True, ACC), ("NAV / sum-of-parts would value land banks directly; land banks also behave like real options (contingent-claim view).", False, INK)],
-                           [("Estimation  ", True, ACC), ("Godrej beta 95% CI ≈ 1.5–2.8; one SE moves Ke ~2 pp.", False, INK)],
+                           [("Estimation  ", True, ACC), (f"Godrej beta 95% CI {N['Beta_Monthly']['Godrej Propert']['95% CI low']:.2f}–{N['Beta_Monthly']['Godrej Propert']['95% CI high']:.2f}; one SE moves Ke ~{N['Beta_Monthly']['Godrej Propert']['Std error of beta']*I['India total ERP = mature ERP + CRP']*100:.1f} pp.", False, INK)],
                            [("Accounting  ", True, ACC), ("cost-based investment property and capitalised interest limit P/B and ROE comparisons.", False, INK)]], 14)
 tb(s, 7.1, 1.9, 5.6, 3.6, [[("Next steps", True, INK)], "Reconcile key lines to annual reports", "Add a NAV model from project-level disclosures",
                            "Value DCCDL with its own cash flows", "Track bookings vs revenue each quarter"], 14)

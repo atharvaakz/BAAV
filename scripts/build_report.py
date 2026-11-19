@@ -333,13 +333,14 @@ para(f"Risk-free rate. The 10-year G-Sec yielded {pc(I['India 10-yr G-Sec yield'
      f"{pc(I['Rupee risk-free rate = G-Sec − default spread'],2)}. Equity risk premium. We add India's country risk premium ({pc(I['India country risk premium (CRP)'],2)}) to the mature-market "
      f"implied premium ({pc(I['Mature market ERP'],2)}) for a total of {pc(I['India total ERP = mature ERP + CRP'],2)}. Terminal growth is capped at {pc(I['Terminal growth rate (nominal, Rs)'],1)}, "
      f"close to the rupee risk-free rate, since no firm can grow faster than the economy forever.")
-fig("beta_scatter", "Figure 4 — Regression betas: 60 monthly returns against the Nifty 50 (Apr 2021 – Oct 2026 window in the dataset).")
+fig("beta_scatter", "Figure 4 — Regression betas: 60 monthly returns against the Nifty 50 (returns Nov 2021 – Oct 2026).")
 bm = N["Beta_Monthly"]
 dl, gp, ph = bm["DLF Ltd"], bm["Godrej Propert"], bm["Phoenix Mills"]
 para(f"Regression beta. DLF's raw beta is {dl['Raw beta (SLOPE)']:.2f} (standard error {dl['Std error of beta']:.2f}, R² {dl['R-squared']:.2f}); Godrej's is {gp['Raw beta (SLOPE)']:.2f} "
      f"(SE {gp['Std error of beta']:.2f}); Phoenix's is {ph['Raw beta (SLOPE)']:.2f} (SE {ph['Std error of beta']:.2f}, R² {ph['R-squared']:.2f}). The 95% confidence interval for Godrej runs from "
-     f"{gp['95% CI low']:.2f} to {gp['95% CI high']:.2f} — wide enough to move the cost of equity by about four percentage points. Weekly betas over three years gave similar values, so "
-     f"the result is not an artefact of the return interval.")
+     f"{gp['95% CI low']:.2f} to {gp['95% CI high']:.2f} — wide enough to move the cost of equity by about ±{(gp['95% CI high']-gp['Raw beta (SLOPE)'])*I['India total ERP = mature ERP + CRP']*100:.1f} percentage points. Weekly betas over three years were "
+     f"{N['Beta_Weekly']['DLF Ltd']['Raw beta (SLOPE)']:.2f}, {N['Beta_Weekly']['Godrej Propert']['Raw beta (SLOPE)']:.2f} and {N['Beta_Weekly']['Phoenix Mills']['Raw beta (SLOPE)']:.2f} against monthly "
+     f"{dl['Raw beta (SLOPE)']:.2f}, {gp['Raw beta (SLOPE)']:.2f} and {ph['Raw beta (SLOPE)']:.2f}: differences of 0.1–0.3 show how much a single regression depends on the return interval and window.")
 fig("bottomup_beta", "Figure 5 — Bottom-up beta: unlevering eight listed developers at their market debt-to-equity.", 13.5)
 para(f"Bottom-up beta. To reduce estimation error, we unlevered all eight developers' betas using Hamada's formula at their own market D/E and took the median: "
      f"{N['BU_median']:.2f}. Averaging eight estimates cuts the standard error to roughly {N['BU_se']:.2f}. Relevered at each firm's D/E this gives "
@@ -441,7 +442,7 @@ bullets([("Godrej Properties — relatively undervalued.", f"Cheapest on P/E and
 doc.add_heading("Limitations", 2)
 bullets(["Four years of statements from one aggregated source; key figures should be reconciled to annual reports before relying on them.",
          "Bookings, land-bank and occupancy data (the main value drivers for developers) are disclosed in investor presentations, not in the statements we used; a NAV approach would capture them better.",
-         "Beta estimates have wide confidence intervals; a one-standard-error change in Godrej's beta moves its cost of equity by about two percentage points.",
+         "Beta estimates have wide confidence intervals; a one-standard-error change in Godrej's beta moves its cost of equity by about " + f"{N['Beta_Monthly']['Godrej Propert']['Std error of beta']*I['India total ERP = mature ERP + CRP']*100:.1f}" + " percentage points.",
          "Accounting book values (cost-based investment property, capitalised interest) limit the usefulness of P/B and ROE comparisons.",
          "The growth and margin paths are judgements; the sensitivity tables and reverse DCF show how much each matters."])
 
