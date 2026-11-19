@@ -1,0 +1,184 @@
+  First Semester 2026-27
+
+  Course Handout Part II
+
+  Date: 19 August 2026
+
+  In addition to part I (General Handout for all courses, appended to
+  the Timetable), this portion provides further specific details about
+  the course.
+
++------------------+---------------------------------------------------+
+|   Course Number  | : ECON F355                                       |
++------------------+---------------------------------------------------+
+|   Course Title   | : Business Analysis and Valuation                 |
++------------------+---------------------------------------------------+
+|   Inst           | : Dr. Mohit Kumar (mohitk@goa.bits-pilani.ac.in)  |
+| ructor-in-charge |                                                   |
++------------------+---------------------------------------------------+
+|   Teaching       | : Amruta Anil Hippalgaonkar                       |
+|   Assistants     | (p20230029@goa.bits-pilani.ac.in); Alex Paul      |
+|                  | (p20250452@goa.bits-pilani.ac.in)                 |
++------------------+---------------------------------------------------+
+
+1.  Course description: The fundamental goal of an organisation is
+    either to maximise shareholder value or stakeholder value, depending
+    on geographical location. The globalisation of financial markets has
+    forced corporates worldwide, including those in India, to focus on
+    maximising shareholder value. The recent trend of consolidations,
+    mergers & acquisitions, and other strategic alliances for
+    sustainable growth has warranted finance domain experts from
+    investment banks, investment and consulting firms, and corporate
+    research wings to analyse the entire business landscape. This course
+    is designed to help students interested in investment banking,
+    consultancy (M&A) and equity research (investment analysis), and
+    sensitises them to the various frameworks of business analysis –
+    business strategy, accounting, financial and prospective – and
+    valuation approaches.
+
+2.  Scope and Objective: This course examines the role of accounting
+    information and intermediaries in the economy and how financial
+    analysts create value in well-functioning markets. Business
+    strategy, accounting, financial analysis, and prospective analysis
+    are discussed to build a better understanding and evaluation of a
+    business from the perspectives of internal and external
+    stakeholders. The course is designed as “Active-Based Learning” and
+    uses assignment-based learning, case studies and problem-based
+    learning, giving students the opportunity to apply concepts/methods
+    to a real business case – analysing business performance and doing
+    valuation.
+
+3.  Course learning outcomes:
+
+  CLO1. Sensitise students to the various frameworks of business
+  analysis, such as business strategy, accounting, financial and
+  prospective.
+
+  CLO2. Critically analyse and apply various valuation approaches and
+  methods.
+
+  CLO3. Understand and evaluate the various limitations of valuation
+  methods, and provide solutions.
+
+4.  Textbooks and references:
+
+  TB1. Palepu, Healy & Bernard, Business Analysis & Valuation – Using
+  Financial Statements, Text & Cases, Cengage Learning Publisher, 3rd
+  Edition.
+
+  TB2. Damodaran A., Damodaran on Valuation, Wiley India Pvt. Ltd., 2nd
+  Edition.
+
+  RB1. Damodaran A., The Dark Side of Valuation: Valuing Young,
+  Distressed and Complex Businesses, 2nd Edition, Pearson Education,
+  2010.
+
+5.  Course Format & Weekly Workflow
+
+  weekly schedule for 14 weeks with [3] lectures per week
+
+  ------- ------------ ---------------------------------- ------------- -----------------------
+  Wk no.  Module no.   Description                        Ref.          Learning Outcome
+
+  1       1            Framework for Business Analysis    TB1, Ch-1     Understand the
+                       and Valuation – role of financial                significance of
+                       reporting in capital markets;                    business analysis &
+                       business activities to financial                 valuation and the
+                       statements                                       linkage between
+                                                                        financial statements
+                                                                        and financial
+                                                                        decisions.
+
+  1-3     2            Strategy and Competitive Analysis  TB1, Ch-2     Examine importance of
+                       – Porter’s Generic Strategy & Five               accounting policies
+                       Forces, BCG Matrix, SPACE                        being consistent with
+                       analysis, value chain analysis                   stated strategy.
+
+  3-4     3            Accounting Analysis –              TB1, Ch-3     Evaluate accounting
+                       institutional framework,                         quality, managerial
+                       accounting rules & conventions,                  flexibility, and
+                       sources of noise and bias in                     identify red flags in
+                       accounting data                                  disclosures.
+
+  4-6     4            Implementing Accounting Analysis – TB1, Ch-4     Recast financial
+                       recasting financial statements;                  statements to remove
+                       asset, liability and equity                      distortions for
+                       distortions                                      meaningful analysis.
+
+  6-7     5            Financial Analysis – ratio         TB1, Ch-5     Examine an
+                       analysis (operational &                          organization’s
+                       strategic), cash flow analysis,                  performance and
+                       Balanced Score Card, EVA, CVA                    financial condition
+                                                                        using ratio and cash
+                                                                        flow tools.
+
+  8-9     6            Hurdle Rate / Discount Rate – Ke,  TB2, Ch-2     Understand risk-return
+                       Kd and WACC; risk-free rate,                     rationale and estimate
+                       equity and country risk premium,                 discount rates using
+                       regression/fundamental/bottom-up                 CAPM/APM/multi-factor
+                       beta                                             models.
+
+  9-11    7            Business Valuation – Approaches    TB2, Ch-6     Understand the
+                       and Methods; growth estimation,                  rationale, biases,
+                       intrinsic/relative/contingent                    complexity and
+                       claim valuation, DDM and FCF                     uncertainty involved in
+                                                                        valuation.
+
+  11-12   8            Relative Valuation – four-step     TB2, Ch-7,8   Value an asset relative
+                       process; P/E, PEG, price-to-book                 to comparable firms,
+                       and price-to-sales multiples                     controlling for
+                                                                        differences that affect
+                                                                        the multiple.
+
+  13-14   9            Loose Ends in Valuation – cross    TB2,          Value control and
+                       holdings, synergy & control        Ch-10,11,12   synergy in acquisitions
+                       premiums, distress, dilution and                 and understand the
+                       illiquidity discounts                            consequences of
+                                                                        complexity for value.
+  ------- ------------ ---------------------------------- ------------- -----------------------
+
+6.  Evaluation Scheme:
+
+  -------------------- ----------- ---------- ------------ ------------------
+  Component            Weightage   Duration   Date and     Comments
+                                              time         
+
+  Quiz 1               10%         50 Min.    11/09/2026   Closed Book (CB)
+
+  Quiz 2               15%         50 Min.    19/10/2026   Closed Book (CB)
+
+  Assignments /        35%         –          TBA          Open Book (OB)
+  Presentation                                             
+
+  Comprehensive Exam   40%         120 Min.   03/12/2026   Closed Book (CB)
+                                              (AN): TBA    
+  -------------------- ----------- ---------- ------------ ------------------
+
+Important Note: Minimum performance requirement for clearing the course
+is as follows;
+
+“20% of average marks of top 10 performers of the class or 30% of median
+of class marks, whichever is lower to clear the course
+
+Criterion for NC: As per Institute norms, at the discretion of the
+Instructor-in-charge.
+
+7.  Attendance Policy: Students are expected to attend all classes and
+    actively participate. Students should read the relevant textbook
+    sections before the lecture covering that material.
+
+  Academic honesty and integrity must be maintained by all students
+  throughout the semester; any form of academic dishonesty is
+  unacceptable.
+
+8.  Chamber consultation hours: Saturday, 10:30 AM to 11:30 AM, Chamber
+    No. CC-218.
+
+9.  Makeup Policy: Make-up will be given only for genuine cases, for
+    which prior permission is mandatory.
+
+  Mohit Kumar
+
+  Instructor-in-charge
+
+  ECON F355
