@@ -21,8 +21,11 @@ YC = {y: L(3 + i) for i, y in enumerate(YEARS)}          # FY23->C ... FY26->F
 TARGETS = {"DLF": "DLF", "GPL": "GODREJPROP", "PML": "PHOENIXLTD"}
 NAMES = {"DLF": "DLF Ltd", "GPL": "Godrej Properties", "PML": "Phoenix Mills",
          "OBEROI": "Oberoi Realty", "PRESTIGE": "Prestige Estates", "BRIGADE": "Brigade Enterprises",
-         "SOBHA": "Sobha Ltd", "LODHA": "Lodha (Macrotech)"}
-PEERS = {"OBEROI": "OBEROIRLTY", "PRESTIGE": "PRESTIGE", "BRIGADE": "BRIGADE", "SOBHA": "SOBHA", "LODHA": "LODHA"}
+         "SOBHA": "Sobha Ltd", "LODHA": "Lodha (Macrotech)", "MAHLIFE": "Mahindra Lifespace", "SUNTECK": "Sunteck Realty",
+         "PURVA": "Puravankara", "ANANTRAJ": "Anant Raj", "SIGNATURE": "Signature Global"}
+PEERS = {"OBEROI": "OBEROIRLTY", "PRESTIGE": "PRESTIGE", "BRIGADE": "BRIGADE", "SOBHA": "SOBHA", "LODHA": "LODHA",
+         "MAHLIFE": "MAHLIFE", "SUNTECK": "SUNTECK", "PURVA": "PURVA", "ANANTRAJ": "ANANTRAJ", "SIGNATURE": "SIGNATURE"}
+BETA_EXCL = {"SIGNATURE"}   # listed Sep-2023: <60 monthly returns
 ALL = {**TARGETS, **PEERS}
 
 # ---------- styles ----------
@@ -267,7 +270,17 @@ def ratio_defs(co):
     return [
         ("Growth & profitability", None, None),
         ("Revenue growth", PCT, lambda y: f"={D(co,'Revenue',y)}/{D(co,'Revenue',y-1)}-1" if y > 2023 else None),
+        ("EBITDA growth", PCT, lambda y: f"=IFERROR(({R(co,'EBITx',y)}+{D(co,'DandA',y)})/({R(co,'EBITx',y-1)}+{D(co,'DandA',y-1)})-1,\"n.m.\")" if y > 2023 else None),
+        ("EBIT growth (incl. other income)", PCT, lambda y: f"=IFERROR({R(co,'EBITx',y)}/{R(co,'EBITx',y-1)}-1,\"n.m.\")" if y > 2023 else None),
+        ("Core EBIT growth", PCT, lambda y: f"=IF({R(co,'CoreEBIT',y-1)}<=0,\"n.m.\",{R(co,'CoreEBIT',y)}/{R(co,'CoreEBIT',y-1)}-1)" if y > 2023 else None),
+        ("PAT growth", PCT, lambda y: f"={D(co,'NetIncome',y)}/{D(co,'NetIncome',y-1)}-1" if y > 2023 else None),
+        ("Dividend growth", PCT, lambda y: f"=IFERROR({D(co,'DividendsPaid',y)}/{D(co,'DividendsPaid',y-1)}-1,\"n.m.\")" if y > 2023 else None),
         ("Gross margin", PCT, lambda y: f"=1-{D(co,'COGS',y)}/{D(co,'Revenue',y)}"),
+        ("EBITDA margin (incl. other income)", PCT, lambda y: f"=({R(co,'EBITx',y)}+{D(co,'DandA',y)})/{D(co,'Revenue',y)}"),
+        ("EBT margin", PCT, lambda y: f"={D(co,'PBT',y)}/{D(co,'Revenue',y)}"),
+        ("SG&A % of revenue", PCT, lambda y: f"={D(co,'SGA',y)}/{D(co,'Revenue',y)}"),
+        ("D&A % of revenue", PCT, lambda y: f"={D(co,'DandA',y)}/{D(co,'Revenue',y)}"),
+        ("Effective tax rate", PCT, lambda y: f"={D(co,'Tax',y)}/{D(co,'PBT',y)}"),
         ("Core EBIT margin", PCT, lambda y: f"={R(co,'CoreEBIT',y)}/{D(co,'Revenue',y)}"),
         ("Net profit margin (owners)", PCT, lambda y: f"={D(co,'NetIncome',y)}/{D(co,'Revenue',y)}"),
         ("JV/associate share of PAT", PCT, lambda y: f"={R(co,'JV',y)}/{D(co,'NetIncomeInclMI',y)}"),
@@ -275,7 +288,13 @@ def ratio_defs(co):
         ("Return on assets (avg)", PCT, lambda y: f"={D(co,'NetIncomeInclMI',y)}/{avg(co,'TotalAssets',y)}" if y > 2023 else None),
         ("ROIC = NOPAT / avg invested capital", PCT, lambda y: f"={R(co,'NOPAT',y)}/AVERAGE({R(co,'IC',y-1)},{R(co,'IC',y)})" if y > 2023 else None),
         ("ROCE = EBIT / avg (equity+MI+debt)", PCT, lambda y: f"={R(co,'EBITx',y)}/AVERAGE({D(co,'Equity',y-1)}+{D(co,'MinorityInterest',y-1)}+{D(co,'TotalDebt',y-1)},{D(co,'Equity',y)}+{D(co,'MinorityInterest',y)}+{D(co,'TotalDebt',y)})" if y > 2023 else None),
+        ("Retention ratio (retained earnings %)", PCT, lambda y: f"=1-{D(co,'DividendsPaid',y)}/{D(co,'NetIncome',y)}"),
+        ("Self-sustained growth = ROE × retention", PCT, lambda y: f"={D(co,'NetIncome',y)}/{avg(co,'Equity',y)}*(1-{D(co,'DividendsPaid',y)}/{D(co,'NetIncome',y)})" if y > 2023 else None),
         ("Efficiency", None, None),
+        ("Fixed-asset turnover (PP&E + inv. property) (x)", X, lambda y: f"={D(co,'Revenue',y)}/AVERAGE({D(co,'NetPPE',y-1)}+{D(co,'InvestmentProperty',y-1)},{D(co,'NetPPE',y)}+{D(co,'InvestmentProperty',y)})" if y > 2023 else None),
+        ("Capital turnover = revenue / avg (equity+MI+debt) (x)", X, lambda y: f"={D(co,'Revenue',y)}/AVERAGE({D(co,'Equity',y-1)}+{D(co,'MinorityInterest',y-1)}+{D(co,'TotalDebt',y-1)},{D(co,'Equity',y)}+{D(co,'MinorityInterest',y)}+{D(co,'TotalDebt',y)})" if y > 2023 else None),
+        ("Creditor turnover = cost of revenue / avg payables (x)", X, lambda y: f"={D(co,'COGS',y)}/{avg(co,'Payables',y)}" if y > 2023 else None),
+        ("Inventory turnover = cost of revenue / avg inventory (x)", X, lambda y: f"={D(co,'COGS',y)}/{avg(co,'Inventory',y)}" if y > 2023 else None),
         ("Asset turnover (x)", X, lambda y: f"={D(co,'Revenue',y)}/{avg(co,'TotalAssets',y)}" if y > 2023 else None),
         ("Inventory days (on cost of revenue)", NUM, lambda y: f"=365*{avg(co,'Inventory',y)}/{D(co,'COGS',y)}" if y > 2023 else None),
         ("Receivable days", NUM, lambda y: f"=365*{avg(co,'Receivables',y)}/{D(co,'Revenue',y)}" if y > 2023 else None),
@@ -296,6 +315,9 @@ def ratio_defs(co):
         ("Cash-flow quality (Module 3 red-flag screen)", None, None),
         ("CFO / PAT (x)", X, lambda y: f"={D(co,'CFO',y)}/{D(co,'NetIncomeInclMI',y)}"),
         ("CFO / revenue", PCT, lambda y: f"={D(co,'CFO',y)}/{D(co,'Revenue',y)}"),
+        ("CFO / total debt (x)", X, lambda y: f"=IFERROR({D(co,'CFO',y)}/{D(co,'TotalDebt',y)},\"n.m.\")"),
+        ("CFO / total assets", PCT, lambda y: f"={D(co,'CFO',y)}/{D(co,'TotalAssets',y)}"),
+        ("Capex / D&A (x)", X, lambda y: f"=IFERROR({D(co,'Capex',y)}/{D(co,'DandA',y)},\"n.m.\")"),
         ("Free cash flow = CFO − capex", NUM, lambda y: f"={D(co,'CFO',y)}-{D(co,'Capex',y)}"),
         ("Accruals ratio = (PAT − CFO) / avg assets", PCT, lambda y: f"=({D(co,'NetIncomeInclMI',y)}-{D(co,'CFO',y)})/{avg(co,'TotalAssets',y)}" if y > 2023 else None),
         ("Dividend payout", PCT, lambda y: f"={D(co,'DividendsPaid',y)}/{D(co,'NetIncome',y)}"),
@@ -501,7 +523,7 @@ def beta_sheet(name, f, n, cos, title):
     return out
 
 
-BM = beta_sheet("Beta_Monthly", "px_monthly.csv", 60, list(ALL) + ["NIFTYREALTY"],
+BM = beta_sheet("Beta_Monthly", "px_monthly.csv", 60, [c for c in ALL if c not in BETA_EXCL] + ["NIFTYREALTY"],
                 "Regression beta — 60 monthly returns vs Nifty 50 (5 years)")
 NAMES["NIFTYREALTY"] = "Nifty Realty idx"
 NAMES.update({"NEXUS": "Nexus Select Trust (mall REIT)", "EMBASSY": "Embassy Office REIT", "MINDSPACE": "Mindspace REIT", "BIRET": "Brookfield India REIT"})
@@ -514,7 +536,8 @@ bu = sheet("BottomUp_Beta", "Bottom-up (fundamental) beta from listed real-estat
            [26, 12, 13, 13, 12, 12, 12, 12])
 hdr(bu, 4, ["Company", "Raw beta (5y m)", "Market cap", "Total debt FY26", "D/E (mkt)", "Tax", "Unlevered beta", "R²"])
 BU = {}
-for i, co in enumerate(ALL):
+BU_SET = [c for c in ALL if c not in BETA_EXCL]
+for i, co in enumerate(BU_SET):
     rr = 5 + i
     put(bu, rr, 1, NAMES[co])
     put(bu, rr, 2, f"={BM[co]['beta']}", "0.000")
@@ -525,13 +548,13 @@ for i, co in enumerate(ALL):
     put(bu, rr, 7, f"=B{rr}/(1+(1-F{rr})*E{rr})", "0.000", F_B)
     put(bu, rr, 8, f"={BM[co]['r2']}", "0.000")
     BU[co] = rr
-n_all = len(ALL)
+n_all = len(BU_SET)
 lr = 5 + n_all
-put(bu, lr, 1, "Median unlevered beta (all 8)", font=F_B); put(bu, lr, 7, f"=MEDIAN(G5:G{lr-1})", "0.000", F_B, FILL_KEY)
+put(bu, lr, 1, f"Median unlevered beta (all {n_all})", font=F_B); put(bu, lr, 7, f"=MEDIAN(G5:G{lr-1})", "0.000", F_B, FILL_KEY)
 put(bu, lr + 1, 1, "Average unlevered beta"); put(bu, lr + 1, 7, f"=AVERAGE(G5:G{lr-1})", "0.000")
 put(bu, lr + 2, 1, "Std error of median ≈ avg SE/√n"); put(bu, lr + 2, 7,
-    "=AVERAGE(" + ",".join(BM[c]["se"] for c in ALL) + f")/SQRT({n_all})", "0.000")
-note(bu, lr + 3, "Averaging 8 regression betas cuts standard error by ~√8; bottom-up beta reflects the business (real estate) rather than one stock's noise.")
+    "=AVERAGE(" + ",".join(BM[c]["se"] for c in BU_SET) + f")/SQRT({n_all})", "0.000")
+note(bu, lr + 3, f"Averaging {n_all} regression betas cuts standard error by ~√{n_all}; bottom-up beta reflects the business (real estate) rather than one stock's noise.")
 put(bu, lr + 5, 1, "Relevered beta for targets", font=F_B)
 hdr(bu, lr + 6, ["Target", "Unlevered (median)", "Market D/E", "Tax", "Relevered beta", "Regression β", "Blume β (m)", "Weekly β"])
 for i, co in enumerate(TARGETS):
@@ -766,6 +789,13 @@ for co in TARGETS:
         c, p = L(2 + t), L(1 + t)
         put(ws, Hh + 1, 2 + t, f"={c}{RW['Revenue']}-{p}{RW['Revenue']}", NUM)
         put(ws, Hh + 2, 2 + t, f"={c}{RW['Revenue']}*{c}{RW['Discount factor (mid-year)']}", NUM)
+    put(ws, Hh + 3, 1, "WACC lens B (fades to same stable WACC)", font=F_NOTE)
+    put(ws, Hh + 4, 1, "Year-end DF lens B", font=F_NOTE); put(ws, Hh + 5, 1, "Mid-year DF lens B", font=F_NOTE)
+    for t in range(1, N + 1):
+        c, p = L(2 + t), L(1 + t)
+        put(ws, Hh + 3, 2 + t, f"=WACC!{wcol}31" if t <= 5 else f"=WACC!{wcol}31+($B$14-WACC!{wcol}31)*{t-5}/5", PCT)
+        put(ws, Hh + 4, 2 + t, f"=1/(1+{c}{Hh+3})" if t == 1 else f"={p}{Hh+4}/(1+{c}{Hh+3})", "0.0000")
+        put(ws, Hh + 5, 2 + t, f"=1/(1+{c}{Hh+3})^(1-0.5*MidYr)" if t == 1 else f"={p}{Hh+4}/(1+{c}{Hh+3})^(1-0.5*MidYr)", "0.0000")
     rowsW = f"C{RW['Margin weight (→ target by yr 5)']}:{E10}{RW['Margin weight (→ target by yr 5)']}"
     revDF = f"C{Hh+2}:{E10}{Hh+2}"
     dRev = f"C{Hh+1}:{E10}{Hh+1}"
@@ -842,7 +872,14 @@ for co in TARGETS:
         put(ws, RV0 + 13, 21, "Implied stable WACC"); put(ws, RV0 + 13, 25, f"=$B$14+Y{RV0+11}", PCT)
         put(ws, RV0 + 14, 21, "Check: value at implied WACC"); put(ws, RV0 + 14, 25, value_formula("$B$6", "$B$7", f"$Y${RV0+11}", "$B$10"), NUM2)
         note(ws, RV0 + 15, "ΔWACC solved numerically by bisection (scripts/implied_wacc.py); reproduce with Goal Seek on Y25 → set Y28 = price.", 21)
-    DCF[co] = {"vps": f"DCF_{co}!$B${B0+14}", "min": f"DCF_{co}!$O$11", "max": f"DCF_{co}!$O$12",
+    LB = RV0 + 18
+    put(ws, LB, 21, "Lens B — value at Damodaran-industry WACC", font=F_B)
+    put(ws, LB + 1, 21, "WACC lens B (high-growth phase)"); put(ws, LB + 1, 25, f"=WACC!{wcol}31", PCT)
+    put(ws, LB + 2, 21, "Stable-phase WACC (β → 1, unchanged)"); put(ws, LB + 2, 25, "=$B$14", PCT)
+    put(ws, LB + 3, 21, "Value per share — lens B (₹)", font=F_B)
+    put(ws, LB + 3, 25, f"=((SUMPRODUCT({rngF},C{Hh+5}:{E10}{Hh+5})+$B${B0+2}*{E10}{Hh+4}+{NONOP})*(1-{MI}))/{SH}", NUM2, F_B, FILL_KEY)
+    put(ws, LB + 4, 21, "Upside vs price — lens B"); put(ws, LB + 4, 25, f"=Y{LB+3}/$B${B0+15}-1", PCT)
+    DCF[co] = {"vpsB": f"DCF_{co}!$Y${LB+3}", "vps": f"DCF_{co}!$B${B0+14}", "min": f"DCF_{co}!$O$11", "max": f"DCF_{co}!$O$12",
                "imp": f"DCF_{co}!$Y${RV0+5}", "tvpct": f"DCF_{co}!$B${B0+5}"}
     ws.freeze_panes = "B19"
 
@@ -907,13 +944,13 @@ for i, co in enumerate(order):
     put(rv, rr, 8, f"={D(co,'Equity',2026)}", NUM)
     put(rv, rr, 9, f"={D(co,'Revenue',2026)}", NUM)
     put(rv, rr, 10, f"={D(co,'PBT',2026)}+{D(co,'InterestExpense',2026)}+{D(co,'DandA',2026)}", NUM)
-    put(rv, rr, 11, f"=IFERROR((({D(co,'NetIncome',2026)}/{D(co,'Shares',2026)})/({D(co,'NetIncome',2023)}/{D(co,'Shares',2023)}))^(1/3)-1,0)", PCT)
+    put(rv, rr, 11, f"=IF(OR({D(co,'NetIncome',2023)}<=0,{D(co,'NetIncome',2026)}<=0),\"n.m.\",(({D(co,'NetIncome',2026)}/{D(co,'Shares',2026)})/({D(co,'NetIncome',2023)}/{D(co,'Shares',2023)}))^(1/3)-1)", PCT)
     put(rv, rr, 12, f"={D(co,'NetIncome',2026)}/{avg(co,'Equity',2026)}", PCT)
-    put(rv, rr, 13, f"=D{rr}/G{rr}", X); put(rv, rr, 14, f"=D{rr}/H{rr}", X); put(rv, rr, 15, f"=D{rr}/I{rr}", X)
-    put(rv, rr, 16, f"=F{rr}/J{rr}", X); put(rv, rr, 17, f"=IF(K{rr}<=0,\"n.m.\",M{rr}/(K{rr}*100))", NUM2)
+    put(rv, rr, 13, f'=IF(G{rr}<=0,"n.m.",D{rr}/G{rr})', X); put(rv, rr, 14, f"=D{rr}/H{rr}", X); put(rv, rr, 15, f"=D{rr}/I{rr}", X)
+    put(rv, rr, 16, f'=IF(J{rr}<=0,"n.m.",F{rr}/J{rr})', X); put(rv, rr, 17, f'=IF(OR(ISTEXT(K{rr}),ISTEXT(M{rr})),"n.m.",IF(OR(K{rr}<=0,K{rr}>1),"n.m.",M{rr}/(K{rr}*100)))', NUM2)
 put(rv, 8, 1, "Peers (comparable set)", font=F_B)
-p0, p1 = 9, 13
-st = 15
+p0, p1 = 9, 8 + len(PEERS)
+st = p1 + 2
 stats = [("High", "MAX"), ("75th percentile", "P75"), ("Median", "MEDIAN"), ("Average", "AVERAGE"), ("25th percentile", "P25"), ("Low", "MIN")]
 put(rv, st - 1, 1, "Distribution of peer multiples", font=F_B)
 for i, (lb, fn) in enumerate(stats):
@@ -942,7 +979,6 @@ for i, co in enumerate(TARGETS):
 rg = iv + 6
 put(rv, rg, 1, "Step 4 — control for differences: regress P/B on ROE across all 8 firms", font=F_B)
 allrows = ",".join([])  # placeholder
-pb = f"N5:N7,N9:N13"
 put(rv, rg + 1, 1, "Intercept (a)"); put(rv, rg + 2, 1, "Slope on ROE (b)"); put(rv, rg + 3, 1, "R-squared")
 # LibreOffice/Excel need contiguous ranges for SLOPE: build helper columns
 put(rv, rg - 1 + 6, 1, "Helper: ROE / P/B (contiguous)", font=F_NOTE)
@@ -1000,6 +1036,8 @@ for co in TARGETS:
     sm.add_chart(bc, f"H{rr0 - 1}")
     r += 9
 
+exec(open(ROOT / "scripts" / "model_v2_sheets.py").read())
+
 # =====================================================================================
 # INDEX content
 # =====================================================================================
@@ -1018,12 +1056,20 @@ idx_rows = [
     ("DDM", "Module 7", "Two-stage dividend discount model; applicability limits"),
     ("RelVal", "Module 8", "Four-step relative valuation: P/E, P/B, P/S, EV/EBITDA, PEG; P/B–ROE regression"),
     ("Summary", "Modules 7–8", "Football field triangulation"),
+    ("Industry_Benchmark", "Modules 5–6", "Damodaran India industry data (156 developers) vs our firms"),
+    ("Quarterly", "Module 5", "Five latest quarters incl. Q1–Q2 FY27; TTM P/E"),
+    ("LongCycle / RollingBeta", "Modules 5–6", "Prices since 2007, live drawdowns, CAGR; rolling 36-month beta"),
+    ("RateFactor / HistERP", "Module 6", "Two-factor model with ΔG-Sec (LINEST); historical ERP 2005–2026"),
+    ("Housing / CapRates", "Real-estate specific", "BIS house-price cycle; Phoenix implied cap rate vs REIT yields"),
+    ("ResidualIncome / Alt_Valuations", "Modules 7 (TB1)", "Abnormal earnings, justified P/B, EVA = DCF proof, FCFE, APV"),
+    ("RealOption", "Module 7", "Land as a call option (illustrative Black–Scholes)"),
+    ("Scenarios_Implied / MonteCarlo", "Module 7", "Bear/base/bull, implied perpetual growth & WACC, 10,000-draw simulation"),
 ]
 hdr(idx, 4, ["No.", "Sheet", "What it does", "Course module"])
 for i, (s, m, d) in enumerate(idx_rows):
     put(idx, 5 + i, 1, i + 1); put(idx, 5 + i, 2, s, font=F_B); put(idx, 5 + i, 3, d); put(idx, 5 + i, 4, m)
-note(idx, 21, "Colour code: blue font on cream = hard-coded input with source; black = formula; green fill = key output.")
-note(idx, 22, "Data: Yahoo Finance consolidated statements & NSE prices; FRED/OECD (G-Sec); Damodaran Online (ERP, CRP, spreads).")
+note(idx, 31, "Colour code: blue font on cream = hard-coded input with source; black = formula; green fill = key output.")
+note(idx, 32, "Data: Yahoo Finance consolidated statements & NSE prices; FRED/OECD (G-Sec); Damodaran Online (ERP, CRP, spreads).")
 
 wb.calculation.fullCalcOnLoad = True
 OUT.parent.mkdir(parents=True, exist_ok=True)

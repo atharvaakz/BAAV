@@ -6,7 +6,9 @@ python3 -W ignore src/bav/data.py >/dev/null          # standardise raw statemen
 python3 -W ignore scripts/build_model.py              # workbook (formulas)
 python3 -W ignore scripts/check_model.py              # LibreOffice recalc + error scan
 python3 scripts/implied_wacc.py                       # reverse-DCF discount rate
-python3 -W ignore scripts/build_model.py              # embed implied WACC
+(cd scripts && python3 -W ignore monte_carlo.py >/dev/null)  # scenarios, implied g, Monte Carlo (validated engine)
+python3 -W ignore scripts/analysis_v2.py >/dev/null   # long-cycle, rolling beta, rate factor, ERP, housing
+python3 -W ignore scripts/build_model.py              # embed implied WACC, MC, scenarios
 python3 -W ignore scripts/check_model.py
 python3 -W ignore scripts/model_numbers.py >/dev/null # numbers for documents
 python3 -W ignore scripts/make_charts.py >/dev/null
