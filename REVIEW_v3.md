@@ -26,3 +26,15 @@ Reviewer stance: IC memo standard. Would I sign this? Where would a PM or the pr
 
 ## B. Order of work
 W5 → W1 → W3 → W6 → W2 → W4 → W7 → integrate (model sheet 'Operating_KPIs', 'NAV_SOTP', report §, deck slide, viva) → rebuild → fact-check → send.
+
+## Progress log (round 1–2)
+- [x] W5 Godrej 'special items' = JV stake divestments + Ind AS 109 fair-value re-measurement gains (+ interest on JV loans). Narrative made specific.
+- [x] W1 Operating KPIs collected (bookings, collections, guidance, rental, consumption, DCCDL EBITDA/net debt) → Operating_KPIs sheet.
+- [x] W3 Data verification → Data_Check: PAT matches (Godrej, Phoenix exact; DLF 0.2%); revenue/cash differ by definition.
+- [x] W6 DLF JV share = 66.66% × DCCDL PAT within ~1%.
+- [x] W2 NAV/SOTP: DLF identifiable NAV ₹312–386/sh; residual land ₹1.12 lakh cr (59% of mcap) ≈ ₹7,568/sq ft vs book ₹1,315/sq ft. Phoenix NAV ₹909 (price 143% above). Godrej 12x embedded PAT ₹2,564; grid ₹1,709–3,589.
+- [x] W4 Broker views: medians DLF ₹752, Godrej ₹2,350, Phoenix ₹2,200.
+- [x] W7 Dimson: median peer beta 1.47 → 1.59; small caps biased low → supports lens A / H2.
+- [x] Macro/cycle: RBI hiked to 5.50% (7-Oct-26); Q3-26 sales +3% (Anarock) / −6% (PropEquity); inventory +12%; IMF FY27 real 7%, nominal ~10%.
+- [x] Godrej cash: statutory CFO −₹2,003 cr vs management pre-land OCF +₹7,830 cr — narrative corrected everywhere.
+- [x] Reality check vs H1 FY27: DLF revenue −37% → FY27 growth cut +40% → −15%; DCF ₹340 → ₹289 (now ≈ identifiable NAV).

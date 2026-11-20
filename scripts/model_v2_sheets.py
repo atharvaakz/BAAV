@@ -848,3 +848,6 @@ for co, tk in TARGETS.items():
     put(qs, r_, 8, "Sep-25 quarter derived as FY26 total − other three quarters", font=F_NOTE)
     r_ += 1
 note(qs, r_ + 1, "DLF's FY27 assumption was cut from +40% to −15% after this check; Godrej and Phoenix assumptions are consistent with H1.")
+put(nv, 25, 1, "Book inventory per sq ft of total development potential (₹) — land at historical cost", font=F_N)
+put(nv, 25, 2, f"={D('DLF','Inventory',2026)}*1e7/(188*1e6)", NUM)
+put(nv, 25, 4, "Inventory (incl. WIP) ÷ 188 msf; compare with the market-implied value per sq ft above", font=F_NOTE)

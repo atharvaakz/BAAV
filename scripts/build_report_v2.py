@@ -360,7 +360,7 @@ para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['
      f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. That gap is itself a finding: a 7.5% cap rate on EBITDA embeds a far lower "
      f"required return than CAPM gives. Adding five years of pipeline margin at guided sales ({cr(NAV['dlf_res_pv'])}) and net cash gives identifiable NAV of {rs(NAV['dlf_nav_ps'])} a share, "
      f"close to our DCF ({rs(NAV['dlf_nav_ps'])}–{NAV['dlf_nav_ps_hi']:,.0f} if all of the ₹24,500 cr of gross margin management says is still to be recognised on sold units were added; part of it already sits in net cash). The market's remaining {cr(NAV['dlf_land'])} is, by elimination, the value placed on land beyond the visible pipeline: about ₹{NAV['dlf_psf']:,.0f} per sq ft of the "
-     "roughly 150 million sq ft of potential not yet scheduled. That is the real-option argument in rupees.")
+     f"roughly 150 million sq ft of potential not yet scheduled, against a book value of about ₹{NAV['dlf_book_psf']:,.0f} per sq ft for all inventory and land (H7). That is the real-option argument in rupees.")
 para(f"Phoenix. Retail EBITDA at a 7% cap rate, offices at 8%, hotels at 12x EBITDA and work-in-progress at cost give a NAV to owners of {rs(NAV['pml_nav_ps'])} a share; the price is "
      f"{pc(NAV['pml_prem'],0)} above it. A 7% cap rate at the 11.75% discount rate an Indian REIT valuer uses implies perpetual rent growth of {pc(NAV['pml_g_in_cap'],2)}, so practitioners' own "
      "conventions sit close to our 5.5% terminal growth. What closes the gap is an explicit growth premium; one broker adds 70% to its NAV.")
