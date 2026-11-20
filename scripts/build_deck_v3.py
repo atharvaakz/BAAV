@@ -258,7 +258,7 @@ notes(s, "Our final step tested the story against history. We looked at how the 
 s = slide("What we concluded: Godrej preferred, DLF neutral, Phoenix least preferred", kicker="Conclusion", sheet="Summary")
 pic(s, "conclusion_methods", 0.6, 1.8, w=8.05)
 story(s, "We put the main methods side by side, each shown as a percentage of today's share price: two DCF versions, peer multiples, the brokers' NAV method and broker targets.",
-      "Only brokers reach today's prices. Godrej comes closest on every method and is above price on the NAV method. DLF has the strongest balance sheet but is priced for long-run growth. "
+      "No DCF reaches today's prices; broker targets do, and so does the NAV method for Godrej. Godrej comes closest on every method. DLF has the strongest balance sheet but is priced for long-run growth. "
       "Phoenix owns excellent malls at a 2.6% yield and is the most fully priced.",
       "To own these shares you must believe they grow with India for ever, or that the right discount rate is close to the bond yield.")
 source(s, "Ranking from relative valuation, simulation odds and the practitioner cross-check; intrinsic values under both cost-of-capital versions in the backup section.")
