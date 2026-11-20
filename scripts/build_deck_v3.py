@@ -197,7 +197,7 @@ notes(s, "Step two was cleaning the accounts. Four accounting rules distort this
 
 # ===================================================================== 7 STEP 3 — PERFORMANCE
 s = slide("Step 3: the same 10–11% return on equity, from three different engines", 3, "Ratios, DuPont, Growth_EVA, AltmanZ")
-pic(s, "dupont", 0.6, 1.75, w=8.05)
+pic(s, "dupont_deck", 0.9, 1.7, h=4.6)
 story(s, "We computed about fifty ratios over four years, broke return on equity into its parts (DuPont), and measured economic profit (EVA) and distress risk.",
       f"DLF earns through high margins, Godrej through borrowing, Phoenix through using its assets hard. EVA is negative for all three: on current accounting returns, "
       f"none covers its cost of capital. Godrej's distress score is in the grey zone ({G['Zpp'][3]:.1f}).",

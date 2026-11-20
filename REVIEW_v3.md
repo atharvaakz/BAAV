@@ -61,3 +61,9 @@ W5 → W1 → W3 → W6 → W2 → W4 → W7 → integrate (model sheet 'Operati
 ## Round: industry data, company-vs-industry, literature
 - scripts/industry_inputs.py (single source): ANAROCK top-7 sales/launches/unsold/overhang 2013–25 (verified years only), stalled homes 6.29 lakh, MahaRERA completion 26%, RBI HPI FY26, office 2025, malls, NBFC developer credit; Godrej deliveries vs guidance; Phoenix mall openings vs guidance; 11 studies with borrowed lessons.
 - Sheets: Industry_Data, Industry_vs_Company, Literature (pre-sale financing value: Godrej ₹2,359 cr/yr = 127% of PAT, upper bound). Report: §1 literature table, §2 industry subsection + figure; concept appendix moved to workbook to hold 20 pages. Deck: 2 backup slides (17–18). Viva: 5 Q&As.
+
+## Round: presentation redesign and walk-through narrative
+- Research (~35 sources, docs/PRESENTATION_DESIGN_BRIEF.md): SCQA opening, signposting/step tracker, assertion–evidence slides (Garner & Alley 2013), Mayer coherence/redundancy/signalling, Knaflic focus/grey context, direct labels, CRAP, ≥14pt type, left-to-right numbered process, backup section.
+- Deck v3: 13 main slides (question → road map → hypotheses → six steps → conclusion → limits) with read-aloud panels; 10 backup slides; new conclusion chart (each method as % of price); larger DuPont chart; clearer implied-growth chart. Notes ≈1,000 words (≈7–8 min spoken).
+- Report: walk-through paragraph in the executive summary, "what we did and why" note at the start of each section; further valuation routes → Appendix A, rate test → Appendix B (21 pages, limit relaxed for now).
+- Workbook: Start_Here tab (eight stops). Presenter_Script.docx generated from the deck.

@@ -56,6 +56,25 @@ for ax, (title, rs, fmt) in zip(axs, [("Net profit margin", rows["Net profit mar
 axs[0].legend(frameon=False, fontsize=8, loc="best")
 fig.suptitle("DuPont: what drives ROE (average balances)", x=0.01, ha="left", fontweight="bold", fontsize=12, color=INK)
 fig.tight_layout(); save(fig, "dupont")
+# deck version: 2×2, larger type for projection; direct labels on the last point
+fig, axs = plt.subplots(2, 2, figsize=(8.2, 5.4))
+for ax, (title, rs, fmt) in zip(axs.flat, [("Net profit margin", rows["Net profit margin"], "pct"), ("Asset turnover (x)", atos, "x"),
+                                           ("Equity multiplier (x)", rows["Equity multiplier"][::2], "x"), ("Return on equity", rows["ROE (3-step product)"], "pct")]):
+    lasts = {}
+    for i, co in enumerate(cos):
+        vals = [dp.cell(rs[i], c).value for c in (3, 4, 5)]
+        ax.plot(yrs3, vals, marker="o", color=C[co], lw=2.4); lasts[co] = vals[-1]
+    span = max(lasts.values()) - min(lasts.values()) or 1
+    order = sorted(lasts, key=lasts.get); offs = {co: 0 for co in cos}
+    for lo, hi in zip(order, order[1:]):
+        if (lasts[hi] - lasts[lo]) / span < 0.12:
+            offs[hi] += 7; offs[lo] -= 7
+    for co in cos:
+        ax.annotate(NM[co].split()[0], (yrs3[-1], lasts[co]), xytext=(6, offs[co]), textcoords="offset points", fontsize=10, color=C[co], va="center", fontweight="bold")
+    ax.set_title(title, fontsize=12); ax.tick_params(labelsize=10); ax.set_xlim(-0.2, 2.9)
+    if fmt == "pct":
+        ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0))
+fig.tight_layout(); save(fig, "dupont_deck")
 
 # 2. Real-estate operating signature: inventory days, advances/revenue, CFO/PAT
 ra = wb["Ratios"]
