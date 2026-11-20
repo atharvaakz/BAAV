@@ -173,7 +173,7 @@ para(f"Earnings quality is good at DLF and Phoenix — operating cash flow was {
 # ================================================================ 4 RECAST
 doc.add_heading("4. Recasting the statements", 1)
 module_tag("Module 4 · operating, financing and non-operating split (TB1 Ch-4/5)")
-fig("profit_mix", "Figure 3 — What FY26 profit is actually made of.", 13.5)
+fig("profit_mix", "Figure 3 — What FY26 profit is actually made of.", 12)
 table(["FY26 (₹ cr)", "DLF", "Godrej", "Phoenix"],
       [[k.replace("RC ", "").replace(" = core EBIT × (1 − t)", " (t = 25.17%)"), *[f"{d[k][3]:,.0f}" for d in (D, G, P)]] for k in
        ["RC EBIT incl. other income", "RC Core operating EBIT", "RC NOPAT = core EBIT × (1 − t)", "RC Share of JV/associate profit (post-tax)",
@@ -205,7 +205,7 @@ for lab, key, kind in [("Revenue CAGR FY23–26", "Revenue CAGR FY23→FY26", "g
     rows5.append([lab] + vals)
 table(["FY26", "DLF", "Godrej", "Phoenix"], rows5, [6.6, 3.2, 3.2, 3.2], "Selected from 50 ratios × 4 years in the 'Ratios' sheet; average balances where a flow meets a stock.", size=8.5)
 fig("re_signature", "Figure 4 — The real-estate signature: long inventory cycles, customer-funded inventory, diverging cash conversion.")
-fig("industry_bench", "Figure 5 — Against Damodaran's India industry data (156 listed developers).", 15)
+fig("industry_bench", "Figure 5 — Against Damodaran's India industry data (156 listed developers).", 13)
 para(f"Against the industry, all three earn above-average ROE ({pc(IB['ROE'][0])} for the industry) and much higher margins. DLF and Phoenix trade above the industry's aggregate "
      f"trailing P/E of {IB['Trailing P/E (aggregate)'][0]:.0f}x; Godrej trades below it. The industry is reinvesting {IB['Reinvestment rate'][0]:.1f}x its after-tax operating income — a land-buying phase that "
      "Godrej exemplifies.")
@@ -239,7 +239,7 @@ para(f"Risk-free rate. The 10-year G-Sec yields {pc(I['India 10-yr G-Sec yield']
 fig("beta_scatter", "Figure 7 — Regression betas, 60 monthly returns against the Nifty 50.")
 para(f"Regression beta. DLF {dl['Raw beta (SLOPE)']:.2f} (SE {dl['Std error of beta']:.2f}, R² {dl['R-squared']:.2f}), Godrej {gp['Raw beta (SLOPE)']:.2f} (SE {gp['Std error of beta']:.2f}), Phoenix {ph['Raw beta (SLOPE)']:.2f} "
      f"(SE {ph['Std error of beta']:.2f}). Godrej's 95% interval of {gp['95% CI low']:.2f}–{gp['95% CI high']:.2f} alone moves its cost of equity by about seven points.")
-fig("rolling_beta", "Figure 8 — Beta drifts: rolling 36-month beta, 2010–2026.", 15)
+fig("rolling_beta", "Figure 8 — Beta drifts: rolling 36-month beta, 2010–2026.", 13)
 para(f"Beta is not a constant (H3). Phoenix's rolling beta has ranged from {RB['Phoenix'][0]:.2f} to {RB['Phoenix'][1]:.2f}, Godrej's from {RB['Godrej'][0]:.2f} to {RB['Godrej'][1]:.2f}. "
      f"A single five-year regression is one draw from a moving target. Bottom-up beta. Unlevering {len(N['BU'])} large developers at market D/E and taking the median gives "
      f"{N['BU_median']:.2f}, relevered to {D['W Beta used']:.2f} for DLF and {G['W Beta used']:.2f} for Godrej. For Phoenix — a rental business — developer betas overstate risk; listed REITs "
@@ -248,7 +248,7 @@ para(f"Industry lens. Damodaran's India dataset gives an unlevered beta of {IB['
      f"for real-estate operators. These averages are dragged down by thinly traded small caps, whose prices react to the market with a lag (H2). We carry them as lens B "
      f"rather than discard them, because they show how sensitive the answer is. A Dimson (1979) test confirms the bias: adding last month's market return raises the median peer beta "
      f"from 1.47 to 1.59, and lifts small caps such as Puravankara (1.69 → 2.43) and Anant Raj (1.66 → 2.27) far more than DLF (1.70 → 1.72). For Phoenix, lens B implies a cost of equity of {pc(P['W_B']['ke'])} — below the G-Sec — so we treat it as an upper bound.")
-fig("rate_factor", "Figure 9 — Rate sensitivity from a two-factor model (market + change in the 10-year G-Sec), 2012–2026.", 13)
+fig("rate_factor", "Figure 9 — Rate sensitivity from a two-factor model (market + change in the 10-year G-Sec), 2012–2026.", 11)
 para(f"Beyond CAPM. A two-factor model adds the monthly change in the G-Sec. Developers lose about {pc(-RF['DLF'][2],0)}–{pc(-RF['Godrej'][2],0)} per +100bp after controlling for the market, "
      f"but with t-statistics of only {RF['DLF'][4]:.1f} to {RF['Godrej'][4]:.1f}; Phoenix shows no rate exposure. Rate risk is real but noisy (H4), so CAPM remains our base.")
 table(["", "DLF", "Godrej", "Phoenix"],
@@ -287,8 +287,8 @@ para(f"DCCDL is valued by capitalising DLF's share of its profit ({cr(D['DCCDL']
      f"The same cash flows valued through EVA (invested capital plus PV of EVA) reproduce the FCFF value to the rupee (difference {N['DLF']['EVA_diff']:.0f}); APV confirms debt adds little — DLF is net "
      "cash and Godrej's tax shield is offset by distress risk.")
 doc.add_heading("What the price implies", 2)
-fig("lens_compare", "Figure 11 — DCF value under both lenses and a bull case, against price.", 14)
-fig("implied_growth", "Figure 12 — The perpetual growth rate each price implies.", 11.5)
+fig("lens_compare", "Figure 11 — DCF value under both lenses and a bull case, against price.", 12.5)
+fig("implied_growth", "Figure 12 — The perpetual growth rate each price implies.", 10)
 para(f"Sensitivity grids move DLF between {rs(D['gridA_min'])} and {rs(D['gridA_max'])} and no sensible combination reaches the price. Solving the model backwards: the price needs a target margin "
      f"of {pc(D['implied margin'],0)} for DLF and {pc(P['implied margin'],0)} for Phoenix (impossible), or a uniform discount rate of {pc(D['implied WACC'])}, {pc(G['implied WACC'])} and {pc(P['implied WACC'])}, "
      f"or — holding our discount rates — perpetual growth of {pc(imp['DLF']['terminal_g'])}, {pc(imp['GPL']['terminal_g'])} and {pc(imp['PML']['terminal_g'])}. The third is the most economically meaningful: "
@@ -325,13 +325,13 @@ rvrows = [[r[0].replace(" Ltd", "").replace(" (Macrotech)", ""), *[("n.m." if is
            ("n.m." if isinstance(r[16], str) else f"{r[16]:.2f}"), pc(r[11])] for r in N["RelVal"]]
 rvrows.append(["Peer median", f"{med[0]:.1f}", f"{med[1]:.2f}", f"{med[2]:.1f}", f"{med[3]:.1f}", f"{med[4]:.2f}", ""])
 table(["Company", "P/E", "P/B", "P/S", "EV/EBITDA", "PEG", "ROE"], rvrows, [4.6, 1.8, 1.8, 1.8, 2.2, 1.8, 1.8], size=8)
-fig("pb_roe", "Figure 14 — P/B against ROE across the peer set.", 12)
+fig("pb_roe", "Figure 14 — P/B against ROE across the peer set.", 10.5)
 reg = N["Reg"]; ri = N["RelImplied"]
 para(f"The regression (P/B = {reg['a']:.2f} + {reg['b']:.1f} × ROE, R² {reg['r2']:.2f}) explains little: cost-based book values and land banks break the link between "
      "current ROE and price. We use it as a cross-check.")
 table(["Implied value (₹/share)", "P/E median", "P/E IQR", "P/B median", "EV/EBITDA median", "P/B on ROE"],
       [[k, f"{v[0]:,.0f}", f"{v[1]:,.0f}–{v[2]:,.0f}", f"{v[3]:,.0f}", f"{v[6]:,.0f}", f"{v[8]:,.0f}"] for k, v in ri.items()], [4.6, 2.4, 3.0, 2.4, 2.8, 2.4], size=8.5)
-fig("cap_rates", "Figure 15 — The yield investors accept on Phoenix versus listed REITs and the G-Sec.", 12.5)
+fig("cap_rates", "Figure 15 — The yield investors accept on Phoenix versus listed REITs and the G-Sec.", 11)
 para(f"For an income-producing owner the right relative measure is yield. Phoenix's enterprise value (including minorities at market value) is {cr(CAP['ev'])} against EBITDA of {cr(CAP['ebitda'])} — "
      f"a {pc(CAP['yield'])} yield, {-CAP['spread']*100:.1f} percentage points below the G-Sec. Listed REITs yield {pc(CAP['reit_median'])}. Priced at the mall REIT's yield, Phoenix would be worth about "
      f"{rs(CAP['pml_at_reit'])} a share. The premium over that is payment for growth a REIT cannot fund, because it must distribute 90% of its cash (H8).")
