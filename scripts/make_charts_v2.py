@@ -218,3 +218,24 @@ for i, v in enumerate(vals):
     a2.text(i, v * 100 + 0.6 if v >= 0 else 0.6, f"{v:+.0%}", ha="center", fontsize=9, color=INK)
 a2.axhline(0, color=MUTE, lw=0.8); a2.set_ylabel("growth, %"); a2.set_title("Latest year: growth vs the market (FY26 vs CY25)", fontsize=9.5)
 save(fig, "industry_cycle")
+
+# ---------------------------------------------------------------- v6: conclusion chart — every method as % of price
+RVc = {r[0]: r for r in N["RelVal"]}; medc = N["RelStats"]["Median"]
+NMc = {"DLF": "DLF Ltd", "GPL": "Godrej Properties", "PML": "Phoenix Mills"}
+BKc = {r[0]: r[1] for r in N["Brokers"] if r[0] in NMc.values()}
+navc = {"DLF": N["NAV"]["dlf_nav_ps"], "GPL": N["NAV"]["gpl_emb_ps"], "PML": N["NAV"]["pml_nav_ps"]}
+methods = ["DCF\n(base case)", "DCF\n(industry beta)", "Peer-median\nP/E", "Practitioner\nNAV", "Broker\nmedian"]
+fig, ax = plt.subplots(figsize=(11, 4.2))
+x = np.arange(len(methods)); w = 0.26
+for j, (c, col, nm) in enumerate([("DLF", C["DLF"], "DLF"), ("GPL", C["GPL"], "Godrej"), ("PML", C["PML"], "Phoenix")]):
+    px_ = N[c]["DCF"]["Current market price (Rs)"]
+    vals = [N[c]["DCF"]["Intrinsic value per share (Rs)"], N[c]["lensB"]["vps"], px_ * medc[0] / RVc[NMc[c]][12], navc[c], BKc[NMc[c]]]
+    pcts = [v / px_ * 100 for v in vals]
+    ax.bar(x + (j - 1) * w, pcts, w, color=col, label=nm)
+    for xi, v in zip(x, pcts):
+        ax.text(xi + (j - 1) * w, v + 2, f"{v:.0f}", ha="center", fontsize=8, color=INK)
+ax.axhline(100, color=INK, lw=1.4, ls="--"); ax.text(-0.45, 103, "share price = 100", ha="left", fontsize=9, color=INK); ax.set_ylim(0, 150)
+ax.set_xticks(x); ax.set_xticklabels(methods, fontsize=10); ax.set_ylabel("value as % of share price")
+ax.legend(frameon=False, fontsize=9, ncol=3, loc="upper left")
+ax.set_title("Each method's value as a percentage of today's share price", fontsize=11)
+save(fig, "conclusion_methods")
