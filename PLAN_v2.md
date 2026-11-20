@@ -41,6 +41,6 @@ Status keys: [ ] todo  [~] doing  [x] done  [!] blocked
 - [!] D2 network now unrestricted, but fetching company/exchange/screener pages was denied by the permission classifier — needs user OK
 
 ## Next (needs user)
-- [ ] Allow fetching screener.in / BSE / NSE / company investor pages → bookings, collections, land bank, occupancy → NAV/SOTP model
-- [ ] Share Mac 'BAV Project' folder (textbooks) or run a local session
-- [ ] Verify key facts against annual reports
+- [x] (partly; NSE 503, BSE 403, Phoenix TLS-blocked) Allow fetching screener.in / BSE / NSE / company investor pages → bookings, collections, land bank, occupancy → NAV/SOTP model
+- [!] Share Mac 'BAV Project' folder (textbooks) or run a local session
+- [x] Verify key facts against annual reports (DLF, Godrej FY26 audited: exact tie-out)

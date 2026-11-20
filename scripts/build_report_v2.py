@@ -354,7 +354,7 @@ table(["FY26 (₹ crore)", "DLF", "Godrej", "Phoenix"],
 dcx = N["DataCheck"]
 para(f"Verification. Our profit lines match the companies (Godrej ₹1,850 cr and Phoenix ₹1,224 cr exactly; DLF within 0.2%). Revenue and cash differ by definition: our DLF revenue "
      f"is {pc(-dcx[0][3],1)} below 'revenue from operations' as reported, and our DLF net cash excludes ₹5,003 cr of RERA-restricted cash. DLF's share of JV profit in our data "
-     f"(₹{dcx[7][1]:,.0f} cr) is within {pc(abs(dcx[7][3]),0)} of 66.66% of DCCDL's reported profit, confirming that line is essentially DCCDL.")
+     f"(₹{dcx[7][1]:,.0f} cr) is within {pc(abs(dcx[7][3]),0)} of 66.66% of DCCDL's reported profit, confirming that line is essentially DCCDL. Against DLF's audited FY26 annual report, our equity, total assets, inventory, share of JV profit and operating cash flow match to the rupee, and the RERA balances in its notes (about ₹11,170 cr) confirm the escrow figure management gave on its call. Godrej's audited FY26 statements tie equally exactly (total assets ₹81,894 cr, inventory ₹57,807 cr, profit ₹1,841 cr, operating cash flow −₹2,003 cr); its other income of ₹3,279 cr is 39% of total income.")
 fig("nav_bridge", "Figure 17 — Rebuilding NAV from public data: DLF's parts versus its market value; Phoenix's NAV versus price.", 14.5)
 para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['dccdl_gav'])} gross and DLF's stake {cr(NAV['dccdl_stake'])} after DCCDL's debt — more than twice the "
      f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. That gap is itself a finding: a 7.5% cap rate on EBITDA embeds a far lower "
@@ -375,7 +375,7 @@ para("The latest quarter (Q2 FY27) sharpens each story. DLF booked ₹3,800 cr, 
      "measured against intrinsic value, not recent multiples, the premium remains.")
 doc.add_heading("What management says: transcripts, guidance and BRSR", 2)
 MG = N["MGMT"]; ES = N["ESG"]; gc = {r[0]: r for r in N["GC"]}
-para("We read the companies' own earnings-call transcripts (DLF and Phoenix Q4 FY26; Godrej Q2 FY27) and sustainability filings (DLF BRSR FY25, DCCDL "
+para("We read the companies' own earnings-call transcripts (DLF and Phoenix Q4 FY26; Godrej Q2 FY27) and sustainability filings (DLF BRSR FY25, Godrej BRSR FY26, DCCDL "
      "Sustainability Report FY26). Three findings change how our numbers should be read. First, DLF's headline net cash is mostly not free: management "
      "said about ₹11,200 cr of the ₹14,155 cr sits in RERA escrow accounts, released only as projects complete in FY27–28. Second, DLF guides to "
      "₹9,000–10,000 cr of new margin and ₹7,000–8,000 cr of development free cash flow every year — cash that recognised revenue, booked only on "
@@ -389,7 +389,7 @@ para(f"Phoenix's call supports our forecast: retail rental growth guided at 14�
      f"{pc(ES['Renewable share'][0],0)} renewable (up from {pc(ES['Renewable share'][1],0)}); women are only 10% of employees and their turnover ({pc(ES['Employee turnover (male / female)'][1],0)}) "
      f"is almost twice men's — a social-pillar flag. DCCDL's emissions were flat at about {ES['DCCDL total emissions (ktCO2e)'][0]:,.0f} ktCO2e while rent grew about 15%, and its "
      "whole rental portfolio is LEED Platinum. That matters for value: green Grade-A offices are what multinational tenants and global capital (GIC, CPPIB) require, "
-     "and they explain DCCDL's 98–99% non-SEZ occupancy. Godrej's and Phoenix's BRSRs sit on NSE/BSE, which blocked automated retrieval; we did not use second-hand figures for them.")
+     "and they explain DCCDL's 98–99% non-SEZ occupancy. Godrej's FY26 BRSR is the contrast: women are 38% of permanent staff (DLF 10%), renewables 33% of energy (15% a year earlier), zero lost-time injuries — but its boundary covers only its own sites, not contractors, so the energy totals are not comparable with DLF's. Phoenix's filings could not be retrieved; we did not use second-hand ESG figures for it.")
 fig("practitioner_vs_textbook", "Figure 18 — Textbook DCF, practitioner NAV, broker targets and price.", 14)
 bk_ = {r[0]: r for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
 para(f"The sell-side sits close to the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "
@@ -434,8 +434,8 @@ for ref in ["Palepu, K., Healy, P. & Bernard, V. Business Analysis & Valuation: 
             "Altman, E. (1968), Journal of Finance 23(4); Altman, E. (2005), Emerging Markets Review 6(4).",
             "Blume, M. (1971), Journal of Finance 26(1). Hamada, R. (1972), Journal of Finance 27(2). Scholes, M. & Williams, J. (1977), Journal of Financial Economics 5(3). Dimson, E. (1979), Journal of Financial Economics 7(2).",
             "Real Estate (Regulation and Development) Act, 2016; Ind AS 23, 40, 111, 115.",
-            "DLF Ltd, Q4 FY26 earnings call transcript (May 2026); DLF Business Responsibility & Sustainability Report FY2024-25; DCCDL Sustainability Report FY2025-26.",
-            "Phoenix Mills Ltd, Q4 FY26 earnings call transcript (April 2026); Godrej Properties Ltd, Q2 FY27 earnings call (October 2026)."]:
+            "DLF Ltd, Integrated Annual Report 2025-26 (audited consolidated statements); Q4 FY26 earnings call transcript (May 2026); DLF Business Responsibility & Sustainability Report FY2024-25; DCCDL Sustainability Report FY2025-26.",
+            "Godrej Properties Ltd, Integrated Annual Report 2025-26 (audited statements and BRSR); Q2 FY27 earnings call (October 2026). Phoenix Mills Ltd, Q4 FY26 earnings call transcript (April 2026)."]:
     p = doc.add_paragraph(ref, style="List Number"); p.paragraph_format.space_after = Pt(2)
     for r in p.runs:
         r.font.size = Pt(9)

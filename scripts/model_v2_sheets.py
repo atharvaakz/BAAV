@@ -963,3 +963,61 @@ for i, (lab, v, pv, fmt, s_) in enumerate(ES):
 note(esg, 21, "Why ESG matters for value here: (1) green-certified Grade-A offices command rent premia and lower vacancy (DCCDL non-SEZ 98–99% occupied);")
 note(esg, 22, "(2) multinational tenants and global capital (GIC, CPPIB) require it; (3) it lowers cost of capital via ratings and sustainability-linked debt;")
 note(esg, 23, "(4) residential developers face construction-dust bans (NCR) and water stress — an operational risk visible in BRSR 'areas of water stress' disclosures.")
+
+
+# ---------------------------------------------------------------------- Audited annual-report tie-out (DLF FY26 integrated annual report, dlf.in)
+a0 = of.max_row + 3
+put(of, a0, 1, "Tie-out to DLF's audited FY2025-26 consolidated statements (annual report, ₹ lakh ÷ 100 = ₹ cr)", font=F_B)
+hdr(of, a0 + 1, ["Line", "Our dataset", "Annual report", "Difference", "Reading"])
+AR = [("Total equity (owners)", "="+D('DLF', 'Equity', 2026), 45473.37, "Exact"),
+      ("Total assets", "="+D('DLF', 'TotalAssets', 2026), 74874.77, "Exact"),
+      ("Inventories", "="+D('DLF', 'Inventory', 2026), 24717.48, "Exact"),
+      ("Share of profit of JVs & associates", "="+R('DLF','JV',2026), 1792.83, "Exact: the DCCDL line"),
+      ("Cash flow from operations", "="+D('DLF', 'CFO', 2026), 6347.38, "Exact"),
+      ("Revenue from operations", "="+D('DLF', 'Revenue', 2026), 8194.02, "Data vendor nets some items; AR is the reported figure"),
+      ("Finance costs (P&L, net of capitalisation)", "="+D('DLF', 'InterestExpense', 2026), 199.07, "Most interest is capitalised into inventory (Ind AS 23)"),
+      ("Cash & cash equivalents", "="+D('DLF', 'Cash', 2026), 2273.22, "Vendor 'cash' field excludes deposits; AR adds ₹5,473 cr other bank balances"),
+      ("RERA-designated balances in the notes (current a/c 6,201 + escrow 2,994 + 116 + 1,858)", 11169.0, 11200, "Audited notes ≈ management's '₹11,200 cr in RERA'")]
+for i, (lab, ours, ar, rd) in enumerate(AR):
+    r_ = a0 + 2 + i
+    put(of, r_, 1, lab)
+    put(of, r_, 2, ours if not isinstance(ours, str) or ours.startswith("=") else ours, NUM)
+    put(of, r_, 3, ar, NUM, F_IN, FILL_IN)
+    put(of, r_, 4, f"=IFERROR(B{r_}/C{r_}-1,\"\")", PCT, F_B)
+    put(of, r_, 5, rd, font=F_NOTE)
+note(of, a0 + 3 + len(AR), "Balance sheet, JV profit and operating cash flow tie to the rupee; differences are definitional (revenue, cash) and explained.")
+
+
+# ---------------------------------------------------------------------- Godrej: audited annual-report tie-out and BRSR FY26
+g0 = of.max_row + 3
+put(of, g0, 1, "Tie-out to Godrej Properties' audited FY2025-26 consolidated statements (Integrated Annual Report, ₹ cr)", font=F_B)
+hdr(of, g0 + 1, ["Line", "Our dataset", "Annual report", "Difference", "Reading"])
+GAR = [("Total assets", "=" + D('GPL', 'TotalAssets', 2026), 81894.43, "Exact"),
+       ("Inventories", "=" + D('GPL', 'Inventory', 2026), 57806.91, "Exact"),
+       ("Total equity (owners + NCI)", "=" + D('GPL', 'Equity', 2026) + "+" + D('GPL', 'MinorityInterest', 2026), 19354.89, "Exact"),
+       ("Profit for the year", "=" + D('GPL', 'NetIncomeInclMI', 2026), 1840.66, "Exact"),
+       ("Profit attributable to owners", "=" + D('GPL', 'NetIncome', 2026), 1850.20, "Exact"),
+       ("Cash flow from operations", "=" + D('GPL', 'CFO', 2026), -2003.34, "Exact — negative because land is inventory"),
+       ("Cash & cash equivalents", "=" + D('GPL', 'Cash', 2026), 1860.74, "Exact"),
+       ("Revenue from operations", "=" + D('GPL', 'Revenue', 2026), 5131.43, "Vendor nets some items"),
+       ("Other income", "=" + D('GPL', 'InterestIncome', 2026) + "+" + D('GPL', 'SpecialItems', 2026), 3279.45, "AR other income ₹3,279 cr = 39% of total income — confirms profit is non-operating"),
+       ("Finance costs (P&L)", "=" + D('GPL', 'InterestExpense', 2026), 136.86, "Most of ₹1,247 cr interest paid is capitalised into inventory")]
+for i, (lab, ours, ar, rd) in enumerate(GAR):
+    r_ = g0 + 2 + i
+    put(of, r_, 1, lab); put(of, r_, 2, ours, NUM); put(of, r_, 3, ar, NUM, F_IN, FILL_IN)
+    put(of, r_, 4, f"=IFERROR(B{r_}/C{r_}-1,\"\")", PCT, F_B); put(of, r_, 5, rd, font=F_NOTE)
+
+e0 = esg.max_row + 3
+put(esg, e0, 1, "Godrej Properties BRSR FY2025-26 (Integrated Report; reasonable assurance on BRSR Core by TÜV SÜD)", font=F_B)
+hdr(esg, e0 + 1, ["Indicator", "FY26", "FY25", "Reading"])
+GE = [("Total energy consumed (GJ) — own sites & offices", 44462, 37202, NUM, "Boundary excludes contractor energy; not comparable to DLF's rental-asset boundary"),
+      ("of which renewable (GJ)", 14560, 5651, NUM, ""),
+      ("Renewable share", f"=B{e0+3}/B{e0+2}", f"=C{e0+3}/C{e0+2}", PCT, "Up sharply; claims Scope 1+2 carbon neutrality"),
+      ("Scope 1 / Scope 2 emissions (tCO2e)", 936.16, 3831.81, NUM, "FY26 Scope 1 (col B) and Scope 2 (col C)"),
+      ("Water consumption (kilolitres)", 531252, 408565, NUM, "Of which 90,137 kl recycled in FY26"),
+      ("Permanent employees / women share", 5124, 0.38, NUM, "Women 38% (col C) — vs DLF 10%"),
+      ("Employee turnover (male / female)", 0.22, 0.17, PCT, "Total 20% (FY25 23%)"),
+      ("LTIFR (employees) / fatalities", 0, 0, NUM, "")]
+for i, (lab, v, pv, fmt, s_) in enumerate(GE):
+    r_ = e0 + 2 + i
+    put(esg, r_, 1, lab); put(esg, r_, 2, v, fmt); put(esg, r_, 3, pv, PCT if lab.startswith("Permanent") else fmt); put(esg, r_, 4, s_, font=F_NOTE)
