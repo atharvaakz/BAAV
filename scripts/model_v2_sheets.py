@@ -1188,3 +1188,13 @@ note(dly, 23, "Under completion accounting a delay also defers recognised revenu
 note(dly, 24, "Empirically (Survivorship sheet), chronic delay was fatal: Unitech, HDIL, Parsvnath and Ansal lost 99%+. On-time delivery is what separates our three firms from them.")
 for n_ in ["Event_Study", "Survivorship", "REIT_Spread", "Issuance_Timing", "Delay_Cost"]:
     wb[n_].sheet_properties.tabColor = "5B4A8C"
+_cm4 = [("8–9", "Event study (market model, CAR, BHAR); semi-strong market efficiency", "MacKinlay 1997", "Event_Study; Report §10"),
+        ("6", "Survivorship bias in industry betas and returns", "Brown, Goetzmann & Ross 1995", "Survivorship"),
+        ("6–7", "REITs as instruments: payout rule, yield spread, monetisation option", "Extension", "REIT_Spread, CapRates"),
+        ("9", "Equity-issue market timing (new-issues puzzle)", "Loughran & Ritter 1995", "Issuance_Timing"),
+        ("7", "Value of delay: V·r/(1+r) per year; escrow release timing", "Extension", "Delay_Cost"),
+        ("9", "Liquidity: Amihud illiquidity, traded value", "Amihud 2002", "Report §11")]
+r_ = cc.max_row + 1
+for i, row in enumerate(_cm4):
+    for j, v in enumerate(row):
+        put(cc, r_ + i, 1 + j, v, font=F_NOTE if j == 2 else F_N)

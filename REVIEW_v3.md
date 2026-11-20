@@ -51,3 +51,9 @@ W5 → W1 → W3 → W6 → W2 → W4 → W7 → integrate (model sheet 'Operati
 - Added ESG_BRSR sheet (DLF BRSR FY25, DCCDL SR FY26). NAV now uses official 137 msf potential (112 msf outside pipeline); Phoenix office/hotel EBITDA from the call (141/276).
 - Report §9 subsection, 5 viva Q&As, deck notes. Blocked: NSE (503) / BSE (403) filings; Godrej & Phoenix BRSRs.
 - Annual-report tie-out: DLF FY26 IAR (dlf.in) and Godrej FY26 IAR (company CDN) — equity, assets, inventory, PAT, JV profit, CFO match exactly; RERA notes ≈ ₹11,170 cr confirm transcript. Godrej BRSR FY26 added. Phoenix site fails TLS via proxy.
+
+## Round: timeline nuance (events, shocks, survivorship, REITs, delay)
+- scripts/events.py: market-model event study on daily prices since 2007 (17 macro/regulatory/REIT events, 12 company events with verified dates), 180 results days vs EPS surprise, survivorship (9 survivors vs 6 failed developers), flight to quality 2016–20, equity-issue timing, REIT yield vs G-Sec + cap-rate channel regression, drawdowns/recovery, Amihud liquidity.
+- Sheets: Event_Study, Survivorship, REIT_Spread, Issuance_Timing, Delay_Cost (live formulas). Report §10 (2 figures), H10–H12, deck slide 14, 9 viva Q&As.
+- Bug caught: market series mixed Nifty and Sensex levels on non-common trading days → rebuilt as chained returns. REIT yields switched from 365-day window to last four distributions (removed spikes).
+- Report at 20 pages (limit) after shrinking figures; figure numbering now automatic (old captions skipped Figure 16).

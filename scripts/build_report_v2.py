@@ -446,7 +446,7 @@ module_tag("Module 9 · cross holdings, minority interests, distress, liquidity"
 bullets([("Cross holdings.", "DCCDL is valued separately and added to operating value rather than mixed into EBIT; consolidating it would double-count."),
          ("Minority interests.", "CPPIB and GIC own stakes in Phoenix's mall platforms; we deduct their share of value in proportion to their share of profit (about 21%). Phoenix is buying out CPPIB's 49% of Island Star Mall Developers for about ₹5,450 cr in four tranches over three years (its stake has reached 68.1%). Bought at a fair price this is value-neutral — cash out, minority leakage down — so we keep the FY26 minority share."),
          ("Distress.", f"Godrej's original Altman Z is in the distress zone and its cash cover is {G['Cash interest coverage: EBIT / interest paid (x)'][3]:.1f}x; we add an expected distress cost in the APV check."),
-         ("Liquidity and control.", "All three are large and liquid, so no illiquidity discount applies; no control premium is relevant to a minority investor.")])
+         ("Liquidity and control.", f"All three are liquid — average daily traded value over the past year ₹{N['EV']['amihud']['DLF']['adv_cr']:,.0f} cr (DLF), ₹{N['EV']['amihud']['GPL']['adv_cr']:,.0f} cr (Godrej), ₹{N['EV']['amihud']['PML']['adv_cr']:,.0f} cr (Phoenix), with Amihud illiquidity a fraction of small peers such as Sobha and of the Nexus REIT — so no illiquidity discount applies; no control premium is relevant to a minority investor.")])
 
 # ================================================================ 10 SYNTHESIS
 doc.add_heading("12. Synthesis: what you have to believe", 1)
