@@ -113,6 +113,18 @@ table(["Layer", "What", "Span"],
 para("The model follows the course order — strategy, accounting analysis, recasting, financial analysis, cost of capital, intrinsic and relative valuation — "
      "and a Python replica of the DCF (verified to reproduce the spreadsheet to the rupee) drives the scenario and Monte Carlo work.")
 
+doc.add_heading("What Indian research says — and what we borrowed", 2)
+LQ = N["LITQ"]
+para("We read the empirical work on Indian real estate before modelling and took six lessons from it. Each is tested or quantified in the workbook (Literature sheet).", after=2)
+table(["Study", "Finding", "What we borrowed"],
+      [["Tandel, Gandhi, Nanda & Agnihotri (2025, J. Public Econ.)", "RERA's litigation disclosure cut prices of litigated homes 4–6%", "Disclosure rewards trusted brands → flight-to-quality test (§10)"],
+       ["Gandhi, Tandel, Tabarrok et al. (2019, Brookings India)", "Litigation adds ~20% to completion time; Mumbai projects average ~8.5 years", f"Delay priced explicitly; +20% slip costs Godrej ≈ ₹{LQ['lit_gpl']:.0f}/share"],
+       ["Dutta, Green, Panchapagesan & Venkataraman (2021, IIMB WP)", "Developers pre-sell to swap 16–18% construction loans for 8–10% buyer money", f"Advances save ₹{LQ['save_dlf']:,.0f} cr (DLF) and ₹{LQ['save_gpl']:,.0f} cr (Godrej) a year after tax"],
+       ["Brueckner & Sridhar (2012); Bertaud & Brueckner (2005)", "Tight floor-area limits make central land scarce; cities sprawl", "Scarcity rent behind DLF's residual land value and Phoenix's city-centre malls"],
+       ["Singh & Nadkarni (2017, RBI WP)", "Monetary shocks drive stock prices; credit shocks drive house prices", "Why realty stocks don't track house prices (H5) and IL&FS hit harder than rate moves"],
+       ["Walia et al. (2023, JPIF); Kudtarkar & Jesudasan", "Indian REITs: bond-like returns, not cointegrated with equities", "REIT yields below the G-Sec; separate pricing of developers and REITs"]],
+      [4.6, 5.6, 6.3], size=7.5)
+
 # ================================================================ 2 SECTOR
 doc.add_heading("2. The sector: two decades of boom and bust", 1)
 module_tag("Module 2 · strategy and competitive analysis · real-estate cycle")
@@ -160,6 +172,18 @@ table(["", "DLF", "Godrej Properties", "Phoenix Mills"],
 para("Customer segments differ sharply. DLF sells to high-net-worth buyers and non-resident Indians for whom a Gurugram apartment is partly an investment; "
      "Godrej sells to salaried, mortgage-financed buyers across cities, so its demand is rate-sensitive; Phoenix's customers are tenants whose sales depend on "
      "urban discretionary spending. Customer lifetime value is highest for Phoenix (tenants renew leases repeatedly) and lowest for developers, whose buyers rarely buy twice.")
+
+doc.add_heading("The industry in numbers — and where our three stand", 2)
+IV = N["IVC"]; INDN = N["IND"]
+fig("industry_cycle", "Figure 99 — Left: top-7-city housing cycle 2013–2025. Right: FY26 bookings growth against the market.", 14)
+para(f"Housing volumes in the top seven cities have grown only {pc(INDN['cagr'])} a year since the 2014 peak: sales fell {pc(-INDN['fall'],0)} to the 2020 trough, launches fell by three-quarters "
+     "from 2014 to 2017 as demand, then credit, dried up, and unsold stock fell from 8.0 lakh units (2016) to about 5.5 lakh. NCR — DLF's home market — "
+     "went from 88 months of unsold inventory in 2020 to 17. In 2025 volumes fell 14% while value rose 6%: the market is premiumising, and RBI's house-price index rose only 2–4% a year. "
+     f"Delivery risk is industry-wide: about 6.3 lakh homes worth ₹5 lakh crore are stuck or delayed — {IV['stuck_yrs']:.1f} years of national sales — and only 26% of projects registered with "
+     f"MahaRERA are complete. Against that backdrop our firms are taking share: Godrej's bookings rose {pc(IV['g_gpl'],0)} in FY26 against {pc(IV['g_ind'],0)} for the market, lifting its (indicative) share of "
+     f"top-seven sales value from {pc(IV['sh_gpl_prev'])} to {pc(IV['sh_gpl'])}; DLF's dipped to {pc(IV['sh_dlf'])} as it deferred launches. Godrej delivered 121–123% of its delivery guidance in "
+     "FY25–26; Phoenix opened its three 2023 malls within 0–4 months of guidance and grows rent at roughly twice the Grade-A mall market (5–8%), while a fifth of India's malls are near-empty. "
+     "Offices had a record 2025 (gross leasing 83–89 msf), the demand behind DCCDL's 98% occupancy.")
 
 # ================================================================ 3 ACCOUNTING
 doc.add_heading("3. Accounting analysis: where the numbers mislead", 1)
@@ -476,6 +500,10 @@ for ref in ["Palepu, K., Healy, P. & Bernard, V. Business Analysis & Valuation: 
             "Yahoo Finance: consolidated statements, quarterly results, dividend-adjusted price histories for 13 developers, 4 REITs and Indian indices.",
             "Altman, E. (1968), Journal of Finance 23(4); Altman, E. (2005), Emerging Markets Review 6(4).",
             "MacKinlay, A. C. (1997), Event studies in economics and finance, Journal of Economic Literature 35(1). Loughran, T. & Ritter, J. (1995), The new issues puzzle, Journal of Finance 50(1). Brown, S., Goetzmann, W. & Ross, S. (1995), Survival, Journal of Finance 50(3). Amihud, Y. (2002), Journal of Financial Markets 5(1).",
+            "Tandel, V., Gandhi, S., Nanda, A. & Agnihotri, N. (2025), Do mandatory disclosures squeeze the lemons? The case of housing markets in India, Journal of Public Economics. Gandhi, S., Tandel, V., Tabarrok, A. et al. (2019), Too slow for the urban march: litigations and the real estate market in Mumbai, Brookings India.",
+            "Dutta, A., Green, R., Panchapagesan, V. & Venkataraman, M. (2021), Are move-in ready properties more expensive?, IIMB Working Paper 647. Brueckner, J. & Sridhar, K. (2012), Regional Science and Urban Economics 42(6). Bertaud, A. & Brueckner, J. (2005), Journal of Housing Economics 14(2).",
+            "Singh, B. & Nadkarni, A. (2017), How asset prices interact with bank credit and monetary policy, RBI Working Paper 1/2017. Walia, S. et al. (2023), Journal of Property Investment & Finance. Kudtarkar & Jesudasan, Are the Indian stock market and REITs integrated or segmented? Titman, S. (1985), American Economic Review 75(3). Grenadier, S. (1996), Journal of Finance 51(5).",
+            "ANAROCK Research, Indian residential annual reports 2024 and 2025 and quarterly viewpoints; RBI All-India House Price Index releases 2025-26; JLL, Cushman & Wakefield, CBRE and Knight Frank India office reports 2025; MahaRERA data.",
             "Blume, M. (1971), Journal of Finance 26(1). Hamada, R. (1972), Journal of Finance 27(2). Scholes, M. & Williams, J. (1977), Journal of Financial Economics 5(3). Dimson, E. (1979), Journal of Financial Economics 7(2).",
             "Real Estate (Regulation and Development) Act, 2016; Ind AS 23, 40, 111, 115.",
             "DLF Ltd, Integrated Annual Report 2025-26 (audited consolidated statements); Q4 FY26 earnings call transcript (May 2026); DLF Business Responsibility & Sustainability Report FY2024-25; DCCDL Sustainability Report FY2025-26.",
@@ -491,7 +519,6 @@ table(["Sheets", "Module", "Content"],
        ["DCF_*, ResidualIncome, Alt_Valuations, DDM, RealOption, Scenarios_Implied, MonteCarlo", "7", "FCFF, EVA, FCFE/APV, RI, DDM, options, scenarios, simulation"],
        ["RelVal, CapRates, Summary", "8", "Peer multiples, regression, cap rates, football field"],
        ["LongCycle, Housing", "Sector", "Prices since 2007 with drawdowns; BIS house prices"]], [7.6, 1.6, 7.3], size=8)
-doc.add_heading("Appendix — concept coverage", 2)
-cm = [r for r in _wbx["Concept_Map"].iter_rows(min_row=5, values_only=True) if r and r[0]]
-table(["Module", "Concept / method", "Source", "Where applied"], [[str(a), b, c_, d_] for a, b, c_, d_ in cm], [1.4, 7.6, 2.6, 4.9], size=7.5)
+_ncm = sum(1 for r in _wbx["Concept_Map"].iter_rows(min_row=5, values_only=True) if r and r[0])
+para(f"Concept coverage: the Concept_Map sheet maps {_ncm} course, textbook and research concepts to the sheet and section where each is applied.", size=8.5)
 OUT.parent.mkdir(parents=True, exist_ok=True); doc.save(OUT); print("saved", OUT)

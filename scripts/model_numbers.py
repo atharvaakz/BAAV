@@ -140,6 +140,19 @@ N["Delay"] = {"dlf_ps": dl_["B10"].value, "gpl_ps": dl_["C10"].value, "pml_ps": 
               "mgmt_cr": dl_["B17"].value, "mgmt_ps": dl_["B18"].value, "escrow": dl_["B19"].value}
 rp_ = wb["REIT_Spread"]; N["REITopt"] = {"ebitda": rp_["B28"].value, "at_reit": rp_["B29"].value, "at_capm": rp_["B30"].value, "prem": rp_["B31"].value}
 N["EV"] = json.loads((ROOT / "data/processed/v2/events.json").read_text())
+ivc_ = wb["Industry_vs_Company"]; lit_ = wb["Literature"]; idd_ = wb["Industry_Data"]
+def _find_row(ws, s):
+    for r in range(1, ws.max_row + 1):
+        v = ws.cell(r, 1).value
+        if isinstance(v, str) and v.startswith(s):
+            return r
+N["IVC"] = {"g_dlf": ivc_["B7"].value, "g_gpl": ivc_["C7"].value, "g_ind": ivc_["D7"].value, "sh_dlf": ivc_["B8"].value, "sh_gpl": ivc_["C8"].value,
+            "sh_dlf_prev": ivc_["B9"].value, "sh_gpl_prev": ivc_["C9"].value, "stuck_yrs": ivc_["D17"].value}
+_l = _find_row(lit_, "Customer advances FY26")
+N["LITQ"] = {"adv_dlf": lit_.cell(_l, 2).value, "adv_gpl": lit_.cell(_l, 3).value, "save_dlf": lit_.cell(_l + 2, 2).value, "save_gpl": lit_.cell(_l + 2, 3).value,
+             "pat_dlf": lit_.cell(_l + 3, 2).value, "pat_gpl": lit_.cell(_l + 3, 3).value, "ps_dlf": lit_.cell(_l + 4, 2).value, "ps_gpl": lit_.cell(_l + 4, 3).value,
+             "lit_gpl": lit_.cell(_find_row(lit_, "Godrej value at risk"), 2).value}
+N["IND"] = {"cagr": idd_.cell(_find_row(idd_, "Sales CAGR"), 2).value, "fall": idd_.cell(_find_row(idd_, "Peak-to-trough"), 2).value}
 v2 = ROOT / "data/processed/v2"
 N["MC"] = json.loads((v2 / "monte_carlo.json").read_text()); N["SC"] = json.loads((v2 / "scenarios.json").read_text())
 N["A2"] = json.loads((v2 / "analysis_v2.json").read_text())

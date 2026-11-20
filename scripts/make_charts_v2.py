@@ -195,3 +195,26 @@ for k, col in [("EMBASSY", C["DLF"]), ("MINDSPACE", C["IDX"]), ("BIRET", C["GPL"
 a2.plot(ry.index, ry["gsec"] * 100, color=INK, lw=1.8, ls="--", label="10-yr G-Sec")
 a2.set_title("REIT distribution yields vs the G-Sec, %", fontsize=9.5); a2.legend(frameon=False, fontsize=7.5, ncol=2, loc="upper left")
 save(fig, "survivors_reit")
+
+# ---------------------------------------------------------------- v5: industry cycle and company vs industry
+import importlib.util as _ilu
+_sp = _ilu.spec_from_file_location("industry_inputs", ROOT / "scripts/industry_inputs.py"); IND = _ilu.module_from_spec(_sp); _sp.loader.exec_module(IND)
+yrs = sorted(IND.RESI)
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 3.4), gridspec_kw={"width_ratios": [1.6, 1]})
+x = np.arange(len(yrs)); w = 0.4
+sales = [IND.RESI[y][0] for y in yrs]; lau = [IND.RESI[y][1] if IND.RESI[y][1] is not None else np.nan for y in yrs]
+a1.bar(x - w / 2, sales, w, color=C["DLF"], label="Sales")
+a1.bar(x + w / 2, lau, w, color=C["GPL"], label="Launches")
+uns = [(i, IND.RESI[y][2]) for i, y in enumerate(yrs) if IND.RESI[y][2] is not None]
+a1b = a1.twinx(); a1b.plot([u[0] for u in uns], [u[1] for u in uns], "o-", color=C["PML"], lw=1.6, label="Unsold stock (rhs)")
+a1b.set_ylim(0, 9); a1b.spines["right"].set_visible(True); a1b.grid(False); a1b.tick_params(labelsize=8)
+a1.set_ylim(0, 6.6); a1.set_xticks(x); a1.set_xticklabels(["'" + str(y)[2:] for y in yrs], fontsize=8); a1.set_ylabel("lakh units")
+a1.set_title("Top-7-city housing: sales, launches and unsold stock (ANAROCK)", fontsize=9.5)
+h1, l1 = a1.get_legend_handles_labels(); h2, l2 = a1b.get_legend_handles_labels(); a1.legend(h1 + h2, l1 + l2, frameon=False, fontsize=7.5, loc="upper left", ncol=3)
+labs = ["Industry\nsales value", "DLF\nbookings", "Godrej\nbookings"]
+vals = [IND.RESI_VALUE[2025] / IND.RESI_VALUE[2024] - 1, IND.BOOKINGS["DLF"]["FY26"] / IND.BOOKINGS["DLF"]["FY25"] - 1, IND.BOOKINGS["GPL"]["FY26"] / IND.BOOKINGS["GPL"]["FY25"] - 1]
+a2.bar(labs, [v * 100 for v in vals], color=[C["IDX"], C["DLF"], C["GPL"]], width=0.55)
+for i, v in enumerate(vals):
+    a2.text(i, v * 100 + 0.6 if v >= 0 else 0.6, f"{v:+.0%}", ha="center", fontsize=9, color=INK)
+a2.axhline(0, color=MUTE, lw=0.8); a2.set_ylabel("growth, %"); a2.set_title("Latest year: growth vs the market (FY26 vs CY25)", fontsize=9.5)
+save(fig, "industry_cycle")

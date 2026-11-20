@@ -243,13 +243,44 @@ notes(s, "The methods disagree, and that is the finding. Relative valuation can'
 # 14 LIMITS -----------------------------------------------------------------------
 n += 1
 s = base("Limitations · CLO3", "What would change our answer", n)
-tb(s, 0.6, 1.9, 6.2, 4.2, [[("Data  ", True, ACC), ("four years of statements; KPIs and broker views from press reports of filings — to be verified against investor presentations.", False, INK)],
+tb(s, 0.6, 1.9, 6.2, 4.2, [[("Data  ", True, ACC), ("four years of statements, tied to DLF and Godrej audited FY26 reports; Phoenix KPIs and broker views from transcripts and press.", False, INK)],
                            [("Cost of capital  ", True, ACC), ("two credible lenses, four to five points apart — reported, not hidden.", False, INK)],
                            [("Terminal value  ", True, ACC), ("52–79% of value; the g ≤ Rf rule is the single most consequential assumption.", False, INK)],
-                           [("Accounting  ", True, ACC), ("land at ~₹1,300/sq ft book vs ~₹7,600 market-implied: P/B and ROE mislead.", False, INK)],
+                           [("Accounting  ", True, ACC), (f"land at ~₹{N['NAV']['dlf_book_psf']:,.0f}/sq ft book vs ~₹{N['NAV']['dlf_psf']:,.0f} market-implied (DLF): P/B and ROE mislead.", False, INK)],
                            [("Cycle  ", True, ACC), ("RBI hike to 5.50%, inventory +12%: near-term risk to developers.", False, INK)]], 14)
 tb(s, 7.2, 1.9, 5.5, 3.2, [[("Monitor", True, INK)], "Bookings vs collections (Godrej)", "Net debt and cash interest cover", "Rental growth on new malls (Phoenix)",
                            "DCCDL monetisation (DLF)", "RBI tightening (repo 5.50%) & unsold inventory +12%"], 14)
 tb(s, 7.2, 5.4, 5.5, 0.6, "Thank you — questions welcome.", 20, ACC, HEAD, True)
 notes(s, "Our main limits: we lacked project-level data for a net-asset-value model; two credible cost-of-capital lenses give different answers, and we show both; and the terminal growth rule drives much of the value. These are the things we would monitor.")
+
+# BACKUP A: INDUSTRY ---------------------------------------------------------------
+n += 1
+IV = N["IVC"]; LQ = N["LITQ"]
+s = base("Backup · Industry data", "The industry in numbers — and where our three stand", n, "Industry_Data, Industry_vs_Company")
+pp = pic(s, "industry_cycle", 0.6, 1.65, w=8.4)
+card(s, 9.2, 1.7, 3.53, 1.0, "6.3 lakh homes", "stuck or delayed in top-7 cities (≈1.6 years of sales)", RUST, 18)
+card(s, 9.2, 2.8, 3.53, 1.0, f"{pc(IV['sh_gpl_prev'])} to {pc(IV['sh_gpl'])}", "Godrej share of top-7 sales value (indicative)", OCH, 18)
+card(s, 9.2, 3.9, 3.53, 1.0, "121–123%", "Godrej deliveries vs guidance, FY25–26", ACC, 18)
+card(s, 9.2, 5.0, 3.53, 1.0, "88 to 17 months", "NCR unsold-inventory overhang, 2020 to 2024", ACC, 18)
+tb(s, 0.6, below(pp, 0.08), 8.4, 1.2, [[("Cycle  ", True, ACC), ("sales −60% from the 2014 peak to 2020, record 2023; 2025 volume −14% but value +6% (premiumisation); RBI HPI +2–4%.", False, INK)],
+                                       [("Rent  ", True, ACC), ("record office leasing 83–89 msf (2025); Grade-A mall vacancy ~6%, yet a fifth of India's malls are near-empty.", False, INK)]], 11)
+method(s, "ANAROCK annual reports 2024–25 and releases; RBI HPI 2025-26; JLL/C&W/CBRE/Knight Frank 2025; MahaRERA data. Company bookings FY vs industry CY.", y=6.3, h=0.5)
+notes(s, "Backup for questions on the industry. The top-seven-city housing market has barely grown in volume since 2014; it went through a five-year bust, a COVID trough and a record 2023. About 6.3 lakh homes are stuck or delayed. Our firms are taking share — Godrej grew bookings 16 percent while the market's value grew 6 — and they deliver on or ahead of guidance.")
+
+# BACKUP B: LITERATURE ------------------------------------------------------------
+n += 1
+s = base("Backup · Research", "What Indian research says — and what we borrowed", n, "Literature")
+rows = [["Study", "Finding", "What we borrowed"],
+        ["Tandel, Gandhi, Nanda & Agnihotri (2025)", "RERA disclosure cut litigated-home prices 4–6%", "Trust is priced → flight to quality"],
+        ["Gandhi, Tandel, Tabarrok et al. (2019)", "Litigation +20% completion time; Mumbai ~8.5 yrs", f"Delay priced: ≈ ₹{LQ['lit_gpl']:.0f}/share for Godrej"],
+        ["Dutta, Green et al. (2021, IIMB)", "Pre-sales swap 16–18% loans for 8–10% buyer money", f"Advances save ₹{LQ['save_gpl']:,.0f} cr/yr (Godrej) = {pc(LQ['pat_gpl'],0)} of PAT"],
+        ["Brueckner & Sridhar (2012)", "FAR limits make central land scarce", "Scarcity rent in DLF/Phoenix land"],
+        ["Singh & Nadkarni (2017, RBI)", "Monetary shocks → stocks; credit shocks → houses", "Why H5 is rejected; IL&FS > rate moves"],
+        ["Walia et al. (2023); Kudtarkar & Jesudasan", "REITs bond-like, not cointegrated with equities", "REIT yield < G-Sec; separate pricing"]]
+_t = table(s, 0.6, 1.75, 12.1, rows, colw=[3.6, 4.4, 4.1], size=11.5, h_row=0.55)
+for _r in _t.rows:
+    for _c in _r.cells:
+        _c.text_frame.paragraphs[0].alignment = PP_ALIGN.LEFT
+method(s, "Each lesson is tested or quantified in the workbook (Literature, Delay_Cost, Survivorship, REIT_Spread sheets).", y=6.3, h=0.45)
+notes(s, "Backup for questions on research. We borrowed six lessons from Indian studies. The most valuable: developers pre-sell to replace 16 to 18 percent construction loans with buyers' money at 8 to 10 percent. On Godrej's advances that saving is worth more than its entire reported profit each year.")
 prs.save(OUT); print("saved", OUT, "slides", n)

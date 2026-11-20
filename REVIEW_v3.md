@@ -57,3 +57,7 @@ W5 → W1 → W3 → W6 → W2 → W4 → W7 → integrate (model sheet 'Operati
 - Sheets: Event_Study, Survivorship, REIT_Spread, Issuance_Timing, Delay_Cost (live formulas). Report §10 (2 figures), H10–H12, deck slide 14, 9 viva Q&As.
 - Bug caught: market series mixed Nifty and Sensex levels on non-common trading days → rebuilt as chained returns. REIT yields switched from 365-day window to last four distributions (removed spikes).
 - Report at 20 pages (limit) after shrinking figures; figure numbering now automatic (old captions skipped Figure 16).
+
+## Round: industry data, company-vs-industry, literature
+- scripts/industry_inputs.py (single source): ANAROCK top-7 sales/launches/unsold/overhang 2013–25 (verified years only), stalled homes 6.29 lakh, MahaRERA completion 26%, RBI HPI FY26, office 2025, malls, NBFC developer credit; Godrej deliveries vs guidance; Phoenix mall openings vs guidance; 11 studies with borrowed lessons.
+- Sheets: Industry_Data, Industry_vs_Company, Literature (pre-sale financing value: Godrej ₹2,359 cr/yr = 127% of PAT, upper bound). Report: §1 literature table, §2 industry subsection + figure; concept appendix moved to workbook to hold 20 pages. Deck: 2 backup slides (17–18). Viva: 5 Q&As.

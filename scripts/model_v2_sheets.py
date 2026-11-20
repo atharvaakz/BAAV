@@ -1198,3 +1198,140 @@ r_ = cc.max_row + 1
 for i, row in enumerate(_cm4):
     for j, v in enumerate(row):
         put(cc, r_ + i, 1 + j, v, font=F_NOTE if j == 2 else F_N)
+
+# ====================================================================== v5: industry dataset, company vs industry, literature learnings
+import importlib.util as _ilu
+_sp = _ilu.spec_from_file_location("industry_inputs", ROOT / "scripts/industry_inputs.py"); IND = _ilu.module_from_spec(_sp); _sp.loader.exec_module(IND)
+idd = sheet("Industry_Data", "The Indian real-estate industry: residential cycle, stalled homes, prices, offices, malls, credit",
+            IND.RESI_SRC, [26, 13, 13, 13, 13, 13, 40])
+hdr(idd, 4, ["Year (top-7 cities)", "Sales (lakh units)", "Launches (lakh)", "Unsold stock (lakh)", "Overhang (months)", "Sales ÷ launches", "Reading"])
+yrs = sorted(IND.RESI)
+for i, y in enumerate(yrs):
+    r_ = 5 + i
+    s, l_, u, o = IND.RESI[y]
+    put(idd, r_, 1, y)
+    for j, v in enumerate([s, l_, u, o]):
+        if v is not None:
+            put(idd, r_, 2 + j, v, NUM2 if j < 3 else NUM, F_IN, FILL_IN)
+    if l_ is not None:
+        put(idd, r_, 6, f"=B{r_}/C{r_}", NUM2)
+RE_ = 5 + len(yrs) - 1
+put(idd, 5, 7, "2014 peak, then a five-year bust (launches −73% to 2017)", font=F_NOTE)
+put(idd, 5 + yrs.index(2020), 7, "COVID trough", font=F_NOTE)
+put(idd, 5 + yrs.index(2023), 7, "Record sales; 2025 −14% (value +6%: premiumisation)", font=F_NOTE)
+r0 = RE_ + 2
+put(idd, r0, 1, "Sales CAGR 2014→2025 (units)", font=F_B); put(idd, r0, 2, f"=(B{RE_}/B{5+yrs.index(2014)})^(1/11)-1", PCT, F_B)
+put(idd, r0 + 1, 1, "Peak-to-trough fall in sales (2014→2020)"); put(idd, r0 + 1, 2, f"=B{5+yrs.index(2020)}/B{5+yrs.index(2014)}-1", PCT)
+put(idd, r0 + 2, 1, "Sales value 2025 (₹ lakh cr)"); put(idd, r0 + 2, 2, IND.RESI_VALUE[2025], NUM2, F_IN, FILL_IN); put(idd, r0 + 2, 3, "2024:"); put(idd, r0 + 2, 4, IND.RESI_VALUE[2024], NUM2, F_IN, FILL_IN)
+c0 = r0 + 4
+put(idd, c0, 1, "City inventory overhang (months)", font=F_B); hdr(idd, c0 + 1, ["City", "2020", "2023–24", "2025"])
+for i, (k, v) in enumerate(IND.CITY_OVERHANG.items()):
+    put(idd, c0 + 2 + i, 1, k); [put(idd, c0 + 2 + i, 2 + j, x, NUM) for j, x in enumerate(v) if x is not None]
+note(idd, c0 + 4, "NCR — DLF's home market — went from 88 months of unsold stock in 2020 to 17: the post-COVID cycle cleared the overhang that the 2014–19 bust left behind.")
+s0 = c0 + 6
+put(idd, s0, 1, "Delivery risk across the industry", font=F_B)
+DR = [("Homes stuck or delayed, top-7 cities (lakh)", IND.STALLED["homes_stuck_or_delayed_lakh"], NUM2), ("… value (₹ lakh cr)", IND.STALLED["value_lakh_cr"], NUM2),
+      ("… of which fully stalled (lakh)", IND.STALLED["fully_stalled_lakh"], NUM2), ("NCR share of stuck/delayed stock", IND.STALLED["ncr_share"], PCT),
+      ("MMR share", IND.STALLED["mmr_share"], PCT), ("Stuck homes ÷ one year of 2025 sales", None, PCT),
+      ("MahaRERA: registered projects", IND.MAHARERA["registered"], NUM), ("… completed share", IND.MAHARERA["completed_share"], PCT),
+      ("… lapsed projects (Mar-2022)", IND.MAHARERA["lapsed_mar22"], NUM), ("… projects in insolvency (NCLT)", IND.MAHARERA["nclt_projects"], NUM)]
+for i, (lab, v, fmt) in enumerate(DR):
+    r_ = s0 + 1 + i
+    put(idd, r_, 1, lab)
+    if v is not None:
+        put(idd, r_, 2, v, fmt, F_IN, FILL_IN)
+put(idd, s0 + 6, 2, f"=B{s0+1}/B{RE_}", PCT, F_B)
+put(idd, s0 + 1, 7, IND.STALLED["src"], font=F_NOTE); put(idd, s0 + 7, 7, IND.MAHARERA["src"], font=F_NOTE)
+h0 = s0 + 12
+put(idd, h0, 1, "RBI all-India house price index, y/y", font=F_B)
+for i, (k, v) in enumerate(IND.HPI.items()):
+    put(idd, h0 + 1 + i, 1, k); put(idd, h0 + 1 + i, 2, v, PCT, F_IN, FILL_IN)
+put(idd, h0 + 1, 7, IND.HPI_SRC, font=F_NOTE)
+note(idd, h0 + 6, "Prices rose only 2–4% a year in FY26 while sales value rose 6% and DLF sold at ₹1 lakh/sq ft — the market is premiumising, not inflating broadly.")
+o0 = h0 + 8
+put(idd, o0, 1, "Offices 2025 (record year)", font=F_B)
+for i, (k, v) in enumerate(IND.OFFICE_2025.items()):
+    put(idd, o0 + 1 + i, 1, k); put(idd, o0 + 1 + i, 2, v, NUM2, F_IN, FILL_IN)
+m0 = o0 + 8
+put(idd, m0, 1, "Malls", font=F_B)
+MM = [("New Grade-A mall supply 2025 (msf)", IND.MALLS["new_supply_2025_msf"], NUM2), ("Mall leasing 2025 (msf, record)", IND.MALLS["leasing_2025_msf"], NUM2),
+      ("Grade-A mall vacancy, H1 2026", IND.MALLS["gradeA_vacancy_h1_2026"], PCT), ("Share of malls that are 'ghost' (>40% vacant)", IND.MALLS["ghost_malls_share"], PCT)]
+for i, (lab, v, fmt) in enumerate(MM):
+    put(idd, m0 + 1 + i, 1, lab); put(idd, m0 + 1 + i, 2, v, fmt, F_IN, FILL_IN)
+put(idd, m0 + 1, 7, IND.MALLS["src"] + "; Grade-A rents growing " + IND.MALLS["gradeA_rent_cagr"] + " a year", font=F_NOTE)
+n0 = m0 + 6
+put(idd, n0, 1, "Developer credit", font=F_B)
+put(idd, n0 + 1, 1, "NBFC share of developer funding (FY18)"); put(idd, n0 + 1, 2, IND.NBFC["nbfc_share_dev_funding_fy18"], PCT, F_IN, FILL_IN)
+put(idd, n0 + 2, 1, "NBFC developer loans (₹ trn, FY18)"); put(idd, n0 + 2, 2, IND.NBFC["nbfc_dev_loans_trn"], NUM2, F_IN, FILL_IN)
+put(idd, n0 + 3, 1, "Developer loans as share of NBFC books"); put(idd, n0 + 3, 2, IND.NBFC["dev_loans_share_nbfc_books"], PCT, F_IN, FILL_IN)
+put(idd, n0 + 1, 7, IND.NBFC["src"], font=F_NOTE)
+IDROW = {"sales25": f"Industry_Data!$B${RE_}", "val25": f"Industry_Data!$B${r0+2}", "val24": f"Industry_Data!$D${r0+2}", "stuck": f"Industry_Data!$B${s0+1}"}
+
+ivc = sheet("Industry_vs_Company", "How each company compares with the industry",
+            "Company bookings are fiscal years (Apr–Mar); industry figures are calendar years, so FY26 is compared with CY2025 (nine months overlap). Shares are indicative.",
+            [52, 16, 16, 16, 44])
+hdr(ivc, 4, ["Metric", "DLF", "Godrej", "Phoenix / industry", "Reading"])
+put(ivc, 5, 1, "Bookings FY26 (₹ cr)"); put(ivc, 5, 2, IND.BOOKINGS["DLF"]["FY26"], NUM, F_IN, FILL_IN); put(ivc, 5, 3, IND.BOOKINGS["GPL"]["FY26"], NUM, F_IN, FILL_IN)
+put(ivc, 6, 1, "Bookings FY25 (₹ cr)"); put(ivc, 6, 2, IND.BOOKINGS["DLF"]["FY25"], NUM, F_IN, FILL_IN); put(ivc, 6, 3, IND.BOOKINGS["GPL"]["FY25"], NUM, F_IN, FILL_IN)
+put(ivc, 7, 1, "Bookings growth FY26"); put(ivc, 7, 2, "=B5/B6-1", PCT, F_B); put(ivc, 7, 3, "=C5/C6-1", PCT, F_B)
+put(ivc, 7, 4, f"={IDROW['val25']}/{IDROW['val24']}-1", PCT, F_B); put(ivc, 7, 5, "Industry sales value +6% (volume −14%): Godrej grew 2.7x faster than the market", font=F_NOTE)
+put(ivc, 8, 1, "Share of top-7-city sales value, FY26 vs CY2025"); put(ivc, 8, 2, f"=B5/({IDROW['val25']}*1e5)", PCT, F_B); put(ivc, 8, 3, f"=C5/({IDROW['val25']}*1e5)", PCT, F_B)
+put(ivc, 9, 1, "Share, FY25 vs CY2024"); put(ivc, 9, 2, f"=B6/({IDROW['val24']}*1e5)", PCT); put(ivc, 9, 3, f"=C6/({IDROW['val24']}*1e5)", PCT)
+put(ivc, 9, 5, "Godrej gaining share, DLF holding (launch-timed): consolidation toward branded developers", font=F_NOTE)
+put(ivc, 11, 1, "Inventory at cost ÷ annual bookings (years)"); put(ivc, 11, 2, f"={D('DLF','Inventory',2026)}/B5", NUM2); put(ivc, 11, 3, f"={D('GPL','Inventory',2026)}/C5", NUM2)
+put(ivc, 11, 4, 18 / 12, NUM2); put(ivc, 11, 5, "Industry: unsold stock ≈ 18 months of sales (at value). Ours at cost incl. land — a rough comparison", font=F_NOTE)
+put(ivc, 12, 1, "Customer advances ÷ annual bookings (years of pre-sold work)"); put(ivc, 12, 2, f"={R('DLF','Adv',2026)}/B5", NUM2); put(ivc, 12, 3, f"={R('GPL','Adv',2026)}/C5", NUM2)
+put(ivc, 14, 1, "Godrej deliveries (msf) FY24 / FY25 / FY26 / FY27 guidance", font=F_B)
+for j, k in enumerate(["FY24", "FY25", "FY26", "FY27G"]):
+    put(ivc, 15, 2 + j if j < 3 else 4, None)
+put(ivc, 15, 1, "Delivered (msf)"); put(ivc, 15, 2, IND.GPL_DELIVERIES["FY24"][0], NUM2, F_IN, FILL_IN); put(ivc, 15, 3, IND.GPL_DELIVERIES["FY25"][0], NUM2, F_IN, FILL_IN); put(ivc, 15, 4, IND.GPL_DELIVERIES["FY26"][0], NUM2, F_IN, FILL_IN)
+put(ivc, 16, 1, "Delivered ÷ delivery guidance"); put(ivc, 16, 3, IND.GPL_DELIVERIES["FY25"][1], PCT, F_IN, FILL_IN); put(ivc, 16, 4, IND.GPL_DELIVERIES["FY26"][1], PCT, F_IN, FILL_IN)
+put(ivc, 15, 5, "Cols B–D = FY24, FY25, FY26; FY27 guidance 13.5 msf. Beat guidance by 21–23% two years running", font=F_NOTE)
+put(ivc, 17, 1, "Industry: stuck/delayed homes ÷ one year of sales"); put(ivc, 17, 4, f"={IDROW['stuck']}/{IDROW['sales25']}", PCT, F_B)
+put(ivc, 17, 5, "≈1.6 years of national sales are stuck — the delivery risk our three firms are paid to avoid", font=F_NOTE)
+put(ivc, 19, 1, "Phoenix mall openings: guided vs actual", font=F_B)
+hdr(ivc, 20, ["Mall", "Guided", "Actual", "Slip (months)", ""])
+for i, (mll, g, a, sl) in enumerate(IND.PHOENIX_OPENINGS):
+    put(ivc, 21 + i, 1, mll); put(ivc, 21 + i, 2, g); put(ivc, 21 + i, 3, a)
+    if sl is not None:
+        put(ivc, 21 + i, 4, sl, NUM)
+note(ivc, 26, "Phoenix's three 2023 malls opened within 0–4 months of guidance; DLF received OCs for three office towers in FY26 with the fourth due Q2 FY27.")
+note(ivc, 27, "Against an industry where ~6.3 lakh homes are stuck and only 26% of MahaRERA-registered projects are complete, small slips are the mark of reliable developers.")
+put(ivc, 29, 1, "Phoenix retail vs the mall industry", font=F_B)
+put(ivc, 30, 1, "Phoenix retail rental growth guidance FY27–28"); put(ivc, 30, 4, 0.145, PCT, F_IN, FILL_IN)
+put(ivc, 31, 1, "Industry Grade-A mall rent growth (CAGR, midpoint)"); put(ivc, 31, 4, 0.065, PCT, F_IN, FILL_IN)
+put(ivc, 32, 1, "Phoenix consumption growth FY26"); put(ivc, 32, 4, 0.21, PCT, F_IN, FILL_IN)
+note(ivc, 33, "Phoenix grows rent at twice the Grade-A market rate (new malls + renewals at ~20% uplift) — while ~20% of India's malls are 'ghost' assets: dominance in a bifurcated market.")
+
+lit = sheet("Literature", "What Indian real-estate research tells us — and what we borrowed", IND.LIT_SRC, [30, 9, 26, 52, 56, 16])
+hdr(lit, 4, ["Authors", "Year", "Venue", "Finding", "What we borrow", "Where used"])
+for i, row in enumerate(IND.LIT):
+    for j, v in enumerate(row):
+        put(lit, 5 + i, 1 + j, v, font=F_NOTE if j in (3, 4) else F_N)
+l0 = 5 + len(IND.LIT) + 2
+put(lit, l0, 1, "Borrowed learning, quantified: value of pre-sale financing (Dutta et al.)", font=F_B)
+hdr(lit, l0 + 1, ["", "DLF", "Godrej", "", "Reading"])
+put(lit, l0 + 2, 1, "Customer advances FY26 (₹ cr)"); put(lit, l0 + 2, 2, f"={R('DLF','Adv',2026)}", NUM); put(lit, l0 + 2, 3, f"={R('GPL','Adv',2026)}", NUM)
+put(lit, l0 + 3, 1, "Spread: construction loan − home loan rate"); put(lit, l0 + 3, 2, 0.08, PCT, F_IN, FILL_IN); put(lit, l0 + 3, 3, "=B" + str(l0 + 3), PCT)
+put(lit, l0 + 3, 5, "16–18% developer construction finance vs 8–10% buyer mortgages (Dutta et al.)", font=F_NOTE)
+put(lit, l0 + 4, 1, "Annual after-tax financing saving (₹ cr)"); put(lit, l0 + 4, 2, f"=B{l0+2}*B{l0+3}*(1-Tax)", NUM, F_B); put(lit, l0 + 4, 3, f"=C{l0+2}*C{l0+3}*(1-Tax)", NUM, F_B)
+put(lit, l0 + 5, 1, "… as % of FY26 PAT"); put(lit, l0 + 5, 2, f"=B{l0+4}/{D('DLF','NetIncome',2026)}", PCT); put(lit, l0 + 5, 3, f"=C{l0+4}/{D('GPL','NetIncome',2026)}", PCT)
+put(lit, l0 + 6, 1, "… per share (₹, per year)"); put(lit, l0 + 6, 2, f"=B{l0+4}/{D('DLF','Shares',2026)}", NUM2, F_B); put(lit, l0 + 6, 3, f"=C{l0+4}/{D('GPL','Shares',2026)}", NUM2, F_B)
+note(lit, l0 + 7, "The customer is the developer's cheapest lender. RERA's escrow keeps that money tied to the project, so only brands buyers trust can raise it — a moat with a rupee value.")
+put(lit, l0 + 9, 1, "Borrowed learning, quantified: litigation-driven delay (Gandhi et al.)", font=F_B)
+put(lit, l0 + 10, 1, "Extra completion time from litigation (share of cycle)"); put(lit, l0 + 10, 2, 0.20, PCT, F_IN, FILL_IN)
+put(lit, l0 + 11, 1, "Typical development cycle (years)"); put(lit, l0 + 11, 2, 4, NUM, F_IN, FILL_IN)
+put(lit, l0 + 12, 1, "Implied slip (years)"); put(lit, l0 + 12, 2, f"=B{l0+10}*B{l0+11}", NUM2)
+put(lit, l0 + 13, 1, "Godrej value at risk per share (Delay_Cost 1-yr cost × slip)"); put(lit, l0 + 13, 2, f"=Delay_Cost!C10*B{l0+12}", NUM2, F_B)
+LITQ = {"adv_dlf": f"Literature!$B${l0+2}", "adv_gpl": f"Literature!$C${l0+2}", "save_dlf": f"Literature!$B${l0+4}", "save_gpl": f"Literature!$C${l0+4}",
+        "pat_dlf": f"Literature!$B${l0+5}", "pat_gpl": f"Literature!$C${l0+5}", "lit_gpl": f"Literature!$B${l0+13}"}
+for n_ in ["Industry_Data", "Industry_vs_Company", "Literature"]:
+    wb[n_].sheet_properties.tabColor = "3E6B4A"
+_cm5 = [("1–2", "Industry dataset: residential cycle, stalled homes, HPI, offices, malls, developer credit", "ANAROCK, RBI, consultants", "Industry_Data; Report §2"),
+        ("2, 5", "Company vs industry: market share, growth, delivery vs guidance, inventory", "Extension", "Industry_vs_Company"),
+        ("1–9", "Literature review (Indian real-estate research) and borrowed, quantified lessons", "Research papers", "Literature; Report §1")]
+r_ = cc.max_row + 1
+for i, row in enumerate(_cm5):
+    for j, v in enumerate(row):
+        put(cc, r_ + i, 1 + j, v, font=F_NOTE if j == 2 else F_N)
+note(lit, lit.max_row + 2, "Caveat: our 'customer advances' line is derived (current liabilities − current debt − payables) and includes other operating liabilities, so the saving is an upper bound.")
