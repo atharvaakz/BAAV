@@ -796,6 +796,10 @@ for co in TARGETS:
         put(ws, Hh + 3, 2 + t, f"=WACC!{wcol}31" if t <= 5 else f"=WACC!{wcol}31+($B$14-WACC!{wcol}31)*{t-5}/5", PCT)
         put(ws, Hh + 4, 2 + t, f"=1/(1+{c}{Hh+3})" if t == 1 else f"={p}{Hh+4}/(1+{c}{Hh+3})", "0.0000")
         put(ws, Hh + 5, 2 + t, f"=1/(1+{c}{Hh+3})^(1-0.5*MidYr)" if t == 1 else f"={p}{Hh+4}/(1+{c}{Hh+3})^(1-0.5*MidYr)", "0.0000")
+    put(ws, Hh + 7, 1, "Benchmark: naive linear trend of FY23–26 revenue (Excel FORECAST)", font=F_NOTE)
+    for t in range(1, N + 1):
+        put(ws, Hh + 7, 2 + t, f"=FORECAST({2026+t},{D(co,'Revenue',2023)}:{D(co,'Revenue',2026)},{{2023,2024,2025,2026}})", NUM)
+    put(ws, Hh + 8, 1, "Our forecast ÷ naive trend (FY31)", font=F_NOTE); put(ws, Hh + 8, 7, f"=G{RW['Revenue']}/G{Hh+7}", NUM2)
     rowsW = f"C{RW['Margin weight (→ target by yr 5)']}:{E10}{RW['Margin weight (→ target by yr 5)']}"
     revDF = f"C{Hh+2}:{E10}{Hh+2}"
     dRev = f"C{Hh+1}:{E10}{Hh+1}"
@@ -1070,6 +1074,7 @@ idx_rows = [
     ("ResidualIncome / Alt_Valuations", "Modules 7 (TB1)", "Abnormal earnings, justified P/B, EVA = DCF proof, FCFE, APV"),
     ("RealOption", "Module 7", "Land as a call option (illustrative Black–Scholes)"),
     ("Scenarios_Implied / MonteCarlo", "Module 7", "Bear/base/bull, implied perpetual growth & WACC, 10,000-draw simulation"),
+    ("Concept_Map", "All", "Every course, textbook and prior-project concept → the sheet where it is applied"),
 ]
 hdr(idx, 4, ["No.", "Sheet", "What it does", "Course module"])
 for i, (s, m, d) in enumerate(idx_rows):
@@ -1077,6 +1082,7 @@ for i, (s, m, d) in enumerate(idx_rows):
 note(idx, 31, "Colour code: blue font on cream = hard-coded input with source; black = formula; green fill = key output.")
 note(idx, 32, "Data: Yahoo Finance consolidated statements & NSE prices; FRED/OECD (G-Sec); Damodaran Online (ERP, CRP, spreads).")
 
+wb.active = wb.sheetnames.index("Index")
 wb.calculation.fullCalcOnLoad = True
 OUT.parent.mkdir(parents=True, exist_ok=True)
 wb.save(OUT)

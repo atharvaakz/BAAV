@@ -505,3 +505,87 @@ if scf.exists():
             r_ += 1
         r_ += 1
     note(sc_, r_, "The last row in each block is our stable WACC (β → 1). Reading across shows how much of today's price rests on perpetual growth above the risk-free cap.")
+
+# ------------------------------------------------------------------ AEG (abnormal earnings growth) appended to ResidualIncome
+r_ = ri.max_row + 3
+put(ri, r_, 1, "Abnormal earnings growth (AEG) model — Palepu: V₀ = E₁/Ke + Σ AEG_t / [Ke·(1+Ke)^(t−1)], AEG_t = E_t + Ke·D_(t−1) − (1+Ke)·E_(t−1)", font=F_B)
+r_ += 1
+for co in TARGETS:
+    # locate this company's RI block rows (ROE row = header+1) by scanning labels
+    start = [rr for rr in range(1, ri.max_row) if ri.cell(rr, 1).value == NAMES[co]][0]
+    hrow = start + 8          # 'Year' header row (block start + 7 + 1)
+    ni, dv = hrow + 3, hrow + 4
+    put(ri, r_, 1, NAMES[co], font=F_B); r_ += 1
+    put(ri, r_, 1, "AEG_t (lens A Ke)")
+    for t in range(2, 11):
+        c, pcl = L(1 + t), L(t)
+        put(ri, r_, 1 + t, f"={c}{ni}+$B${start+5}*{pcl}{dv}-(1+$B${start+5})*{pcl}{ni}", NUM)
+    put(ri, r_ + 1, 1, "PV of AEG_t = AEG_t / [Ke(1+Ke)^(t−1)]")
+    for t in range(2, 11):
+        c = L(1 + t)
+        put(ri, r_ + 1, 1 + t, f"={c}{r_}/($B${start+5}*(1+$B${start+5})^({t}-1))", NUM)
+    put(ri, r_ + 2, 1, "Capitalised next-year earnings E₁ / Ke"); put(ri, r_ + 2, 2, f"=B{ni}/$B${start+5}", NUM)
+    put(ri, r_ + 3, 1, "AEG value (10-yr, no terminal) per share (₹)", font=F_B)
+    put(ri, r_ + 3, 2, f"=(B{r_+2}+SUM(C{r_+1}:K{r_+1}))/{D(co,'Shares',2026)}", NUM2, F_B, FILL_KEY)
+    put(ri, r_ + 4, 1, "Implied forward P/E = price ÷ E₁ vs 1/Ke", font=F_NOTE)
+    put(ri, r_ + 4, 2, f"={PX[co][3]}*{D(co,'Shares',2026)}/B{ni}", NUM2); put(ri, r_ + 4, 3, f"=1/$B${start+5}", NUM2)
+    r_ += 6
+note(ri, r_, "AEG and residual income are algebraically linked (both anchor on accounting earnings); forward P/E far above 1/Ke means the price capitalises abnormal earnings growth.")
+
+# ------------------------------------------------------------------ Concept coverage matrix (textbooks + handout + prior projects)
+cc = sheet("Concept_Map", "Concept coverage: course modules, textbook concepts and prior-project methods → where each is applied",
+           "TB1 = Palepu, Healy & Bernard; TB2 = Damodaran on Valuation; RB1 = Dark Side of Valuation. Sheet references are to this workbook.",
+           [10, 44, 14, 46])
+hdr(cc, 4, ["Module", "Concept / method", "Source", "Where applied"])
+CM = [
+ ("1", "Role of financial reporting; business activities → statements", "TB1", "Report §1; Data_* sheets"),
+ ("2", "Porter five forces; generic strategies", "TB1", "Report §2; deck slide 5"),
+ ("2", "BCG matrix (by business unit); SPACE; value chain", "Handout", "Report §2"),
+ ("2", "PESTEL, SWOT, blind-spot, consumer segmentation & CLV", "Prior projects", "Report §2"),
+ ("2", "Real-estate cycle; house-price data", "Extension", "LongCycle, Housing"),
+ ("3", "Accounting policies, flexibility, noise vs bias, red flags", "TB1", "Recast; Ratios (CFO/PAT, accruals); report §3"),
+ ("3", "Revenue recognition (Ind AS 115), borrowing costs (23), JVs (111), investment property (40)", "TB1 / Ind AS", "Recast; report §3"),
+ ("4", "Recasting: operating vs financing vs non-operating; NOA, NFO, NOPAT", "TB1", "Recast"),
+ ("4", "Asset/liability distortions (restricted cash, customer advances, capitalised interest)", "TB1", "Recast rows; WACC (cash interest)"),
+ ("5", "Ratio analysis: growth, margins, turnover, liquidity, solvency, cash flow (50 ratios)", "TB1 / prior", "Ratios"),
+ ("5", "DuPont 3-step, 5-step; ROE change attribution", "TB1 / prior", "DuPont"),
+ ("5", "Palepu decomposition ROE = RNOA + (RNOA − NBC) × NFL", "TB1", "DuPont"),
+ ("5", "Cash-flow analysis; FCF; accruals", "TB1", "Ratios"),
+ ("5", "EVA, CVA, balanced scorecard", "Handout", "Growth_EVA; Alt_Valuations; report §5"),
+ ("5", "Altman Z and Z'' (credit/distress analysis)", "TB1 (credit) / prior", "AltmanZ"),
+ ("5", "Industry benchmarking", "TB2 data", "Industry_Benchmark"),
+ ("5", "Quarterly analysis, TTM", "Prior projects", "Quarterly"),
+ ("6", "Risk-free rate net of default spread; ERP; CRP", "TB2 / RB1", "Inputs; WACC"),
+ ("6", "Implied vs historical ERP", "TB2", "HistERP"),
+ ("6", "Regression beta: SE, t, CI, R², alpha, Jensen's alpha", "TB2", "Beta_Monthly, Beta_Weekly"),
+ ("6", "Blume adjustment; beta drift (rolling)", "Prior / TB2", "Beta_*; RollingBeta"),
+ ("6", "Bottom-up beta (Hamada unlever/relever, median)", "TB2", "BottomUp_Beta"),
+ ("6", "Fundamental/industry beta; thin-trading bias", "TB2 data", "Industry_Benchmark; WACC lens B"),
+ ("6", "Multi-factor / APM (market + interest-rate factor)", "Handout", "RateFactor"),
+ ("6", "Cost of debt via synthetic rating; WACC with market weights", "TB2", "WACC"),
+ ("7", "Growth estimation: historical, fundamental (RR × ROIC; b × ROE)", "TB2 / TB1", "Growth_EVA; Ratios"),
+ ("7", "Prospective analysis: forecasting revenue, margins, reinvestment", "TB1", "DCF_* (drivers)"),
+ ("7", "Naive time-series (FORECAST) benchmark", "Prior projects", "DCF_* (benchmark row)"),
+ ("7", "FCFF two-phase DCF; terminal value; stable beta → 1; mid-year", "TB2", "DCF_*"),
+ ("7", "FCFE; APV; EVA-based firm value", "TB2", "Alt_Valuations"),
+ ("7", "DDM two-stage; payout consistent with g/ROE", "TB2", "DDM"),
+ ("7", "Abnormal earnings (residual income) and AEG; justified P/B", "TB1", "ResidualIncome"),
+ ("7", "Contingent-claim valuation (land as an option)", "TB2 / RB1", "RealOption"),
+ ("7", "Sensitivity, scenarios, simulation; reverse DCF", "TB2 / RB1", "DCF_* grids; Scenarios_Implied; MonteCarlo"),
+ ("8", "Four-step relative valuation; P/E, PEG, P/B, P/S, EV/EBITDA", "TB2", "RelVal"),
+ ("8", "Controlling for differences: regression of P/B on ROE", "TB2", "RelVal"),
+ ("8", "Yield-based relative value (cap rates vs REITs)", "Extension", "CapRates"),
+ ("9", "Cross holdings, minority interests, distress, illiquidity, control", "TB2", "DCF bridge; Alt_Valuations (APV); report §9"),
+]
+for i, (m, c_, src_, w_) in enumerate(CM):
+    put(cc, 5 + i, 1, m); put(cc, 5 + i, 2, c_); put(cc, 5 + i, 3, src_, font=F_NOTE); put(cc, 5 + i, 4, w_)
+
+# ------------------------------------------------------------------ cosmetics: tab colours by module
+TAB = {"Index": "1F2A30", "Inputs": "6B7780", "Concept_Map": "1F2A30"}
+for ws_ in wb.worksheets:
+    n_ = ws_.title
+    col = TAB.get(n_) or ("B9C6C8" if n_.startswith("Data_") else "2F5D62" if n_ in ("Recast", "Ratios", "DuPont", "AltmanZ", "Growth_EVA", "Quarterly", "Industry_Benchmark")
+                          else "C08A3E" if n_.startswith(("Beta", "BottomUp", "WACC", "RollingBeta", "RateFactor", "HistERP"))
+                          else "8C4A3C" if n_.startswith(("DCF", "DDM", "ResidualIncome", "Alt_", "RealOption", "Scenarios", "MonteCarlo"))
+                          else "88A6A8")
+    ws_.sheet_properties.tabColor = col

@@ -4,6 +4,15 @@ exec(open(pathlib.Path(__file__).resolve().parent / "report_common.py").read())
 from docx.enum.text import WD_BREAK
 
 MC, SC, A2 = N["MC"], N["SC"], N["A2"]
+import openpyxl as _ox
+_wbx = _ox.load_workbook(ROOT / "models/excel/_recalc/BAV_RealEstate_Model.xlsx", data_only=True, read_only=True)
+NSHEETS = len(_wbx.sheetnames)
+def _find(sheet, label, k=0, col=2):
+    ws = _wbx[sheet]; hits = [r for r in ws.iter_rows(values_only=True) if r and r[0] == label]
+    return hits[k][col - 1]
+AEG = {c: _find("ResidualIncome", "AEG value (10-yr, no terminal) per share (₹)", i) for i, c in enumerate(["DLF", "GPL", "PML"])}
+FPE = {c: _find("ResidualIncome", "Implied forward P/E = price ÷ E₁ vs 1/Ke", i) for i, c in enumerate(["DLF", "GPL", "PML"])}
+NAIVE = {c: _find(f"DCF_{c}", "Our forecast ÷ naive trend (FY31)", 0, 7) for c in ["DLF", "GPL", "PML"]}
 RV = {r[0]: r for r in N["RelVal"]}
 RI_ = {"DLF Ltd": "DLF", "Godrej Properties": "GPL", "Phoenix Mills": "PML"}
 med = N["RelStats"]["Median"]; q1 = N["RelStats"]["25th percentile"]; q3 = N["RelStats"]["75th percentile"]
@@ -39,7 +48,7 @@ table(["", "DLF", "Godrej Properties", "Phoenix Mills"],
        ["Relative ranking", "2", "1", "3"]], [5.0, 3.8, 3.9, 3.8], size=9)
 para("Submitted to Prof. Mohit Kumar · BITS Pilani, K K Birla Goa Campus · Group 27: Saatvik Nagpal, Atharvaa Khanzode", size=10)
 para(f"Pricing date {I['Valuation date']}. Financial statements FY23–FY26 and Q1–Q2 FY27; market data from 2007. ₹ crore unless stated. "
-     "All figures trace to the accompanying Excel model (37 sheets, live formulas).", size=8.5, italic=True)
+     f"All figures trace to the accompanying Excel model ({NSHEETS} sheets, live formulas).", size=8.5, italic=True)
 doc.add_page_break()
 
 # ================================================================ EXEC SUMMARY
@@ -254,6 +263,9 @@ table(["Assumption", "DLF", "Godrej", "Phoenix"],
        ["Sales-to-capital (marginal)", f"{D['DCF s2c']:.1f}", f"{G['DCF s2c']:.1f}", f"{P['DCF s2c']:.1f}"],
        ["WACC years 1–5 → stable (β → 1)", f"{pc(D['W WACC'])} → {pc(D['DCF stableWACC'])}", f"{pc(G['W WACC'])} → {pc(G['DCF stableWACC'])}", f"{pc(P['W WACC'])} → {pc(P['DCF stableWACC'])}"]],
       [5.4, 3.7, 3.7, 3.7], size=8)
+para(f"How aggressive is that? Against a naive linear trend of FY23–26 revenue (Excel FORECAST, the method earlier cohorts used), our FY31 revenue is {NAIVE['DLF']:.1f}x the trend for DLF, "
+     f"{NAIVE['GPL']:.1f}x for Godrej and {NAIVE['PML']:.1f}x for Phoenix. The developers' multiples are deliberate: four years of completion-based revenue say little about sales already contracted, "
+     "which customer advances (2.9x and 7.8x revenue) show are far larger. Even so generous a path leaves value below price — the conclusion does not depend on a conservative forecast.")
 fig("dcf_paths", "Figure 10 — Revenue and margin paths in the ten-year FCFF model.")
 table(["₹ crore", "DLF", "Godrej", "Phoenix"],
       [[k, *[(pc(d['DCF'][k]) if "%" in k else f"{d['DCF'][k]:,.0f}") for d in (D, G, P)]] for k in
@@ -283,7 +295,9 @@ doc.add_heading("Other intrinsic routes", 2)
 para(f"Residual income (Palepu). With ROE fading to 15% over ten years, abnormal-earnings value is {rs(N['DLF']['RI']['Value per share — lens A (₹)'])} for DLF and {rs(N['GPL']['RI']['Value per share — lens A (₹)'])} for Godrej under lens A. "
      f"The justified P/B on current ROE is {N['DLF']['RI']['Justified P/B on current ROE — lens A']:.2f} for DLF against a market P/B of {RV['DLF Ltd'][13]:.2f}; put the other way, DLF's price "
      f"implies a sustained ROE of {pc(N['DLF']['RI']['ROE the market price implies (lens A Ke) = g + P/B × (Ke − g)'],0)}. Part of this gap is accounting: land bought decades ago sits in book value "
-     "at cost, so book understates economic capital and ROE overstates economic returns (H7). For developers, net asset value is a better anchor than book.")
+     "at cost, so book understates economic capital and ROE overstates economic returns (H7). For developers, net asset value is a better anchor than book. "
+     f"Palepu's abnormal-earnings-growth model, which starts from earnings rather than book, lands in the same place ({rs(AEG['DLF'])} for DLF, {rs(AEG['GPL'])} for Godrej, {rs(AEG['PML'])} for Phoenix): "
+     f"the price capitalises next year's earnings at {FPE['DLF']:.0f}x, {FPE['GPL']:.0f}x and {FPE['PML']:.0f}x against a no-growth multiple (1/Ke) of about 6–8x.")
 para(f"DDM. A two-stage dividend model gives {rs(D['DDM']['DDM value per share (Rs)'])} for DLF and {rs(P['DDM']['DDM value per share (Rs)'])} for Phoenix; Godrej pays no dividend. With payouts of "
      f"{pc(D['Dividend payout'][3],0)} and {pc(P['Dividend payout'][3],0)}, dividends capture little of the value. Real options. Undeveloped land is a call option on developed property "
      f"(Damodaran). An illustrative land bank worth ₹90,000 cr developed, costing ₹1,00,000 cr to build — negative NPV today — is still worth {cr(RO['Option value = S·e^(−yT)·N(d1) − K·e^(−rT)·N(d2)'])} "
@@ -357,4 +371,7 @@ table(["Sheets", "Module", "Content"],
        ["DCF_*, ResidualIncome, Alt_Valuations, DDM, RealOption, Scenarios_Implied, MonteCarlo", "7", "FCFF, EVA, FCFE/APV, RI, DDM, options, scenarios, simulation"],
        ["RelVal, CapRates, Summary", "8", "Peer multiples, regression, cap rates, football field"],
        ["LongCycle, Housing", "Sector", "Prices since 2007 with drawdowns; BIS house prices"]], [7.6, 1.6, 7.3], size=8)
+doc.add_heading("Appendix — concept coverage", 2)
+cm = [r for r in _wbx["Concept_Map"].iter_rows(min_row=5, values_only=True) if r and r[0]]
+table(["Module", "Concept / method", "Source", "Where applied"], [[str(a), b, c_, d_] for a, b, c_, d_ in cm], [1.4, 7.6, 2.6, 4.9], size=7.5)
 OUT.parent.mkdir(parents=True, exist_ok=True); doc.save(OUT); print("saved", OUT)
