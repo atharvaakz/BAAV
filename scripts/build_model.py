@@ -1040,6 +1040,7 @@ for co in TARGETS:
     hdr(sm, r, ["Method", "Low (Rs)", "High (Rs)", "Point (Rs)", "Bar base", "Bar length"]); r += 1
     rr0 = r
     rel = REL[co]
+    NAMES2 = {"DLF": "DLF", "GPL": "Godrej Properties", "PML": "Phoenix Mills"}
     rowsm = [
         ("DCF (FCFF) — WACC±2% × g±1%", f"={DCF[co]['min']}", f"={DCF[co]['max']}", f"={DCF[co]['vps']}"),
         ("Relative — P/E (25th–75th pct)", f"=RelVal!C{rel}", f"=RelVal!D{rel}", f"=RelVal!B{rel}"),
@@ -1050,6 +1051,8 @@ for co in TARGETS:
         ("DCF — bear to bull scenarios", round(SC["scenarios"][co]["bear"], 1) if scf.exists() else 0, round(SC["scenarios"][co]["bull"], 1) if scf.exists() else 0, round(SC["scenarios"][co]["base"], 1) if scf.exists() else 0),
         ("Monte Carlo 5th–95th pct (lens A)", round(MC[co]["A"]["p5"], 1) if mcf.exists() else 0, round(MC[co]["A"]["p95"], 1) if mcf.exists() else 0, round(MC[co]["A"]["median"], 1) if mcf.exists() else 0),
         ("Residual income (lens A – lens B)", f"={RIR[co]['vpsA']}", f"={RIR[co]['vpsB']}", f"={RIR[co]['vpsA']}"),
+        ("Practitioner NAV / embedded profit", f"={ {'DLF': NAVR['dlf_nav_ps'], 'GPL': NAVR['gpl_emb_ps'], 'PML': NAVR['pml_nav_ps']}[co] }", f"={ {'DLF': NAVR['dlf_nav_ps'], 'GPL': NAVR['gpl_emb_ps'], 'PML': NAVR['pml_nav_ps']}[co] }", f"={ {'DLF': NAVR['dlf_nav_ps'], 'GPL': NAVR['gpl_emb_ps'], 'PML': NAVR['pml_nav_ps']}[co] }"),
+        ("Broker targets (low–high), median", f"=MIN(Broker_Views!C{BKR[NAMES2[co]][0]}:C{BKR[NAMES2[co]][1]})", f"=MAX(Broker_Views!C{BKR[NAMES2[co]][0]}:C{BKR[NAMES2[co]][1]})", f"={BKSUM[co]}"),
         ("DDM (two-stage)", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")"),
         ("Market price", f"={PX[co][3]}", f"={PX[co][3]}", f"={PX[co][3]}"),
     ]

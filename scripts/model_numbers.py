@@ -117,6 +117,13 @@ he = wb["HistERP"]; N["HistERP"] = {he.cell(r, 7).value: he.cell(r, 8).value for
 hs = wb["Housing"]; N["Housing"] = {hs.cell(r, 8).value: hs.cell(r, 9).value for r in range(5, 11) if hs.cell(r, 8).value}
 rb = wb["RollingBeta"]; N["RollingBeta"] = {rb.cell(r, 12).value: [rb.cell(r, c).value for c in (13, 14, 15)] for r in range(23, 27)}
 ib = wb["Industry_Benchmark"]; N["Industry"] = {ib.cell(r, 1).value: [ib.cell(r, c).value for c in range(2, 7)] for r in range(5, 20)}
+nv = wb["NAV_SOTP"]; N["NAV"] = {"dccdl_gav": nv["B8"].value, "dccdl_stake": nv["B11"].value, "dlf_res_pv": nv["B17"].value, "dlf_netcash": nv["B18"].value,
+    "dlf_nav": nv["B19"].value, "dlf_nav_ps": nv["B20"].value, "dlf_mcap": nv["B21"].value, "dlf_land": nv["B22"].value, "dlf_psf": nv["B24"].value,
+    "pml_gav": nv["B39"].value, "pml_nav": nv["B42"].value, "pml_nav_ps": nv["B43"].value, "pml_prem": nv["B45"].value, "pml_g_in_cap": nv["B46"].value,
+    "gpl_emb_pat": nv["B54"].value, "gpl_emb_ps": nv["B57"].value, "gpl_g_in_mult": nv["B59"].value, "gpl_consensus": nv["B61"].value}
+okk = wb["Operating_KPIs"]; N["KPI"] = {okk.cell(r, 1).value: [okk.cell(r, c).value for c in (2, 3, 4)] for r in range(5, 33) if okk.cell(r, 1).value}
+dc = wb["Data_Check"]; N["DataCheck"] = [[dc.cell(r, c).value for c in range(1, 6)] for r in range(5, 13)]
+bk = wb["Broker_Views"]; N["Brokers"] = [[bk.cell(r, c).value for c in range(1, 6)] for r in range(5, bk.max_row + 1) if bk.cell(r, 1).value]
 v2 = ROOT / "data/processed/v2"
 N["MC"] = json.loads((v2 / "monte_carlo.json").read_text()); N["SC"] = json.loads((v2 / "scenarios.json").read_text())
 N["A2"] = json.loads((v2 / "analysis_v2.json").read_text())

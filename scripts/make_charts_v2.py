@@ -116,3 +116,42 @@ for ax, key, title, fmt in [(a1, "Levered beta (industry avg)", "Beta", "x"), (a
     if fmt == "pct": ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0))
 fig.tight_layout(); save(fig, "industry_bench")
 print("v2 charts done")
+
+# 9. DLF NAV bridge and Phoenix NAV vs price
+nav = N["NAV"]
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.5, 3.6), gridspec_kw={"width_ratios": [1.4, 1]})
+parts = [("DCCDL stake\n(7.5% cap)", nav["dccdl_stake"]), ("5-yr pipeline\nmargin (PV)", nav["dlf_res_pv"]), ("Net cash", nav["dlf_netcash"]),
+         ("Residual land bank\n(implied by price)", nav["dlf_land"])]
+cum = 0
+for i, (lab, v) in enumerate(parts):
+    col = "#C08A3E" if i == 3 else C["DLF"]
+    a1.bar(i, v, bottom=cum, color=col, alpha=0.9 if i < 3 else 0.6); a1.text(i, cum + v / 2, f"₹{v/1000:,.0f}k cr", ha="center", va="center", fontsize=8.5, color="white")
+    cum += v
+a1.bar(4, nav["dlf_mcap"], color=INK); a1.text(4, nav["dlf_mcap"] / 2, f"₹{nav['dlf_mcap']/1000:,.0f}k cr", ha="center", va="center", fontsize=8.5, color="white")
+a1.set_xticks(range(5)); a1.set_xticklabels([p[0] for p in parts] + ["Market cap"], fontsize=8)
+a1.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v/1000:,.0f}k"))
+a1.set_title(f"DLF: {nav['dlf_land']/nav['dlf_mcap']:.0%} of market value is land beyond the visible pipeline")
+labs_ = ["Our SOTP NAV", "ICICI Sec NAV", "Broker median target", "Market price"]
+vals_ = [nav["pml_nav_ps"], 1287, 2200, N["PML"]["DCF"]["Current market price (Rs)"]]
+a2.bar(labs_, vals_, color=["#88A6A8", "#B9C6C8", "#C08A3E", INK])
+for i, v in enumerate(vals_):
+    a2.text(i, v + 30, f"₹{v:,.0f}", ha="center", fontsize=8.5)
+a2.tick_params(axis="x", labelsize=8); a2.set_title("Phoenix: NAV vs what investors pay")
+fig.tight_layout(); save(fig, "nav_bridge")
+
+# 10. our values vs broker targets vs price
+fig, ax = plt.subplots(figsize=(9.5, 3.3))
+cos_ = ["DLF", "GPL", "PML"]; x = np.arange(3); w = 0.2
+bm_ = {r[0]: r[1] for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
+series_ = [("Our DCF (lens A)", [N[c]["DCF"]["Intrinsic value per share (Rs)"] for c in cos_], "#B9C6C8"),
+           ("Our NAV / embedded-profit", [nav["dlf_nav_ps"], nav["gpl_emb_ps"], nav["pml_nav_ps"]], "#88A6A8"),
+           ("Broker median target", [bm_["DLF Ltd"], bm_["Godrej Properties"], bm_["Phoenix Mills"]], "#C08A3E"),
+           ("Market price", [N[c]["DCF"]["Current market price (Rs)"] for c in cos_], INK)]
+for i, (lab, v, col) in enumerate(series_):
+    ax.bar(x + (i - 1.5) * w, v, w, color=col, label=lab)
+    for xi, vi in zip(x + (i - 1.5) * w, v):
+        ax.text(xi, vi + 30, f"{vi:,.0f}", ha="center", fontsize=7.5)
+ax.set_xticks(x); ax.set_xticklabels(["DLF", "Godrej Properties", "Phoenix Mills"]); ax.legend(frameon=False, fontsize=8, ncol=4, loc="upper left")
+ax.set_ylim(0, 3200); ax.set_title("Textbook DCF vs practitioner NAV vs the sell-side vs the market (₹/share)")
+save(fig, "practitioner_vs_textbook")
+print("v3 charts done")

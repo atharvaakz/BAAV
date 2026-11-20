@@ -589,3 +589,187 @@ for ws_ in wb.worksheets:
                           else "8C4A3C" if n_.startswith(("DCF", "DDM", "ResidualIncome", "Alt_", "RealOption", "Scenarios", "MonteCarlo"))
                           else "88A6A8")
     ws_.sheet_properties.tabColor = col
+
+# ====================================================================== v3: practitioner cross-checks (public company & broker data)
+SRC = {
+ "dlf_fy26": "DLF Q4 FY26 release/transcript (dlf.in), Zee Business, Whalesbook, Geojit (May-2026)",
+ "dccdl": "DCCDL FY26 via DLF results coverage (Whalesbook/Investywise); net debt/EBITDA 3.2x (Q4 FY26)",
+ "dlf_pipe": "DLF FY27 guidance & pipeline: Business Standard 5-Aug-2026, DSIJ, Arthneeti (Q1 FY27 call)",
+ "gpl_fy26": "Godrej Properties FY26 results: Outlook Business, Kotak Neo, Free Press Journal (May-2026)",
+ "gpl_g": "Godrej FY27 guidance: Angel One, Outlook Business, Sahi (May–Aug 2026)",
+ "pml_fy26": "Phoenix Mills Q4 FY26 call (Tijori transcript), Free Press Journal, ICICI Direct Q4 FY26 note",
+ "brokers": "Broker notes as reported by Business Today, Business Standard, Multibagg, MarketScreener, Investing.com, StockAnalysis (Jun–Sep 2026)",
+}
+ok_ = sheet("Operating_KPIs", "Operating KPIs from company disclosures (what the market actually trades on)",
+            "Public company results, calls and guidance (FY26 actuals; FY27 guidance). Hard inputs — verify against investor presentations before final use.",
+            [46, 14, 14, 14, 52])
+hdr(ok_, 4, ["KPI (₹ crore unless stated)", "DLF", "Godrej", "Phoenix", "Source"])
+KP = [
+ ("Sales bookings (pre-sales) FY26", 20143, 34171, None, "dlf_fy26 / gpl_fy26"),
+ ("Customer collections FY26", 13517, 19965, None, "dlf_fy26 / gpl_g"),
+ ("Bookings guidance FY27", 20000, 39000, None, "dlf_pipe / gpl_g"),
+ ("Collections guidance FY27", None, 24000, None, "gpl_g"),
+ ("Launch pipeline (medium term / FY27 launch target)", 60000, 48000, None, "dlf_pipe / gpl_g"),
+ ("Development potential (msf)", 188, None, None, "dlf_pipe (DSIJ)"),
+ ("Company-reported net cash (development) FY26", 14155, None, None, "dlf_fy26"),
+ ("Management 'operating cash flow' FY26 (pre-land)", None, 7830, None, "gpl_fy26 (Free Press Journal)"),
+ ("Business development FY26 (expected booking value)", None, 42100, None, "gpl_g"),
+ ("Retail consumption FY26", None, None, 16578, "pml_fy26"),
+ ("Retail rental income FY26", None, None, 2157, "pml_fy26"),
+ ("Retail EBITDA FY26", None, None, 2246, "pml_fy26"),
+ ("Office EBITDA (9M FY26, annualised ×4/3)", None, None, round(103 * 4 / 3), "pml_fy26 (quartr 9M)"),
+ ("Hospitality EBITDA (9M FY26, annualised ×4/3)", None, None, round(190 * 4 / 3), "pml_fy26 (quartr 9M)"),
+ ("Company consolidated EBITDA FY26", 3070, 2826, 2637, "company releases"),
+ ("Rental platform (DCCDL) EBITDA FY26", 5718, None, None, "dccdl"),
+ ("DCCDL net debt Q4 FY26", 18150, None, None, "dccdl"),
+ ("DCCDL operational portfolio (msf) / occupancy", 50, None, None, "dccdl (≈95% occupied)"),
+]
+KR = {}
+for i, (lab, a, b, c, s_) in enumerate(KP):
+    r_ = 5 + i; KR[lab] = r_
+    put(ok_, r_, 1, lab)
+    for j, v in enumerate([a, b, c]):
+        if v is not None:
+            put(ok_, r_, 2 + j, v, NUM, F_IN, FILL_IN)
+    put(ok_, r_, 5, s_, font=F_NOTE)
+r_ = 5 + len(KP) + 1
+put(ok_, r_, 1, "Derived", font=F_B); r_ += 1
+der = [("Bookings ÷ recognised revenue FY26 (x)", f"=B5/{D('DLF','Revenue',2026)}", f"=C5/{D('GPL','Revenue',2026)}", None),
+       ("Collections ÷ bookings FY26", "=B6/B5", "=C6/C5", None),
+       ("Godrej: management OCF − statutory CFO = land & BD spend proxy", None, f"=C12-{D('GPL','CFO',2026)}", None),
+       ("Phoenix: rental income ÷ consumption (effective rent-to-sales)", None, None, "=D15/D14"),
+       ("Phoenix: consumption growth needed for rent growth (FY26 rent +10%, consumption +21%)", None, None, "lag: rents reset with leases")]
+for i, (lab, a, b, c) in enumerate(der):
+    put(ok_, r_ + i, 1, lab)
+    for j, v in enumerate([a, b, c]):
+        if v is not None:
+            put(ok_, r_ + i, 2 + j, v, X if "(x)" in lab else (PCT if "÷" in lab else NUM), F_B)
+r_ += len(der) + 1
+for k, v in SRC.items():
+    put(ok_, r_, 1, k, font=F_NOTE); put(ok_, r_, 2, v, font=F_NOTE); r_ += 1
+
+# ---------------------------------------------------------------------- Data verification (Yahoo vs company)
+dv = sheet("Data_Check", "Data verification: our dataset (Yahoo consolidated) vs company-reported FY26 figures",
+           "Headline reconciliation. Differences come from definitions (revenue from operations vs total income; restricted cash; EBITDA incl./excl. other income)",
+           [44, 14, 14, 12, 52])
+hdr(dv, 4, ["Item", "Our dataset", "Company / press", "Difference", "Comment"])
+chk = [("DLF revenue from operations", f"={D('DLF','Revenue',2026)}", 8194, "Geojit: revenue from operations ₹8,194 cr; total income ₹10,174 cr"),
+       ("DLF PAT", f"={D('DLF','NetIncome',2026)}", 4408, "Company PAT ~₹4,408 cr (₹4,256 cr pre-exceptional)"),
+       ("DLF net cash", f"={R('DLF','Liquid',2026)}-{R('DLF','Debt',2026)}", 14155, "We exclude RERA-restricted cash (₹5,003 cr); adding it back ≈ company figure"),
+       ("Godrej PAT", f"={D('GPL','NetIncome',2026)}", 1850, "Exact match"),
+       ("Phoenix revenue", f"={D('PML','Revenue',2026)}", 4423, "Company consolidated revenue ₹4,423 cr"),
+       ("Phoenix EBITDA (ours: core EBIT + D&A)", f"={R('PML','CoreEBIT',2026)}+{D('PML','DandA',2026)}", 2637, "Definitions differ (other income, exceptional)"),
+       ("Phoenix PAT (owners)", f"={D('PML','NetIncome',2026)}", 1224, "Exact match"),
+       ("DLF share of JV profit vs 66.66% × DCCDL PAT pre-exceptional (₹2,726 cr)", f"={R('DLF','JV',2026)}", round(0.6666 * 2726, 0), "Within ~1%: our JV line is essentially DCCDL")]
+for i, (lab, ours, comp, cm) in enumerate(chk):
+    r_ = 5 + i
+    put(dv, r_, 1, lab); put(dv, r_, 2, ours, NUM); put(dv, r_, 3, comp, NUM, F_IN, FILL_IN)
+    put(dv, r_, 4, f"=B{r_}/C{r_}-1", PCT, F_B); put(dv, r_, 5, cm, font=F_NOTE)
+note(dv, 15, "Conclusion: profit lines match; revenue and cash differ by definition, not error. Ratios use our consistent dataset; KPIs come from company disclosures.")
+
+# ---------------------------------------------------------------------- NAV / SOTP (practitioner method)
+nv = sheet("NAV_SOTP", "Practitioner cross-check: net asset value / sum-of-the-parts (the method the sell-side uses)",
+           "Rental assets at cap rates; residential at PV of after-tax margin on the sales pipeline; Godrej also on embedded PAT. Inputs blue; edit to test.",
+           [56, 14, 14, 52])
+def nrow(r_, lab, v, fmt=NUM, inp=False, note_=""):
+    put(nv, r_, 1, lab, font=F_B if lab.startswith(("=", "NAV", "Equity", "Implied", "Value")) else F_N)
+    put(nv, r_, 2, v, fmt, F_IN if inp else F_N, FILL_IN if inp else None)
+    if note_: put(nv, r_, 4, note_, font=F_NOTE)
+put(nv, 4, 1, "DLF — sum of the parts", font=F_B)
+rows_dlf = [
+ ("DCCDL EBITDA FY26", f"=Operating_KPIs!B{KR['Rental platform (DCCDL) EBITDA FY26']}", NUM, False, ""),
+ ("Forward growth to FY27 (input)", 0.12, PCT, True, "Rental growth ~15–18% in FY26 quarters; 12% conservative"),
+ ("Cap rate (input)", 0.075, PCT, True, "Motilal Oswal uses 7.5% on DLF commercial"),
+ ("DCCDL gross asset value = EBITDA × (1+g) ÷ cap", "=B5*(1+B6)/B7", NUM, False, ""),
+ ("Less: DCCDL net debt", f"=-Operating_KPIs!B{KR['DCCDL net debt Q4 FY26']}", NUM, False, ""),
+ ("DLF share (66.66%)", 0.6666, PCT, True, "GIC owns 33.34%"),
+ ("Value of DCCDL stake", "=(B8+B9)*B10", NUM, False, ""),
+ ("Residential: annual pre-sales (input, FY27 guidance held)", f"=Operating_KPIs!B{KR['Bookings guidance FY27']}", NUM, False, ""),
+ ("Years of pipeline (input)", 5, NUM2, True, "₹60k cr medium-term pipeline + Dahlias inventory ≈ 5 yrs at ₹20k cr"),
+ ("EBITDA margin on pre-sales (input)", 0.40, PCT, True, "Luxury Gurugram; core EBIT margin was 21–33% on recognised revenue"),
+ ("Cash lag from booking to margin realisation (years, input)", 1.5, NUM2, True, "construction-linked payment plans"),
+ ("Discount rate for residential cash flows (input)", 0.12, PCT, True, "Practitioner range 11.75–12% (REIT valuers); our Ke lens A ≈ 14.7%"),
+ ("PV of after-tax pipeline margin", "=B12*B14*(1-Tax)*SUMPRODUCT(1/(1+B16)^(ROW(INDIRECT(\"1:\"&B13))+B15))", NUM, False, ""),
+ ("Add: development net cash (company-reported)", f"=Operating_KPIs!B{KR['Company-reported net cash (development) FY26']}", NUM, False, ""),
+ ("NAV of identifiable parts", "=B11+B17+B18", NUM, False, ""),
+ ("NAV per share (identifiable parts)", f"=B19/{D('DLF','Shares',2026)}", NUM2, False, ""),
+ ("Market cap", f"=RelVal!D{RVR['DLF']}", NUM, False, ""),
+ ("Implied value of the residual land bank (market cap − identifiable NAV)", "=B21-B19", NUM, False, "What the market pays for land beyond the 5-year pipeline"),
+ ("Residual development potential (msf, input: 188 total less ~40 in pipeline)", 148, NUM, True, "DSIJ: 188 msf potential; pipeline share is our estimate"),
+ ("Implied value per sq ft of residual potential (₹)", "=B22*1e7/(B23*1e6)", NUM, False, "₹ per saleable sq ft of undeveloped potential"),
+]
+for i, (lab, v, fmt, inp, nt) in enumerate(rows_dlf):
+    nrow(5 + i, lab, v, fmt, inp, nt)
+put(nv, 30, 1, "Phoenix Mills — sum of the parts", font=F_B)
+rows_pml = [
+ ("Retail EBITDA FY26", f"=Operating_KPIs!D{KR['Retail EBITDA FY26']}", NUM, False, ""),
+ ("Forward growth to FY27 (input)", 0.12, PCT, True, "Management guides double-digit consumption growth"),
+ ("Retail cap rate (input)", 0.07, PCT, True, "Motilal Oswal 6.5–7.5%"),
+ ("Office EBITDA (annualised)", f"=Operating_KPIs!D{KR['Office EBITDA (9M FY26, annualised ×4/3)']}", NUM, False, ""),
+ ("Office cap rate (input)", 0.08, PCT, True, "Motilal Oswal 7–8%"),
+ ("Hospitality EBITDA (annualised)", f"=Operating_KPIs!D{KR['Hospitality EBITDA (9M FY26, annualised ×4/3)']}", NUM, False, ""),
+ ("Hospitality EV/EBITDA (input)", 12, NUM2, True, ""),
+ ("Capital work in progress at book", f"={D('PML','CWIP',2026)}", NUM, False, "New malls (Kolkata, Surat) at cost"),
+ ("Gross asset value", "=B31*(1+B32)/B33+B34/B35+B36*B37+B38", NUM, False, ""),
+ ("Less: net debt", f"=-RelVal!E{RVR['PML']}", NUM, False, ""),
+ ("Owners' share after minority platforms (input)", "=1-DCF_PML!B45", PCT, False, "CPPIB/GIC share ≈ minority share of PAT"),
+ ("Equity NAV to owners", "=(B39+B40)*B41", NUM, False, ""),
+ ("NAV per share", f"=B42/{D('PML','Shares',2026)}", NUM2, False, ""),
+ ("Market price", f"={PX['PML'][3]}", NUM2, False, ""),
+ ("Implied growth premium over NAV", "=B44/B43-1", PCT, False, "ICICI Securities adds an explicit 70% growth premium to its ₹1,287 NAV"),
+ ("Perpetual NOI growth implied by the retail cap rate at an 11.75% discount rate (g = r − cap)", "=0.1175-B33", PCT, False, "11.75% = WACC used by an Indian REIT valuer"),
+]
+for i, (lab, v, fmt, inp, nt) in enumerate(rows_pml):
+    nrow(31 + i, lab, v, fmt, inp, nt)
+put(nv, 49, 1, "Godrej Properties — embedded-profit and pipeline methods", font=F_B)
+rows_gpl = [
+ ("FY27 bookings guidance", f"=Operating_KPIs!C{KR['Bookings guidance FY27']}", NUM, False, ""),
+ ("FY28 bookings (FY27 × (1+g), input g)", 0.10, PCT, True, "growth after guidance year"),
+ ("FY28 bookings", "=B50*(1+B51)", NUM, False, ""),
+ ("Embedded PAT margin on bookings (input)", 0.15, PCT, True, "≈ 20% EBITDA margin after tax and interest; normalised"),
+ ("Embedded PAT FY28", "=B52*B53", NUM, False, ""),
+ ("Multiple on embedded PAT (input)", 12, NUM2, True, "Jefferies: 12x embedded PAT of Mar-28 pre-sales"),
+ ("Equity value (embedded PAT method)", "=B54*B55", NUM, False, ""),
+ ("Value per share — embedded PAT", f"=B56/{D('GPL','Shares',2026)}", NUM2, False, ""),
+ ("Earnings yield implied by the multiple (1 ÷ multiple)", "=1/B55", PCT, False, ""),
+ ("Growth implied by the multiple at lens-A Ke (g = Ke − 1/multiple)", f"={W['GPL']['Ke']}-B58", PCT, False, "a 12x multiple is itself a perpetual-growth assumption"),
+ ("Market price", f"={PX['GPL'][3]}", NUM2, False, ""),
+ ("Broker consensus target (avg of 22–23 analysts)", 2296, NUM2, True, "Investing.com ₹2,266; StockAnalysis ₹2,326 — midpoint"),
+]
+for i, (lab, v, fmt, inp, nt) in enumerate(rows_gpl):
+    nrow(50 + i, lab, v, fmt, inp, nt)
+note(nv, 63, "Reading: practitioner NAVs use asset-level discount rates of ~11.75–12% and cap rates of 6.5–8%, which embed perpetual NOI growth of ~4–5% — close to our 5.5% cap.")
+note(nv, 64, "What reconciles NAV with price is (i) land beyond the visible pipeline and (ii) an explicit or implicit growth premium — both judgements about the very long run.")
+NAVR = {"dlf_nav_ps": "NAV_SOTP!$B$20", "dlf_land": "NAV_SOTP!$B$22", "dlf_psf": "NAV_SOTP!$B$24", "dccdl": "NAV_SOTP!$B$11",
+        "pml_nav_ps": "NAV_SOTP!$B$43", "pml_prem": "NAV_SOTP!$B$45", "gpl_emb_ps": "NAV_SOTP!$B$57"}
+
+# ---------------------------------------------------------------------- Broker consensus
+bk = sheet("Broker_Views", "What the sell-side thinks: public broker ratings and targets (Jun–Sep 2026)",
+           "As reported in the financial press and aggregators; for context, not inputs. Dates and methods vary — check the original notes.",
+           [22, 16, 12, 12, 60])
+hdr(bk, 4, ["Company / broker", "Rating", "Target (₹)", "Date", "Method as reported"])
+BKS = [("DLF", None, None, None, None),
+       ("Motilal Oswal", "Buy", 755, "Aug-26", "NAV, 0% premium; 7.5% cap on commercial"), ("Kotak", "Buy", 940, "Aug-26", ""),
+       ("Citi", "Buy", 750, "Aug-26", ""), ("Jefferies", "Buy", 815, "2026", ""), ("ICICI Securities", "Buy", 810, "2026", "No premium to NAV"),
+       ("Nomura", "Buy", 740, "2026", "Trades ~3% below residential NAV"), ("Morgan Stanley", "Hold", 730, "Jul-26", "Downgrade"), ("BofA", "Sell", 695, "Aug-26", "Downgrade"),
+       ("Godrej Properties", None, None, None, None),
+       ("HSBC", "Buy", 2900, "2026", "14% discount to Jun-26 NAV"), ("Motilal Oswal", "Buy", 2350, "Aug-26", ""), ("Choice", "Buy", 2520, "Feb-26", "SOTP"),
+       ("Geojit", "Buy", 2096, "2026", "FY28 book value"), ("BOBCAPS", "Hold", 1911, "May-26", "~1.9x NAV (cut to 1.2x in Aug)"), ("Jefferies", "Buy", None, "2026", "12x embedded PAT of Mar-28 pre-sales"),
+       ("Phoenix Mills", None, None, None, None),
+       ("ICICI Securities", "Buy", 2200, "Jul-26", "SOTP NAV ₹1,287 + 70% growth premium ₹901 + cash ₹8"), ("Motilal Oswal", "Buy", 2200, "2026", "SOTP; retail cap 6.5–7.5%, office 7–8%"),
+       ("SBI Securities", "Buy", 2230, "Jun-26", ""), ("Jefferies", "Buy", 2085, "Apr-26", ""), ("Nomura", "Neutral", 1700, "Apr-26", "")]
+r_ = 5; BKR = {}; BKSUM = {}
+for nm, rt, tp, dtt, mth in BKS:
+    if rt is None:
+        sub(bk, r_, nm, 5); cur = nm; BKR[cur] = [r_ + 1, None]; r_ += 1; continue
+    put(bk, r_, 1, nm); put(bk, r_, 2, rt); put(bk, r_, 3, tp, NUM, F_IN, FILL_IN) if tp else put(bk, r_, 3, "n.a.")
+    put(bk, r_, 4, dtt); put(bk, r_, 5, mth, font=F_NOTE); BKR[cur][1] = r_; r_ += 1
+r_ += 1
+hdr(bk, r_, ["Summary", "Median target", "Our DCF A", "Price", "Reading"]); r_ += 1
+for co, nm in [("DLF", "DLF"), ("GPL", "Godrej Properties"), ("PML", "Phoenix Mills")]:
+    a, b = BKR[nm]
+    put(bk, r_, 1, NAMES[co], font=F_B); put(bk, r_, 2, f"=MEDIAN(C{a}:C{b})", NUM, F_B, FILL_KEY)
+    put(bk, r_, 3, f"={DCF[co]['vps']}", NUM); put(bk, r_, 4, f"={PX[co][3]}", NUM)
+    put(bk, r_, 5, "Brokers price on NAV with ~12% discount rates and growth premia; our DCF uses CAPM with g ≤ Rf", font=F_NOTE)
+    BKSUM[co] = f"Broker_Views!$B${r_}"; r_ += 1
+note(bk, r_ + 1, "Sources: " + SRC["brokers"])
