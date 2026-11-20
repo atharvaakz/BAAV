@@ -3,6 +3,7 @@
 set -e
 cd "$(dirname "$0")/.."
 python3 -W ignore src/bav/data.py >/dev/null          # standardise raw statements
+python3 -W ignore scripts/events.py >/dev/null       # event studies, survivorship, REIT spread, issuance timing
 python3 -W ignore scripts/build_model.py              # workbook (formulas)
 python3 -W ignore scripts/check_model.py              # LibreOffice recalc + error scan
 python3 scripts/implied_wacc.py                       # reverse-DCF discount rate

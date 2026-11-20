@@ -56,7 +56,7 @@ notes(s, "We start with the answer. Holding our discount rates, the prices of al
 
 # 3 HOW WE WORKED + HYPOTHESES ----------------------------------------
 n += 1
-s = base("Approach · Module 1", "Nine hypotheses, tested with twenty years of data", n, "Index")
+s = base("Approach · Module 1", "Twelve hypotheses, tested with twenty years of data", n, "Index")
 steps = [("Data", "1"), ("Strategy", "2"), ("Accounting", "3"), ("Recast", "4"), ("Ratios · DuPont\nEVA · Z''", "5"), ("Beta · WACC\n2 lenses", "6"), ("DCF · RI · DDM\noptions · MC", "7"), ("Multiples\ncap rates", "8")]
 for i, (t, m) in enumerate(steps):
     x = 0.6 + i * 1.53
@@ -68,15 +68,16 @@ H = [("H1", "Prices embed growth beyond textbook terminal", "Supported"), ("H2",
      ("H3", "Beta unstable through the cycle", "Supported"), ("H4", "Developers hurt by rising rates", "Weak"),
      ("H5", "Realty stocks follow house prices", "Rejected"), ("H6", "Customer advances fund growth", "Supported (DLF)"),
      ("H7", "Book value understates capital", "Supported"), ("H8", "Phoenix priced for growth, not yield", "Supported"),
-     ("H9", "Brokers reach price only via land & growth premia", "Supported")]
+     ("H9", "Brokers reach price only via land & growth premia", "Supported"), ("H10", "Deal news moves prices; profit surprises don't", "Supported"),
+     ("H11", "Shocks temporary; delivery failure permanent", "Supported"), ("H12", "Equity issued after run-ups", "Supported")]
 for i, (h, t, res) in enumerate(H):
-    x = 0.6 + (i % 2) * 6.15; y = 3.05 + (i // 2) * 0.6
-    tb(s, x, y, 0.6, 0.4, h, 14, ACC, HEAD, True)
-    tb(s, x + 0.6, y + 0.03, 4.0, 0.4, t, 12.5, INK)
+    x = 0.6 + (i % 2) * 6.15; y = 3.0 + (i // 2) * 0.5
+    tb(s, x, y, 0.75, 0.4, h, 13, ACC, HEAD, True)
+    tb(s, x + 0.75, y + 0.03, 3.9, 0.4, t, 11.5, INK)
     clr = {"Supported": ACC, "Rejected": RUST, "Weak": OCH}.get(res.split(" ")[0], ACC)
-    tb(s, x + 4.6, y + 0.03, 1.4, 0.4, res, 12, clr, BODY, True)
+    tb(s, x + 4.65, y + 0.03, 1.4, 0.4, res, 11, clr, BODY, True)
 method(s, f"13 developers (12 in the beta work) × FY23–FY26 + 5 quarters · prices since 2007 (Sensex 1997) · BIS house prices 2009–26 · G-Sec IMF+OECD 2005–26 · Damodaran India industry data (156 firms) · 4 REITs")
-notes(s, "Before modelling we wrote down nine hypotheses. Seven are supported, one is weak, and one — that realty stocks follow house prices — is rejected. We'll point to the evidence for each as we go. The data run as far back as we could reach: statements for 13 developers, prices since 2007, house prices since 2009.")
+notes(s, "Before modelling we wrote down twelve hypotheses. Ten are supported, one is weak, and one — that realty stocks follow house prices — is rejected. We'll point to the evidence for each as we go. The data run as far back as we could reach: statements for 13 developers, prices since 2007, house prices since 2009.")
 
 # 4 CYCLE ----------------------------------------------------------------
 n += 1
@@ -213,6 +214,21 @@ tb(s, 0.6, below(pp, 0.1), 8.0, 1.2, [[("Data check  ", True, ACC), ("profit lin
                                        [("Godrej cash  ", True, ACC), ("statutory CFO −₹2,003 cr vs management pre-land OCF +₹7,830 cr: land is inventory.", False, INK)]], 11.5)
 method(s, "DCCDL EBITDA × (1+g) ÷ 7.5% cap − net debt × 66.66% · pipeline: ₹20k cr/yr × 40% margin × (1−t), 5 yrs, 12% · Phoenix: retail 7%, office 8%, hotels 12x, CWIP at cost · Godrej: 12x embedded PAT · g in a cap rate = r − cap", y=6.3, h=0.55)
 notes(s, "A sector analyst would also look at bookings, collections and NAV, so we rebuilt the sell-side method from company disclosures. DLF's identifiable assets — the DCCDL stake at a 7.5 percent cap rate, five years of pipeline margin and net cash — come to about 312 rupees a share, close to our DCF. So 59 percent of DLF's market value is the land beyond its visible pipeline: about 7,600 rupees per square foot of unscheduled potential. Phoenix trades at well over double our sum-of-the-parts NAV; even brokers add a 70 percent growth premium. Godrej is the one stock the practitioner method values above its price. Note too that Godrej's negative cash flow is mostly land buying: management's pre-land operating cash flow was 7,830 crore. From the companies' own calls: about ₹11,200 crore of DLF's ₹14,155 crore net cash is RERA escrow, not free cash. Using management's own guidance of ₹7,000–8,000 crore development free cash flow a year, DLF is worth about ₹" + f"{N['MGMT']['ps']:,.0f}" + " a share, or ₹" + f"{N['MGMT']['ps_nav']:,.0f}" + " with DCCDL at a broker cap rate — still below the price.")
+
+# 12c THROUGH TIME -----------------------------------------------------------
+n += 1
+E = N["EV"]; BK = E["by_kind"]; SV = E["survivorship"]; DLY = N["Delay"]
+s = base("Event studies · survivorship · REITs · delay", "Shocks pass; failed delivery does not — and deals, not profits, move prices", n, "Event_Study, Survivorship, REIT_Spread, Issuance_Timing, Delay_Cost")
+pp = pic(s, "event_macro", 0.6, 1.65, w=8.2)
+card(s, 9.0, 1.7, 3.73, 1.0, f"{pc(BK['monetisation']['ann'])} (t {BK['monetisation']['t_cs']:.1f})", "3-day return on asset monetisations (GIC/CPPIB deals)", ACC, 18)
+card(s, 9.0, 2.8, 3.73, 1.0, f"R² ≤ {max(v['r2'] for v in E['earnings'].values()):.2f}", f"EPS surprise vs results-day move ({sum(v['n'] for v in E['earnings'].values())} results since 2008)", OCH, 18)
+card(s, 9.0, 3.9, 3.73, 1.0, f"{pc(SV['total']['survivors'],0)} vs {pc(SV['total']['failed'],0)}", "survivors vs failed developers since 2008", RUST, 18)
+card(s, 9.0, 5.0, 3.73, 1.0, f"₹{DLY['mgmt_ps']:.0f} / share", "DLF value lost per year of delivery delay (mgmt case)", ACC, 18)
+tb(s, 0.6, below(pp, 0.08), 8.2, 1.3, [[("Shocks  ", True, ACC), ("demonetisation, IL&FS and COVID cost 9–16% in three days, all recovered within a year.", False, INK)],
+                                       [("Equity issues  ", True, ACC), (f"follow run-ups of {pc(BK['equity issue']['run'])} and precede {pc(BK['equity issue']['drift'])} drift — market timing.", False, INK)],
+                                       [("REITs  ", True, ACC), (f"yield {pc(E['reit']['latest_median'])} vs G-Sec {pc(E['reit']['latest_gsec'])}; Phoenix's malls are worth {pc(N['REITopt']['prem'],0)} more at a REIT yield than on CAPM.", False, INK)]], 11)
+method(s, "Market model vs Nifty, estimation [−250,−30] days, CAR [−1,+1], t = CAR/(σ√3) · BHAR 250d · survivors: 9 listed vs 6 failed (Unitech, HDIL, Parsvnath, Ansal, Omaxe, Peninsula), EW from Jan-2008 · delay cost = V·r/(1+r)", y=6.3, h=0.55)
+notes(s, "We also looked back through time. Using daily prices since 2007 we measured abnormal returns — the move beyond what the market explains — around seventeen macro shocks and twelve company announcements. Shocks like demonetisation, the IL&FS freeze and COVID cost 9 to 16 percent in three days, but all reversed within a year. What moves these stocks is deal and launch news: asset monetisations earned about 5 percent, significant at the 5 percent level. Profit surprises explain almost nothing — profit under completion accounting is old news. Survivorship matters: the developers that failed lost over 90 percent, so the industry looks safer than it was. And delay has a price: each year of slippage costs DLF about " + f"{DLY['mgmt_ps']:.0f}" + " rupees a share on management's own numbers.")
 
 # 13 SYNTHESIS -----------------------------------------------------------------
 n += 1

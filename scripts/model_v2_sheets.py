@@ -1021,3 +1021,170 @@ GE = [("Total energy consumed (GJ) — own sites & offices", 44462, 37202, NUM, 
 for i, (lab, v, pv, fmt, s_) in enumerate(GE):
     r_ = e0 + 2 + i
     put(esg, r_, 1, lab); put(esg, r_, 2, v, fmt); put(esg, r_, 3, pv, PCT if lab.startswith("Permanent") else fmt); put(esg, r_, 4, s_, font=F_NOTE)
+
+# ====================================================================== v4: timeline nuance — events, shocks, survivorship, REITs, delay
+EV = _json.loads((V2 / "events.json").read_text())
+CO3 = ["DLF", "GPL", "PML", "REALTY"]
+es_ = sheet("Event_Study", "Event study: did announcements and shocks move the stocks — and did the effect last?",
+            "Market model vs Nifty 50, estimation window [−250,−30] trading days (MacKinlay 1997). CAR = cumulative abnormal return; t = CAR ÷ (σ_resid·√days). "
+            "BHAR = buy-and-hold return minus Nifty. Computed by scripts/events.py from daily prices since 2007.",
+            [44, 11, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9])
+put(es_, 4, 1, "A. Macro, regulatory and REIT shocks — 3-day CAR [−1,+1] and 1-year BHAR", font=F_B)
+hdr(es_, 5, ["Event", "Day 0", "DLF CAR", "t", "DLF 1y", "Godrej CAR", "t", "Godrej 1y", "Phoenix CAR", "t", "Phoenix 1y", "Realty CAR", "t", "Realty 1y"])
+for i, r in enumerate(EV["macro"]):
+    rr = 6 + i
+    put(es_, rr, 1, r["event"] + f"  [{r['kind']}]"); put(es_, rr, 2, r["date"])
+    for j, s in enumerate(CO3):
+        d = r.get(s) or {}
+        for k, (key, fmt) in enumerate([("ann", PCT), ("ann_t", NUM2), ("bhar250", PCT)]):
+            v = d.get(key)
+            if v is not None:
+                put(es_, rr, 3 + j * 3 + k, v, fmt, F_B if key == "ann_t" and abs(v) >= 1.96 else F_N)
+m1 = 6 + len(EV["macro"]) + 1
+note(es_, m1, "Reading: shocks hit hard (demonetisation −15% DLF; COVID −16% DLF; IL&FS −9% Godrej) but 1-year BHARs are mostly positive → temporary, not permanent, repricing.")
+note(es_, m1 + 1, "REIT listings barely moved the developers (|CAR| ≤ 4%, insignificant): the market already knew rental assets could be monetised. Rate decisions: small and often 'sell the news'.")
+c0 = m1 + 3
+put(es_, c0, 1, "B. Company announcements — run-up [−20,−2], announcement [−1,+1], drift [+2,+60]", font=F_B)
+hdr(es_, c0 + 1, ["Event", "Day 0", "Company", "Type", "Run-up", "CAR [−1,+1]", "t", "Drift", "BHAR 1y"])
+for i, r in enumerate(EV["company"]):
+    rr = c0 + 2 + i
+    put(es_, rr, 1, r["event"]); put(es_, rr, 2, r["date"]); put(es_, rr, 3, {"DLF": "DLF", "GPL": "Godrej", "PML": "Phoenix"}[r["co"]]); put(es_, rr, 4, r["kind"])
+    for k, (key, fmt) in enumerate([("run", PCT), ("ann", PCT), ("ann_t", NUM2), ("drift", PCT), ("bhar250", PCT)]):
+        if r.get(key) is not None:
+            put(es_, rr, 5 + k, r[key], fmt, F_B if key == "ann_t" and abs(r[key]) >= 1.96 else F_N)
+k0 = c0 + 2 + len(EV["company"]) + 1
+hdr(es_, k0, ["Average by type", "n", "", "", "Run-up", "CAR [−1,+1]", "t (cross-section)", "Drift"])
+for i, (k, v) in enumerate(EV["by_kind"].items()):
+    rr = k0 + 1 + i
+    put(es_, rr, 1, k, font=F_B); put(es_, rr, 2, v["n"], NUM)
+    put(es_, rr, 5, v["run"], PCT); put(es_, rr, 6, v["ann"], PCT, F_B); put(es_, rr, 7, v["t_cs"], NUM2); put(es_, rr, 8, v["drift"], PCT)
+e0 = k0 + 6
+put(es_, e0, 1, "C. Results days: does the profit surprise explain the price move?", font=F_B)
+hdr(es_, e0 + 1, ["Company", "Results days", "First", "Last", "Slope (CAR per 100% surprise)", "R²", "Mean |CAR|", "Sign hit rate"])
+for i, (k, v) in enumerate(EV["earnings"].items()):
+    rr = e0 + 2 + i
+    put(es_, rr, 1, {"DLF": "DLF", "GPL": "Godrej", "PML": "Phoenix"}[k]); put(es_, rr, 2, v["n"], NUM); put(es_, rr, 3, v["first"]); put(es_, rr, 4, v["last"])
+    put(es_, rr, 5, v["slope"], PCT); put(es_, rr, 6, v["r2"], NUM2, F_B); put(es_, rr, 7, v["mean_abs_car"], PCT); put(es_, rr, 8, v["hit"], PCT)
+note(es_, e0 + 6, "EPS surprise (vs consensus) explains 0–15% of results-day moves and predicts direction barely better than a coin. Profit under completion accounting is old news;")
+note(es_, e0 + 7, "the market trades on bookings, launches and collections. That is direct evidence for our choice to forecast from bookings and advances rather than recognised revenue.")
+note(es_, e0 + 9, "Caveats: n is small per event type, events can overlap other news (e.g. Phoenix's Aug-2020 window), and dates are announcement dates from company filings/press (see references).")
+
+sv = sheet("Survivorship", "Survivorship bias: the developers that are no longer here",
+           "Equal-weighted daily-rebalanced indices from Jan-2008. Survivors: DLF, Phoenix, Sobha, Brigade, Puravankara, Kolte-Patil, Mahindra Lifespace, Anant Raj, Sunteck. "
+           "Failed/stressed: Unitech, HDIL, Parsvnath, Ansal API, Omaxe, Peninsula Land.", [48, 16, 16, 16, 40])
+S_ = EV["survivorship"]
+hdr(sv, 4, ["Measure", "Survivors", "Failed / stressed", "All", "Reading"])
+put(sv, 5, 1, "Total return since Jan-2008 (EW)"); [put(sv, 5, 2 + j, S_["total"][k], PCT) for j, k in enumerate(["survivors", "failed", "all"])]
+put(sv, 5, 5, "A 'sector index' built from today's listed names overstates history", font=F_NOTE)
+put(sv, 6, 1, "Annualised"); [put(sv, 6, 2 + j, S_["cagr"][k], PCT, F_B) for j, k in enumerate(["survivors", "failed", "all"])]
+put(sv, 7, 1, "Median monthly beta 2010–19 (survivors incl. Godrej/Oberoi/Prestige vs all)"); put(sv, 7, 2, S_["median_beta_survivors"], NUM2); put(sv, 7, 4, S_["median_beta_all"], NUM2)
+put(sv, 7, 5, "Dropping the dead firms lowers the industry beta — our lens-A beta is a floor", font=F_NOTE)
+hdr(sv, 9, ["Failed / stressed developer", "Fall from 2008-26 peak", "Beta 2010–19", "", "What happened"])
+WHAT = {"UNITECH": "Promoters jailed (2017); government took over the board (2020); thousands of stalled homes",
+        "HDIL": "PMC Bank fraud (2019); insolvency", "PARSVNATH": "Stalled NCR projects; lender actions",
+        "ANSALAPI": "Insolvency proceedings; stalled projects", "OMAXE": "Delays and losses; survives but −78%", "PENINLAND": "Mumbai stress; debt restructuring"}
+for i, (k, v) in enumerate(S_["drawdown_failed"].items()):
+    rr = 10 + i
+    put(sv, rr, 1, k.title()); put(sv, rr, 2, v, PCT, F_B); put(sv, rr, 3, S_["beta_2010_19"].get(k), NUM2); put(sv, rr, 5, WHAT.get(k, ""), font=F_NOTE)
+f0 = 18
+put(sv, f0, 1, "Flight to quality, Nov-2016 → Feb-2020 (demonetisation, RERA, GST, IL&FS)", font=F_B)
+hdr(sv, f0 + 1, ["Basket", "Return", "", "", "Reading"])
+for i, (k, lab) in enumerate([("quality", "Quality developers (DLF, Godrej, Phoenix, Oberoi, Prestige, Brigade, Sobha)"), ("stressed", "Failed / stressed basket"), ("nifty", "Nifty 50")]):
+    put(sv, f0 + 2 + i, 1, lab); put(sv, f0 + 2 + i, 2, S_["flight_to_quality"][k], PCT, F_B)
+put(sv, f0 + 2, 5, "RERA + escrow + credit stress shifted buyers and lenders to brands that deliver on time", font=F_NOTE)
+note(sv, f0 + 6, "Delivery is the real risk in this sector: the failures were not cyclical dips but permanent losses (−78% to −99.9%), driven by stalled projects and diverted customer money.")
+note(sv, f0 + 7, "RERA (2017) was designed to stop exactly this; it converted delivery track record into a competitive moat — the source of our three firms' market-share gains.")
+hdr(sv, f0 + 9, ["Drawdowns (daily adjusted close)", "Peak", "Trough", "Depth", "Recovered (years from peak)"])
+rr = f0 + 10
+for s, lst in EV["drawdowns"].items():
+    for d in lst:
+        put(sv, rr, 1, {"DLF": "DLF", "GPL": "Godrej", "PML": "Phoenix", "REALTY": "Nifty Realty"}[s]); put(sv, rr, 2, d["peak"]); put(sv, rr, 3, d["trough"])
+        put(sv, rr, 4, d["depth"], PCT, F_B); put(sv, rr, 5, f"{d['recovered']} ({d['years_to_recover']:.1f} yrs)")
+        rr += 1
+
+rs_ = sheet("REIT_Spread", "REITs as instruments: yields, the spread to the G-Sec, and the cap-rate channel",
+            "Trailing-12-month distributions ÷ unit price, month-end (Embassy, Mindspace, Brookfield, Nexus). G-Sec: OECD 10-yr. Regression: monthly stock return on Nifty return and Δ median REIT yield.",
+            [40, 14, 14, 14, 14, 14, 14])
+R_ = EV["reit"]
+hdr(rs_, 4, ["Metric", "Value", "", "Reading"])
+rows_ = [("Median REIT distribution yield (latest)", R_["latest_median"], "Office REITs 5–7%; mall REIT (Nexus) ~6%"),
+         ("10-yr G-Sec (latest)", R_["latest_gsec"], "After the Oct-2026 hike"),
+         ("Spread: REIT yield − G-Sec (latest)", R_["latest_spread"], "Negative: investors accept less than the G-Sec because distributions grow"),
+         ("Average spread since 2020", R_["mean_spread"], ""), ("Range of the spread", R_["min_spread"], f"to {R_['max_spread']:.1%}")]
+for i, (lab, v, s_) in enumerate(rows_):
+    put(rs_, 5 + i, 1, lab); put(rs_, 5 + i, 2, v, PCT, F_B); put(rs_, 5 + i, 4, s_, font=F_NOTE)
+put(rs_, 11, 1, "Latest yield by REIT", font=F_B)
+for i, (k, v) in enumerate(R_["latest"].items()):
+    put(rs_, 12 + i, 1, k.title()); put(rs_, 12 + i, 2, v, PCT)
+hdr(rs_, 17, ["Cap-rate channel regression", "Months", "β market", "β ΔREIT yield", "t", "Return per +25bp"])
+for i, (k, v) in enumerate(EV["reit_reg"].items()):
+    rr = 18 + i
+    put(rs_, rr, 1, {"DLF": "DLF", "GPL": "Godrej", "PML": "Phoenix", "REALTY": "Nifty Realty"}[k]); put(rs_, rr, 2, v["n"], NUM)
+    put(rs_, rr, 3, v["b_mkt"], NUM2); put(rs_, rr, 4, v["b_dY"], NUM2); put(rs_, rr, 5, v["t_dY"], NUM2, F_B); put(rs_, rr, 6, v["per_25bp"], PCT)
+note(rs_, 23, "Finding: REIT yield changes do not explain developer returns (|t| < 1). The listed market prices DLF and Phoenix as growth stocks, not as yield vehicles —")
+note(rs_, 24, "consistent with Phoenix's ~3% EBITDA yield versus ~6% for the mall REIT. A REIT is the 'no-growth' exit value; the gap is the growth option the market pays for.")
+note(rs_, 25, "Instrument notes: REIT units distribute ≥90% of net distributable cash; distributions mix dividend, interest and capital repayment (taxed differently); SM-REITs (2024) open fractional assets.")
+put(rs_, 27, 1, "Hold vs sell-to-REIT option for Phoenix (₹ cr)", font=F_B)
+put(rs_, 28, 1, "Retail EBITDA FY26 (Operating_KPIs)"); put(rs_, 28, 2, f"=Operating_KPIs!D{KR['Retail EBITDA FY26']}", NUM); put(rs_, 28, 4, "Company-reported retail EBITDA", font=F_NOTE)
+put(rs_, 29, 1, "Value at Nexus yield (EBITDA ÷ mall-REIT yield)"); put(rs_, 29, 2, f"=B28/B{12+list(R_['latest']).index('NEXUS')}" if "NEXUS" in R_["latest"] else "=B28/B5", NUM, F_B)
+put(rs_, 30, 1, "Value at our CAPM cost of equity less terminal growth (cash proxy = 75% of EBITDA)"); put(rs_, 30, 2, f"=B28*0.75/({W['PML']['Ke']}-gT)", NUM)
+put(rs_, 31, 1, "Sell-to-REIT premium over hold (if REIT pays more than intrinsic)"); put(rs_, 31, 2, "=B29/B30-1", PCT, F_B)
+note(rs_, 32, "Pre-tax EBITDA vs after-tax-and-capex proxy (×0.75) — indicative. A REIT bid above intrinsic value is a real monetisation option (GIC/CPPIB deals show it is exercised).")
+
+isu = sheet("Issuance_Timing", "Do developers sell shares near the top? Equity issues and what followed",
+            "Return from issue/launch date; vs Nifty and vs Nifty Realty. Percentile = where the price sat in its own prior 3-year range on the issue date.",
+            [30, 12, 12, 12, 12, 12, 12, 12, 12])
+hdr(isu, 4, ["Issue", "Date", "3-yr price percentile", "1-yr return", "1-yr vs Nifty", "1-yr vs Realty", "3-yr return", "3-yr vs Nifty", "3-yr vs Realty"])
+for i, r in enumerate(EV["issues"]):
+    rr = 5 + i
+    put(isu, rr, 1, r["event"]); put(isu, rr, 2, r["date"]); put(isu, rr, 3, r["pctile_3y"], PCT, F_B)
+    for j, k in enumerate(["r1y", "r1y_vs_nifty", "r1y_vs_realty", "r3y", "r3y_vs_nifty", "r3y_vs_realty"]):
+        if r.get(k) is not None:
+            put(isu, rr, 4 + j, r[k], PCT)
+eqk = EV["by_kind"].get("equity issue", {})
+put(isu, 11, 1, "Event-study average for equity issues (Event_Study)", font=F_B)
+put(isu, 12, 1, "Run-up before"); put(isu, 12, 2, eqk.get("run"), PCT, F_B)
+put(isu, 13, 1, "Announcement CAR"); put(isu, 13, 2, eqk.get("ann"), PCT)
+put(isu, 14, 1, "Drift over next 60 days"); put(isu, 14, 2, eqk.get("drift"), PCT, F_B)
+note(isu, 16, "Pattern (Loughran–Ritter 'market timing'): issues follow run-ups (+7%) and come when the price sits high in its range (Godrej: 85–100th percentile), and are followed by negative drift.")
+note(isu, 17, "Management's own actions are a signal: when insiders sell new equity, they judge the price rich. Godrej's Nov-2024 QIP at ~₹2,727 preceded a ~30% fall relative to Nifty.")
+
+dly = sheet("Delay_Cost", "What is a delay worth? The value of one and two years' slip in deliveries",
+            "Live formulas off the DCF and management-case sheets. A slip moves every cash flow back; at discount rate r the value lost is V × (1 − 1/(1+r)^n).",
+            [52, 16, 16, 16, 40])
+hdr(dly, 4, ["", "DLF", "Godrej", "Phoenix", "Reading"])
+DL = [("Value of operating assets (lens A DCF)", lambda c: f"=DCF_{c}!B39", NUM),
+      ("Discount rate, year 1 (WACC)", lambda c: f"=DCF_{c}!C29", PCT),
+      ("Shares (crore)", lambda c: f"=DCF_{c}!B48", NUM2),
+      ("Owners' share (1 − minority share)", lambda c: f"=1-DCF_{c}!B45", PCT),
+      ("Value lost if everything slips 1 year (₹ cr)", None, NUM),
+      ("… per share (₹)", None, NUM2),
+      ("… as % of market price", None, PCT),
+      ("Value lost if everything slips 2 years, per share (₹)", None, NUM2)]
+for i, (lab, f, fmt) in enumerate(DL):
+    put(dly, 5 + i, 1, lab, font=F_B if lab.startswith(("Value lost", "…")) else F_N)
+    for j, c in enumerate(["DLF", "GPL", "PML"]):
+        col = L(2 + j)
+        if f:
+            put(dly, 5 + i, 2 + j, f(c), fmt)
+        elif i == 4:
+            put(dly, 9, 2 + j, f"={col}5*(1-1/(1+{col}6))*{col}8", NUM, F_B)
+        elif i == 5:
+            put(dly, 10, 2 + j, f"={col}9/{col}7", NUM2, F_B, FILL_KEY)
+        elif i == 6:
+            put(dly, 11, 2 + j, f"={col}10/DCF_{c}!B50", PCT)
+        elif i == 7:
+            put(dly, 12, 2 + j, f"={col}5*(1-1/(1+{col}6)^2)*{col}8/{col}7", NUM2)
+put(dly, 5, 5, "Phoenix: a delay affects only new malls; whole-firm figure is an upper bound", font=F_NOTE)
+put(dly, 14, 1, "DLF management case: a 1-year slip in development cash flow", font=F_B)
+put(dly, 15, 1, "Development business value (Official_Disclosures)"); put(dly, 15, 2, f"={MGMT['dev']}", NUM)
+put(dly, 16, 1, "Cost of equity"); put(dly, 16, 2, f"={W['DLF']['Ke']}", PCT)
+put(dly, 17, 1, "Value lost per year of delay (₹ cr)"); put(dly, 17, 2, "=B15*(1-1/(1+B16))", NUM, F_B)
+put(dly, 18, 1, "… per share (₹)"); put(dly, 18, 2, f"=B17/{D('DLF','Shares',2026)}", NUM2, F_B, FILL_KEY)
+put(dly, 19, 1, "Of which: RERA escrow (₹11,200 cr) released a year later (₹ cr)"); put(dly, 19, 2, "=11200*(1-1/(1+B16))", NUM)
+put(dly, 20, 1, "H1 FY27 bookings vs pro-rata guidance (the live delay signal)"); put(dly, 20, 2, 4457 / 10000, PCT)
+note(dly, 22, "Reading: one year of slippage costs DLF ~13% of development value — the same order as the gap between our DCF lenses. Delivery risk is a first-order valuation input.")
+note(dly, 23, "Under completion accounting a delay also defers recognised revenue, so reported P/E rises even if value is unchanged — another reason to value cash, not earnings.")
+note(dly, 24, "Empirically (Survivorship sheet), chronic delay was fatal: Unitech, HDIL, Parsvnath and Ansal lost 99%+. On-time delivery is what separates our three firms from them.")
+for n_ in ["Event_Study", "Survivorship", "REIT_Spread", "Issuance_Timing", "Delay_Cost"]:
+    wb[n_].sheet_properties.tabColor = "5B4A8C"

@@ -155,3 +155,43 @@ ax.set_xticks(x); ax.set_xticklabels(["DLF", "Godrej Properties", "Phoenix Mills
 ax.set_ylim(0, 3200); ax.set_title("Textbook DCF vs practitioner NAV vs the sell-side vs the market (₹/share)")
 save(fig, "practitioner_vs_textbook")
 print("v3 charts done")
+
+# ---------------------------------------------------------------- v4: event study, survivorship, REIT spread
+EV = json.loads((V2 / "events.json").read_text())
+mac = [r for r in EV["macro"] if r.get("REALTY") or r.get("DLF")]
+SHORT = {"Lehman": "Lehman", "Demonetisation": "Demonet-\nisation", "RERA": "RERA\nin force", "GST": "GST", "Jaypee": "Jaypee\ninsolvency", "IL&FS": "IL&FS /\nDHFL",
+         "First REIT": "Embassy\nREIT lists", "Supreme Court": "Amrapali\nruling", "COVID": "COVID\nlockdown", "Mindspace": "Mindspace\nREIT", "Maharashtra": "Mah. stamp\nduty cut",
+         "Brookfield": "Brookfield\nREIT", "RBI off-cycle": "RBI hike\n(off-cycle)", "Nexus": "Nexus\nREIT", "RBI first": "RBI first\ncut", "RBI 50bp": "RBI 50bp\ncut", "RBI rate hike": "RBI hike\nto 5.5%"}
+def short(e):
+    for k, v in SHORT.items():
+        if e.startswith(k):
+            return v
+    return e[:12]
+lab = [short(r["event"]) + f"\n{r['date'][:7]}" for r in mac]
+fig, ax = plt.subplots(figsize=(11, 3.6))
+x = np.arange(len(mac)); w = 0.26
+for j, (s, col, nm) in enumerate([("DLF", C["DLF"], "DLF"), ("GPL", C["GPL"], "Godrej"), ("PML", C["PML"], "Phoenix")]):
+    v = [((r.get(s) or {}).get("ann") or 0) * 100 for r in mac]
+    ax.bar(x + (j - 1) * w, v, w, color=col, label=nm)
+    tt = [((r.get(s) or {}).get("ann_t") or 0) for r in mac]
+    for xi, vi, ti in zip(x, v, tt):
+        if abs(ti) >= 1.96:
+            ax.text(xi + (j - 1) * w, vi + (0.6 if vi >= 0 else -1.6), "*", ha="center", fontsize=11, color=INK)
+ax.axhline(0, color=MUTE, lw=0.8); ax.set_xticks(x); ax.set_xticklabels(lab, fontsize=7, rotation=0)
+ax.set_ylabel("3-day abnormal return, %"); ax.legend(frameon=False, fontsize=8, ncol=3, loc="upper right")
+ax.set_title("Shocks hit hard but briefly: 3-day abnormal returns around macro, regulatory and REIT events (* |t| ≥ 1.96)")
+save(fig, "event_macro")
+
+sv = pd.read_csv(V2 / "survivorship_index.csv", index_col=0, parse_dates=True)
+ry = pd.read_csv(V2 / "reit_yields.csv", index_col=0, parse_dates=True)
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 3.3))
+for k, col in [("Survivors (EW)", C["DLF"]), ("Failed / stressed (EW)", C["PML"]), ("All developers (EW)", C["IDX"])]:
+    a1.plot(sv.index, sv[k] * 100, color=col, lw=2 if "All" not in k else 1.3, ls="-" if "All" not in k else "--", label=k)
+a1.set_yscale("log"); a1.set_title("Survivorship: today's names vs the developers that failed (Jan-2008 = 100)", fontsize=9.5)
+a1.legend(frameon=False, fontsize=7.5, loc="lower left")
+for k, col in [("EMBASSY", C["DLF"]), ("MINDSPACE", C["IDX"]), ("BIRET", C["GPL"]), ("NEXUS", C["PML"])]:
+    if k in ry:
+        a2.plot(ry.index, ry[k] * 100, color=col, lw=1.4, label=k.title() if k != "BIRET" else "Brookfield")
+a2.plot(ry.index, ry["gsec"] * 100, color=INK, lw=1.8, ls="--", label="10-yr G-Sec")
+a2.set_title("REIT distribution yields vs the G-Sec, %", fontsize=9.5); a2.legend(frameon=False, fontsize=7.5, ncol=2, loc="upper left")
+save(fig, "survivors_reit")

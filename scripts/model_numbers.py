@@ -135,6 +135,11 @@ N["MGMT"] = {"fcf": _lab(of_, "Development FCF, year 1"), "dev": _lab(of_, "Deve
              "ps": _lab(of_, "Per share (₹)"), "ps_nav": _lab(of_, "Per share with DCCDL"), "pv10": _lab(of_, "PV of FCF years 1–10"), "pvtv": _lab(of_, "PV of terminal value")}
 N["GC"] = [[of_.cell(r, c).value for c in range(1, 5)] for r in range(1, of_.max_row + 1) if of_.cell(r, 4).value is not None and isinstance(of_.cell(r, 4).value, (int, float)) and of_.cell(r, 2).value and of_.cell(r, 3).value]
 es_ = wb["ESG_BRSR"]; N["ESG"] = {es_.cell(r, 1).value: [es_.cell(r, 2).value, es_.cell(r, 3).value] for r in range(5, 19) if es_.cell(r, 1).value}
+dl_ = wb["Delay_Cost"]
+N["Delay"] = {"dlf_ps": dl_["B10"].value, "gpl_ps": dl_["C10"].value, "pml_ps": dl_["D10"].value, "dlf_pct": dl_["B11"].value, "gpl_pct": dl_["C11"].value, "pml_pct": dl_["D11"].value,
+              "mgmt_cr": dl_["B17"].value, "mgmt_ps": dl_["B18"].value, "escrow": dl_["B19"].value}
+rp_ = wb["REIT_Spread"]; N["REITopt"] = {"ebitda": rp_["B28"].value, "at_reit": rp_["B29"].value, "at_capm": rp_["B30"].value, "prem": rp_["B31"].value}
+N["EV"] = json.loads((ROOT / "data/processed/v2/events.json").read_text())
 v2 = ROOT / "data/processed/v2"
 N["MC"] = json.loads((v2 / "monte_carlo.json").read_text()); N["SC"] = json.loads((v2 / "scenarios.json").read_text())
 N["A2"] = json.loads((v2 / "analysis_v2.json").read_text())
