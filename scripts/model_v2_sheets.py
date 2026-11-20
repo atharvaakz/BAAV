@@ -575,7 +575,12 @@ CM = [
  ("8", "Four-step relative valuation; P/E, PEG, P/B, P/S, EV/EBITDA", "TB2", "RelVal"),
  ("8", "Controlling for differences: regression of P/B on ROE", "TB2", "RelVal"),
  ("8", "Yield-based relative value (cap rates vs REITs)", "Extension", "CapRates"),
- ("9", "Cross holdings, minority interests, distress, illiquidity, control", "TB2", "DCF bridge; Alt_Valuations (APV); report §9"),
+ ("9", "Cross holdings, minority interests, distress, illiquidity, control", "TB2", "DCF bridge; Alt_Valuations (APV); report §10"),
+ ("6", "Thin-trading adjustment (Dimson sum beta)", "TB2 / Dimson (1979)", "Dimson_Beta"),
+ ("7", "Prospective analysis reality check against latest quarters", "TB1", "Quarterly (H1 FY27 test)"),
+ ("7–8", "Practitioner NAV / SOTP; embedded-profit multiple; cap rates", "Practice / brokers", "NAV_SOTP; Broker_Views"),
+ ("3", "Data verification vs company-reported figures", "TB1 (accounting quality)", "Data_Check"),
+ ("2", "Cycle position: rates, volumes, inventory, GDP", "Extension", "Macro_Cycle"),
 ]
 for i, (m, c_, src_, w_) in enumerate(CM):
     put(cc, 5 + i, 1, m); put(cc, 5 + i, 2, c_); put(cc, 5 + i, 3, src_, font=F_NOTE); put(cc, 5 + i, 4, w_)

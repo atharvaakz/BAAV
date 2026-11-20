@@ -63,6 +63,9 @@ rows = [("Price (₹)", rs(D['DCF']['Current market price (Rs)']), rs(G['DCF']['
         ("Implied WACC (reverse DCF)", pc(D['implied WACC']), pc(G['implied WACC']), pc(P['implied WACC'])),
         ("DDM (₹)", rs(D['DDM']['DDM value per share (Rs)']), "n.a.", rs(P['DDM']['DDM value per share (Rs)'])),
         ("P/E · P/B", f"{N['RelVal'][0][12]:.1f} · {N['RelVal'][0][13]:.2f}", f"{N['RelVal'][1][12]:.1f} · {N['RelVal'][1][13]:.2f}", f"{N['RelVal'][2][12]:.1f} · {N['RelVal'][2][13]:.2f}"),
+        ("Practitioner NAV / embedded profit (₹)", f"{N['NAV']['dlf_nav_ps']:,.0f}–{N['NAV']['dlf_nav_ps_hi']:,.0f}", f"{N['NAV']['gpl_emb_ps']:,.0f}", f"{N['NAV']['pml_nav_ps']:,.0f}"),
+        ("Broker median target (₹)", f"{BKM['DLF Ltd']:,.0f}", f"{BKM['Godrej Properties']:,.0f}", f"{BKM['Phoenix Mills']:,.0f}"),
+        ("FY26 bookings / collections (₹ cr)", "20,143 / 13,517", "34,171 / 19,965", "Consumption 16,578; rent 2,157"),
         ("Implied at peer median P/E (₹)", f"{ri['DLF Ltd'][0]:,.0f}", f"{ri['Godrej Properties'][0]:,.0f}", f"{ri['Phoenix Mills'][0]:,.0f}")]
 t = doc.add_table(rows=1, cols=4); t.style = "Light Grid Accent 1"
 for i, h in enumerate(["", "DLF", "Godrej", "Phoenix"]):
@@ -163,6 +166,7 @@ PQ = [
  ("What is a Dimson beta and why did you compute it?", "Thinly traded stocks react to the market with a lag, biasing OLS beta toward zero. Dimson adds the coefficient on last month's market return. Median peer beta rises 1.47 → 1.59; small caps rise most (Puravankara 1.69 → 2.43), DLF barely moves — evidence that industry averages full of small caps understate large-cap developer risk."),
  ("Is 10–12% perpetual growth plausible for India?", "IMF: FY27 real growth 7%, nominal about 10%; nominal growth slowed to 8–8.5% in FY26 on low inflation. So implied growth is at or above nominal GDP for ever — possible, but it leaves no room for a slowdown and breaks the g ≤ Rf discipline."),
  ("What exactly is Godrej's 'other income'?", "Interest on surplus funds and loans to JV projects, gains on divesting stakes in joint ventures, and fair-value re-measurement gains under Ind AS 109 (e.g. on taking control of a JV). Mostly non-cash or non-recurring per deal, but a recurring feature of a JV-heavy business model — which is why we strip it from core EBIT yet discuss it rather than ignore it."),
+ ("How do you treat Phoenix's minorities, given the CPPIB buy-out?", "CPPIB agreed in July 2025 to sell its 49% of Island Star Mall Developers to Phoenix for ~₹5,450 cr in four tranches over three years; Phoenix's stake has reached 68.1% (CPPIB 31.9%). Minority leakage will fall, but Phoenix pays cash for it — at a fair price roughly value-neutral, so we keep the FY26 proportional minority share (~21%)."),
  ("Which hypotheses did you reject?", "H5 (realty stocks follow house prices) — rejected. H4 (rate sensitivity) — weak. H1–H3, H6–H8 supported."),
  ("Which is your final recommendation?", "Relative: Godrej at the peer median (cheapest of our three), Phoenix highest P/B in the set. Intrinsic: all above value at CAPM rates. Ranking Godrej > DLF > Phoenix, with the caveat that Godrej carries cash-flow and execution risk."),
  ("What would change your view on Godrej?", "Bookings not converting to collections, further rise in net debt, margins not normalising toward ~22%. Grid B shows value at 12–32% margins."),

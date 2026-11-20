@@ -56,7 +56,7 @@ notes(s, "We start with the answer. Holding our discount rates, the prices of al
 
 # 3 HOW WE WORKED + HYPOTHESES ----------------------------------------
 n += 1
-s = base("Approach · Module 1", "Eight hypotheses, tested with twenty years of data", n, "Index")
+s = base("Approach · Module 1", "Nine hypotheses, tested with twenty years of data", n, "Index")
 steps = [("Data", "1"), ("Strategy", "2"), ("Accounting", "3"), ("Recast", "4"), ("Ratios · DuPont\nEVA · Z''", "5"), ("Beta · WACC\n2 lenses", "6"), ("DCF · RI · DDM\noptions · MC", "7"), ("Multiples\ncap rates", "8")]
 for i, (t, m) in enumerate(steps):
     x = 0.6 + i * 1.53
@@ -67,15 +67,16 @@ for i, (t, m) in enumerate(steps):
 H = [("H1", "Prices embed growth beyond textbook terminal", "Supported"), ("H2", "Large developers riskier than industry average", "Supported"),
      ("H3", "Beta unstable through the cycle", "Supported"), ("H4", "Developers hurt by rising rates", "Weak"),
      ("H5", "Realty stocks follow house prices", "Rejected"), ("H6", "Customer advances fund growth", "Supported (DLF)"),
-     ("H7", "Book value understates capital", "Supported"), ("H8", "Phoenix priced for growth, not yield", "Supported")]
+     ("H7", "Book value understates capital", "Supported"), ("H8", "Phoenix priced for growth, not yield", "Supported"),
+     ("H9", "Brokers reach price only via land & growth premia", "Supported")]
 for i, (h, t, res) in enumerate(H):
-    x = 0.6 + (i % 2) * 6.15; y = 3.15 + (i // 2) * 0.72
+    x = 0.6 + (i % 2) * 6.15; y = 3.05 + (i // 2) * 0.6
     tb(s, x, y, 0.6, 0.4, h, 14, ACC, HEAD, True)
     tb(s, x + 0.6, y + 0.03, 4.0, 0.4, t, 12.5, INK)
     clr = {"Supported": ACC, "Rejected": RUST, "Weak": OCH}.get(res.split(" ")[0], ACC)
     tb(s, x + 4.6, y + 0.03, 1.4, 0.4, res, 12, clr, BODY, True)
 method(s, f"13 developers (12 in the beta work) × FY23–FY26 + 5 quarters · prices since 2007 (Sensex 1997) · BIS house prices 2009–26 · G-Sec IMF+OECD 2005–26 · Damodaran India industry data (156 firms) · 4 REITs")
-notes(s, "Before modelling we wrote down eight hypotheses. Six are supported, one is weak, and one — that realty stocks follow house prices — is rejected. We'll point to the evidence for each as we go. The data run as far back as we could reach: statements for 13 developers, prices since 2007, house prices since 2009.")
+notes(s, "Before modelling we wrote down nine hypotheses. Seven are supported, one is weak, and one — that realty stocks follow house prices — is rejected. We'll point to the evidence for each as we go. The data run as far back as we could reach: statements for 13 developers, prices since 2007, house prices since 2009.")
 
 # 4 CYCLE ----------------------------------------------------------------
 n += 1
@@ -226,10 +227,11 @@ notes(s, "The methods disagree, and that is the finding. Relative valuation can'
 # 14 LIMITS -----------------------------------------------------------------------
 n += 1
 s = base("Limitations · CLO3", "What would change our answer", n)
-tb(s, 0.6, 1.9, 6.2, 4.2, [[("Data  ", True, ACC), ("four years of statements; bookings, land bank and occupancy sit in investor presentations we could not reach → NAV model next.", False, INK)],
+tb(s, 0.6, 1.9, 6.2, 4.2, [[("Data  ", True, ACC), ("four years of statements; KPIs and broker views from press reports of filings — to be verified against investor presentations.", False, INK)],
                            [("Cost of capital  ", True, ACC), ("two credible lenses, four to five points apart — reported, not hidden.", False, INK)],
                            [("Terminal value  ", True, ACC), ("52–79% of value; the g ≤ Rf rule is the single most consequential assumption.", False, INK)],
-                           [("Accounting  ", True, ACC), ("cost-based land and investment property weaken P/B and ROE.", False, INK)]], 14)
+                           [("Accounting  ", True, ACC), ("land at ~₹1,300/sq ft book vs ~₹7,600 market-implied: P/B and ROE mislead.", False, INK)],
+                           [("Cycle  ", True, ACC), ("RBI hike to 5.50%, inventory +12%: near-term risk to developers.", False, INK)]], 14)
 tb(s, 7.2, 1.9, 5.5, 3.2, [[("Monitor", True, INK)], "Bookings vs collections (Godrej)", "Net debt and cash interest cover", "Rental growth on new malls (Phoenix)",
                            "DCCDL monetisation (DLF)", "RBI tightening (repo 5.50%) & unsold inventory +12%"], 14)
 tb(s, 7.2, 5.4, 5.5, 0.6, "Thank you — questions welcome.", 20, ACC, HEAD, True)
