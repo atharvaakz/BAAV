@@ -108,8 +108,8 @@ module_tag("Module 2 · strategy and competitive analysis · real-estate cycle")
 fig("long_cycle", "Figure 1 — Twenty years of Indian real-estate equity: total-return index and drawdowns.")
 lc = LC
 para(f"The record is humbling. DLF listed in July 2007 near the top of the last boom; nineteen years later its dividend-adjusted return is "
-     f"{pc(lc['DLF'][2])} a year and the stock is still {pc(-lc['DLF'][4],0)} below its January 2008 peak, after falling {pc(-lc['DLF'][3],0)}. "
-     f"Phoenix fell {pc(-lc['Phoenix Mills'][3],0)} in 2008, took until 2017 to recover, and has since compounded at {pc(lc['Phoenix Mills'][2])} a year since listing. "
+     f"{pc(lc['DLF'][2])} a year and the stock is still {pc(-lc['DLF'][4],0)} below its December 2007 peak, after falling {pc(-lc['DLF'][3],0)}. "
+     f"Phoenix fell {pc(-lc['Phoenix Mills'][3],0)} in 2008, took until 2017 to recover, and has compounded at {pc(lc['Phoenix Mills'][2])} a year since listing. "
      f"The Nifty Realty index has returned {pc(lc['Nifty Realty'][2])} a year since 2010 with a {pc(-lc['Nifty Realty'][3],0)} drawdown, against {pc(lc['Nifty 50'][2])} for the Nifty 50. "
      "Anyone valuing these stocks off the last three years of data is looking at one half of a cycle.")
 fig("housing", "Figure 2 — House prices compound slowly; realty equities swing violently and do not track them quarter by quarter.")
@@ -145,7 +145,7 @@ table(["", "DLF", "Godrej Properties", "Phoenix Mills"],
       [2.6, 4.6, 4.6, 4.7], "SWOT plus a blind-spot row: the assumption each management team (and its investors) is most likely to over-trust.", size=8)
 para("Customer segments differ sharply. DLF sells to high-net-worth buyers and non-resident Indians for whom a Gurugram apartment is partly an investment; "
      "Godrej sells to salaried, mortgage-financed buyers across cities, so its demand is rate-sensitive; Phoenix's customers are tenants whose sales depend on "
-     "urban discretionary spending. Customer lifetime value is highest for Phoenix (tenants renew for decades) and lowest for developers, whose buyers rarely buy twice.")
+     "urban discretionary spending. Customer lifetime value is highest for Phoenix (tenants renew leases repeatedly) and lowest for developers, whose buyers rarely buy twice.")
 
 # ================================================================ 3 ACCOUNTING
 doc.add_heading("3. Accounting analysis: where the numbers mislead", 1)
@@ -321,7 +321,7 @@ table(["Implied value (₹/share)", "P/E median", "P/E IQR", "P/B median", "EV/E
       [[k, f"{v[0]:,.0f}", f"{v[1]:,.0f}–{v[2]:,.0f}", f"{v[3]:,.0f}", f"{v[6]:,.0f}", f"{v[8]:,.0f}"] for k, v in ri.items()], [4.6, 2.4, 3.0, 2.4, 2.8, 2.4], size=8.5)
 fig("cap_rates", "Figure 15 — The yield investors accept on Phoenix versus listed REITs and the G-Sec.", 12.5)
 para(f"For an income-producing owner the right relative measure is yield. Phoenix's enterprise value (including minorities at market value) is {cr(CAP['ev'])} against EBITDA of {cr(CAP['ebitda'])} — "
-     f"a {pc(CAP['yield'])} yield, {pc(-CAP['spread'])} below the G-Sec. Listed REITs yield {pc(CAP['reit_median'])}. Priced at the mall REIT's yield, Phoenix would be worth about "
+     f"a {pc(CAP['yield'])} yield, {-CAP['spread']*100:.1f} percentage points below the G-Sec. Listed REITs yield {pc(CAP['reit_median'])}. Priced at the mall REIT's yield, Phoenix would be worth about "
      f"{rs(CAP['pml_at_reit'])} a share. The premium over that is payment for growth a REIT cannot fund, because it must distribute 90% of its cash (H8).")
 
 # ================================================================ 9 LOOSE ENDS

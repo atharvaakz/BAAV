@@ -83,7 +83,7 @@ card(s, 9.1, 1.85, 3.63, 1.15, f"{LC['DLF'][2]:.1%}", "DLF annual total return s
 card(s, 9.1, 3.1, 3.63, 1.15, f"{LC['DLF'][3]:.0%}", "DLF's worst drawdown; Phoenix fell 90% too", RUST, 26)
 card(s, 9.1, 4.35, 3.63, 1.15, f"{HS['Real house-price CAGR']:.1%}", "real growth in Indian house prices a year since 2009 (BIS)", OCH, 26)
 method(s, f"Dividend-adjusted monthly prices; drawdown = price ÷ running peak − 1 (live formulas) · BIS nominal & real indices · correlation of annual changes stocks vs houses = {HS['Correlation: realty YoY vs house-price YoY (same quarter)']:.2f} (H5 rejected)")
-notes(s, "This is the context most valuations miss. DLF listed at the top of the 2007 boom and is still below that peak nineteen years later — a 2 percent annual return. Phoenix fell 90 percent in 2008. Meanwhile house prices grew only 3.5 percent a year in real terms. Equities swing far more than the physical market and don't track it quarter to quarter, so we reject the idea that realty stocks simply follow house prices.")
+notes(s, "This is the context most valuations miss. DLF listed at the top of the 2007 boom and is still below its December 2007 peak nineteen years later — a 2 percent annual return. Phoenix fell 90 percent in 2008. Meanwhile house prices grew only 3.5 percent a year in real terms. Equities swing far more than the physical market and don't track it quarter to quarter, so we reject the idea that realty stocks simply follow house prices.")
 
 # 5 STRATEGY ------------------------------------------------------------
 n += 1
