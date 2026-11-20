@@ -136,17 +136,16 @@ ls.freeze_panes = "B5"
 rbw = sheet("RollingBeta", "Beta drift: rolling 36-month beta against the Nifty 50",
             "Module 6 — is beta stable? Each cell = SLOPE over the previous 36 monthly returns (live)", [11] + [11] * 10)
 hdr(rbw, 4, ["Month", "Nifty ret", "DLF ret", "GPL ret", "PML ret", "Realty ret", "DLF β36", "GPL β36", "PML β36", "Realty β36"])
-src = [("NIFTY50", 6), ("DLF", 2), ("GODREJPROP", 3), ("PHOENIXLTD", 4), ("NIFTYREALTY", 5)]
+src = [("NIFTY50", "F"), ("DLF", "B"), ("GODREJPROP", "C"), ("PHOENIXLTD", "D"), ("NIFTYREALTY", "E")]   # LongCycle price columns
 for i in range(1, len(lcd)):
     r_ = 4 + i; lsr = LC0 + i
     put(rbw, r_, 1, f"=LongCycle!A{lsr}", "mmm-yy")
-    for j, (k, colidx) in enumerate(src):
-        pcl = L(colidx + 1)
+    for j, (k, pcl) in enumerate(src):
         put(rbw, r_, 2 + j, f'=IF(OR(LongCycle!{pcl}{lsr}="",LongCycle!{pcl}{lsr-1}=""),"",LongCycle!{pcl}{lsr}/LongCycle!{pcl}{lsr-1}-1)', "0.0%")
     if i >= 36:
         for j in range(4):
             yc = L(3 + j)
-            put(rbw, r_, 7 + j, f'=IFERROR(SLOPE({yc}{r_-35}:{yc}{r_},$B{r_-35}:$B{r_}),"")', "0.00")
+            put(rbw, r_, 7 + j, f'=IF(COUNT({yc}{r_-35}:{yc}{r_})<36,"",IFERROR(SLOPE({yc}{r_-35}:{yc}{r_},$B{r_-35}:$B{r_}),""))', "0.00")
 RB1 = 4 + len(lcd) - 1
 ch = LineChart(); ch.title = "Rolling 36-month beta vs Nifty 50"; ch.height, ch.width = 8, 18
 for j, nm in enumerate(["DLF", "Godrej", "Phoenix", "Nifty Realty"]):

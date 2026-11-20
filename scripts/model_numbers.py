@@ -69,13 +69,19 @@ for k, co in enumerate(COS):
     sm = wb["Summary"]; st = rows(sm, "Method")[k]
     d["FF"] = [(sm.cell(r, 1).value, sm.cell(r, 2).value, sm.cell(r, 3).value, sm.cell(r, 4).value) for r in range(st + 1, st + 8)]
 rv = wb["RelVal"]
-N["RelVal"] = [[rv.cell(r, c).value for c in range(1, 18)] for r in list(range(5, 8)) + list(range(9, 14))]
-N["RelStats"] = {rv.cell(r, 1).value: [rv.cell(r, c).value for c in range(13, 18)] for r in range(15, 21)}
-N["RelImplied"] = {rv.cell(r, 1).value: [rv.cell(r, c).value for c in range(2, 11)] for r in range(24, 27)}
-N["Reg"] = {"a": rv["B30"].value, "b": rv["B31"].value, "r2": rv["B32"].value}
+lab = {rv.cell(r, 1).value: r for r in range(1, rv.max_row + 1) if rv.cell(r, 1).value}
+peer_rows = [r for r in range(5, lab["Distribution of peer multiples"]) if rv.cell(r, 2).value is not None and r != 8]
+N["RelVal"] = [[rv.cell(r, c).value for c in range(1, 18)] for r in peer_rows]
+N["RelStats"] = {k: [rv.cell(lab[k], c).value for c in range(13, 18)] for k in ["High", "75th percentile", "Median", "Average", "25th percentile", "Low"]}
+ivh = lab["Target / multiple"]
+N["RelImplied"] = {rv.cell(r, 1).value: [rv.cell(r, c).value for c in range(2, 11)] for r in range(ivh + 1, ivh + 4)}
+N["Reg"] = {"a": rv.cell(lab["Intercept (a)"], 2).value, "b": rv.cell(lab["Slope on ROE (b)"], 2).value, "r2": rv.cell(lab["R-squared"], 2).value}
+N["n_peers"] = len(peer_rows) - 3
 bu = wb["BottomUp_Beta"]
-N["BU"] = [[bu.cell(r, c).value for c in range(1, 9)] for r in range(5, 13)]
-N["BU_median"], N["BU_se"] = bu["G13"].value, bu["G15"].value
+bl = {bu.cell(r, 1).value: r for r in range(1, bu.max_row + 1) if bu.cell(r, 1).value}
+mr = [r for k, r in bl.items() if str(k).startswith("Median unlevered beta")][0]
+N["BU"] = [[bu.cell(r, c).value for c in range(1, 9)] for r in range(5, mr)]
+N["BU_median"], N["BU_se"] = bu.cell(mr, 7).value, bu.cell(mr + 2, 7).value
 for name in ["Beta_Monthly", "Beta_Weekly", "Beta_REIT"]:
     ws = wb[name]
     hdrc = [c for c in range(1, ws.max_column + 1) if ws.cell(4, c).value == "Statistic"][0]
@@ -83,6 +89,37 @@ for name in ["Beta_Monthly", "Beta_Weekly", "Beta_REIT"]:
                for c in range(hdrc + 1, ws.max_column + 1) if ws.cell(4, c).value}
 inp = wb["Inputs"]
 N["Inputs"] = {inp.cell(r, 1).value: inp.cell(r, 2).value for r in range(4, 16)}
+for k, co in enumerate(COS):
+    ws = wb[f"DCF_{co}"]
+    N[co]["lensB"] = {"wacc": ws["Y33"].value, "stable": ws["Y34"].value, "vps": ws["Y35"].value, "upside": ws["Y36"].value}
+    wc = wb["WACC"]; c = "BCD"[k]
+    N[co]["W_B"] = {"beta_u": wc[f"{c}27"].value, "beta": wc[f"{c}29"].value, "ke": wc[f"{c}30"].value, "wacc": wc[f"{c}31"].value, "dam": wc[f"{c}32"].value}
+    q = wb["Quarterly"]; ttm = [r for r in range(1, q.max_row + 1) if q.cell(r, 1).value == "TTM P/E at latest price"][k]
+    N[co]["ttm_pe"] = q.cell(ttm, 8).value
+    rsh = wb["ResidualIncome"]
+    rows_ = {lab_: [r for r in range(1, rsh.max_row + 1) if rsh.cell(r, 1).value == lab_][k] for lab_ in
+             ["Value per share — lens A (₹)", "Value per share — lens B (₹)", "Justified P/B on current ROE — lens A", "Justified P/B on current ROE — lens B",
+              "ROE the market price implies (lens A Ke) = g + P/B × (Ke − g)"]}
+    N[co]["RI"] = {k2: rsh.cell(r, 2).value for k2, r in rows_.items()}
+    av = wb["Alt_Valuations"]
+    dif = [r for r in range(1, av.max_row + 1) if av.cell(r, 1).value == "Difference (should be ~0)"][k]
+    N[co]["EVA_diff"] = av.cell(dif, 2).value; N[co]["EVA_value"] = av.cell(dif - 1, 2).value; N[co]["FCFF_value_ye"] = av.cell(dif - 3, 2).value
+    N[co]["midyear_uplift"] = av.cell(dif + 1, 2).value
+cr = wb["CapRates"]
+N["Cap"] = {"ev": cr["B8"].value, "ebitda": cr["B9"].value, "yield": cr["B10"].value, "spread": cr["B12"].value,
+            "reits": [[cr.cell(r, c).value for c in range(1, 6)] for r in range(16, 20)], "reit_median": cr["D21"].value, "pml_at_reit": cr["D22"].value}
+ro = wb["RealOption"]; N["RO"] = {ro.cell(r, 1).value: ro.cell(r, 2).value for r in range(5, 17)}
+rf = wb["RateFactor"]; N["RateFactor"] = {rf.cell(4, c).value: [rf.cell(r, c).value for r in range(5, 12)] for c in range(10, 14)}
+ls = wb["LongCycle"]
+sc0 = [c for c in range(1, ls.max_column + 1) if ls.cell(4, c).value == "Statistic"][0]
+N["LongCycle"] = {ls.cell(4, c).value: [ls.cell(r, c).value for r in range(5, 10)] for c in range(sc0 + 1, sc0 + 7)}
+he = wb["HistERP"]; N["HistERP"] = {he.cell(r, 7).value: he.cell(r, 8).value for r in range(5, 13)}
+hs = wb["Housing"]; N["Housing"] = {hs.cell(r, 8).value: hs.cell(r, 9).value for r in range(5, 11) if hs.cell(r, 8).value}
+rb = wb["RollingBeta"]; N["RollingBeta"] = {rb.cell(r, 12).value: [rb.cell(r, c).value for c in (13, 14, 15)] for r in range(23, 27)}
+ib = wb["Industry_Benchmark"]; N["Industry"] = {ib.cell(r, 1).value: [ib.cell(r, c).value for c in range(2, 7)] for r in range(5, 20)}
+v2 = ROOT / "data/processed/v2"
+N["MC"] = json.loads((v2 / "monte_carlo.json").read_text()); N["SC"] = json.loads((v2 / "scenarios.json").read_text())
+N["A2"] = json.loads((v2 / "analysis_v2.json").read_text())
 (ROOT / "data/processed/numbers.json").write_text(json.dumps(N, indent=1, default=str))
 if __name__ == "__main__":
     print(list(N["DLF"].keys())[:10]); print(N["RelImplied"]); print(N["Reg"]); print(N["DLF"]["DCCDL"])
