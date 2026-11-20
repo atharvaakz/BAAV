@@ -162,7 +162,7 @@ table(["Policy", "Effect", "Evidence", "Our adjustment"],
        ["JVs equity-accounted (Ind AS 111)", "JV debt and assets invisible; one-line profit share", f"DLF: tax-and-JV burden {D['DP Tax & JV burden'][2]:.2f} (> 1)", "Strip from EBIT; value DCCDL separately"],
        ["Investment property at cost (Ind AS 40)", "Malls at depreciated cost", f"Phoenix P/B {xx(RV['Phoenix Mills'][13])}", "Use cash-flow and cap-rate valuation"],
        ["RERA escrow", "Part of cash is ring-fenced", f"DLF restricted cash {cr(D['RC Restricted cash (kept operating)'][3])}", "Treat as operating, not surplus"],
-       ["Treasury & exceptional income", "Inflates EBIT", "Turns Godrej's core loss into reported profit", "Exclude from core EBIT"]],
+       ["Treasury, JV stake sales, fair-value gains (Ind AS 109)", "Inflates EBIT; largely non-cash", "Godrej: gains on JV divestments and re-measurement on taking control of a JV turn its core loss into profit", "Exclude from core EBIT; note it recurs in a JV-heavy model"]],
       [3.5, 4.0, 5.0, 4.0], size=8)
 para(f"Earnings quality is good at DLF and Phoenix — operating cash flow was {xx(D['CFO / PAT (x)'][3],2)} and {xx(P['CFO / PAT (x)'][3],2)} profit in FY26 — and apparently poor at Godrej, "
      f"where statutory operating cash flow has been negative every year (accruals ratio {pc(G['Accruals ratio = (PAT − CFO) / avg assets'][3])} of assets) as inventory rose to {pc(G['Inventory / total assets'][3],0)} of assets. "
@@ -221,7 +221,7 @@ para(f"Palepu's split of ROE into operating return and financing is the most rev
 doc.add_heading("EVA, CVA, distress and the scorecard", 2)
 para(f"EVA was negative throughout — FY26: {cr(D['EVA = NOPAT − WACC × opening NOA'][2])} (DLF), {cr(G['EVA = NOPAT − WACC × opening NOA'][2])} (Godrej), {cr(P['EVA = NOPAT − WACC × opening NOA'][2])} (Phoenix). "
      f"Cash value added tells a different story for DLF: free cash flow of {cr(D['Free cash flow = CFO − capex'][3])} exceeds its capital charge because customers pay early. "
-     f"Godrej's free cash flow was {cr(G['Free cash flow = CFO − capex'][3])}. Godrej's original Altman Z fell to {G['Z'][3]:.2f} ('distress'), but the emerging-market Z'' — which drops the "
+     f"Godrej's statutory free cash flow, after land purchases, was {cr(G['Free cash flow = CFO − capex'][3])}. Godrej's original Altman Z fell to {G['Z'][3]:.2f} ('distress'), but the emerging-market Z'' — which drops the "
      f"sales/assets term that penalises any developer — is {G['Zpp'][3]:.2f} (grey); DLF ({D['Zpp'][3]:.2f}) and Phoenix ({P['Zpp'][3]:.2f}) are safe.")
 table(["Perspective", "DLF", "Godrej", "Phoenix"],
       [["Financial", "Net cash; EVA < 0, CVA > 0", "Leverage up; pre-land OCF ₹7,830 cr, all reinvested", f"ROIC {pc(P['ROIC = NOPAT / avg invested capital'][3])}; closest to EVA break-even"],
