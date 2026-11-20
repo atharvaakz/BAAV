@@ -622,8 +622,8 @@ KP = [
  ("Retail consumption FY26", None, None, 16578, "pml_fy26"),
  ("Retail rental income FY26", None, None, 2157, "pml_fy26"),
  ("Retail EBITDA FY26", None, None, 2246, "pml_fy26"),
- ("Office EBITDA (9M FY26, annualised ×4/3)", None, None, round(103 * 4 / 3), "pml_fy26 (quartr 9M)"),
- ("Hospitality EBITDA (9M FY26, annualised ×4/3)", None, None, round(190 * 4 / 3), "pml_fy26 (quartr 9M)"),
+ ("Office EBITDA (9M FY26, annualised ×4/3)", None, None, 141, "Phoenix Q4 FY26 call: operational office EBITDA ₹141 cr (FY26 actual)"),
+ ("Hospitality EBITDA (9M FY26, annualised ×4/3)", None, None, 276, "Phoenix Q4 FY26 call: hotel EBITDA ₹276 cr (FY26 actual)"),
  ("Company consolidated EBITDA FY26", 3070, 2826, 2637, "company releases"),
  ("Rental platform (DCCDL) EBITDA FY26", 5718, None, None, "dccdl"),
  ("DCCDL net debt Q4 FY26", 18150, None, None, "dccdl"),
@@ -705,7 +705,7 @@ rows_dlf = [
  ("NAV per share (identifiable parts)", f"=B19/{D('DLF','Shares',2026)}", NUM2, False, ""),
  ("Market cap", f"=RelVal!D{RVR['DLF']}", NUM, False, ""),
  ("Implied value of the residual land bank (market cap − identifiable NAV)", "=B21-B19", NUM, False, "What the market pays for land beyond the 5-year pipeline"),
- ("Residual development potential (msf, input: 188 total less ~40 in pipeline)", 148, NUM, True, "DSIJ: 188 msf potential; pipeline share is our estimate"),
+ ("Residual development potential (msf): 137 balance potential − 25 in launch pipeline", 112, NUM, True, "DLF Q4 FY26 call: '137 million sq ft of balance potential', ~25 msf pipeline"),
  ("Implied value per sq ft of residual potential (₹)", "=B22*1e7/(B23*1e6)", NUM, False, "₹ per saleable sq ft of undeveloped potential"),
 ]
 for i, (lab, v, fmt, inp, nt) in enumerate(rows_dlf):
@@ -861,5 +861,105 @@ for co, tk in TARGETS.items():
     r_ += 1
 note(qs, r_ + 1, "DLF's FY27 assumption was cut from +40% to −15% after this check; Godrej and Phoenix assumptions are consistent with H1.")
 put(nv, 25, 1, "Book inventory per sq ft of total development potential (₹) — land at historical cost", font=F_N)
-put(nv, 25, 2, f"={D('DLF','Inventory',2026)}*1e7/(188*1e6)", NUM)
-put(nv, 25, 4, "Inventory (incl. WIP) ÷ 188 msf; compare with the market-implied value per sq ft above", font=F_NOTE)
+put(nv, 25, 2, f"={D('DLF','Inventory',2026)}*1e7/(137*1e6)", NUM)
+put(nv, 25, 4, "Inventory (incl. WIP) ÷ 137 msf balance potential; compare with the market-implied value per sq ft above", font=F_NOTE)
+
+
+# ---------------------------------------------------------------------- Official disclosures: transcripts, guidance credibility, management-case DCF, ESG/BRSR
+of = sheet("Official_Disclosures", "From the companies' own mouths: earnings-call transcripts, guidance credibility and a management-case valuation",
+           "Primary sources: DLF Q4 FY26 call (14-May-2026, dlf.in); Phoenix Q4 FY26 call (Apr-2026); Godrej Q2 FY27 call (Oct-2026, via third-party write-up). Text extracted with pdftotext; see references/official/",
+           [58, 16, 16, 16, 52])
+hdr(of, 4, ["Statement / metric", "DLF", "Godrej", "Phoenix", "Source & reading"])
+OFF = [("FY26 gross margin (reported)", 0.39, None, None, PCT, "DLF call: 'gross margin of 39% for the fiscal' (Q4: ~46%)"),
+       ("New margin created per year (guidance, ₹ cr)", 9500, None, None, NUM, "DLF: '₹9,000–10,000 cr of margin every year' on ~₹20,000 cr sales (≈45–50%)"),
+       ("Development free cash flow per year (guidance, ₹ cr)", 7500, None, None, NUM, "DLF: '₹7,000–8,000 cr of free cash flow every year on the Devco side'"),
+       ("Net cash FY26 (₹ cr) / of which in RERA escrow", 14155, None, None, NUM, "DLF: 'of the ₹14,000 cr … almost ₹11,200 cr sitting in RERA balance', unlocking from FY27–28"),
+       ("RERA escrow balance (₹ cr)", 11200, None, None, NUM, "Not free cash until projects complete"),
+       ("Balance land potential (msf) / in launch pipeline (msf)", 137, None, None, NUM, "DLF: 137 msf balance potential, ~25 msf pipeline; ~40 msf North & metros outside pipeline"),
+       ("Super-luxury pricing (₹ per sq ft, super area): Dahlias / Camellias", 100000, None, 120000, NUM, "DLF call: Dahlias ~₹1 lakh/sq ft, Camellias ~₹1.2 lakh (Camellias shown in col D for layout)"),
+       ("Rental: FY27 exit run-rate (₹ cr) / NOI growth guidance", 8200, None, None, NUM, "DLF: total rental ~₹8,200 cr; 'mid-teens growth in NOI' for 4–5 years"),
+       ("Office occupancy: non-SEZ / SEZ", 0.985, None, 0.70, PCT, "DLF non-SEZ 98–99% (SEZ 88–89%); Phoenix office portfolio 70% (mature 83%)"),
+       ("H2 FY27 targets: collections / operating cash flow (₹ cr)", None, 15000, None, NUM, "Godrej Q2 FY27 call (write-up): ₹15,000 cr collections, ₹7,000 cr OCF in H2; FY28 reported ROE ~20%"),
+       ("H2 FY27 launch pipeline (₹ cr)", None, 32000, None, NUM, "Godrej: only one-third of annual launches done in H1"),
+       ("Retail rental growth guidance FY27–28", None, None, 0.145, PCT, "Phoenix: 14–15%; 36–50% of area renews in 2–3 yrs at ~20% uplift"),
+       ("Retail consumption FY26 (₹ cr) / growth", None, None, 16587, NUM, "Phoenix call: ₹16,587 cr, +21%; fashion ~60% of area, +16%"),
+       ("Operating free cash flow FY26 (₹ cr)", None, 7830, 2140, NUM, "Godrej pre-land OCF; Phoenix 'operating FCF after WC, tax and interest'"),
+       ("Hotel: St Regis ARR (₹) / EBITDA margin", None, None, 21000, NUM, "Phoenix: ARR > ₹21,000, EBITDA margin 49%")]
+for i, (lab, a, b, c, fmt, s_) in enumerate(OFF):
+    r_ = 5 + i
+    put(of, r_, 1, lab)
+    for j, v in enumerate([a, b, c]):
+        if v is not None:
+            put(of, r_, 2 + j, v, fmt, F_IN, FILL_IN)
+    put(of, r_, 5, s_, font=F_NOTE)
+r0 = 5 + len(OFF) + 2
+put(of, r0, 1, "Guidance credibility: what they said vs what they did", font=F_B)
+hdr(of, r0 + 1, ["Item", "Guidance", "Actual", "Hit rate", "Source"])
+GC = [("DLF FY26 sales bookings (₹ cr)", 20000, 20143, "Guided ₹20,000 cr; delivered despite deferring launches"),
+      ("Godrej FY26 bookings (₹ cr)", 32500, 34171, "FY26 guidance ₹32,500 cr (company); historically beats bookings guidance by ~18% on average"),
+      ("Godrej FY26 collections (₹ cr)", 21000, 19965, "Missed internal collections target by ~5% (press)"),
+      ("DLF H1 FY27 bookings vs pro-rata FY27 guidance (₹ cr)", 10000, 4457, "Back-ended: launches deferred (Aureva) — watch H2")]
+for i, (lab, g, a_, s_) in enumerate(GC):
+    r_ = r0 + 2 + i
+    put(of, r_, 1, lab); put(of, r_, 2, g, NUM, F_IN, FILL_IN); put(of, r_, 3, a_, NUM, F_IN, FILL_IN)
+    put(of, r_, 4, f"=C{r_}/B{r_}", PCT, F_B); put(of, r_, 5, s_, font=F_NOTE)
+m0 = r0 + 8
+put(of, m0, 1, "Management-case cash DCF for DLF's development business (using management's own FCF guidance)", font=F_B)
+mrow = [("Development FCF, year 1 (₹ cr)", "=B7", NUM, False, "midpoint of ₹7,000–8,000 cr"),
+        ("Growth years 2–10 (input)", 0.05, PCT, True, "sales guidance flat at ~₹20k cr; margin & price growth"),
+        ("Discount rate (lens A Ke; DLF is net cash)", f"={W['DLF']['Ke']}", PCT, False, ""),
+        ("Terminal growth", "=gT", PCT, False, ""),
+        ("Stable discount rate (β → 1)", "=DCF_DLF!B14", PCT, False, ""),
+        ("PV of FCF years 1–10", None, NUM, False, ""),
+        ("PV of terminal value", None, NUM, False, ""),
+        ("Development business value", None, NUM, False, ""),
+        ("Add: DCCDL stake — DCF (capitalised) / NAV (7.5% cap)", f"={DCF['DLF']['vps']}*0+DCF_DLF!B42", NUM, False, "capitalised-earnings value from DCF sheet"),
+        ("Less: escrow cash already counted inside development FCF (avoid double count)", 0, NUM, True, "FCF guidance includes escrow release; net cash added only ex-escrow below"),
+        ("Add: free net cash ex-escrow (₹14,155 − ₹11,200 cr)", "=B8-B9", NUM, False, ""),
+        ("Equity value — management case", None, NUM, False, ""),
+        ("Per share (₹)", None, NUM2, False, ""),
+        ("Per share with DCCDL at the 7.5% cap-rate NAV (₹)", None, NUM2, False, ""),
+        ("Market price (₹)", f"={PX['DLF'][3]}", NUM2, False, "")]
+for i, (lab, v, fmt, inp, nt) in enumerate(mrow):
+    r_ = m0 + 1 + i
+    put(of, r_, 1, lab, font=F_B if lab.startswith(("Equity", "Per share")) else F_N)
+    if v is not None:
+        put(of, r_, 2, v, fmt, F_IN if inp else F_N, FILL_IN if inp else None)
+    put(of, r_, 5, nt, font=F_NOTE)
+b = m0 + 1
+put(of, b + 5, 2, f"=SUMPRODUCT(B{b}*(1+B{b+1})^(ROW(INDIRECT(\"1:10\"))-1)/(1+B{b+2})^ROW(INDIRECT(\"1:10\")))", NUM)
+put(of, b + 6, 2, f"=B{b}*(1+B{b+1})^9*(1+B{b+3})/(B{b+4}-B{b+3})/(1+B{b+2})^10", NUM)
+put(of, b + 7, 2, f"=B{b+5}+B{b+6}", NUM, F_B)
+put(of, b + 11, 2, f"=B{b+7}+B{b+8}-B{b+9}+B{b+10}", NUM, F_B, FILL_KEY)
+put(of, b + 12, 2, f"=B{b+11}/{D('DLF','Shares',2026)}", NUM2, F_B, FILL_KEY)
+put(of, b + 13, 2, f"=(B{b+11}-B{b+8}+NAV_SOTP!B11)/{D('DLF','Shares',2026)}", NUM2, F_B, FILL_KEY)
+MGMT = {"ps": f"Official_Disclosures!$B${b+12}", "ps_nav": f"Official_Disclosures!$B${b+13}", "dev": f"Official_Disclosures!$B${b+7}"}
+note(of, b + 16, "Reading: on management's own cash-flow guidance, DLF is worth far more than our recognised-revenue DCF — recognition (completed-contract method) lags cash by years.")
+note(of, b + 17, "Even so, the price needs DCCDL at broker cap rates plus value for land beyond the guided horizon. Guidance is the company's, not ours: treat as the bull anchor.")
+
+esg = sheet("ESG_BRSR", "ESG and BRSR: what the sustainability filings show, and why it matters for value",
+            "DLF BRSR FY2024-25 (reasonable assurance on BRSR Core); DCCDL Sustainability Report FY2025-26 (ISAE 3000/3410 assured). Godrej/Phoenix BRSRs: NSE/BSE blocked automated access (503/403) — to be added",
+            [56, 18, 18, 50])
+hdr(esg, 4, ["Indicator", "Value", "Prior year", "Source / reading"])
+ES = [("DLF total energy consumed (GJ)", 1199213, 1203703, NUM, "BRSR P6 Q1; flat while portfolio grew"),
+      ("of which renewable (GJ)", 193584, 169868, NUM, "≈16% renewable"),
+      ("Renewable share", "=B6/B5", "=C6/C5", PCT, ""),
+      ("Energy intensity per unit of physical output", 0.123, 0.144, NUM2, "BRSR: falling 15%"),
+      ("Water consumption (kilolitres)", 11553788, 7241284, NUM, "BRSR P6; rose with occupancy"),
+      ("Employees (permanent) / women share", 3103, 0.1015, NUM, "Women 10.15% (prior-year column shows share)"),
+      ("Employee turnover (male / female)", 0.19, 0.35, PCT, "Female turnover far higher — a social-pillar flag"),
+      ("LTIFR (employees) / fatalities", 0.13, 0, NUM2, "Zero fatalities FY25"),
+      ("DCCDL Scope 1 emissions (ktCO2e)", 16.02, 11.78, NUM2, "SR FY26 (prior FY25)"),
+      ("DCCDL Scope 2 emissions (ktCO2e)", 97.84, 98.05, NUM2, "Purchased electricity"),
+      ("DCCDL Scope 3 emissions (ktCO2e)", 190.57, 190.92, NUM2, "63% of total — tenants & embodied carbon"),
+      ("DCCDL total emissions (ktCO2e)", "=SUM(B13:B15)", "=SUM(C13:C15)", NUM2, "Flat y/y while rental income grew ~15% → intensity falling"),
+      ("Water recycled & reused (million KL)", 2.35, None, NUM2, "DCCDL SR FY26"),
+      ("Green certification", "LEED Platinum (entire rental portfolio); 32 LEED Zero Water", None, None, "DCCDL; also WiredScore Platinum, GRESB participant")]
+for i, (lab, v, pv, fmt, s_) in enumerate(ES):
+    r_ = 5 + i
+    put(esg, r_, 1, lab); put(esg, r_, 2, v, fmt, F_IN if not str(v).startswith("=") else F_N, FILL_IN if not str(v).startswith("=") else None)
+    if pv is not None: put(esg, r_, 3, pv, fmt if lab != "Employees (permanent) / women share" else PCT, F_IN if not str(pv).startswith("=") else F_N)
+    put(esg, r_, 4, s_, font=F_NOTE)
+note(esg, 21, "Why ESG matters for value here: (1) green-certified Grade-A offices command rent premia and lower vacancy (DCCDL non-SEZ 98–99% occupied);")
+note(esg, 22, "(2) multinational tenants and global capital (GIC, CPPIB) require it; (3) it lowers cost of capital via ratings and sustainability-linked debt;")
+note(esg, 23, "(4) residential developers face construction-dust bans (NCR) and water stress — an operational risk visible in BRSR 'areas of water stress' disclosures.")

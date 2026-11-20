@@ -360,7 +360,7 @@ para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['
      f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. That gap is itself a finding: a 7.5% cap rate on EBITDA embeds a far lower "
      f"required return than CAPM gives. Adding five years of pipeline margin at guided sales ({cr(NAV['dlf_res_pv'])}) and net cash gives identifiable NAV of {rs(NAV['dlf_nav_ps'])} a share, "
      f"close to our DCF ({rs(NAV['dlf_nav_ps'])}–{NAV['dlf_nav_ps_hi']:,.0f} if all of the ₹24,500 cr of gross margin management says is still to be recognised on sold units were added; part of it already sits in net cash). The market's remaining {cr(NAV['dlf_land'])} is, by elimination, the value placed on land beyond the visible pipeline: about ₹{NAV['dlf_psf']:,.0f} per sq ft of the "
-     f"roughly 150 million sq ft of potential not yet scheduled, against a book value of about ₹{NAV['dlf_book_psf']:,.0f} per sq ft for all inventory and land (H7). That is the real-option argument in rupees.")
+     f"112 million sq ft of potential outside the launch pipeline (137 msf balance potential per management, less ~25 msf in the pipeline), against a book value of about ₹{NAV['dlf_book_psf']:,.0f} per sq ft of inventory and land (H7). That is the real-option argument in rupees.")
 para(f"Phoenix. Retail EBITDA at a 7% cap rate, offices at 8%, hotels at 12x EBITDA and work-in-progress at cost give a NAV to owners of {rs(NAV['pml_nav_ps'])} a share; the price is "
      f"{pc(NAV['pml_prem'],0)} above it. A 7% cap rate at the 11.75% discount rate an Indian REIT valuer uses implies perpetual rent growth of {pc(NAV['pml_g_in_cap'],2)}, so practitioners' own "
      "conventions sit close to our 5.5% terminal growth. What closes the gap is an explicit growth premium; one broker adds 70% to its NAV.")
@@ -373,6 +373,23 @@ para("The latest quarter (Q2 FY27) sharpens each story. DLF booked ₹3,800 cr, 
      "₹1,983 cr — cash conversion, the risk we flagged, is improving. Phoenix's retail rental income grew 16% in H1 and management guides 14–15% for FY27–28, almost exactly our DCF path. "
      "Relative to its own history the sector is not stretched: the Nifty Realty index trades at about 40x earnings against a five-year median near 48x. But those five years were the up-cycle; "
      "measured against intrinsic value, not recent multiples, the premium remains.")
+doc.add_heading("What management says: transcripts, guidance and BRSR", 2)
+MG = N["MGMT"]; ES = N["ESG"]; gc = {r[0]: r for r in N["GC"]}
+para("We read the companies' own earnings-call transcripts (DLF and Phoenix Q4 FY26; Godrej Q2 FY27) and sustainability filings (DLF BRSR FY25, DCCDL "
+     "Sustainability Report FY26). Three findings change how our numbers should be read. First, DLF's headline net cash is mostly not free: management "
+     "said about ₹11,200 cr of the ₹14,155 cr sits in RERA escrow accounts, released only as projects complete in FY27–28. Second, DLF guides to "
+     "₹9,000–10,000 cr of new margin and ₹7,000–8,000 cr of development free cash flow every year — cash that recognised revenue, booked only on "
+     f"completion, reports years late. Capitalising management's own ₹{MG['fcf']:,.0f} cr at our cost of equity, growing 5% a year, gives a development business "
+     f"worth {cr(MG['dev'])}; adding DCCDL and free net cash gives {rs(MG['ps'])} a share, or {rs(MG['ps_nav'])} with DCCDL at the 7.5% cap rate — still below the "
+     f"{rs(price['DLF'])} price. On management's numbers, the market is paying for land beyond any guided horizon. Third, guidance has been credible: DLF met its "
+     f"FY26 bookings guide ({pc(gc['DLF FY26 sales bookings (₹ cr)'][3],0)}) and Godrej beat its own ({pc(gc['Godrej FY26 bookings (₹ cr)'][3],0)}), though Godrej missed "
+     f"its collections target ({pc(gc['Godrej FY26 collections (₹ cr)'][3],0)}) and DLF's H1 FY27 run-rate is only {pc(gc['DLF H1 FY27 bookings vs pro-rata FY27 guidance (₹ cr)'][3],0)} of pro-rata guidance.")
+para(f"Phoenix's call supports our forecast: retail rental growth guided at 14–15% for FY27–28, with 36–50% of leased area renewing in two to three years at about 20% "
+     f"uplifts; offices are 70% occupied (EBITDA ₹141 cr) and hotels earned ₹276 cr. On ESG, DLF used {ES['DLF total energy consumed (GJ)'][0]/1e6:.2f} million GJ in FY25, "
+     f"{pc(ES['Renewable share'][0],0)} renewable (up from {pc(ES['Renewable share'][1],0)}); women are only 10% of employees and their turnover ({pc(ES['Employee turnover (male / female)'][1],0)}) "
+     f"is almost twice men's — a social-pillar flag. DCCDL's emissions were flat at about {ES['DCCDL total emissions (ktCO2e)'][0]:,.0f} ktCO2e while rent grew about 15%, and its "
+     "whole rental portfolio is LEED Platinum. That matters for value: green Grade-A offices are what multinational tenants and global capital (GIC, CPPIB) require, "
+     "and they explain DCCDL's 98–99% non-SEZ occupancy. Godrej's and Phoenix's BRSRs sit on NSE/BSE, which blocked automated retrieval; we did not use second-hand figures for them.")
 fig("practitioner_vs_textbook", "Figure 18 — Textbook DCF, practitioner NAV, broker targets and price.", 14)
 bk_ = {r[0]: r for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
 para(f"The sell-side sits close to the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "
@@ -416,7 +433,9 @@ for ref in ["Palepu, K., Healy, P. & Bernard, V. Business Analysis & Valuation: 
             "Yahoo Finance: consolidated statements, quarterly results, dividend-adjusted price histories for 13 developers, 4 REITs and Indian indices.",
             "Altman, E. (1968), Journal of Finance 23(4); Altman, E. (2005), Emerging Markets Review 6(4).",
             "Blume, M. (1971), Journal of Finance 26(1). Hamada, R. (1972), Journal of Finance 27(2). Scholes, M. & Williams, J. (1977), Journal of Financial Economics 5(3). Dimson, E. (1979), Journal of Financial Economics 7(2).",
-            "Real Estate (Regulation and Development) Act, 2016; Ind AS 23, 40, 111, 115."]:
+            "Real Estate (Regulation and Development) Act, 2016; Ind AS 23, 40, 111, 115.",
+            "DLF Ltd, Q4 FY26 earnings call transcript (May 2026); DLF Business Responsibility & Sustainability Report FY2024-25; DCCDL Sustainability Report FY2025-26.",
+            "Phoenix Mills Ltd, Q4 FY26 earnings call transcript (April 2026); Godrej Properties Ltd, Q2 FY27 earnings call (October 2026)."]:
     p = doc.add_paragraph(ref, style="List Number"); p.paragraph_format.space_after = Pt(2)
     for r in p.runs:
         r.font.size = Pt(9)

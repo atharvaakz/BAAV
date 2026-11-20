@@ -124,6 +124,17 @@ nv = wb["NAV_SOTP"]; N["NAV"] = {"dccdl_gav": nv["B8"].value, "dccdl_stake": nv[
 okk = wb["Operating_KPIs"]; N["KPI"] = {okk.cell(r, 1).value: [okk.cell(r, c).value for c in (2, 3, 4)] for r in range(5, 33) if okk.cell(r, 1).value}
 dc = wb["Data_Check"]; N["DataCheck"] = [[dc.cell(r, c).value for c in range(1, 6)] for r in range(5, 13)]
 bk = wb["Broker_Views"]; N["Brokers"] = [[bk.cell(r, c).value for c in range(1, 6)] for r in range(5, bk.max_row + 1) if bk.cell(r, 1).value]
+
+of_ = wb["Official_Disclosures"]
+def _lab(ws, s, col=2):
+    for r in range(1, ws.max_row + 1):
+        v = ws.cell(r, 1).value
+        if isinstance(v, str) and v.startswith(s):
+            return ws.cell(r, col).value
+N["MGMT"] = {"fcf": _lab(of_, "Development FCF, year 1"), "dev": _lab(of_, "Development business value"), "eq": _lab(of_, "Equity value — management case"),
+             "ps": _lab(of_, "Per share (₹)"), "ps_nav": _lab(of_, "Per share with DCCDL"), "pv10": _lab(of_, "PV of FCF years 1–10"), "pvtv": _lab(of_, "PV of terminal value")}
+N["GC"] = [[of_.cell(r, c).value for c in range(1, 5)] for r in range(1, of_.max_row + 1) if of_.cell(r, 4).value is not None and isinstance(of_.cell(r, 4).value, (int, float)) and of_.cell(r, 2).value and of_.cell(r, 3).value]
+es_ = wb["ESG_BRSR"]; N["ESG"] = {es_.cell(r, 1).value: [es_.cell(r, 2).value, es_.cell(r, 3).value] for r in range(5, 19) if es_.cell(r, 1).value}
 v2 = ROOT / "data/processed/v2"
 N["MC"] = json.loads((v2 / "monte_carlo.json").read_text()); N["SC"] = json.loads((v2 / "scenarios.json").read_text())
 N["A2"] = json.loads((v2 / "analysis_v2.json").read_text())

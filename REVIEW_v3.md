@@ -45,3 +45,8 @@ W5 → W1 → W3 → W6 → W2 → W4 → W7 → integrate (model sheet 'Operati
 ## Open (needs user)
 - Verify KPIs/broker figures against original investor presentations and broker PDFs.
 - Textbooks (Mac folder) still not accessible; concept map built from handout chapter references.
+
+## Round: official disclosures (transcripts, BRSR)
+- Added Official_Disclosures sheet (DLF/Phoenix Q4 FY26 calls, Godrej Q2 FY27), guidance-credibility table, management-case DLF DCF (₹455/share; ₹553 with DCCDL at 7.5% cap).
+- Added ESG_BRSR sheet (DLF BRSR FY25, DCCDL SR FY26). NAV now uses official 137 msf potential (112 msf outside pipeline); Phoenix office/hotel EBITDA from the call (141/276).
+- Report §9 subsection, 5 viva Q&As, deck notes. Blocked: NSE (503) / BSE (403) filings; Godrej & Phoenix BRSRs.
