@@ -182,7 +182,7 @@ story(s, "We collected share prices back to 2007, house prices back to 2009 and 
       "Any valuation has to allow for the cycle; recent years flatter the sector.")
 source(s, "Dividend-adjusted monthly prices; BIS house-price indices; ANAROCK housing data. Strategy tables (Porter, BCG, SWOT) are in the backup section and report section 2.")
 notes(s, "Step one was to understand the business and the cycle. We went back as far as the data allowed. The picture is a sector of booms and busts: DLF listed at the top of the 2007 boom "
-         "and is still below that peak nineteen years later. House prices, by contrast, grew slowly and steadily, and the shares do not move with them, so we rejected our fifth hypothesis.")
+         "and is still below that peak nineteen years later. House prices, by contrast, grew slowly and steadily, and the shares do not move with them, so we rejected our fifth hypothesis. Alongside the numbers we applied the strategy frameworks from the course: Porter's five forces, BCG by business unit and a SWOT for each firm. The key point was that after RERA, buyers pay in instalments into escrow, so brands that buyers trust get cheap financing from their customers.")
 
 # ===================================================================== 6 STEP 2 — ACCOUNTS
 s = slide("Step 2: once we strip out one-offs, core profit looks very different", 2, "Recast, Quarterly")
@@ -216,7 +216,7 @@ story(s, f"We estimated betas three ways (regression on monthly returns, a media
       "We report both versions instead of picking the one that suits the answer.")
 source(s, f"Risk-free rate {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)} = 10-year G-Sec less default spread; equity risk premium {pc(I['India total ERP = mature ERP + CRP'],2)} (Damodaran, implied).")
 notes(s, "Step four set the hurdle rate. This is where analysts disagree most, so we did it carefully. Betas move a lot over time, as the chart shows. "
-         "Our base case uses the median beta of twelve large developers; the alternative uses Damodaran's industry beta, which is lower. The two differ by four to five points, so we carry both through the valuation.")
+         "Our base case uses the median beta of twelve large developers; the alternative uses Damodaran's industry beta, which is lower. The two differ by four to five points, so we carry both through the valuation. For the risk-free rate we took the ten-year government bond yield and removed India's default spread, and we used Damodaran's implied equity risk premium because twenty years of Indian market history gave an estimate too noisy to rely on.")
 
 # ===================================================================== 9 STEP 5a — DCF
 s = slide("Step 5: the prices only work if these firms grow with India for ever", 5, "DCF_DLF, DCF_GPL, DCF_PML, Scenarios_Implied")
@@ -228,7 +228,7 @@ story(s, "We built a ten-year cash-flow model for each company, where growth has
 source(s, "Free cash flow to the firm; 5 explicit + 5 fade years; beta moves to 1 in the stable phase; mid-year discounting. Model assumptions and the Monte Carlo are in the backup section.")
 notes(s, "Step five valued the companies, first with a discounted cash-flow model. We made growth pay for itself: to grow revenue, a company has to reinvest. "
          "Our values sit well below the share prices. Rather than stop there, we asked what the price is assuming. Running the model backwards, the prices need cash flows to grow 10 to 12 percent a year for ever, "
-         "roughly India's nominal growth rate. We allow 5.5 percent. That is the central finding of the project.")
+         "roughly India's nominal growth rate. We allow 5.5 percent. That is the central finding of the project. We also stress-tested the model with bear and bull cases and ten thousand simulations; even the bull case does not reach the price for DLF or Phoenix.")
 
 # ===================================================================== 10 STEP 5b — CROSS-CHECKS
 s = slide("Step 5: peers, the brokers' NAV method and our DCF agree on the ranking", 5, "RelVal, NAV_SOTP, Broker_Views, CapRates")
@@ -252,7 +252,7 @@ story(s, "We measured how the shares reacted to 17 shocks (demonetisation, RERA,
 source(s, "Market-model event study (abnormal return vs Nifty, estimated over the prior year); results-day study of 180 announcements; nine survivors vs six failed developers.")
 notes(s, "Our final step tested the story against history. We looked at how the shares reacted to big shocks and to company news. The shocks hit hard but were reversed within a year. "
          "What moved prices lastingly was deal news, such as GIC buying into DLF's office arm, while earnings surprises explained almost nothing. "
-         "Comparing survivors with developers that failed showed that delivery, not the macro cycle, is what destroys value permanently.")
+         "Comparing survivors with developers that failed showed that delivery, not the macro cycle, is what destroys value permanently. Method in one line: for each event we estimated how the stock normally moves with the market over the previous year, and measured the part of the move on the event days that the market does not explain.")
 
 # ===================================================================== 12 CONCLUSION
 s = slide("What we concluded: Godrej preferred, DLF neutral, Phoenix least preferred", kicker="Conclusion", sheet="Summary")
@@ -264,7 +264,7 @@ story(s, "We put the main methods side by side, each shown as a percentage of to
 source(s, "Ranking from relative valuation, simulation odds and the practitioner cross-check; intrinsic values under both cost-of-capital versions in the backup section.")
 notes(s, "This chart brings every method together. The methods disagree, and the disagreement is informative: comparing with peers cannot see a sector-wide premium, because the peers are expensive too, "
          "while the cash-flow model can. Our ranking is Godrej first, DLF second, Phoenix third. To own any of them at today's prices you have to believe in growth with India for ever, "
-         "or accept a discount rate close to the government bond yield.")
+         "or accept a discount rate close to the government bond yield. Each of those is defensible, but none leaves a margin of safety, which is why we rank rather than recommend buying any of them outright.")
 
 # ===================================================================== 13 LIMITS
 s = slide("What could change our answer, and what we would watch", kicker="Limits")

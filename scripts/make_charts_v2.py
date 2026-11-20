@@ -89,10 +89,10 @@ fig, ax = plt.subplots(figsize=(7, 3))
 ax.bar([NM[c] for c in cos], [imp[c]["terminal_g"] for c in cos], color=[C[c] for c in cos])
 for i, c in enumerate(cos):
     ax.text(i, imp[c]["terminal_g"] + 0.003, f"{imp[c]['terminal_g']:.1%}", ha="center", fontsize=9)
-ax.axhline(N["Inputs"]["Terminal growth rate (nominal, Rs)"], color=INK, ls=":", lw=1); ax.text(2.45, 0.057, "our terminal g 5.5% (≤ Rf)", ha="right", fontsize=8)
-ax.axhline(0.105, color=MUTE, ls="--", lw=1); ax.text(2.45, 0.107, "India nominal GDP growth ≈ 10–11%", ha="right", fontsize=8, color=MUTE)
+ax.axhline(N["Inputs"]["Terminal growth rate (nominal, Rs)"], color=INK, ls=":", lw=1); ax.text(-0.38, 0.059, "what we allow: 5.5%", ha="left", fontsize=9, color=INK, bbox=dict(facecolor="white", edgecolor="none", pad=1.5))
+ax.axhline(0.105, color=MUTE, ls="--", lw=1); ax.text(-0.38, 0.109, "India's nominal GDP growth ≈ 10–11%", ha="left", fontsize=9, color=INK, bbox=dict(facecolor="white", edgecolor="none", pad=1.5))
 ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0)); ax.set_ylim(0, 0.15)
-ax.set_title("Perpetual growth the market price implies (stable WACC held)")
+ax.set_title("Growth for ever that today's share price requires")
 save(fig, "implied_growth")
 
 # 7. cap rates
