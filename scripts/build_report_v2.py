@@ -108,14 +108,14 @@ para("The model follows the course order — strategy, accounting analysis, reca
 # ================================================================ 2 SECTOR
 doc.add_heading("2. The sector: two decades of boom and bust", 1)
 module_tag("Module 2 · strategy and competitive analysis · real-estate cycle")
-fig("long_cycle", "Figure 1 — Twenty years of Indian real-estate equity: total-return index and drawdowns.")
+fig("long_cycle", "Figure 1 — Twenty years of Indian real-estate equity: total-return index and drawdowns.", 14.5)
 lc = LC
 para(f"The record is humbling. DLF listed in July 2007 near the top of the last boom; nineteen years later its dividend-adjusted return is "
      f"{pc(lc['DLF'][2])} a year and the stock is still {pc(-lc['DLF'][4],0)} below its December 2007 peak, after falling {pc(-lc['DLF'][3],0)}. "
      f"Phoenix fell {pc(-lc['Phoenix Mills'][3],0)} in 2008, took until 2017 to recover, and has compounded at {pc(lc['Phoenix Mills'][2])} a year since listing. "
      f"The Nifty Realty index has returned {pc(lc['Nifty Realty'][2])} a year since 2010 with a {pc(-lc['Nifty Realty'][3],0)} drawdown, against {pc(lc['Nifty 50'][2])} for the Nifty 50. "
      "Anyone valuing these stocks off the last three years of data is looking at one half of a cycle.")
-fig("housing", "Figure 2 — House prices compound slowly; realty equities swing violently and do not track them quarter by quarter.")
+fig("housing", "Figure 2 — House prices compound slowly; realty equities swing violently and do not track them quarter by quarter.", 14.5)
 para(f"Physical prices behave very differently. BIS data show Indian house prices rising {pc(HS['Nominal house-price CAGR'])} a year in nominal terms since 2009 "
      f"but only {pc(HS['Real house-price CAGR'])} in real terms; in the latest quarter real prices were {pc(HS['Latest real YoY'])} year on year. "
      f"The correlation between annual changes in house prices and in the realty index is {HS['Correlation: realty YoY vs house-price YoY (same quarter)']:.2f}: "
@@ -204,13 +204,13 @@ for lab, key, kind in [("Revenue CAGR FY23–26", "Revenue CAGR FY23→FY26", "g
             vals.append("n.m." if isinstance(v, str) else (pc(v) if kind == "p" else (f"{v:,.0f}" if kind == "n" else xx(v, 2))))
     rows5.append([lab] + vals)
 table(["FY26", "DLF", "Godrej", "Phoenix"], rows5, [6.6, 3.2, 3.2, 3.2], "Selected from 50 ratios × 4 years in the 'Ratios' sheet; average balances where a flow meets a stock.", size=8.5)
-fig("re_signature", "Figure 4 — The real-estate signature: long inventory cycles, customer-funded inventory, diverging cash conversion.")
+fig("re_signature", "Figure 4 — The real-estate signature: long inventory cycles, customer-funded inventory, diverging cash conversion.", 14.5)
 fig("industry_bench", "Figure 5 — Against Damodaran's India industry data (156 listed developers).", 13)
 para(f"Against the industry, all three earn above-average ROE ({pc(IB['ROE'][0])} for the industry) and much higher margins. DLF and Phoenix trade above the industry's aggregate "
      f"trailing P/E of {IB['Trailing P/E (aggregate)'][0]:.0f}x; Godrej trades below it. The industry is reinvesting {IB['Reinvestment rate'][0]:.1f}x its after-tax operating income — a land-buying phase that "
      "Godrej exemplifies.")
 doc.add_heading("DuPont: three engines, one ROE", 2)
-fig("dupont", "Figure 6 — Three-step DuPont, FY24–FY26.")
+fig("dupont", "Figure 6 — Three-step DuPont, FY24–FY26.", 14.5)
 para(f"The three companies reach similar ROEs in opposite ways: DLF through margin ({pc(D['DP Net profit margin'][2])}) with turnover of only {D['DP Asset turnover'][2]:.2f}x; "
      f"Godrej through leverage (equity multiplier {G['DP Equity multiplier'][2]:.2f}x) while its turnover fell to {G['DP Asset turnover'][2]:.2f}x; Phoenix through turnover ({P['DP Asset turnover'][2]:.2f}x). "
      f"The five-step version shows DLF's tax-and-JV burden above one ({D['DP Tax & JV burden'][2]:.2f}) because JV profit enters after tax. Between FY24 and FY26, "
@@ -236,7 +236,7 @@ para(f"Risk-free rate. The 10-year G-Sec yields {pc(I['India 10-yr G-Sec yield']
      f"risk-free rate of {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)}. Equity risk premium. Damodaran's implied mature-market premium ({pc(I['Mature market ERP'],2)}) plus India's country "
      f"risk premium ({pc(I['India country risk premium (CRP)'],2)}) gives {pc(I['India total ERP = mature ERP + CRP'],2)}. History agrees, loosely: over 2005–2026 the Sensex beat the G-Sec by "
      f"{pc(HE['Geometric excess (total)'])} a year geometrically, but with a standard error of {pc(HE['Standard error of arithmetic mean'])} — too noisy to estimate a premium from, which is why we use the implied figure.")
-fig("beta_scatter", "Figure 7 — Regression betas, 60 monthly returns against the Nifty 50.")
+fig("beta_scatter", "Figure 7 — Regression betas, 60 monthly returns against the Nifty 50.", 14.5)
 para(f"Regression beta. DLF {dl['Raw beta (SLOPE)']:.2f} (SE {dl['Std error of beta']:.2f}, R² {dl['R-squared']:.2f}), Godrej {gp['Raw beta (SLOPE)']:.2f} (SE {gp['Std error of beta']:.2f}), Phoenix {ph['Raw beta (SLOPE)']:.2f} "
      f"(SE {ph['Std error of beta']:.2f}). Godrej's 95% interval of {gp['95% CI low']:.2f}–{gp['95% CI high']:.2f} alone moves its cost of equity by about seven points.")
 fig("rolling_beta", "Figure 8 — Beta drifts: rolling 36-month beta, 2010–2026.", 13)
@@ -277,7 +277,7 @@ para("Reality check. We tested every FY27 assumption against the two FY27 quarte
 para(f"How aggressive is that? Against a naive linear trend of FY23–26 revenue (Excel FORECAST, the method earlier cohorts used), our FY31 revenue is {NAIVE['DLF']:.1f}x the trend for DLF, "
      f"{NAIVE['GPL']:.1f}x for Godrej and {NAIVE['PML']:.1f}x for Phoenix. The developers' multiples are deliberate: four years of completion-based revenue say little about sales already contracted, "
      "which customer advances (2.9x and 7.8x revenue) show are far larger. Even so generous a path leaves value below price — the conclusion does not depend on a conservative forecast.")
-fig("dcf_paths", "Figure 10 — Revenue and margin paths in the ten-year FCFF model.")
+fig("dcf_paths", "Figure 10 — Revenue and margin paths in the ten-year FCFF model.", 14.5)
 table(["₹ crore", "DLF", "Godrej", "Phoenix"],
       [[k, *[(pc(d['DCF'][k]) if "%" in k else f"{d['DCF'][k]:,.0f}") for d in (D, G, P)]] for k in
        ["PV of FCFF FY27–FY36", "PV of terminal value", "Value of operating assets", "Terminal value as % of operating value", "Add: cash & liquid investments (FY26)",
@@ -300,7 +300,7 @@ doc.add_heading("Scenarios and simulation", 2)
 table(["₹ per share", "Bear", "Base", "Bull", "Bull + lens B", "Price"],
       [[n, *[f"{scn[c][k]:,.0f}" for k in ("bear", "base", "bull", "bull_lensB", "price")]] for n, c in [("DLF", "DLF"), ("Godrej Properties", "GPL"), ("Phoenix Mills", "PML")]],
       [4.0, 2.4, 2.4, 2.4, 2.8, 2.4], "Bear: growth ×0.6, margin −8pp, S/C ×0.75, WACC +1pp, g 5%. Bull: growth ×1.3, margin +8pp, S/C ×1.25, WACC −1pp, g 6%.", size=8.5)
-fig("monte_carlo", "Figure 13 — 10,000-draw Monte Carlo on growth, margin, capital intensity, discount rates and terminal growth.")
+fig("monte_carlo", "Figure 13 — 10,000-draw Monte Carlo on growth, margin, capital intensity, discount rates and terminal growth.", 14.5)
 para(f"Godrej is the only stock with a meaningful chance of being cheap: {pc(MC['GPL']['A']['prob_above_price'],0)} under lens A and {pc(MC['GPL']['B']['prob_above_price'],0)} under lens B, because its "
      "value is the most sensitive to whether margins normalise. Godrej clears its price in the bull case under either lens; DLF and Phoenix do not clear it even then.")
 doc.add_heading("Other intrinsic routes", 2)
@@ -355,7 +355,7 @@ dcx = N["DataCheck"]
 para(f"Verification. Our profit lines match the companies (Godrej ₹1,850 cr and Phoenix ₹1,224 cr exactly; DLF within 0.2%). Revenue and cash differ by definition: our DLF revenue "
      f"is {pc(-dcx[0][3],1)} below 'revenue from operations' as reported, and our DLF net cash excludes ₹5,003 cr of RERA-restricted cash. DLF's share of JV profit in our data "
      f"(₹{dcx[7][1]:,.0f} cr) is within {pc(abs(dcx[7][3]),0)} of 66.66% of DCCDL's reported profit, confirming that line is essentially DCCDL.")
-fig("nav_bridge", "Figure 17 — Rebuilding NAV from public data: DLF's parts versus its market value; Phoenix's NAV versus price.")
+fig("nav_bridge", "Figure 17 — Rebuilding NAV from public data: DLF's parts versus its market value; Phoenix's NAV versus price.", 14.5)
 para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['dccdl_gav'])} gross and DLF's stake {cr(NAV['dccdl_stake'])} after DCCDL's debt — more than twice the "
      f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. That gap is itself a finding: a 7.5% cap rate on EBITDA embeds a far lower "
      f"required return than CAPM gives. Adding five years of pipeline margin at guided sales ({cr(NAV['dlf_res_pv'])}) and net cash gives identifiable NAV of {rs(NAV['dlf_nav_ps'])} a share, "
