@@ -649,8 +649,8 @@ wb._ctx = dict(TARGETS=TARGETS, NAMES=NAMES, D=D, R=R, W=W, PX=PX, YC=YC)
 # 10. DCF — 10-year FCFF with fade, sales-to-capital reinvestment, beta → 1 in stable phase (Module 7)
 # =====================================================================================
 ASSUME = {
-    "DLF": dict(g=[0.40, 0.45, 0.30, 0.15, 0.10], m=0.40, s2c=2.0,
-                why="Luxury launches sold FY24–26 (Gurugram: Privana, Dahlias, Arbour) are recognised on completion (Ind AS 115) in FY27–30, so "
+    "DLF": dict(g=[-0.15, 0.55, 0.45, 0.20, 0.10], m=0.40, s2c=2.0,
+                why="H1 FY27 revenue fell 37% y/y, so FY27 is cut to −15%. Luxury launches sold FY24–26 (Gurugram: Privana, Dahlias, Arbour) are recognised on completion (Ind AS 115) in FY28–30, so "
                     "recognised revenue catches up with sales (customer advances = 2.9x revenue); margin moves from ~21% core to 40% as high-ticket "
                     "Gurugram projects dominate. Inventory/land already sits on the balance sheet and customer advances fund construction, "
                     "so incremental capital per rupee of revenue is low (S/C 2.0)."),

@@ -158,8 +158,8 @@ table(s, 0.6, 4.85, 12.13, [["Assumption", "DLF", "Godrej", "Phoenix"],
                             ["Core EBIT margin FY26 → target", f"{pc(D['Core EBIT margin'][3],0)} → {pc(D['DCF margin'],0)}", f"{pc(G['Core EBIT margin'][3],0)} → {pc(G['DCF margin'],0)}", f"{pc(P['Core EBIT margin'][3],0)} → {pc(P['DCF margin'],0)}"],
                             ["S/C · WACC → stable (β → 1)", f"{D['DCF s2c']:.1f} · {pc(D['W WACC'])} → {pc(D['DCF stableWACC'])}", f"{G['DCF s2c']:.1f} · {pc(G['W WACC'])} → {pc(G['DCF stableWACC'])}", f"{P['DCF s2c']:.1f} · {pc(P['W WACC'])} → {pc(P['DCF stableWACC'])}"]],
       [3.8, 2.8, 2.8, 2.73], 11, 0.3)
-method(s, "10 years: 5 explicit + 5 fade · FCFF = NOPAT − reinvestment · terminal reinvestment = g/RONIC · beta → 1 in stable phase · mid-year · DCCDL = JV PAT × (1+g)/(Ke − g) ≈ book · EVA route reproduces FCFF to the rupee", y=6.25)
-notes(s, "Our DCF makes growth pay for itself: reinvestment equals the change in revenue divided by sales-to-capital. Developer growth comes from sales already made but not yet recognised. After five years growth fades to 5.5 percent and beta moves to one. As a check, valuing the same forecast through EVA gives exactly the same firm value.")
+method(s, "H1 FY27 check: DLF −37% → FY27 cut to −15% · 10 years: 5 explicit + 5 fade · FCFF = NOPAT − reinvestment · terminal reinvestment = g/RONIC · beta → 1 in stable phase · mid-year · DCCDL = JV PAT × (1+g)/(Ke − g) ≈ book · EVA route reproduces FCFF to the rupee", y=6.25)
+notes(s, "Our DCF makes growth pay for itself: reinvestment equals the change in revenue divided by sales-to-capital. We also tested FY27 against the two quarters already reported: DLF's H1 revenue fell 37 percent, so we cut its FY27 to minus 15 percent and moved recognition to FY28 to 30. Developer growth comes from sales already made but not yet recognised. After five years growth fades to 5.5 percent and beta moves to one. As a check, valuing the same forecast through EVA gives exactly the same firm value.")
 
 # 10 WHAT THE PRICE IMPLIES ---------------------------------------------------
 n += 1

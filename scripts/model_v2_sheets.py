@@ -828,3 +828,23 @@ for i, mg in enumerate(margins):
     for j in range(3):
         put(nv, 68 + i, 2 + j, f"=$B$52*$A{68+i}*{L(2+j)}$67/{D('GPL','Shares',2026)}", NUM)
 note(nv, 72, "Godrej does not disclose an embedded margin; FY26 EBITDA was ~34% of total income but ~15% in Q4. Only the harshest cell (12%, 10x) is below price (−9%); all others are above.")
+
+
+# ---------------------------------------------------------------------- H1 FY27 reality check on DCF growth assumptions
+r_ = qs.max_row + 3
+put(qs, r_, 1, "Reality check: H1 FY27 vs H1 FY26 revenue against the FY27 growth assumed in the DCF", font=F_B); r_ += 1
+hdr(qs, r_, ["Company", "H1 FY26 (₹ cr)", "H1 FY27 (₹ cr)", "H1 growth", "FY27 assumed", "H2 growth needed", "", "Note"]); r_ += 1
+for co, tk in TARGETS.items():
+    q = pd.read_csv(RAW / tk / "quarterly_income_stmt.csv", index_col=0)
+    q.columns = [pd.Timestamp(c) for c in q.columns]; rev = (q.loc["Total Revenue"] / 1e7)
+    g_ = lambda d: float(rev.get(pd.Timestamp(d), float("nan")))
+    jun25, dec25, mar26, jun26, sep26 = g_("2025-06-30"), g_("2025-12-31"), g_("2026-03-31"), g_("2026-06-30"), g_("2026-09-30")
+    put(qs, r_, 1, NAMES[co], font=F_B)
+    put(qs, r_, 2, f"={round(jun25,1)}+({D(co,'Revenue',2026)}-{round(jun25,1)}-{round(dec25,1)}-{round(mar26,1)})", NUM)
+    put(qs, r_, 3, round(jun26 + sep26, 1), NUM, F_IN)
+    put(qs, r_, 4, f"=C{r_}/B{r_}-1", PCT, F_B)
+    put(qs, r_, 5, f"=DCF_{co}!C5", PCT)
+    put(qs, r_, 6, f"=({D(co,'Revenue',2026)}*(1+E{r_})-C{r_})/({D(co,'Revenue',2026)}-B{r_})-1", PCT, F_B, FILL_KEY)
+    put(qs, r_, 8, "Sep-25 quarter derived as FY26 total − other three quarters", font=F_NOTE)
+    r_ += 1
+note(qs, r_ + 1, "DLF's FY27 assumption was cut from +40% to −15% after this check; Godrej and Phoenix assumptions are consistent with H1.")

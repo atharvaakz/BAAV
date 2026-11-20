@@ -271,6 +271,9 @@ table(["Assumption", "DLF", "Godrej", "Phoenix"],
        ["Sales-to-capital (marginal)", f"{D['DCF s2c']:.1f}", f"{G['DCF s2c']:.1f}", f"{P['DCF s2c']:.1f}"],
        ["WACC years 1–5 → stable (β → 1)", f"{pc(D['W WACC'])} → {pc(D['DCF stableWACC'])}", f"{pc(G['W WACC'])} → {pc(G['DCF stableWACC'])}", f"{pc(P['W WACC'])} → {pc(P['DCF stableWACC'])}"]],
       [5.4, 3.7, 3.7, 3.7], size=8)
+para("Reality check. We tested every FY27 assumption against the two FY27 quarters already reported. DLF's revenue fell 37% year on year in H1 FY27 as recognition "
+     "paused between project completions, so we cut its FY27 growth from +40% to −15% and moved the step-up to FY28–30, when Privana and the Dahlias complete; the new path needs only "
+     "about 7% growth in H2. Godrej's H1 revenue more than doubled and Phoenix's rose 14%, both consistent with our assumptions (Quarterly sheet).")
 para(f"How aggressive is that? Against a naive linear trend of FY23–26 revenue (Excel FORECAST, the method earlier cohorts used), our FY31 revenue is {NAIVE['DLF']:.1f}x the trend for DLF, "
      f"{NAIVE['GPL']:.1f}x for Godrej and {NAIVE['PML']:.1f}x for Phoenix. The developers' multiples are deliberate: four years of completion-based revenue say little about sales already contracted, "
      "which customer advances (2.9x and 7.8x revenue) show are far larger. Even so generous a path leaves value below price — the conclusion does not depend on a conservative forecast.")
