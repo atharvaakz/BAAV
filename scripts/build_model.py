@@ -894,17 +894,22 @@ dd = sheet("DDM", "Dividend discount model — two-stage (Gordon terminal)",
            "Module 7 — DDM. Value = Σ DPS_t/(1+Ke)^t + [DPS_(n+1)/(Ke−g)]/(1+Ke)^n ; stable payout = 1 − g/ROE",
            [44, 14, 14, 14, 50])
 hdr(dd, 4, ["Item", "DLF", "Godrej Prop.", "Phoenix Mills", "Note"])
-ddm_in = {"DLF": (0.15, 0.15), "GPL": (0.0, 0.15), "PML": (0.12, 0.15)}
+ddm_in = {"DLF": (0.15, 0.15), "GPL": (0.15, 0.15), "PML": (0.12, 0.15)}
+def _ttm_dps(tk):
+    d = pd.read_csv(RAW / tk / "dividends.csv", index_col=0); d.index = pd.to_datetime(d.index, utc=True)
+    end = pd.Timestamp(str(last_price(tk)[0]), tz="UTC")
+    return round(float(d.loc[d.index > end - pd.Timedelta(days=365)].iloc[:, 0].sum()), 2)
+TTMDPS = {co: _ttm_dps(tk) for co, tk in TARGETS.items()}
 ddrows = [
     ("EPS FY26 (Rs)", lambda co, c: f"={D(co,'NetIncome',2026)}/{D(co,'Shares',2026)}", NUM2, ""),
-    ("DPS FY26 (Rs) = dividends paid / shares", lambda co, c: f"={D(co,'DividendsPaid',2026)}/{D(co,'Shares',2026)}", NUM2, "Cash dividends in FY26 cash-flow statement"),
-    ("Payout ratio FY26", lambda co, c: f"=IFERROR({c}6/{c}5,0)", PCT, ""),
+    ("DPS — declared in last 12 months (₹)", lambda co, c: TTMDPS[co], NUM2, "Yahoo dividend history (ex-dates); Godrej resumed with ₹10 in FY27, first since FY16"),
+    ("Payout (TTM DPS ÷ FY26 EPS)", lambda co, c: f"=IFERROR({c}6/{c}5,0)", PCT, ""),
     ("Cost of equity", lambda co, c: f"={W[co]['Ke']}", PCT, "From WACC sheet"),
     ("Stage-1 EPS growth (5 yrs)", lambda co, c: ddm_in[co][0], PCT, "Judgement: tied to DCF revenue path, below it as payout rises"),
     ("Stable growth", lambda co, c: "=gT", PCT, ""),
     ("Stable ROE", lambda co, c: ddm_in[co][1], PCT, "Converges toward Ke + small excess return"),
     ("Stable payout = 1 − g / ROE", lambda co, c: f"=1-{c}10/{c}11", PCT, "Fundamental payout consistent with growth"),
-    ("PV of stage-1 dividends", lambda co, c: f"=SUMPRODUCT({c}6*(1+{c}9)^{{1,2,3,4,5}}*(({c}7)+({c}12-{c}7)*{{1,2,3,4,5}}/5)/IF({c}7=0,1,{c}7)*IF({c}7=0,0,1)/(1+{c}8)^{{1,2,3,4,5}})", NUM2, "Payout glides linearly to stable payout"),
+    ("PV of stage-1 dividends", lambda co, c: f"=SUMPRODUCT({c}5*(1+{c}9)^{{1,2,3,4,5}}*({c}7+({c}12-{c}7)*{{1,2,3,4,5}}/5)/(1+{c}8)^{{1,2,3,4,5}})", NUM2, "EPS grows at stage-1 rate; payout glides linearly to stable payout"),
     ("EPS in year 6", lambda co, c: f"={c}5*(1+{c}9)^5*(1+{c}10)", NUM2, ""),
     ("Terminal price at year 5 = EPS6 × stable payout / (Ke − g)", lambda co, c: f"={c}14*{c}12/({c}8-{c}10)", NUM2, ""),
     ("PV of terminal price", lambda co, c: f"={c}15/(1+{c}8)^5", NUM2, ""),
@@ -920,8 +925,25 @@ for i, (lb, fn, fmt, nt) in enumerate(ddrows):
         put(dd, rr, 2 + j, v, fmt, F_IN if isinstance(v, float) else (F_B if "value per share" in lb else F_N),
             FILL_IN if isinstance(v, float) else (FILL_KEY if "value per share" in lb else None))
     put(dd, rr, 5, nt, font=F_NOTE)
-note(dd, 21, "Godrej Properties pays no dividend: DDM is not applicable (a limitation, CLO3). DLF and Phoenix retain most earnings, so DDM")
-note(dd, 22, "understates value — the gap vs FCFF/relative value is itself evidence that value sits in reinvestment, not current payouts.")
+note(dd, 21, "All three retain most earnings (Godrej paid nothing from FY17 to FY26), so DDM understates value — the gap vs FCFF/relative value is")
+note(dd, 22, "itself evidence that value sits in reinvestment, not current payouts (a limitation of DDM, CLO3).")
+put(dd, 24, 1, "Dividend history — ₹ per share by fiscal year (ex-date basis, split-adjusted)", font=F_B)
+_dh = {}
+for co, tk in TARGETS.items():
+    d_ = pd.read_csv(RAW / tk / "dividends.csv", index_col=0); d_.index = pd.to_datetime(d_.index, utc=True)
+    _dh[co] = d_.groupby(d_.index.year + (d_.index.month > 3)).sum().iloc[:, 0]
+_yrs = list(range(2008, 2028))
+hdr(dd, 25, ["Fiscal year", "DLF", "Godrej Prop.", "Phoenix Mills"])
+for i, y in enumerate(_yrs):
+    put(dd, 26 + i, 1, f"FY{str(y)[2:]}" + (" (to date)" if y == 2027 else ""))
+    for j, co in enumerate(TARGETS):
+        v = _dh[co].get(y, 0.0)
+        put(dd, 26 + i, 2 + j, round(float(v), 2), NUM2, F_IN)
+_l = 26 + len(_yrs) - 2   # FY26 row
+put(dd, _l + 3, 1, "DPS CAGR FY16→FY26 (where both > 0)", font=F_B)
+for j, co in enumerate(TARGETS):
+    c = L(2 + j)
+    put(dd, _l + 3, 2 + j, f'=IF(AND({c}{26+8}>0,{c}{_l}>0),({c}{_l}/{c}{26+8})^(1/10)-1,"n.m.")', PCT, F_B)
 DDM = {co: f"DDM!${L(2+j)}$17" for j, co in enumerate(TARGETS)}
 
 # =====================================================================================
@@ -1028,7 +1050,7 @@ for co in TARGETS:
         ("DCF — bear to bull scenarios", round(SC["scenarios"][co]["bear"], 1) if scf.exists() else 0, round(SC["scenarios"][co]["bull"], 1) if scf.exists() else 0, round(SC["scenarios"][co]["base"], 1) if scf.exists() else 0),
         ("Monte Carlo 5th–95th pct (lens A)", round(MC[co]["A"]["p5"], 1) if mcf.exists() else 0, round(MC[co]["A"]["p95"], 1) if mcf.exists() else 0, round(MC[co]["A"]["median"], 1) if mcf.exists() else 0),
         ("Residual income (lens A – lens B)", f"={RIR[co]['vpsA']}", f"={RIR[co]['vpsB']}", f"={RIR[co]['vpsA']}"),
-        ("DDM (two-stage)" if co != "GPL" else "DDM — n.a. (no dividend)", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")"),
+        ("DDM (two-stage)", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")"),
         ("Market price", f"={PX[co][3]}", f"={PX[co][3]}", f"={PX[co][3]}"),
     ]
     if co == "PML":

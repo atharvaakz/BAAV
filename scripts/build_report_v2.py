@@ -298,8 +298,8 @@ para(f"Residual income (Palepu). With ROE fading to 15% over ten years, abnormal
      "at cost, so book understates economic capital and ROE overstates economic returns (H7). For developers, net asset value is a better anchor than book. "
      f"Palepu's abnormal-earnings-growth model, which starts from earnings rather than book, lands in the same place ({rs(AEG['DLF'])} for DLF, {rs(AEG['GPL'])} for Godrej, {rs(AEG['PML'])} for Phoenix): "
      f"the price capitalises next year's earnings at {FPE['DLF']:.0f}x, {FPE['GPL']:.0f}x and {FPE['PML']:.0f}x against a no-growth multiple (1/Ke) of about 6–8x.")
-para(f"DDM. A two-stage dividend model gives {rs(D['DDM']['DDM value per share (Rs)'])} for DLF and {rs(P['DDM']['DDM value per share (Rs)'])} for Phoenix; Godrej pays no dividend. With payouts of "
-     f"{pc(D['Dividend payout'][3],0)} and {pc(P['Dividend payout'][3],0)}, dividends capture little of the value. Real options. Undeveloped land is a call option on developed property "
+para(f"DDM. A two-stage dividend model, using dividends declared in the last twelve months, gives {rs(D['DDM']['DDM value per share (Rs)'])} for DLF, {rs(G['DDM']['DDM value per share (Rs)'])} for Godrej "
+     f"and {rs(P['DDM']['DDM value per share (Rs)'])} for Phoenix. Godrej paid nothing from FY17 to FY26 and resumed with ₹10 a share in FY27; DLF's dividend has compounded about 4% a year since FY16. Payouts are low, so dividends capture little of the value. Real options. Undeveloped land is a call option on developed property "
      f"(Damodaran). An illustrative land bank worth ₹90,000 cr developed, costing ₹1,00,000 cr to build — negative NPV today — is still worth {cr(RO['Option value = S·e^(−yT)·N(d1) − K·e^(−rT)·N(d2)'])} "
      f"as an option at 30% volatility over ten years. DLF's market value exceeds our DCF equity value by {cr(RO['DLF: market cap − DCF equity value (₹ cr)'])}; land-bank optionality is one candidate explanation.")
 
