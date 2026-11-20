@@ -11,7 +11,7 @@ hdr(ib, 4, ["Metric", "India RE (Development)", "India RE (Operations & Services
 dam = [  # metric, dev, ops, our formula (lambda co), fmt, comment
     ("Number of firms", 156, 42, None, NUM, ""),
     ("Levered beta (industry avg)", 0.7553, 0.3394, lambda co: f"={BM[co]['beta']}", "0.00", "Large caps far more market-sensitive than the 156-firm average (thin trading pulls small-cap betas down)"),
-    ("Unlevered beta, cash-corrected", 0.6879, 0.2354, lambda co: f"=BottomUp_Beta!G{BU[co]}", "0.00", "Ours from 13 large developers' regressions"),
+    ("Unlevered beta, cash-corrected", 0.6879, 0.2354, lambda co: f"=BottomUp_Beta!G{BU[co]}", "0.00", "Ours from 12 large developers' regressions (Signature Global excluded: listed 2023)"),
     ("Market D/E", 0.2127, 0.6809, lambda co: f"=BottomUp_Beta!E{BU[co]}", "0.00", ""),
     ("Cost of capital (local currency)", 0.1116, 0.0826, lambda co: f"={W[co]['WACC']}", PCT, "Industry ≈ market-implied WACC for DLF/Godrej (see DCF sheets)"),
     ("ROE", 0.0719, 0.0449, lambda co: f"={D(co,'NetIncome',2026)}/{avg(co,'Equity',2026)}", PCT, "All three above the industry"),
