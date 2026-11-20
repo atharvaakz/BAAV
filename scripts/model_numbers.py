@@ -120,7 +120,7 @@ ib = wb["Industry_Benchmark"]; N["Industry"] = {ib.cell(r, 1).value: [ib.cell(r,
 nv = wb["NAV_SOTP"]; N["NAV"] = {"dccdl_gav": nv["B8"].value, "dccdl_stake": nv["B11"].value, "dlf_res_pv": nv["B17"].value, "dlf_netcash": nv["B18"].value,
     "dlf_nav": nv["B19"].value, "dlf_nav_ps": nv["B20"].value, "dlf_mcap": nv["B21"].value, "dlf_land": nv["B22"].value, "dlf_psf": nv["B24"].value,
     "pml_gav": nv["B39"].value, "pml_nav": nv["B42"].value, "pml_nav_ps": nv["B43"].value, "pml_prem": nv["B45"].value, "pml_g_in_cap": nv["B46"].value,
-    "gpl_emb_pat": nv["B54"].value, "gpl_emb_ps": nv["B57"].value, "gpl_g_in_mult": nv["B59"].value, "gpl_consensus": nv["B61"].value}
+    "dlf_nav_ps_hi": nv["C28"].value, "dlf_sold_margin": nv["B26"].value, "gpl_grid_lo": nv["B68"].value, "gpl_grid_hi": nv["D70"].value, "gpl_emb_pat": nv["B54"].value, "gpl_emb_ps": nv["B57"].value, "gpl_g_in_mult": nv["B59"].value, "gpl_consensus": nv["B61"].value}
 okk = wb["Operating_KPIs"]; N["KPI"] = {okk.cell(r, 1).value: [okk.cell(r, c).value for c in (2, 3, 4)] for r in range(5, 33) if okk.cell(r, 1).value}
 dc = wb["Data_Check"]; N["DataCheck"] = [[dc.cell(r, c).value for c in range(1, 6)] for r in range(5, 13)]
 bk = wb["Broker_Views"]; N["Brokers"] = [[bk.cell(r, c).value for c in range(1, 6)] for r in range(5, bk.max_row + 1) if bk.cell(r, 1).value]

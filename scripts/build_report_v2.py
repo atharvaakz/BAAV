@@ -356,14 +356,15 @@ fig("nav_bridge", "Figure 17 — Rebuilding NAV from public data: DLF's parts ve
 para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['dccdl_gav'])} gross and DLF's stake {cr(NAV['dccdl_stake'])} after DCCDL's debt — more than twice the "
      f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. That gap is itself a finding: a 7.5% cap rate on EBITDA embeds a far lower "
      f"required return than CAPM gives. Adding five years of pipeline margin at guided sales ({cr(NAV['dlf_res_pv'])}) and net cash gives identifiable NAV of {rs(NAV['dlf_nav_ps'])} a share, "
-     f"close to our DCF. The market's remaining {cr(NAV['dlf_land'])} is, by elimination, the value placed on land beyond the visible pipeline: about ₹{NAV['dlf_psf']:,.0f} per sq ft of the "
+     f"close to our DCF ({rs(NAV['dlf_nav_ps'])}–{NAV['dlf_nav_ps_hi']:,.0f} if all of the ₹24,500 cr of gross margin management says is still to be recognised on sold units were added; part of it already sits in net cash). The market's remaining {cr(NAV['dlf_land'])} is, by elimination, the value placed on land beyond the visible pipeline: about ₹{NAV['dlf_psf']:,.0f} per sq ft of the "
      "roughly 150 million sq ft of potential not yet scheduled. That is the real-option argument in rupees.")
 para(f"Phoenix. Retail EBITDA at a 7% cap rate, offices at 8%, hotels at 12x EBITDA and work-in-progress at cost give a NAV to owners of {rs(NAV['pml_nav_ps'])} a share; the price is "
      f"{pc(NAV['pml_prem'],0)} above it. A 7% cap rate at the 11.75% discount rate an Indian REIT valuer uses implies perpetual rent growth of {pc(NAV['pml_g_in_cap'],2)}, so practitioners' own "
      "conventions sit close to our 5.5% terminal growth. What closes the gap is an explicit growth premium; one broker adds 70% to its NAV.")
 para(f"Godrej. Brokers value Godrej on the profit already embedded in its sales. Twelve times FY28 embedded profit (bookings of {cr(NAV['gpl_emb_pat']/0.15)} at a 15% margin) gives "
      f"{rs(NAV['gpl_emb_ps'])} a share, against a price of {rs(G['DCF']['Current market price (Rs)'])} and broker consensus near {rs(NAV['gpl_consensus'])}. A 12x multiple is itself a perpetual-growth "
-     f"assumption: at our cost of equity it implies growth of {pc(NAV['gpl_g_in_mult'])}.")
+     f"assumption: at our cost of equity it implies growth of {pc(NAV['gpl_g_in_mult'])}. Godrej does not disclose an embedded margin, so we test 12–18% margins and 10–14x multiples: "
+     f"value ranges from {rs(NAV['gpl_grid_lo'])} to {rs(NAV['gpl_grid_hi'])}, and only the harshest combination falls below the price.")
 fig("practitioner_vs_textbook", "Figure 18 — Textbook DCF, practitioner NAV, broker targets and price.", 14)
 bk_ = {r[0]: r for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
 para(f"The sell-side sits close to the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "

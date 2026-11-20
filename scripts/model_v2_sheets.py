@@ -811,3 +811,20 @@ for i, (lab, v, fmt, s_) in enumerate(MCX):
     put(mcx, r_, 1, lab); put(mcx, r_, 2, v, fmt, F_IN if not isinstance(v, str) else F_N, FILL_IN if not isinstance(v, str) else None); put(mcx, r_, 3, s_, font=F_NOTE)
 note(mcx, 17, "Late-cycle signals: sales volumes flat, inventory and launches rising, prices still up, and policy rates turning higher.")
 note(mcx, 18, "Implied perpetual growth of 10–12% (Scenarios_Implied) sits at or above projected nominal GDP growth — little room for a slowdown.")
+
+# NAV_SOTP additions: DLF embedded margin on sold units (upper-bound reconciling item) and Godrej sensitivity grid
+put(nv, 26, 1, "Memo: gross margin still to be recognised on units already sold (management)", font=F_N); put(nv, 26, 2, 24500, NUM, F_IN, FILL_IN)
+put(nv, 26, 4, "DLF Q4 FY26 call: ₹24,500 cr from sales made; >₹40,000 cr incl. launched inventory. FY26 gross margin 39%, target 45%+", font=F_NOTE)
+put(nv, 27, 1, "Upper bound if none of it were already in net cash: after-tax per share (₹)", font=F_N)
+put(nv, 27, 2, f"=B26*(1-Tax)/{D('DLF','Shares',2026)}", NUM2)
+put(nv, 28, 1, "Identifiable NAV per share — range (₹)", font=F_B); put(nv, 28, 2, "=B20", NUM2, F_B, FILL_KEY); put(nv, 28, 3, "=B20+B27", NUM2, F_B, FILL_KEY)
+put(nv, 28, 4, "Part of the sold-unit margin is already in net cash via customer advances; true value lies within the range", font=F_NOTE)
+put(nv, 66, 1, "Godrej sensitivity: value per share (₹) — embedded PAT margin (rows) × multiple (cols)", font=F_B)
+mults, margins = [10, 12, 14], [0.12, 0.15, 0.18]
+for j, mlt in enumerate(mults):
+    put(nv, 67, 2 + j, mlt, NUM2, F_B, FILL_SUB)
+for i, mg in enumerate(margins):
+    put(nv, 68 + i, 1, mg, PCT, F_B, FILL_SUB)
+    for j in range(3):
+        put(nv, 68 + i, 2 + j, f"=$B$52*$A{68+i}*{L(2+j)}$67/{D('GPL','Shares',2026)}", NUM)
+note(nv, 72, "Godrej does not disclose an embedded margin; FY26 EBITDA was ~34% of total income but ~15% in Q4. Only the harshest cell (12%, 10x) is below price (−9%); all others are above.")
