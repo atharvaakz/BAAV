@@ -20,22 +20,27 @@ Status keys: [ ] todo  [~] doing  [x] done  [!] blocked
 - [x] B9 Phoenix implied cap rate vs REIT yields vs G-Sec (real-estate specific)
 - [x] B10 Real-option view of land bank (illustrative Black-Scholes, Damodaran undeveloped land)
 - [x] B11 Missing ratios from prior projects (EBITDA/EBIT/EBT margins & growth, dividend growth, SGA%/D&A% of sales, retained earnings %, self-sustained growth, creditor & capital turnover, CFO/debt)
-- [ ] B12 FORECAST()-trend forecast as naive benchmark vs our driver forecast
+- [x] B12 FORECAST()-trend forecast as naive benchmark vs our driver forecast
 - [x] B13 Quarterly analysis sheet
 - [x] B14 Blind-spot analysis, consumer segmentation/CLV (qualitative, from prior projects)
-- [ ] B15 Mean reversion of ROE / prospective analysis (Palepu Ch 6-7)
+- [x] B15 Mean reversion of ROE / prospective analysis (Palepu Ch 6-7)
 - [x] B16 Module 9: cross holdings (DCCDL), minority, illiquidity/control notes
 ## C. Presentation quality
 - [x] C1 Rewrite report in a sharper analyst voice (clear, specific; no filler)
 - [x] C2 Redesign deck (more visual, less text, consistent grid)
-- [ ] C3 Excel cosmetics + new sheets
+- [x] C3 Excel cosmetics + new sheets
 ## D. Hand-off
 - [x] D1 Rebuild pipeline, fact-check, backup, send files
-- [ ] D2 Request network access for screener/BSE/NSE/company sites (needs user approval)
+- [x] D2 Request network access for screener/BSE/NSE/company sites (needs user approval)
 
 ## Round 3 (in progress)
-- [ ] AEG model (Palepu) in ResidualIncome
-- [ ] Concept coverage matrix sheet + report appendix
-- [ ] FORECAST trend benchmark (B12)
-- [ ] Excel cosmetics (C3): tab colours, Index active
-- [ ] D2 network request at end
+- [x] AEG model (Palepu) in ResidualIncome
+- [x] Concept coverage matrix sheet + report appendix
+- [x] FORECAST trend benchmark (B12)
+- [x] Excel cosmetics (C3): tab colours, Index active
+- [!] D2 network now unrestricted, but fetching company/exchange/screener pages was denied by the permission classifier — needs user OK
+
+## Next (needs user)
+- [ ] Allow fetching screener.in / BSE / NSE / company investor pages → bookings, collections, land bank, occupancy → NAV/SOTP model
+- [ ] Share Mac 'BAV Project' folder (textbooks) or run a local session
+- [ ] Verify key facts against annual reports
