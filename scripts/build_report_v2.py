@@ -120,6 +120,9 @@ para(f"Physical prices behave very differently. BIS data show Indian house price
      f"but only {pc(HS['Real house-price CAGR'])} in real terms; in the latest quarter real prices were {pc(HS['Latest real YoY'])} year on year. "
      f"The correlation between annual changes in house prices and in the realty index is {HS['Correlation: realty YoY vs house-price YoY (same quarter)']:.2f}: "
      "equities move on expectations, rates and bookings momentum, and overshoot the physical market in both directions. Hypothesis H5 is rejected.")
+para("Where are we now? The latest data read as late-cycle. Anarock's top-seven-city sales rose only 3% in Q3 2026 after falling 6% in Q2 (PropEquity's wider count fell 6%), "
+     "while launches rose 18% and unsold inventory 12% to about 6.3 lakh units; prices are still up about 7%. On 7 October 2026 the RBI raised the repo rate to 5.50% and moved to "
+     "'calibrated tightening', and the 10-year G-Sec is near multi-year highs. Supply outrunning sales, and rates turning up, is the combination that preceded past corrections in Figure 1.")
 doc.add_heading("Industry structure", 2)
 table(["Force", "Level", "Why it matters here"],
       [["Threat of entry", "Low–moderate", "Land, approvals, RERA escrow and brand trust decide who can pre-sell; joint development agreements lower the bar (Godrej's route)."],
@@ -243,7 +246,8 @@ para(f"Beta is not a constant (H3). Phoenix's rolling beta has ranged from {RB['
      f"have betas of 0.1–0.4 with R² below 12%, so we use Phoenix's own Blume-adjusted beta ({P['W Beta used']:.2f}).")
 para(f"Industry lens. Damodaran's India dataset gives an unlevered beta of {IB['Unlevered beta, cash-corrected'][0]:.2f} for 156 developers and {IB['Unlevered beta, cash-corrected'][1]:.2f} "
      f"for real-estate operators. These averages are dragged down by thinly traded small caps, whose prices react to the market with a lag (H2). We carry them as lens B "
-     f"rather than discard them, because they show how sensitive the answer is. For Phoenix, lens B implies a cost of equity of {pc(P['W_B']['ke'])} — below the G-Sec — so we treat it as an upper bound.")
+     f"rather than discard them, because they show how sensitive the answer is. A Dimson (1979) test confirms the bias: adding last month's market return raises the median peer beta "
+     f"from 1.47 to 1.59, and lifts small caps such as Puravankara (1.69 → 2.43) and Anant Raj (1.66 → 2.27) far more than DLF (1.70 → 1.72). For Phoenix, lens B implies a cost of equity of {pc(P['W_B']['ke'])} — below the G-Sec — so we treat it as an upper bound.")
 fig("rate_factor", "Figure 9 — Rate sensitivity from a two-factor model (market + change in the 10-year G-Sec), 2012–2026.", 13)
 para(f"Beyond CAPM. A two-factor model adds the monthly change in the G-Sec. Developers lose about {pc(-RF['DLF'][2],0)}–{pc(-RF['Godrej'][2],0)} per +100bp after controlling for the market, "
      f"but with t-statistics of only {RF['DLF'][4]:.1f} to {RF['Godrej'][4]:.1f}; Phoenix shows no rate exposure. Rate risk is real but noisy (H4), so CAPM remains our base.")
@@ -285,7 +289,8 @@ fig("implied_growth", "Figure 12 — The perpetual growth rate each price implie
 para(f"Sensitivity grids move DLF between {rs(D['gridA_min'])} and {rs(D['gridA_max'])} and no sensible combination reaches the price. Solving the model backwards: the price needs a target margin "
      f"of {pc(D['implied margin'],0)} for DLF and {pc(P['implied margin'],0)} for Phoenix (impossible), or a uniform discount rate of {pc(D['implied WACC'])}, {pc(G['implied WACC'])} and {pc(P['implied WACC'])}, "
      f"or — holding our discount rates — perpetual growth of {pc(imp['DLF']['terminal_g'])}, {pc(imp['GPL']['terminal_g'])} and {pc(imp['PML']['terminal_g'])}. The third is the most economically meaningful: "
-     "investors are treating these firms as perpetual claims on Indian nominal GDP. That is not irrational for a country growing 10% a year in nominal terms, but it "
+     "investors are treating these firms as perpetual claims on Indian nominal GDP. That is not irrational for an economy the IMF expects to grow 7% in real and about 10% in nominal terms in FY27 "
+     "(nominal growth slowed to 8–8.5% in FY26 on low inflation), but it "
      "abandons the textbook discipline that terminal growth should not exceed the risk-free rate, and it leaves little margin of safety: the spread between the stable "
      f"discount rate and the implied growth is only {(D['DCF stableWACC']-imp['DLF']['terminal_g'])*100:.1f}, {(G['DCF stableWACC']-imp['GPL']['terminal_g'])*100:.1f} and {(P['DCF stableWACC']-imp['PML']['terminal_g'])*100:.1f} percentage points (H1).")
 doc.add_heading("Scenarios and simulation", 2)
@@ -390,7 +395,8 @@ bullets(["Four years of statements from one aggregated source, plus prices from 
          "results and broker notes, not from the original filings, and should be checked against investor presentations.",
          "Two credible cost-of-capital lenses give materially different values; we report both rather than pretend one is correct.",
          "Growth and margin paths are judgements; the scenario grid, reverse DCF and Monte Carlo show how much each matters.",
-         "Book-value metrics are distorted by cost-based accounting for land and investment property."])
+         "Book-value metrics are distorted by cost-based accounting for land and investment property.",
+         "Timing: the RBI's October 2026 rate hike and rising unsold inventory are the main near-term risks to the developers; our valuation does not depend on them, but the market prices will."])
 
 doc.add_heading("References", 1)
 for ref in ["Palepu, K., Healy, P. & Bernard, V. Business Analysis & Valuation: Using Financial Statements (3rd ed.). Cengage.",

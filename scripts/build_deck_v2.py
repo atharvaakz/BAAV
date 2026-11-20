@@ -145,7 +145,7 @@ table(s, 8.05, 1.8, 4.68, [["", "DLF", "GPL", "PML"],
                            ["WACC lens B", pc(D['W_B']['wacc']), pc(G['W_B']['wacc']), pc(P['W_B']['wacc'])],
                            ["Rating (cash cover)", D['W Synthetic rating'], G['W Synthetic rating'], P['W Synthetic rating']]], [1.8, 0.96, 0.96, 0.96], 10.5, 0.33)
 tb(s, 6.0, 4.3, 6.7, 1.9, [f"Rf {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)} = G-Sec {pc(I['India 10-yr G-Sec yield'],2)} − default spread", f"ERP {pc(I['India total ERP = mature ERP + CRP'],2)} implied; history 2005–26: {pc(N['HistERP']['Geometric excess (total)'],1)} ± {pc(N['HistERP']['Standard error of arithmetic mean'],0)}",
-                           "Industry β (156 firms) pulled down by thin trading", f"Rates: −{pc(-RF['DLF'][2],0)} to −{pc(-RF['Godrej'][2],0)} per +100bp, t ≈ {RF['DLF'][4]:.1f}"], 11.5)
+                           "Industry β pulled down by thin trading: Dimson median 1.47 → 1.59", f"Rates: −{pc(-RF['DLF'][2],0)} to −{pc(-RF['Godrej'][2],0)} per +100bp, t ≈ {RF['DLF'][4]:.1f}"], 11.5)
 method(s, f"60 monthly + 156 weekly returns · SE, t, 95% CI · rolling 36-m SLOPE · Hamada unlever/relever, median of {len(N['BU'])} developers · Damodaran industry β · LINEST two-factor with ΔG-Sec · synthetic rating on cash interest", y=6.3, h=0.55)
 notes(s, "This is the decision that decides the answer. Beta is not stable — Phoenix's rolling beta has moved between 0.5 and 1.9. Our base, lens A, uses the median beta of 12 large developers. Lens B uses Damodaran's India industry beta across 156 developers, which is lower because thinly traded small caps react to the market with a lag. The two lenses differ by four to five points of WACC. A two-factor model shows developers lose about 5 percent per 100bp rise in bond yields, but the evidence is statistically weak.")
 
@@ -231,7 +231,7 @@ tb(s, 0.6, 1.9, 6.2, 4.2, [[("Data  ", True, ACC), ("four years of statements; b
                            [("Terminal value  ", True, ACC), ("52–79% of value; the g ≤ Rf rule is the single most consequential assumption.", False, INK)],
                            [("Accounting  ", True, ACC), ("cost-based land and investment property weaken P/B and ROE.", False, INK)]], 14)
 tb(s, 7.2, 1.9, 5.5, 3.2, [[("Monitor", True, INK)], "Bookings vs collections (Godrej)", "Net debt and cash interest cover", "Rental growth on new malls (Phoenix)",
-                           "DCCDL monetisation (DLF)", "10-yr G-Sec — the rate factor"], 14)
+                           "DCCDL monetisation (DLF)", "RBI tightening (repo 5.50%) & unsold inventory +12%"], 14)
 tb(s, 7.2, 5.4, 5.5, 0.6, "Thank you — questions welcome.", 20, ACC, HEAD, True)
 notes(s, "Our main limits: we lacked project-level data for a net-asset-value model; two credible cost-of-capital lenses give different answers, and we show both; and the terminal growth rule drives much of the value. These are the things we would monitor.")
 prs.save(OUT); print("saved", OUT, "slides", n)

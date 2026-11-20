@@ -1099,6 +1099,9 @@ idx_rows = [
     ("ResidualIncome / Alt_Valuations", "Modules 7 (TB1)", "Abnormal earnings, justified P/B, EVA = DCF proof, FCFE, APV"),
     ("RealOption", "Module 7", "Land as a call option (illustrative Black–Scholes)"),
     ("Scenarios_Implied / MonteCarlo", "Module 7", "Bear/base/bull, implied perpetual growth & WACC, 10,000-draw simulation"),
+    ("Operating_KPIs / Data_Check", "Cross-check", "Company-reported bookings, collections, rental KPIs; reconciliation of our dataset"),
+    ("NAV_SOTP / Broker_Views", "Cross-check", "Practitioner NAV/SOTP and embedded-profit valuation; public broker targets"),
+    ("Dimson_Beta / Macro_Cycle", "Module 6 / context", "Thin-trading-adjusted betas; rates, housing volumes, GDP outlook"),
     ("Concept_Map", "All", "Every course, textbook and prior-project concept → the sheet where it is applied"),
 ]
 hdr(idx, 4, ["No.", "Sheet", "What it does", "Course module"])

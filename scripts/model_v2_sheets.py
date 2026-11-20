@@ -773,3 +773,41 @@ for co, nm in [("DLF", "DLF"), ("GPL", "Godrej Properties"), ("PML", "Phoenix Mi
     put(bk, r_, 5, "Brokers price on NAV with ~12% discount rates and growth premia; our DCF uses CAPM with g ≤ Rf", font=F_NOTE)
     BKSUM[co] = f"Broker_Views!$B${r_}"; r_ += 1
 note(bk, r_ + 1, "Sources: " + SRC["brokers"])
+
+# ---------------------------------------------------------------------- Dimson (thin-trading) betas and macro/cycle context
+dmf = ROOT / "data/processed/v2/dimson.json"
+if dmf.exists():
+    DM = _json.loads(dmf.read_text())
+    dmw = sheet("Dimson_Beta", "Thin-trading check: Dimson (1979) sum beta = β(market, t) + β(market, t−1)",
+                "60 monthly returns; if a stock reacts to the market with a lag, OLS beta is biased toward zero and the lag coefficient is positive", [26, 13, 13, 13, 44])
+    hdr(dmw, 4, ["Company", "OLS beta", "Dimson sum beta", "Lag coefficient", "Reading"])
+    for i, (k, v) in enumerate(DM.items()):
+        r_ = 5 + i
+        nm = {"DLF": "DLF", "GODREJPROP": "Godrej Properties", "PHOENIXLTD": "Phoenix Mills", "OBEROIRLTY": "Oberoi Realty", "PRESTIGE": "Prestige",
+              "BRIGADE": "Brigade", "SOBHA": "Sobha", "LODHA": "Lodha", "MAHLIFE": "Mahindra Lifespace", "SUNTECK": "Sunteck", "PURVA": "Puravankara", "ANANTRAJ": "Anant Raj"}[k]
+        put(dmw, r_, 1, nm); put(dmw, r_, 2, v["ols"], "0.00", F_IN); put(dmw, r_, 3, v["dimson_sum"], "0.00", F_IN); put(dmw, r_, 4, v["lag_coef"], "0.00", F_IN)
+        put(dmw, r_, 5, "lagged response → OLS understates" if v["lag_coef"] > 0.2 else ("no lag effect" if abs(v["lag_coef"]) <= 0.2 else "negative lag (noise)"), font=F_NOTE)
+    n_ = len(DM)
+    put(dmw, 6 + n_, 1, "Median", font=F_B); put(dmw, 6 + n_, 2, f"=MEDIAN(B5:B{4+n_})", "0.00", F_B); put(dmw, 6 + n_, 3, f"=MEDIAN(C5:C{4+n_})", "0.00", F_B, FILL_KEY)
+    note(dmw, 8 + n_, "Small caps (Puravankara, Anant Raj, Mahindra Lifespace, Sobha) show large positive lag coefficients: their OLS betas are too low.")
+    note(dmw, 9 + n_, "Industry averages dominated by such firms (Damodaran's 156) understate the risk of large, liquid developers — support for lens A and hypothesis H2.")
+    note(dmw, 10 + n_, "Computed in Python (scripts in repo) on the same 60-month window as Beta_Monthly; values pasted.")
+
+mcx = sheet("Macro_Cycle", "Where are we in the cycle? Rates, housing volumes and growth (latest public data)",
+            "Context for the long-run assumptions; inputs from RBI, Anarock/PropEquity and IMF as reported in the press (Jul–Oct 2026)", [52, 16, 56])
+hdr(mcx, 4, ["Indicator", "Value", "Source / reading"])
+MCX = [("RBI policy repo rate (7-Oct-2026)", 0.055, PCT, "RBI MPC hiked 25bp to 5.50%; stance 'calibrated tightening' (RBI press release; Drishti, Moneylife)"),
+       ("10-yr G-Sec, Oct-2026 monthly average", "=Gsec", PCT, "OECD/FRED; multi-year highs in Sep–Oct 2026 (Trading Economics)"),
+       ("Housing sales, top-7 cities, Q3 2026 (units)", 100220, NUM, "Anarock: +3% y/y after −6% in Q2 2026"),
+       ("Housing sales, PropEquity set, Q3 2026 (units)", 103170, NUM, "PropEquity: −6% y/y, −4% q/q"),
+       ("Unsold inventory, top-7 cities (units)", 630590, NUM, "Anarock: +12% y/y"),
+       ("New launches growth, Q3 2026 y/y", 0.18, PCT, "Anarock: supply rising faster than sales"),
+       ("Average price growth, Q3 2026 y/y", 0.07, PCT, "Anarock"),
+       ("Real GDP growth FY27 (IMF, Oct-2026 WEO)", 0.07, PCT, "IMF raised to 7.0%"),
+       ("Nominal GDP growth FY27 (projection)", 0.101, PCT, "As reported; FY26 nominal growth slowed to ~8–8.5% on low inflation"),
+       ("BIS real house-price growth, latest y/y", f"=Housing!I8", PCT, "Real prices flat to slightly negative")]
+for i, (lab, v, fmt, s_) in enumerate(MCX):
+    r_ = 5 + i
+    put(mcx, r_, 1, lab); put(mcx, r_, 2, v, fmt, F_IN if not isinstance(v, str) else F_N, FILL_IN if not isinstance(v, str) else None); put(mcx, r_, 3, s_, font=F_NOTE)
+note(mcx, 17, "Late-cycle signals: sales volumes flat, inventory and launches rising, prices still up, and policy rates turning higher.")
+note(mcx, 18, "Implied perpetual growth of 10–12% (Scenarios_Implied) sits at or above projected nominal GDP growth — little room for a slowdown.")

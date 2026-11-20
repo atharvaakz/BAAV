@@ -1,0 +1,62 @@
+{
+ "DLF": {
+  "ols": 1.698,
+  "dimson_sum": 1.723,
+  "lag_coef": 0.023
+ },
+ "GODREJPROP": {
+  "ols": 2.21,
+  "dimson_sum": 2.08,
+  "lag_coef": -0.12
+ },
+ "PHOENIXLTD": {
+  "ols": 1.085,
+  "dimson_sum": 0.737,
+  "lag_coef": -0.321
+ },
+ "OBEROIRLTY": {
+  "ols": 1.356,
+  "dimson_sum": 1.223,
+  "lag_coef": -0.123
+ },
+ "PRESTIGE": {
+  "ols": 1.842,
+  "dimson_sum": 2.145,
+  "lag_coef": 0.279
+ },
+ "BRIGADE": {
+  "ols": 1.305,
+  "dimson_sum": 1.122,
+  "lag_coef": -0.168
+ },
+ "SOBHA": {
+  "ols": 1.325,
+  "dimson_sum": 1.579,
+  "lag_coef": 0.235
+ },
+ "LODHA": {
+  "ols": 1.454,
+  "dimson_sum": 1.293,
+  "lag_coef": -0.148
+ },
+ "MAHLIFE": {
+  "ols": 1.076,
+  "dimson_sum": 1.602,
+  "lag_coef": 0.487
+ },
+ "SUNTECK": {
+  "ols": 1.495,
+  "dimson_sum": 1.009,
+  "lag_coef": -0.449
+ },
+ "PURVA": {
+  "ols": 1.693,
+  "dimson_sum": 2.428,
+  "lag_coef": 0.681
+ },
+ "ANANTRAJ": {
+  "ols": 1.659,
+  "dimson_sum": 2.268,
+  "lag_coef": 0.564
+ }
+}
