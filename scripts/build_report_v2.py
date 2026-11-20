@@ -368,6 +368,11 @@ para(f"Godrej. Brokers value Godrej on the profit already embedded in its sales.
      f"{rs(NAV['gpl_emb_ps'])} a share, against a price of {rs(G['DCF']['Current market price (Rs)'])} and broker consensus near {rs(NAV['gpl_consensus'])}. A 12x multiple is itself a perpetual-growth "
      f"assumption: at our cost of equity it implies growth of {pc(NAV['gpl_g_in_mult'])}. Godrej does not disclose an embedded margin, so we test 12–18% margins and 10–14x multiples: "
      f"value ranges from {rs(NAV['gpl_grid_lo'])} to {rs(NAV['gpl_grid_hi'])}, and only the harshest combination falls below the price.")
+para("The latest quarter (Q2 FY27) sharpens each story. DLF booked ₹3,800 cr, taking H1 to ₹4,457 cr against ₹20,000 cr full-year guidance — the year now rests on "
+     "second-half launches, a real execution risk; net cash rose to ₹15,100 cr. Godrej's H1 bookings rose 7% to ₹16,659 cr and collections 25% to ₹9,666 cr, with H1 operating cash flow of "
+     "₹1,983 cr — cash conversion, the risk we flagged, is improving. Phoenix's retail rental income grew 16% in H1 and management guides 14–15% for FY27–28, almost exactly our DCF path. "
+     "Relative to its own history the sector is not stretched: the Nifty Realty index trades at about 40x earnings against a five-year median near 48x. But those five years were the up-cycle; "
+     "measured against intrinsic value, not recent multiples, the premium remains.")
 fig("practitioner_vs_textbook", "Figure 18 — Textbook DCF, practitioner NAV, broker targets and price.", 14)
 bk_ = {r[0]: r for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
 para(f"The sell-side sits close to the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "

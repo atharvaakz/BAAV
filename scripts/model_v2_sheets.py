@@ -628,6 +628,11 @@ KP = [
  ("Rental platform (DCCDL) EBITDA FY26", 5718, None, None, "dccdl"),
  ("DCCDL net debt Q4 FY26", 18150, None, None, "dccdl"),
  ("DCCDL operational portfolio (msf) / occupancy", 50, None, None, "dccdl (≈95% occupied)"),
+ ("H1 FY27 bookings", 4457, 16659, None, "Q1+Q2 FY27 results (Oct-2026): DLF 657+3,800; Godrej +7% y/y"),
+ ("H1 FY27 collections", None, 9666, None, "Godrej +25% y/y; Q2 ₹5,318 cr"),
+ ("H1 FY27 retail rental income / growth", None, None, 1200, "Phoenix +16% y/y; FY27–28 guidance 14–15%"),
+ ("Q2 FY27 retail consumption (growth +25%)", None, None, 4685, "Phoenix; Mall of Asia occupancy 96%"),
+ ("Net cash, Sep-2026", 15100, None, None, "DLF, after ₹1,900 cr dividend"),
 ]
 KR = {}
 for i, (lab, a, b, c, s_) in enumerate(KP):
@@ -810,12 +815,14 @@ MCX = [("RBI policy repo rate (7-Oct-2026)", 0.055, PCT, "RBI MPC hiked 25bp to 
        ("Average price growth, Q3 2026 y/y", 0.07, PCT, "Anarock"),
        ("Real GDP growth FY27 (IMF, Oct-2026 WEO)", 0.07, PCT, "IMF raised to 7.0%"),
        ("Nominal GDP growth FY27 (projection)", 0.101, PCT, "As reported; FY26 nominal growth slowed to ~8–8.5% on low inflation"),
-       ("BIS real house-price growth, latest y/y", f"=Housing!I8", PCT, "Real prices flat to slightly negative")]
+       ("BIS real house-price growth, latest y/y", f"=Housing!I8", PCT, "Real prices flat to slightly negative"),
+       ("Nifty Realty trailing P/E (Jul-2026)", 40.5, NUM2, "indexPe; 5-yr median 48.5, 3-yr median 47.7 — below its own recent history"),
+       ("Nifty Realty 5-yr median P/E", 48.5, NUM2, "The last five years were the up-cycle; earlier history (2010–20) included far lower prices (LongCycle)")]
 for i, (lab, v, fmt, s_) in enumerate(MCX):
     r_ = 5 + i
     put(mcx, r_, 1, lab); put(mcx, r_, 2, v, fmt, F_IN if not isinstance(v, str) else F_N, FILL_IN if not isinstance(v, str) else None); put(mcx, r_, 3, s_, font=F_NOTE)
-note(mcx, 17, "Late-cycle signals: sales volumes flat, inventory and launches rising, prices still up, and policy rates turning higher.")
-note(mcx, 18, "Implied perpetual growth of 10–12% (Scenarios_Implied) sits at or above projected nominal GDP growth — little room for a slowdown.")
+note(mcx, 19, "Late-cycle signals: sales volumes flat, inventory and launches rising, prices still up, and policy rates turning higher.")
+note(mcx, 20, "Implied perpetual growth of 10–12% (Scenarios_Implied) sits at or above projected nominal GDP growth — little room for a slowdown.")
 
 # NAV_SOTP additions: DLF embedded margin on sold units (upper-bound reconciling item) and Godrej sensitivity grid
 put(nv, 26, 1, "Memo: gross margin still to be recognised on units already sold (management)", font=F_N); put(nv, 26, 2, 24500, NUM, F_IN, FILL_IN)
