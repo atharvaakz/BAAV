@@ -38,3 +38,10 @@ W5 → W1 → W3 → W6 → W2 → W4 → W7 → integrate (model sheet 'Operati
 - [x] Macro/cycle: RBI hiked to 5.50% (7-Oct-26); Q3-26 sales +3% (Anarock) / −6% (PropEquity); inventory +12%; IMF FY27 real 7%, nominal ~10%.
 - [x] Godrej cash: statutory CFO −₹2,003 cr vs management pre-land OCF +₹7,830 cr — narrative corrected everywhere.
 - [x] Reality check vs H1 FY27: DLF revenue −37% → FY27 growth cut +40% → −15%; DCF ₹340 → ₹289 (now ≈ identifiable NAV).
+- [x] Robust P/B–ROE regression: Signature Global (ROE 85%) excluded by rule (ROE > 50%) → P/B = 1.71 + 18.3·ROE, R² 0.19.
+- [x] Phoenix minorities: CPPIB 49% Island Star buy-out (₹5,450 cr, 4 tranches; stake now 68.1%) — value-neutral at fair price; FY26 share kept.
+- [x] Q2 FY27 update: DLF H1 bookings ₹4,457 cr vs ₹20,000 cr guide; Godrej H1 bookings +7%, collections +25%; Phoenix rent +16%, guidance 14–15%.
+- [x] Sector P/E 40.5x vs 5-yr median 48.5x (indexPe) — not stretched vs recent history; premium is vs intrinsic value.
+## Open (needs user)
+- Verify KPIs/broker figures against original investor presentations and broker PDFs.
+- Textbooks (Mac folder) still not accessible; concept map built from handout chapter references.
