@@ -117,16 +117,17 @@ save(fig, "bottomup_beta")
 # 5. Football fields
 sm = wb["Summary"]
 starts = block_rows(sm, "Method")
-fig, axs = plt.subplots(1, 3, figsize=(12, 3.6))
+fig, axs = plt.subplots(1, 3, figsize=(13, 4.6))
 for ax, co, st in zip(axs, cos, starts):
     labs, lo, hi, pt = [], [], [], []
-    for r in range(st + 1, st + 8):
+    r_end = next(r for r in range(st + 1, st + 30) if sm.cell(r, 1).value == "Market price")
+    for r in range(st + 1, r_end + 1):
         lab = sm.cell(r, 1).value
         l, h, p = sm.cell(r, 2).value, sm.cell(r, 3).value, sm.cell(r, 4).value
         if not isinstance(p, (int, float)) or p == 0:
             continue
-        labs.append(lab.replace("Relative — ", "").replace(" (25th–75th pct)", " IQR").replace("DCF (FCFF) — WACC±2% × g±1%", "DCF (FCFF) range"))
-        lo.append(l); hi.append(h); pt.append(p)
+        labs.append(lab.replace("Relative — ", "").replace(" (25th–75th pct)", " IQR").replace("DCF (FCFF) — WACC±2% × g±1%", "DCF sensitivity (WACC, g)"))
+        lo.append(min(l, h)); hi.append(max(l, h)); pt.append(p)
     price = pt[-1]
     labs, lo, hi, pt = labs[:-1], lo[:-1], hi[:-1], pt[:-1]
     y = np.arange(len(labs))[::-1]

@@ -1001,6 +1001,8 @@ s_.marker.symbol = "circle"; s_.graphicalProperties.line.noFill = True; s_.trend
 sc.series.append(s_); sc.x_axis.title = "ROE"; sc.y_axis.title = "P/B"
 rv.add_chart(sc, f"E{rg}")
 
+exec(open(ROOT / "scripts" / "model_v2_sheets.py").read())
+
 # =====================================================================================
 # 13. SUMMARY / FOOTBALL FIELD
 # =====================================================================================
@@ -1018,9 +1020,15 @@ for co in TARGETS:
         ("Relative — P/B (25th–75th pct)", f"=RelVal!F{rel}", f"=RelVal!G{rel}", f"=RelVal!E{rel}"),
         ("Relative — EV/EBITDA (median)", f"=RelVal!H{rel}", f"=RelVal!H{rel}", f"=RelVal!H{rel}"),
         ("Relative — P/B regressed on ROE", f"=RelVal!J{rel}", f"=RelVal!J{rel}", f"=RelVal!J{rel}"),
+        ("DCF — lens B (industry β)", f"={DCF[co]['vpsB']}", f"={DCF[co]['vpsB']}", f"={DCF[co]['vpsB']}"),
+        ("DCF — bear to bull scenarios", round(SC["scenarios"][co]["bear"], 1) if scf.exists() else 0, round(SC["scenarios"][co]["bull"], 1) if scf.exists() else 0, round(SC["scenarios"][co]["base"], 1) if scf.exists() else 0),
+        ("Monte Carlo 5th–95th pct (lens A)", round(MC[co]["A"]["p5"], 1) if mcf.exists() else 0, round(MC[co]["A"]["p95"], 1) if mcf.exists() else 0, round(MC[co]["A"]["median"], 1) if mcf.exists() else 0),
+        ("Residual income (lens A – lens B)", f"={RIR[co]['vpsA']}", f"={RIR[co]['vpsB']}", f"={RIR[co]['vpsA']}"),
         ("DDM (two-stage)" if co != "GPL" else "DDM — n.a. (no dividend)", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")", f"=IFERROR({DDM[co]}*1,\"\")"),
         ("Market price", f"={PX[co][3]}", f"={PX[co][3]}", f"={PX[co][3]}"),
     ]
+    if co == "PML":
+        rowsm.insert(-1, ("Cap rate at mall-REIT yield", "=CapRates!D22", "=CapRates!D22", "=CapRates!D22"))
     for i, (lb, lo, hi, pt) in enumerate(rowsm):
         put(sm, r, 1, lb); put(sm, r, 2, lo, NUM); put(sm, r, 3, hi, NUM); put(sm, r, 4, pt, NUM, F_B)
         put(sm, r, 5, f"=IFERROR(MIN(B{r}:C{r})*1,0)", NUM); put(sm, r, 6, f"=IFERROR(MAX(ABS(C{r}-B{r}),MAX(B{r}:C{r})*0.015),0)", NUM)
@@ -1034,9 +1042,7 @@ for co in TARGETS:
     bc.series = [base, bar]; bc.set_categories(Reference(sm, min_col=1, min_row=rr0, max_row=r - 1))
     bc.legend = None
     sm.add_chart(bc, f"H{rr0 - 1}")
-    r += 9
-
-exec(open(ROOT / "scripts" / "model_v2_sheets.py").read())
+    r += 6
 
 # =====================================================================================
 # INDEX content
