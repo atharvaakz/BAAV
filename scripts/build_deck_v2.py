@@ -8,6 +8,7 @@ price = {c: N[c]["DCF"]["Current market price (Rs)"] for c in ("DLF", "GPL", "PM
 vA = {c: N[c]["DCF"]["Intrinsic value per share (Rs)"] for c in ("DLF", "GPL", "PML")}
 vB = {c: N[c]["lensB"]["vps"] for c in ("DLF", "GPL", "PML")}
 cr = lambda x: f"₹{x:,.0f} cr"
+BKMED = {r[0]: r[1] for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
 COL = {"DLF": ACC, "GPL": OCH, "PML": RUST}; NMS = {"DLF": "DLF", "GPL": "Godrej Properties", "PML": "Phoenix Mills"}
 
 
@@ -47,8 +48,9 @@ table(s, 0.6, 3.65, 12.13, [["₹ per share", "DLF", "Godrej", "Phoenix"],
                             ["Market price", rs(price['DLF']), rs(price['GPL']), rs(price['PML'])],
                             ["DCF — lens A (large-cap β) / lens B (industry β)", f"{vA['DLF']:,.0f} / {vB['DLF']:,.0f}", f"{vA['GPL']:,.0f} / {vB['GPL']:,.0f}", f"{vA['PML']:,.0f} / {vB['PML']:,.0f}"],
                             ["P(value > price), 10,000 simulations", f"{MC['DLF']['A']['prob_above_price']:.1%}", f"{MC['GPL']['A']['prob_above_price']:.0%}", f"{MC['PML']['A']['prob_above_price']:.0%}"],
+                            ["Broker median target / our practitioner NAV", f"{BKMED['DLF Ltd']:,.0f} / {N['NAV']['dlf_nav_ps']:,.0f}", f"{BKMED['Godrej Properties']:,.0f} / {N['NAV']['gpl_emb_ps']:,.0f}", f"{BKMED['Phoenix Mills']:,.0f} / {N['NAV']['pml_nav_ps']:,.0f}"],
                             ["Versus 10 peers (P/E, P/B)", "Above median, in IQR", "At median", "Top of range"],
-                            ["Relative ranking", "2", "1", "3"]], [5.4, 2.25, 2.25, 2.23], 12, 0.4)
+                            ["Relative ranking", "2", "1", "3"]], [5.4, 2.25, 2.25, 2.23], 11.5, 0.36)
 method(s, "Seven valuation routes (FCFF ×2 lenses, residual income, EVA, DDM, multiples, cap rates) + reverse DCF + Monte Carlo · same numbers in the Excel model")
 notes(s, "We start with the answer. Holding our discount rates, the prices of all three imply perpetual growth of 10 to 12 percent — about India's nominal GDP growth — double the 5.5 percent the textbook allows. Under either cost-of-capital lens, intrinsic value is well below price; in 10,000 simulations the chance that value exceeds price is negligible for DLF and Phoenix and about one in twenty for Godrej. Relative to peers, Godrej is the cheapest of the three and Phoenix the most expensive.")
 
@@ -198,11 +200,24 @@ tb(s, 0.6, 4.55, 12.1, 1.5, [f"Step 4 — P/B on ROE: R² {N['Reg']['r2']:.2f}; 
 method(s, "Four steps: comparables (10 listed developers) → standardise (FY26, one date) → distribution (median, IQR) → control for differences (P/B = a + b·ROE) · cap rate = EBITDA ÷ EV incl. minorities")
 notes(s, "Relative valuation follows Damodaran's four steps with ten peers. Godrej trades right at the peer median and is the cheapest of our three; DLF is above the median but inside the normal range; Phoenix has the highest price-to-book in the set. For an income-producing owner the right relative measure is yield: Phoenix's EBITDA yield is 2.6 percent, less than half what listed REITs pay and below the government bond. The premium is payment for growth a REIT can't fund.")
 
+# 12b PRACTITIONER VIEW -------------------------------------------------------
+n += 1
+s = base("Cross-check · Operating KPIs, NAV, sell-side", "Practitioners close the gap with land and growth premia", n, "Operating_KPIs, Data_Check, NAV_SOTP, Broker_Views")
+pp = pic(s, "nav_bridge", 0.6, 1.7, w=8.0)
+NV = N["NAV"]; K = N["KPI"]
+card(s, 8.85, 1.8, 3.88, 1.05, f"₹{K['Sales bookings (pre-sales) FY26'][0]:,.0f} / {K['Sales bookings (pre-sales) FY26'][1]:,.0f} cr", "FY26 bookings: DLF / Godrej (2.6x and 6.8x recognised revenue)", ACC, 18)
+card(s, 8.85, 2.95, 3.88, 1.05, f"₹{NV['dlf_psf']:,.0f} / sq ft", "value the price puts on DLF's unscheduled land potential", OCH, 18)
+card(s, 8.85, 4.1, 3.88, 1.05, f"₹{NV['gpl_emb_ps']:,.0f}", "Godrej at 12x FY28 embedded profit (price ₹1,878)", RUST, 18)
+tb(s, 0.6, below(pp, 0.1), 8.0, 1.2, [[("Data check  ", True, ACC), ("profit lines match company filings (Godrej, Phoenix exact); DLF's JV share = 66.66% of DCCDL profit within 1%.", False, INK)],
+                                       [("Godrej cash  ", True, ACC), ("statutory CFO −₹2,003 cr vs management pre-land OCF +₹7,830 cr: land is inventory.", False, INK)]], 11.5)
+method(s, "DCCDL EBITDA × (1+g) ÷ 7.5% cap − net debt × 66.66% · pipeline: ₹20k cr/yr × 40% margin × (1−t), 5 yrs, 12% · Phoenix: retail 7%, office 8%, hotels 12x, CWIP at cost · Godrej: 12x embedded PAT · g in a cap rate = r − cap", y=6.3, h=0.55)
+notes(s, "A sector analyst would also look at bookings, collections and NAV, so we rebuilt the sell-side method from company disclosures. DLF's identifiable assets — the DCCDL stake at a 7.5 percent cap rate, five years of pipeline margin and net cash — come to about 312 rupees a share, close to our DCF. So 59 percent of DLF's market value is the land beyond its visible pipeline: about 7,600 rupees per square foot of unscheduled potential. Phoenix trades at well over double our sum-of-the-parts NAV; even brokers add a 70 percent growth premium. Godrej is the one stock the practitioner method values above its price. Note too that Godrej's negative cash flow is mostly land buying: management's pre-land operating cash flow was 7,830 crore.")
+
 # 13 SYNTHESIS -----------------------------------------------------------------
 n += 1
 s = base("Synthesis · Modules 7–8", "What you have to believe to own these at today's prices", n, "Summary")
 pp = pic(s, "football_field", 0.6, 1.7, h=3.55)
-tb(s, 0.6, below(pp, 0.05), 12.1, 1.0, [[("Godrej · preferred  ", True, OCH), ("peer-median multiples, best odds in simulation; watch collections and net debt.   ", False, INK),
+tb(s, 0.6, below(pp, 0.05), 12.1, 1.0, [[("Godrej · preferred  ", True, OCH), ("peer-median multiples, best odds in simulation, above price on embedded profit.   ", False, INK),
                                          ("DLF · neutral  ", True, ACC), ("best balance sheet, priced for long-run growth.   ", False, INK),
                                          ("Phoenix · least preferred  ", True, RUST), ("great assets at a 2.6% yield.", False, INK)]], 12.5)
 method(s, "Believe one of: cash flows grow with India's GDP for ever · long-run cost of equity ≈ bond yield · land banks hold option value the DCF misses — each defensible, none a margin of safety", y=6.3, h=0.55)
