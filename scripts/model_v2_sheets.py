@@ -1335,3 +1335,33 @@ for i, row in enumerate(_cm5):
     for j, v in enumerate(row):
         put(cc, r_ + i, 1 + j, v, font=F_NOTE if j == 2 else F_N)
 note(lit, lit.max_row + 2, "Caveat: our 'customer advances' line is derived (current liabilities − current debt − payables) and includes other operating liabilities, so the saving is an upper bound.")
+
+# ====================================================================== Start_Here: guided path through the workbook
+sh = sheet("Start_Here", "Start here: how to walk through this workbook in eight stops",
+           "Read the sheets in this order. Each stop answers one question; the key output is the cell to point at. Blue cells are inputs, black are formulas.",
+           [6, 26, 30, 62, 34])
+hdr(sh, 4, ["Stop", "Sheet", "Question it answers", "What to look at", "Key output"])
+STOPS = [
+    ("1", "Inputs", "What did we assume?", "Risk-free rate (G-Sec less default spread), equity risk premium, tax rate, terminal growth. Every other sheet reads from here.", "Rf, ERP, tax, g"),
+    ("2", "Data_DLF / Data_GPL / Data_PML", "What did the companies report?", "Four years of statements, tied to DLF's and Godrej's audited FY26 reports (Official_Disclosures).", "Revenue, PAT, equity"),
+    ("3", "Recast", "What is the real operating profit?", "Core EBIT after removing treasury income, JV share and one-offs; net operating assets.", "Core EBIT, NOPAT, NOA"),
+    ("4", "Ratios and DuPont", "How well do they perform?", "ROE broken into margin, turnover and leverage; RNOA vs borrowing cost; EVA.", "RNOA, EVA"),
+    ("5", "WACC", "What return do investors need?", "Beta (base case and industry version), cost of equity, cost of debt from a synthetic rating, weights.", "WACC lens A / lens B"),
+    ("6", "DCF_DLF / DCF_GPL / DCF_PML", "What is each company worth?", "Ten-year projection, terminal value, bridge to equity value per share; reverse DCF on the right.", "Value per share; implied g"),
+    ("7", "RelVal and NAV_SOTP", "Do other methods agree?", "Peer multiples (median, IQR) and the brokers' NAV method rebuilt from disclosures.", "Peer-implied value; NAV/share"),
+    ("8", "Summary", "So what is the answer?", "Every method against the price, with the ranking.", "Football field; ranking"),
+]
+for i, row in enumerate(STOPS):
+    for j, v in enumerate(row):
+        put(sh, 5 + i, 1 + j, v, font=F_B if j in (0, 1) else F_N)
+put(sh, 14, 1, "Going further (optional)", font=F_B)
+MORE = [("Event_Study, Survivorship, Delay_Cost", "How the shares reacted to shocks and news; what delay costs"),
+        ("Industry_Data, Industry_vs_Company, Literature", "The industry in numbers; how each company compares; research we used"),
+        ("MonteCarlo, Scenarios_Implied, ResidualIncome", "How uncertain the DCF is; other valuation routes"),
+        ("Concept_Map", "Where each course concept is applied")]
+for i, (a, b_) in enumerate(MORE):
+    put(sh, 15 + i, 2, a, font=F_B); put(sh, 15 + i, 4, b_)
+note(sh, 20, "Tip for the viva: change a blue input on Inputs (for example terminal growth) and watch value per share move on the DCF sheets and Summary.")
+wb.move_sheet("Start_Here", offset=-(len(wb.sheetnames) - 1))
+wb["Start_Here"].sheet_properties.tabColor = "C08A3E"
+wb.active = 0

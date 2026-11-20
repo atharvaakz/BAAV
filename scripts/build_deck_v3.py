@@ -193,7 +193,7 @@ story(s, "We rebuilt each income statement and balance sheet, separating operati
       "We value the operating business and the joint venture separately, so nothing is counted twice.")
 source(s, "Accounting rules behind this: revenue on completion (Ind AS 115), interest added to inventory (Ind AS 23), JVs as one line (Ind AS 111), property at cost (Ind AS 40).")
 notes(s, "Step two was cleaning the accounts. Four accounting rules distort this sector, so we recast each company's statements. The chart shows what FY26 profit was really made of. "
-         "Godrej's core business lost money, and its profit came from interest income and one-off gains. Most of DLF's profit is its share of the rental joint venture. Only Phoenix earns its profit from operations.")
+         "Godrej's core business lost money, and its profit came from interest income and one-off gains. About two-fifths of DLF's profit is its share of the rental joint venture. Only Phoenix earns its profit from operations.")
 
 # ===================================================================== 7 STEP 3 — PERFORMANCE
 s = slide("Step 3: the same 10–11% return on equity, from three different engines", 3, "Ratios, DuPont, Growth_EVA, AltmanZ")

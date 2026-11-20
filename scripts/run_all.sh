@@ -17,5 +17,6 @@ python3 -W ignore scripts/make_charts_v2.py >/dev/null
 python3 -W ignore scripts/build_report_v2.py
 python3 -W ignore scripts/build_deck_v3.py
 python3 -W ignore scripts/build_viva.py
-(cd reports && for f in ProjectBaav_Group27_Report.docx ProjectBaav_Group27_Presentation.pptx Viva_Prep_Pack.docx; do soffice --headless --convert-to pdf "$f" >/dev/null 2>&1; done)
+python3 -W ignore scripts/build_script.py
+(cd reports && for f in ProjectBaav_Group27_Report.docx ProjectBaav_Group27_Presentation.pptx Viva_Prep_Pack.docx Presenter_Script.docx; do soffice --headless --convert-to pdf "$f" >/dev/null 2>&1; done)
 pdfinfo reports/ProjectBaav_Group27_Report.pdf | grep Pages
