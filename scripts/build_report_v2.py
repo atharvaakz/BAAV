@@ -327,7 +327,7 @@ rvrows.append(["Peer median", f"{med[0]:.1f}", f"{med[1]:.2f}", f"{med[2]:.1f}",
 table(["Company", "P/E", "P/B", "P/S", "EV/EBITDA", "PEG", "ROE"], rvrows, [4.6, 1.8, 1.8, 1.8, 2.2, 1.8, 1.8], size=8)
 fig("pb_roe", "Figure 14 — P/B against ROE across the peer set.", 10.5)
 reg = N["Reg"]; ri = N["RelImplied"]
-para(f"The regression (P/B = {reg['a']:.2f} + {reg['b']:.1f} × ROE, R² {reg['r2']:.2f}) explains little: cost-based book values and land banks break the link between "
+para(f"The regression (P/B = {reg['a']:.2f} + {reg['b']:.1f} × ROE, R² {reg['r2']:.2f}; Signature Global excluded because its 85% ROE reflects a tiny post-IPO equity base) explains little: cost-based book values and land banks break the link between "
      "current ROE and price. We use it as a cross-check.")
 table(["Implied value (₹/share)", "P/E median", "P/E IQR", "P/B median", "EV/EBITDA median", "P/B on ROE"],
       [[k, f"{v[0]:,.0f}", f"{v[1]:,.0f}–{v[2]:,.0f}", f"{v[3]:,.0f}", f"{v[6]:,.0f}", f"{v[8]:,.0f}"] for k, v in ri.items()], [4.6, 2.4, 3.0, 2.4, 2.8, 2.4], size=8.5)

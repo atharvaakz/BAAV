@@ -1007,11 +1007,11 @@ put(rv, rg, 1, "Step 4 — control for differences: regress P/B on ROE across al
 allrows = ",".join([])  # placeholder
 put(rv, rg + 1, 1, "Intercept (a)"); put(rv, rg + 2, 1, "Slope on ROE (b)"); put(rv, rg + 3, 1, "R-squared")
 # LibreOffice/Excel need contiguous ranges for SLOPE: build helper columns
-put(rv, rg - 1 + 6, 1, "Helper: ROE / P/B (contiguous)", font=F_NOTE)
+put(rv, rg - 1 + 6, 1, "Helper: ROE / P/B (contiguous); outliers with ROE > 50% excluded (Signature Global: tiny post-IPO equity)", font=F_NOTE)
 for i, co in enumerate(order):
     put(rv, rg + 6 + i, 1, NAMES[co], font=F_NOTE)
-    put(rv, rg + 6 + i, 2, f"=L{RVR[co]}", PCT)
-    put(rv, rg + 6 + i, 3, f"=N{RVR[co]}", NUM2)
+    put(rv, rg + 6 + i, 2, f'=IF(L{RVR[co]}>0.5,"excl.",L{RVR[co]})', PCT)
+    put(rv, rg + 6 + i, 3, f'=IF(L{RVR[co]}>0.5,"excl.",N{RVR[co]})', NUM2)
 h0, h1 = rg + 6, rg + 6 + len(order) - 1
 put(rv, rg + 1, 2, f"=INTERCEPT(C{h0}:C{h1},B{h0}:B{h1})", NUM2)
 put(rv, rg + 2, 2, f"=SLOPE(C{h0}:C{h1},B{h0}:B{h1})", NUM2)

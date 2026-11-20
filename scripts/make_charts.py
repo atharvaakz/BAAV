@@ -159,18 +159,22 @@ save(fig, "implied_wacc")
 # 7. P/B vs ROE regression
 rv = wb["RelVal"]
 pts = []
-for r in range(5, 14):
+for r in range(5, [rr for rr in range(1, rv.max_row + 1) if rv.cell(rr, 1).value == "Distribution of peer multiples"][0]):
     nm = rv.cell(r, 1).value
     if nm and isinstance(rv.cell(r, 12).value, (int, float)):
         pts.append((nm, rv.cell(r, 12).value, rv.cell(r, 14).value))
 fig, ax = plt.subplots(figsize=(6.5, 3.4))
+excl = [p for p in pts if p[1] > 0.5]; pts = [p for p in pts if p[1] <= 0.5]
 xr = np.array([p[1] for p in pts]); yr = np.array([p[2] for p in pts])
 b, a = np.polyfit(xr, yr, 1); r2 = np.corrcoef(xr, yr)[0, 1] ** 2
 for nm, x_, y_ in pts:
     key = {"DLF Ltd": "DLF", "Godrej Properties": "GPL", "Phoenix Mills": "PML"}.get(nm)
     ax.scatter(x_, y_, s=46 if key else 28, color=C[key] if key else "#9AA5AA", zorder=3)
-    ax.annotate(nm.replace(" Ltd", "").replace(" (Macrotech)", ""), (x_, y_), xytext=(4, 3), textcoords="offset points", fontsize=8)
+    off = {"Brigade Enterprises": (6, -11), "Anant Raj": (6, 8), "Godrej Properties": (-60, 8), "Sobha Ltd": (5, 4), "Puravankara": (5, -10)}.get(nm, (4, 3))
+    ax.annotate(nm.replace(" Ltd", "").replace(" (Macrotech)", "").replace(" Enterprises", "").replace(" Estates", "").replace(" Realty", ""), (x_, y_), xytext=off, textcoords="offset points", fontsize=8)
 gx = np.linspace(xr.min() - 0.01, xr.max() + 0.01, 10); ax.plot(gx, a + b * gx, color=INK, lw=1)
+for nm, x_, y_ in excl:
+    ax.text(0.01, 0.97, f"Excluded: {nm} (ROE {x_:.0%}, tiny post-IPO equity)", transform=ax.transAxes, fontsize=7.5, color=MUTE, va="top")
 ax.set_xlabel("ROE FY26"); ax.set_ylabel("P/B (x)")
 ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0))
 ax.set_title(f"P/B = {a:.2f} + {b:.1f} × ROE   (R² = {r2:.2f}, n = {len(pts)})")
