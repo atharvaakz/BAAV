@@ -42,7 +42,7 @@ def callout(title, lines, fill="E6EEEE"):
 p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(90)
 r = p.add_run("ECON F355 · BUSINESS ANALYSIS & VALUATION · END-SEMESTER PROJECT"); r.font.size = Pt(9); r.bold = True; r.font.color.rgb = MUTE
 p = doc.add_paragraph(); r = p.add_run("Paying for the Future"); r.font.name = "Cambria"; r.font.size = Pt(34); r.bold = True; r.font.color.rgb = INK
-p = doc.add_paragraph(); r = p.add_run("What Indian real-estate equities are really priced on — DLF, Godrej Properties and Phoenix Mills"); r.font.size = Pt(14); r.font.color.rgb = ACC
+p = doc.add_paragraph(); r = p.add_run("How the market prices Indian real estate: DLF, Godrej Properties and Phoenix Mills"); r.font.size = Pt(14); r.font.color.rgb = ACC
 doc.add_paragraph()
 table(["", "DLF", "Godrej Properties", "Phoenix Mills"],
       [["Business model", "Luxury developer + 66.66% of DCCDL rental JV", "National developer, land-led growth", "Mall-led rental annuity"],
@@ -65,20 +65,20 @@ bullets([
     ("The reported numbers flatter in different ways.", f"For DLF, {pc(D['JV/associate share of PAT'][3],0)} of FY26 profit is its share of joint-venture income, mainly the DCCDL rental platform, and treasury income adds a large slice; core development EBIT was {cr(D['RC Core operating EBIT'][3])}. "
      f"Godrej's core operations lost money ({cr(G['RC Core operating EBIT'][3])} before tax) while it capitalised {cr(G['RC Interest capitalised (cash paid − P&L cost)'][3])} of interest into inventory. Phoenix is the only one whose profit is genuinely operating."),
     ("None of them yet earns its cost of capital on recognised profit.", f"FY26 ROE was {pc(D['DP ROE (3-step product)'][2])}, {pc(G['DP ROE (3-step product)'][2])} and {pc(P['DP ROE (3-step product)'][2])}; EVA was negative for all three in every year."),
-    ("Cost of capital is the swing factor — so we show two lenses.", f"Lens A uses a bottom-up beta from {len(N['BU'])} large developers (WACC {pc(D['W WACC'])}, {pc(G['W WACC'])}, {pc(P['W WACC'])}). "
+    ("Cost of capital moves the answer most, so we show two versions.", f"Lens A uses a bottom-up beta from {len(N['BU'])} large developers (WACC {pc(D['W WACC'])}, {pc(G['W WACC'])}, {pc(P['W WACC'])}). "
      f"Lens B uses Damodaran's India industry beta across 156 developers (WACC {pc(D['W_B']['wacc'])}, {pc(G['W_B']['wacc'])}, {pc(P['W_B']['wacc'])}). Large, liquid developers are far more market-sensitive than the industry average, which is diluted by thinly traded small caps."),
     ("Intrinsic value sits well below price under either lens.", f"DCF values are {rs(vA['DLF'])} / {rs(vB['DLF'])} for DLF, {rs(vA['GPL'])} / {rs(vB['GPL'])} for Godrej and {rs(vA['PML'])} / {rs(vB['PML'])} for Phoenix against prices of {rs(price['DLF'])}, {rs(price['GPL'])} and {rs(price['PML'])}. "
      f"In 10,000 Monte Carlo draws the probability that value exceeds price is {pc(MC['DLF']['A']['prob_above_price'],1)} for DLF, {pc(MC['GPL']['A']['prob_above_price'],0)} for Godrej and {pc(MC['PML']['A']['prob_above_price'],0)} for Phoenix."),
-    ("The gap is about the long run, not the next five years.", f"Holding our discount rates, today's prices imply perpetual growth of {pc(imp['DLF']['terminal_g'])}, {pc(imp['GPL']['terminal_g'])} and {pc(imp['PML']['terminal_g'])} — roughly India's long-run nominal GDP growth, double the {pc(I['Terminal growth rate (nominal, Rs)'])} we allow under the textbook rule that growth cannot exceed the risk-free rate forever. "
+    ("The gap comes from long-run growth.", f"Holding our discount rates, today's prices imply perpetual growth of {pc(imp['DLF']['terminal_g'])}, {pc(imp['GPL']['terminal_g'])} and {pc(imp['PML']['terminal_g'])}, roughly India's long-run nominal GDP growth, double the {pc(I['Terminal growth rate (nominal, Rs)'])} we allow under the textbook rule that growth cannot exceed the risk-free rate forever. "
      "The market is pricing these firms as perpetual claims on Indian growth."),
-    ("The practitioner view agrees on the ranking.", f"Rebuilding the sell-side's NAV method from company disclosures, DLF's identifiable assets are worth {rs(N['NAV']['dlf_nav_ps'])} a share — close to our DCF — so {pc(N['NAV']['dlf_land']/N['NAV']['dlf_mcap'],0)} of its market value is land beyond the visible pipeline. "
+    ("The practitioner view agrees on the ranking.", f"Rebuilding the sell-side's NAV method from company disclosures, DLF's identifiable assets are worth {rs(N['NAV']['dlf_nav_ps'])} a share, close to our DCF, so {pc(N['NAV']['dlf_land']/N['NAV']['dlf_mcap'],0)} of its market value is land beyond the visible pipeline. "
      f"Phoenix trades at {pc(N['NAV']['pml_prem'],0)} above our sum-of-the-parts NAV. Godrej is the one stock a practitioner multiple values above its price ({rs(N['NAV']['gpl_emb_ps'])} on 12x embedded profit; broker consensus about ₹2,300)."),
-    ("Against peers, the ranking is clear.", f"Godrej sits at the peer median — the cheapest of our three — at {xx(RV['Godrej Properties'][12])} earnings and {xx(RV['Godrej Properties'][13],2)} book; DLF at {xx(RV['DLF Ltd'][12])} and {xx(RV['DLF Ltd'][13],2)}; Phoenix at {xx(RV['Phoenix Mills'][12])} and {xx(RV['Phoenix Mills'][13],2)} — against peer medians of {xx(med[0])} and {xx(med[1],2)} across {N['n_peers']} listed developers. "
+    ("Against peers, the ranking is clear.", f"Godrej sits at the peer median, the cheapest of our three, at {xx(RV['Godrej Properties'][12])} earnings and {xx(RV['Godrej Properties'][13],2)} book; DLF at {xx(RV['DLF Ltd'][12])} and {xx(RV['DLF Ltd'][13],2)}; Phoenix at {xx(RV['Phoenix Mills'][12])} and {xx(RV['Phoenix Mills'][13],2)}. Peer medians are of {xx(med[0])} and {xx(med[1],2)} across {N['n_peers']} listed developers. "
      f"DLF sits above the median but inside the inter-quartile range; Phoenix has the highest P/B in the set. Phoenix's EBITDA yield of {pc(CAP['yield'])} is less than half the {pc(CAP['reit_median'])} cash yield on listed REITs."),
 ])
-callout("Our view", [f"1. Godrej Properties — the cheapest of the three relative to peers and the only one the practitioner method values above price; the risk is that land buying keeps statutory cash flow negative.",
-                     f"2. DLF — fairly priced against peers with the strongest balance sheet, but only a long-run growth view justifies the price.",
-                     f"3. Phoenix Mills — a high-quality annuity priced like one that will compound at the rate of the economy for ever."])
+callout("Our view", [f"1. Godrej Properties: the cheapest of the three relative to peers and the only one the practitioner method values above price; the risk is that land buying keeps statutory cash flow negative.",
+                     f"2. DLF: fairly priced against peers with the strongest balance sheet, but only a long-run growth view justifies the price.",
+                     f"3. Phoenix Mills: a high-quality annuity priced like one that will compound at the rate of the economy for ever."])
 
 # ================================================================ 1 QUESTION & HYPOTHESES
 doc.add_heading("1. The question, and what we tested", 1)
@@ -92,7 +92,7 @@ H = [["H1", "Prices embed growth well beyond a textbook terminal rate", f"Implie
      ["H5", "Realty stocks follow house prices", f"Correlation of annual changes {HS['Correlation: realty YoY vs house-price YoY (same quarter)']:.2f}", "Rejected"],
      ["H6", "Customer advances fund growth (negative reinvestment)", "DLF invested capital fell 28% FY23–26", "Supported (DLF)"],
      ["H7", "Book value understates economic capital", f"Justified P/B {N['DLF']['RI']['Justified P/B on current ROE — lens A']:.2f} vs market {RV['DLF Ltd'][13]:.2f} (DLF)", "Supported"],
-     ["H8", "Phoenix is priced as a growth asset, not a yield asset", f"EBITDA yield {pc(CAP['yield'])} vs REITs {pc(CAP['reit_median'])}", "Supported"],
+     ["H8", "Phoenix is priced as a growth asset rather than a yield asset", f"EBITDA yield {pc(CAP['yield'])} vs REITs {pc(CAP['reit_median'])}", "Supported"],
      ["H9", "Sell-side NAVs reach price only via land and growth premia", f"DLF residual land {pc(N['NAV']['dlf_land']/N['NAV']['dlf_mcap'],0)} of mcap; Phoenix premium {pc(N['NAV']['pml_prem'],0)}", "Supported"],
      ["H10", "Deal and launch news moves prices; profit surprises barely do", f"Monetisation CAR {pc(N['EV']['by_kind']['monetisation']['ann'])} (t {N['EV']['by_kind']['monetisation']['t_cs']:.1f}); EPS surprise R² ≤ {max(v['r2'] for v in N['EV']['earnings'].values()):.2f}", "Supported"],
      ["H11", "Macro shocks are temporary for strong developers; delivery failure is permanent", f"Shock CARs −9% to −16% reversed within a year; failed developers {pc(N['EV']['survivorship']['total']['failed'],0)}", "Supported"],
@@ -110,10 +110,10 @@ table(["Layer", "What", "Span"],
        ["Macro", "10-yr G-Sec, 3-m rate, CPI, INR, GDP, household credit", "1960s–2026 (series vary)"],
        ["Real estate", "BIS house prices (nominal, real), REIT distributions", "2009–2026"],
        ["Cost of capital", "Damodaran ERP, CRP, rating spreads; India industry betas, margins, multiples", "Jan-2026"]], [3.2, 9.3, 4.0], size=8.5)
-para("The model follows the course order — strategy, accounting analysis, recasting, financial analysis, cost of capital, intrinsic and relative valuation — "
+para("The model follows the course order (strategy, accounting analysis, recasting, financial analysis, cost of capital, intrinsic and relative valuation) "
      "and a Python replica of the DCF (verified to reproduce the spreadsheet to the rupee) drives the scenario and Monte Carlo work.")
 
-doc.add_heading("What Indian research says — and what we borrowed", 2)
+doc.add_heading("What Indian research says, and what we used", 2)
 LQ = N["LITQ"]
 para("We read the empirical work on Indian real estate before modelling and took six lessons from it. Each is tested or quantified in the workbook (Literature sheet).", after=2)
 table(["Study", "Finding", "What we borrowed"],
@@ -122,7 +122,7 @@ table(["Study", "Finding", "What we borrowed"],
        ["Dutta, Green, Panchapagesan & Venkataraman (2021, IIMB WP)", "Developers pre-sell to swap 16–18% construction loans for 8–10% buyer money", f"Advances save ₹{LQ['save_dlf']:,.0f} cr (DLF) and ₹{LQ['save_gpl']:,.0f} cr (Godrej) a year after tax"],
        ["Brueckner & Sridhar (2012); Bertaud & Brueckner (2005)", "Tight floor-area limits make central land scarce; cities sprawl", "Scarcity rent behind DLF's residual land value and Phoenix's city-centre malls"],
        ["Singh & Nadkarni (2017, RBI WP)", "Monetary shocks drive stock prices; credit shocks drive house prices", "Why realty stocks don't track house prices (H5) and IL&FS hit harder than rate moves"],
-       ["Walia et al. (2023, JPIF); Kudtarkar & Jesudasan", "Indian REITs: bond-like returns, not cointegrated with equities", "REIT yields below the G-Sec; separate pricing of developers and REITs"]],
+       ["Walia et al. (2023, JPIF); Kudtarkar & Jesudasan", "Indian REITs earn bond-like returns and are not cointegrated with equities", "REIT yields below the G-Sec; separate pricing of developers and REITs"]],
       [4.6, 5.6, 6.3], size=7.5)
 
 # ================================================================ 2 SECTOR
@@ -160,7 +160,7 @@ table(["Business unit", "Growth", "Share", "BCG", "Strategy (Porter)"],
        ["Phoenix — offices, hotels, residential", "Low–mod", "Low", "Question mark / dog", "Non-core"]], [5.6, 1.8, 1.8, 3.0, 4.3], size=8.5)
 para("SPACE places DLF in the aggressive quadrant (net cash, attractive industry), Godrej in the competitive quadrant (strong position, weak financial strength) "
      "and Phoenix on the conservative–aggressive border (financially strong, stable, slower growth). In the value chain, developers create value at land "
-     "acquisition, approvals and pre-sales — construction is largely outsourced — while Phoenix creates it in leasing and tenant curation, with revenue-share "
+     "acquisition, approvals and pre-sales (construction is largely outsourced), while Phoenix creates it in leasing and tenant curation, with revenue-share "
      "rents tying its income to tenant sales.")
 table(["", "DLF", "Godrej Properties", "Phoenix Mills"],
       [["Strengths", "Low-cost land; net cash; luxury brand; GIC partnership", "Group brand; national reach; JV sourcing", "Dominant city malls; recurring rent; CPPIB and GIC partners"],
@@ -173,13 +173,13 @@ para("Customer segments differ sharply. DLF sells to high-net-worth buyers and n
      "Godrej sells to salaried, mortgage-financed buyers across cities, so its demand is rate-sensitive; Phoenix's customers are tenants whose sales depend on "
      "urban discretionary spending. Customer lifetime value is highest for Phoenix (tenants renew leases repeatedly) and lowest for developers, whose buyers rarely buy twice.")
 
-doc.add_heading("The industry in numbers — and where our three stand", 2)
+doc.add_heading("The industry in numbers, and where our three companies stand", 2)
 IV = N["IVC"]; INDN = N["IND"]
 fig("industry_cycle", "Figure 99 — Left: top-7-city housing cycle 2013–2025. Right: FY26 bookings growth against the market.", 14)
 para(f"Housing volumes in the top seven cities have grown only {pc(INDN['cagr'])} a year since the 2014 peak: sales fell {pc(-INDN['fall'],0)} to the 2020 trough, launches fell by three-quarters "
-     "from 2014 to 2017 as demand, then credit, dried up, and unsold stock fell from 8.0 lakh units (2016) to about 5.5 lakh. NCR — DLF's home market — "
-     "went from 88 months of unsold inventory in 2020 to 17. In 2025 volumes fell 14% while value rose 6%: the market is premiumising, and RBI's house-price index rose only 2–4% a year. "
-     f"Delivery risk is industry-wide: about 6.3 lakh homes worth ₹5 lakh crore are stuck or delayed — {IV['stuck_yrs']:.1f} years of national sales — and only 26% of projects registered with "
+     "from 2014 to 2017 as demand, then credit, dried up, and unsold stock fell from 8.0 lakh units (2016) to about 5.5 lakh. In NCR, DLF's home market, unsold stock "
+     "fell from 88 months of sales in 2020 to 17. In 2025 volumes fell 14% while value rose 6%. Buyers are moving to costlier homes, while the RBI's house-price index rose only 2–4% a year. "
+     f"Delivery risk is industry-wide: about 6.3 lakh homes worth ₹5 lakh crore are stuck or delayed ({IV['stuck_yrs']:.1f} years of national sales), and only 26% of projects registered with "
      f"MahaRERA are complete. Against that backdrop our firms are taking share: Godrej's bookings rose {pc(IV['g_gpl'],0)} in FY26 against {pc(IV['g_ind'],0)} for the market, lifting its (indicative) share of "
      f"top-seven sales value from {pc(IV['sh_gpl_prev'])} to {pc(IV['sh_gpl'])}; DLF's dipped to {pc(IV['sh_dlf'])} as it deferred launches. Godrej delivered 121–123% of its delivery guidance in "
      "FY25–26; Phoenix opened its three 2023 malls within 0–4 months of guidance and grows rent at roughly twice the Grade-A mall market (5–8%), while a fifth of India's malls are near-empty. "
@@ -196,7 +196,7 @@ table(["Policy", "Effect", "Evidence", "Our adjustment"],
        ["RERA escrow", "Part of cash is ring-fenced", f"DLF restricted cash {cr(D['RC Restricted cash (kept operating)'][3])}", "Treat as operating, not surplus"],
        ["Treasury, JV stake sales, fair-value gains (Ind AS 109)", "Inflates EBIT; largely non-cash", "Godrej: gains on JV divestments and re-measurement on taking control of a JV turn its core loss into profit", "Exclude from core EBIT; note it recurs in a JV-heavy model"]],
       [3.5, 4.0, 5.0, 4.0], size=8)
-para(f"Earnings quality is good at DLF and Phoenix — operating cash flow was {xx(D['CFO / PAT (x)'][3],2)} and {xx(P['CFO / PAT (x)'][3],2)} profit in FY26 — and apparently poor at Godrej, "
+para(f"Earnings quality is good at DLF and Phoenix, where operating cash flow was {xx(D['CFO / PAT (x)'][3],2)} and {xx(P['CFO / PAT (x)'][3],2)} profit in FY26. It looks poor at Godrej, "
      f"where statutory operating cash flow has been negative every year (accruals ratio {pc(G['Accruals ratio = (PAT − CFO) / avg assets'][3])} of assets) as inventory rose to {pc(G['Inventory / total assets'][3],0)} of assets. "
      f"Classification matters: land is inventory, so land purchases sit inside operating cash flow. Management's pre-land operating cash flow was ₹7,830 cr in FY26; the gap of about "
      f"₹{N['KPI']['Godrej: management OCF − statutory CFO = land & BD spend proxy'][1]:,.0f} cr is reinvestment in land. Godrej generates cash from sold projects and spends all of it, and more, on growth. Quarterly data make the timing problem vivid: DLF's trailing-twelve-month "
@@ -239,7 +239,7 @@ table(["FY26", "DLF", "Godrej", "Phoenix"], rows5, [6.6, 3.2, 3.2, 3.2], "Select
 fig("re_signature", "Figure 4 — The real-estate signature: long inventory cycles, customer-funded inventory, diverging cash conversion.", 13)
 fig("industry_bench", "Figure 5 — Against Damodaran's India industry data (156 listed developers).", 13)
 para(f"Against the industry, all three earn above-average ROE ({pc(IB['ROE'][0])} for the industry) and much higher margins. DLF and Phoenix trade above the industry's aggregate "
-     f"trailing P/E of {IB['Trailing P/E (aggregate)'][0]:.0f}x; Godrej trades below it. The industry is reinvesting {IB['Reinvestment rate'][0]:.1f}x its after-tax operating income — a land-buying phase that "
+     f"trailing P/E of {IB['Trailing P/E (aggregate)'][0]:.0f}x; Godrej trades below it. The industry is reinvesting {IB['Reinvestment rate'][0]:.1f}x its after-tax operating income, a sign of a land-buying phase that "
      "Godrej exemplifies.")
 doc.add_heading("DuPont: three engines, one ROE", 2)
 fig("dupont", "Figure 6 — Three-step DuPont, FY24–FY26.", 13)
@@ -249,12 +249,12 @@ para(f"The three companies reach similar ROEs in opposite ways: DLF through marg
      f"{pc(D['ROEattr' + 'from margin'],1)} of DLF's {pc(D['ROEattr' + 'total = ΔROE'],1)} rise in ROE came from margin; Godrej's {pc(G['ROEattr' + 'from margin'],1)} margin gain was partly offset by a {pc(G['ROEattr' + 'from asset turnover'],1)} turnover drag.")
 para(f"Palepu's split of ROE into operating return and financing is the most revealing view. Godrej's return on net operating assets was {pc(G['DP Return on net operating assets (RNOA)'][2])}; "
      f"{pc(G['DP Non-operating (JV, exceptional) contribution'][2])} of its ROE came from non-operating items. DLF's RNOA was {pc(D['DP Return on net operating assets (RNOA)'][2])}, and Phoenix's "
-     f"{pc(P['DP Return on net operating assets (RNOA)'][2])} — almost all of its ROE.")
+     f"{pc(P['DP Return on net operating assets (RNOA)'][2])} , almost all of its ROE.")
 doc.add_heading("EVA, CVA, distress and the scorecard", 2)
-para(f"EVA was negative throughout — FY26: {cr(D['EVA = NOPAT − WACC × opening NOA'][2])} (DLF), {cr(G['EVA = NOPAT − WACC × opening NOA'][2])} (Godrej), {cr(P['EVA = NOPAT − WACC × opening NOA'][2])} (Phoenix). "
+para(f"EVA was negative throughout. In FY26 it was {cr(D['EVA = NOPAT − WACC × opening NOA'][2])} (DLF), {cr(G['EVA = NOPAT − WACC × opening NOA'][2])} (Godrej), {cr(P['EVA = NOPAT − WACC × opening NOA'][2])} (Phoenix). "
      f"Cash value added tells a different story for DLF: free cash flow of {cr(D['Free cash flow = CFO − capex'][3])} exceeds its capital charge because customers pay early. "
-     f"Godrej's statutory free cash flow, after land purchases, was {cr(G['Free cash flow = CFO − capex'][3])}. Godrej's original Altman Z fell to {G['Z'][3]:.2f} ('distress'), but the emerging-market Z'' — which drops the "
-     f"sales/assets term that penalises any developer — is {G['Zpp'][3]:.2f} (grey); DLF ({D['Zpp'][3]:.2f}) and Phoenix ({P['Zpp'][3]:.2f}) are safe.")
+     f"Godrej's statutory free cash flow, after land purchases, was {cr(G['Free cash flow = CFO − capex'][3])}. Godrej's original Altman Z fell to {G['Z'][3]:.2f} ('distress'), but the emerging-market Z'', which drops the "
+     f"sales/assets term that penalises any developer, is {G['Zpp'][3]:.2f} (grey); DLF ({D['Zpp'][3]:.2f}) and Phoenix ({P['Zpp'][3]:.2f}) are safe.")
 table(["Perspective", "DLF", "Godrej", "Phoenix"],
       [["Financial", "Net cash; EVA < 0, CVA > 0", "Leverage up; pre-land OCF ₹7,830 cr, all reinvested", f"ROIC {pc(P['ROIC = NOPAT / avg invested capital'][3])}; closest to EVA break-even"],
        ["Customer", "Luxury buyers pre-pay", "Brand pulls sales ahead of revenue", "Footfall and tenant sales"],
@@ -262,19 +262,19 @@ table(["Perspective", "DLF", "Godrej", "Phoenix"],
        ["Learning & growth", "Rental platform with GIC", "Project management at scale", "New-city malls in CWIP"]], [3.0, 4.4, 4.5, 4.6], "Balanced scorecard.", size=8)
 
 # ================================================================ 6 COST OF CAPITAL
-doc.add_heading("6. Cost of capital: the decision that decides the answer", 1)
+doc.add_heading("6. Cost of capital", 1)
 module_tag("Module 6 · risk-free rate, ERP, CRP; regression, bottom-up and industry beta; Kd; WACC; multi-factor check")
 para(f"Risk-free rate. The 10-year G-Sec yields {pc(I['India 10-yr G-Sec yield'],2)}. It contains India's sovereign default spread ({pc(I['India sovereign default spread (Baa3)'],2)}), which we remove to get a rupee "
      f"risk-free rate of {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)}. Equity risk premium. Damodaran's implied mature-market premium ({pc(I['Mature market ERP'],2)}) plus India's country "
      f"risk premium ({pc(I['India country risk premium (CRP)'],2)}) gives {pc(I['India total ERP = mature ERP + CRP'],2)}. History agrees, loosely: over 2005–2026 the Sensex beat the G-Sec by "
-     f"{pc(HE['Geometric excess (total)'])} a year geometrically, but with a standard error of {pc(HE['Standard error of arithmetic mean'])} — too noisy to estimate a premium from, which is why we use the implied figure.")
+     f"{pc(HE['Geometric excess (total)'])} a year geometrically, but with a standard error of {pc(HE['Standard error of arithmetic mean'])} . That is too noisy to estimate a premium from, so we use the implied figure.")
 fig("beta_scatter", "Figure 7 — Regression betas, 60 monthly returns against the Nifty 50.", 12.5)
 para(f"Regression beta. DLF {dl['Raw beta (SLOPE)']:.2f} (SE {dl['Std error of beta']:.2f}, R² {dl['R-squared']:.2f}), Godrej {gp['Raw beta (SLOPE)']:.2f} (SE {gp['Std error of beta']:.2f}), Phoenix {ph['Raw beta (SLOPE)']:.2f} "
      f"(SE {ph['Std error of beta']:.2f}). Godrej's 95% interval of {gp['95% CI low']:.2f}–{gp['95% CI high']:.2f} alone moves its cost of equity by about seven points.")
 fig("rolling_beta", "Figure 8 — Beta drifts: rolling 36-month beta, 2010–2026.", 13)
 para(f"Beta is not a constant (H3). Phoenix's rolling beta has ranged from {RB['Phoenix'][0]:.2f} to {RB['Phoenix'][1]:.2f}, Godrej's from {RB['Godrej'][0]:.2f} to {RB['Godrej'][1]:.2f}. "
      f"A single five-year regression is one draw from a moving target. Bottom-up beta. Unlevering {len(N['BU'])} large developers at market D/E and taking the median gives "
-     f"{N['BU_median']:.2f}, relevered to {D['W Beta used']:.2f} for DLF and {G['W Beta used']:.2f} for Godrej. For Phoenix — a rental business — developer betas overstate risk; listed REITs "
+     f"{N['BU_median']:.2f}, relevered to {D['W Beta used']:.2f} for DLF and {G['W Beta used']:.2f} for Godrej. For Phoenix, a rental business, developer betas overstate risk; listed REITs "
      f"have betas of 0.1–0.4 with R² below 12%, so we use Phoenix's own Blume-adjusted beta ({P['W Beta used']:.2f}).")
 para(f"Industry lens. Damodaran's India dataset gives an unlevered beta of {IB['Unlevered beta, cash-corrected'][0]:.2f} for 156 developers and {IB['Unlevered beta, cash-corrected'][1]:.2f} "
      f"for real-estate operators. These averages are dragged down by thinly traded small caps, whose prices react to the market with a lag (H2). We carry them as lens B "
@@ -295,7 +295,7 @@ table(["", "DLF", "Godrej", "Phoenix"],
 doc.add_heading("7. Intrinsic valuation", 1)
 module_tag("Module 7 · growth estimation, FCFF, FCFE, APV, EVA, residual income, DDM, real options, scenarios")
 para(f"Growth. Historical revenue growth was {pc(D['Revenue CAGR FY23→FY26'])} (DLF), {pc(G['Revenue CAGR FY23→FY26'])} (Godrej) and {pc(P['Revenue CAGR FY23→FY26'])} (Phoenix). Fundamental growth "
-     "(reinvestment rate × ROIC) fails for developers — DLF's reinvestment is negative because advances shrink its capital, and Godrej's ROIC is near zero — so growth "
+     "(reinvestment rate × ROIC) fails for developers. DLF's reinvestment is negative because advances shrink its capital, and Godrej's ROIC is near zero, so growth "
      "comes from sales already made but not yet recognised, visible in customer advances, and reinvestment is tied to growth through a sales-to-capital ratio.")
 table(["Assumption", "DLF", "Godrej", "Phoenix"],
       [["Revenue growth FY27–31 (then fades to 5.5%)", " / ".join(pc(g, 0) for g in D['DCF growth']), " / ".join(pc(g, 0) for g in G['DCF growth']), " / ".join(pc(g, 0) for g in P['DCF growth'])],
@@ -308,7 +308,7 @@ para("Reality check. We tested every FY27 assumption against the two FY27 quarte
      "about 7% growth in H2. Godrej's H1 revenue more than doubled and Phoenix's rose 14%, both consistent with our assumptions (Quarterly sheet).")
 para(f"How aggressive is that? Against a naive linear trend of FY23–26 revenue (Excel FORECAST, the method earlier cohorts used), our FY31 revenue is {NAIVE['DLF']:.1f}x the trend for DLF, "
      f"{NAIVE['GPL']:.1f}x for Godrej and {NAIVE['PML']:.1f}x for Phoenix. The developers' multiples are deliberate: four years of completion-based revenue say little about sales already contracted, "
-     "which customer advances (2.9x and 7.8x revenue) show are far larger. Even so generous a path leaves value below price — the conclusion does not depend on a conservative forecast.")
+     "which customer advances (2.9x and 7.8x revenue) show are far larger. Even this generous path leaves value below price, so the conclusion does not rest on a cautious forecast.")
 fig("dcf_paths", "Figure 10 — Revenue and margin paths in the ten-year FCFF model.", 13)
 table(["₹ crore", "DLF", "Godrej", "Phoenix"],
       [[k, *[(pc(d['DCF'][k]) if "%" in k else f"{d['DCF'][k]:,.0f}") for d in (D, G, P)]] for k in
@@ -316,14 +316,14 @@ table(["₹ crore", "DLF", "Godrej", "Phoenix"],
         "Add: JV / associate investments", "Less: total debt incl. leases", "Less: minority interest (proportional)", "Equity value to owners",
         "Intrinsic value per share (Rs)", "Current market price (Rs)"]], [6.5, 3.2, 3.2, 3.2], size=8.5)
 para(f"DCCDL is valued by capitalising DLF's share of its profit ({cr(D['DCCDL']['jv_pat'])}) at Ke less growth: {cr(D['DCCDL']['value'])}, almost exactly its book value of {cr(D['DCCDL']['book'])}. "
-     f"The same cash flows valued through EVA (invested capital plus PV of EVA) reproduce the FCFF value to the rupee (difference {N['DLF']['EVA_diff']:.0f}); APV confirms debt adds little — DLF is net "
+     f"The same cash flows valued through EVA (invested capital plus PV of EVA) reproduce the FCFF value to the rupee (difference {N['DLF']['EVA_diff']:.0f}); APV confirms debt adds little, since DLF is net "
      "cash and Godrej's tax shield is offset by distress risk.")
 doc.add_heading("What the price implies", 2)
 fig("lens_compare", "Figure 11 — DCF value under both lenses and a bull case, against price.", 12.5)
 fig("implied_growth", "Figure 12 — The perpetual growth rate each price implies.", 10)
-para(f"Sensitivity grids move DLF between {rs(D['gridA_min'])} and {rs(D['gridA_max'])} and no sensible combination reaches the price. Solving the model backwards: the price needs a target margin "
+para(f"Sensitivity grids move DLF between {rs(D['gridA_min'])} and {rs(D['gridA_max'])} and no sensible combination reaches the price. Solved backwards, the price needs a target margin "
      f"of {pc(D['implied margin'],0)} for DLF and {pc(P['implied margin'],0)} for Phoenix (impossible), or a uniform discount rate of {pc(D['implied WACC'])}, {pc(G['implied WACC'])} and {pc(P['implied WACC'])}, "
-     f"or — holding our discount rates — perpetual growth of {pc(imp['DLF']['terminal_g'])}, {pc(imp['GPL']['terminal_g'])} and {pc(imp['PML']['terminal_g'])}. The third is the most economically meaningful: "
+     f"or, holding our discount rates, perpetual growth of {pc(imp['DLF']['terminal_g'])}, {pc(imp['GPL']['terminal_g'])} and {pc(imp['PML']['terminal_g'])}. The third is the most economically meaningful: "
      "investors are treating these firms as perpetual claims on Indian nominal GDP. That is not irrational for an economy the IMF expects to grow 7% in real and about 10% in nominal terms in FY27 "
      "(nominal growth slowed to 8–8.5% in FY26 on low inflation), but it "
      "abandons the textbook discipline that terminal growth should not exceed the risk-free rate, and it leaves little margin of safety: the spread between the stable "
@@ -344,7 +344,7 @@ para(f"Residual income (Palepu). With ROE fading to 15% over ten years, abnormal
      f"the price capitalises next year's earnings at {FPE['DLF']:.0f}x, {FPE['GPL']:.0f}x and {FPE['PML']:.0f}x against a no-growth multiple (1/Ke) of about 6–8x.")
 para(f"DDM. A two-stage dividend model, using dividends declared in the last twelve months, gives {rs(D['DDM']['DDM value per share (Rs)'])} for DLF, {rs(G['DDM']['DDM value per share (Rs)'])} for Godrej "
      f"and {rs(P['DDM']['DDM value per share (Rs)'])} for Phoenix. Godrej paid nothing from FY17 to FY26 and resumed with ₹10 a share in FY27; DLF's dividend has compounded about 4% a year since FY16. Payouts are low, so dividends capture little of the value. Real options. Undeveloped land is a call option on developed property "
-     f"(Damodaran). An illustrative land bank worth ₹90,000 cr developed, costing ₹1,00,000 cr to build — negative NPV today — is still worth {cr(RO['Option value = S·e^(−yT)·N(d1) − K·e^(−rT)·N(d2)'])} "
+     f"(Damodaran). An illustrative land bank worth ₹90,000 cr developed, costing ₹1,00,000 cr to build (negative NPV today), is still worth {cr(RO['Option value = S·e^(−yT)·N(d1) − K·e^(−rT)·N(d2)'])} "
      f"as an option at 30% volatility over ten years. DLF's market value exceeds our DCF equity value by {cr(RO['DLF: market cap − DCF equity value (₹ cr)'])}; land-bank optionality is one candidate explanation.")
 
 # ================================================================ 8 RELATIVE
@@ -364,7 +364,7 @@ para(f"The regression (P/B = {reg['a']:.2f} + {reg['b']:.1f} × ROE, R² {reg['r
 table(["Implied value (₹/share)", "P/E median", "P/E IQR", "P/B median", "EV/EBITDA median", "P/B on ROE"],
       [[k, f"{v[0]:,.0f}", f"{v[1]:,.0f}–{v[2]:,.0f}", f"{v[3]:,.0f}", f"{v[6]:,.0f}", f"{v[8]:,.0f}"] for k, v in ri.items()], [4.6, 2.4, 3.0, 2.4, 2.8, 2.4], size=8.5)
 fig("cap_rates", "Figure 15 — The yield investors accept on Phoenix versus listed REITs and the G-Sec.", 11)
-para(f"For an income-producing owner the right relative measure is yield. Phoenix's enterprise value (including minorities at market value) is {cr(CAP['ev'])} against EBITDA of {cr(CAP['ebitda'])} — "
+para(f"For an income-producing owner the right relative measure is yield. Phoenix's enterprise value (including minorities at market value) is {cr(CAP['ev'])} against EBITDA of {cr(CAP['ebitda'])}, "
      f"a {pc(CAP['yield'])} yield, {-CAP['spread']*100:.1f} percentage points below the G-Sec. Listed REITs yield {pc(CAP['reit_median'])}. Priced at the mall REIT's yield, Phoenix would be worth about "
      f"{rs(CAP['pml_at_reit'])} a share. The premium over that is payment for growth a REIT cannot fund, because it must distribute 90% of its cash (H8).")
 
@@ -388,11 +388,11 @@ para(f"Verification. Our profit lines match the companies (Godrej ₹1,850 cr an
      f"is {pc(-dcx[0][3],1)} below 'revenue from operations' as reported, and our DLF net cash excludes ₹5,003 cr of RERA-restricted cash. DLF's share of JV profit in our data "
      f"(₹{dcx[7][1]:,.0f} cr) is within {pc(abs(dcx[7][3]),0)} of 66.66% of DCCDL's reported profit, confirming that line is essentially DCCDL. Against DLF's audited FY26 annual report, our equity, total assets, inventory, share of JV profit and operating cash flow match to the rupee, and the RERA balances in its notes (about ₹11,170 cr) confirm the escrow figure management gave on its call. Godrej's audited FY26 statements tie equally exactly (total assets ₹81,894 cr, inventory ₹57,807 cr, profit ₹1,841 cr, operating cash flow −₹2,003 cr); its other income of ₹3,279 cr is 39% of total income.")
 fig("nav_bridge", "Figure 17 — Rebuilding NAV from public data: DLF's parts versus its market value; Phoenix's NAV versus price.", 13)
-para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['dccdl_gav'])} gross and DLF's stake {cr(NAV['dccdl_stake'])} after DCCDL's debt — more than twice the "
-     f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. That gap is itself a finding: a 7.5% cap rate on EBITDA embeds a far lower "
+para(f"DLF. At the 7.5% cap rate a leading broker uses, DCCDL is worth {cr(NAV['dccdl_gav'])} gross and DLF's stake {cr(NAV['dccdl_stake'])} after DCCDL's debt, more than twice the "
+     f"{cr(D['DCCDL']['value'])} we get by capitalising DLF's share of DCCDL's after-tax profit at our cost of equity. The gap matters: a 7.5% cap rate on EBITDA embeds a far lower "
      f"required return than CAPM gives. Adding five years of pipeline margin at guided sales ({cr(NAV['dlf_res_pv'])}) and net cash gives identifiable NAV of {rs(NAV['dlf_nav_ps'])} a share, "
      f"close to our DCF ({rs(NAV['dlf_nav_ps'])}–{NAV['dlf_nav_ps_hi']:,.0f} if all of the ₹24,500 cr of gross margin management says is still to be recognised on sold units were added; part of it already sits in net cash). The market's remaining {cr(NAV['dlf_land'])} is, by elimination, the value placed on land beyond the visible pipeline: about ₹{NAV['dlf_psf']:,.0f} per sq ft of the "
-     f"112 million sq ft of potential outside the launch pipeline (137 msf balance potential per management, less ~25 msf in the pipeline), against a book value of about ₹{NAV['dlf_book_psf']:,.0f} per sq ft of inventory and land (H7). That is the real-option argument in rupees.")
+     f"112 million sq ft of potential outside the launch pipeline (137 msf balance potential per management, less ~25 msf in the pipeline), against a book value of about ₹{NAV['dlf_book_psf']:,.0f} per sq ft of inventory and land (H7). This puts a rupee figure on the real-option argument.")
 para(f"Phoenix. Retail EBITDA at a 7% cap rate, offices at 8%, hotels at 12x EBITDA and work-in-progress at cost give a NAV to owners of {rs(NAV['pml_nav_ps'])} a share; the price is "
      f"{pc(NAV['pml_prem'],0)} above it. A 7% cap rate at the 11.75% discount rate an Indian REIT valuer uses implies perpetual rent growth of {pc(NAV['pml_g_in_cap'],2)}, so practitioners' own "
      "conventions sit close to our 5.5% terminal growth. What closes the gap is an explicit growth premium; one broker adds 70% to its NAV.")
@@ -400,28 +400,28 @@ para(f"Godrej. Brokers value Godrej on the profit already embedded in its sales.
      f"{rs(NAV['gpl_emb_ps'])} a share, against a price of {rs(G['DCF']['Current market price (Rs)'])} and broker consensus near {rs(NAV['gpl_consensus'])}. A 12x multiple is itself a perpetual-growth "
      f"assumption: at our cost of equity it implies growth of {pc(NAV['gpl_g_in_mult'])}. Godrej does not disclose an embedded margin, so we test 12–18% margins and 10–14x multiples: "
      f"value ranges from {rs(NAV['gpl_grid_lo'])} to {rs(NAV['gpl_grid_hi'])}, and only the harshest combination falls below the price.")
-para("The latest quarter (Q2 FY27) sharpens each story. DLF booked ₹3,800 cr, taking H1 to ₹4,457 cr against ₹20,000 cr full-year guidance — the year now rests on "
+para("The latest quarter (Q2 FY27) sharpens each story. DLF booked ₹3,800 cr, taking H1 to ₹4,457 cr against ₹20,000 cr full-year guidance, so the year now rests on "
      "second-half launches, a real execution risk; net cash rose to ₹15,100 cr. Godrej's H1 bookings rose 7% to ₹16,659 cr and collections 25% to ₹9,666 cr, with H1 operating cash flow of "
-     "₹1,983 cr — cash conversion, the risk we flagged, is improving. Phoenix's retail rental income grew 16% in H1 and management guides 14–15% for FY27–28, almost exactly our DCF path. "
-     "Relative to its own history the sector is not stretched: the Nifty Realty index trades at about 40x earnings against a five-year median near 48x. But those five years were the up-cycle; "
-     "measured against intrinsic value, not recent multiples, the premium remains.")
+     "₹1,983 cr, so cash conversion, the risk we flagged, is improving. Phoenix's retail rental income grew 16% in H1 and management guides 14–15% for FY27–28, almost exactly our DCF path. "
+     "Against its own recent history the sector looks reasonable. The Nifty Realty index trades at about 40x earnings against a five-year median near 48x. But those five years were the up-cycle; "
+     "measured against intrinsic value rather than recent multiples, the premium remains.")
 doc.add_heading("What management says: transcripts, guidance and BRSR", 2)
 MG = N["MGMT"]; ES = N["ESG"]; gc = {r[0]: r for r in N["GC"]}
 para("We read the companies' own earnings-call transcripts (DLF and Phoenix Q4 FY26; Godrej Q2 FY27) and sustainability filings (DLF BRSR FY25, Godrej BRSR FY26, DCCDL "
      "Sustainability Report FY26). Three findings change how our numbers should be read. First, DLF's headline net cash is mostly not free: management "
      "said about ₹11,200 cr of the ₹14,155 cr sits in RERA escrow accounts, released only as projects complete in FY27–28. Second, DLF guides to "
-     "₹9,000–10,000 cr of new margin and ₹7,000–8,000 cr of development free cash flow every year — cash that recognised revenue, booked only on "
+     "₹9,000–10,000 cr of new margin and ₹7,000–8,000 cr of development free cash flow every year. Recognised revenue, booked only on "
      f"completion, reports years late. Capitalising management's own ₹{MG['fcf']:,.0f} cr at our cost of equity, growing 5% a year, gives a development business "
-     f"worth {cr(MG['dev'])}; adding DCCDL and free net cash gives {rs(MG['ps'])} a share, or {rs(MG['ps_nav'])} with DCCDL at the 7.5% cap rate — still below the "
+     f"worth {cr(MG['dev'])}; adding DCCDL and free net cash gives {rs(MG['ps'])} a share, or {rs(MG['ps_nav'])} with DCCDL at the 7.5% cap rate. Both are below the "
      f"{rs(price['DLF'])} price. On management's numbers, the market is paying for land beyond any guided horizon. Third, guidance has been credible: DLF met its "
      f"FY26 bookings guide ({pc(gc['DLF FY26 sales bookings (₹ cr)'][3],0)}) and Godrej beat its own ({pc(gc['Godrej FY26 bookings (₹ cr)'][3],0)}), though Godrej missed "
      f"its collections target ({pc(gc['Godrej FY26 collections (₹ cr)'][3],0)}) and DLF's H1 FY27 run-rate is only {pc(gc['DLF H1 FY27 bookings vs pro-rata FY27 guidance (₹ cr)'][3],0)} of pro-rata guidance.")
 para(f"Phoenix's call supports our forecast: retail rental growth guided at 14–15% for FY27–28, with 36–50% of leased area renewing in two to three years at about 20% "
      f"uplifts; offices are 70% occupied (EBITDA ₹141 cr) and hotels earned ₹276 cr. On ESG, DLF used {ES['DLF total energy consumed (GJ)'][0]/1e6:.2f} million GJ in FY25, "
      f"{pc(ES['Renewable share'][0],0)} renewable (up from {pc(ES['Renewable share'][1],0)}); women are only 10% of employees and their turnover ({pc(ES['Employee turnover (male / female)'][1],0)}) "
-     f"is almost twice men's — a social-pillar flag. DCCDL's emissions were flat at about {ES['DCCDL total emissions (ktCO2e)'][0]:,.0f} ktCO2e while rent grew about 15%, and its "
+     f"is almost twice men's, a weak point on the social side. DCCDL's emissions were flat at about {ES['DCCDL total emissions (ktCO2e)'][0]:,.0f} ktCO2e while rent grew about 15%, and its "
      "whole rental portfolio is LEED Platinum. That matters for value: green Grade-A offices are what multinational tenants and global capital (GIC, CPPIB) require, "
-     "and they explain DCCDL's 98–99% non-SEZ occupancy. Godrej's FY26 BRSR is the contrast: women are 38% of permanent staff (DLF 10%), renewables 33% of energy (15% a year earlier), zero lost-time injuries — but its boundary covers only its own sites, not contractors, so the energy totals are not comparable with DLF's. Phoenix's filings could not be retrieved; we did not use second-hand ESG figures for it.")
+     "and they explain DCCDL's 98–99% non-SEZ occupancy. Godrej's FY26 BRSR is the contrast: women are 38% of permanent staff (DLF 10%), renewables 33% of energy (15% a year earlier), zero lost-time injuries. Its reporting boundary covers only its own sites and excludes contractors, so the energy totals cannot be compared with DLF's. Phoenix's filings could not be retrieved; we did not use second-hand ESG figures for it.")
 fig("practitioner_vs_textbook", "Figure 18 — Textbook DCF, practitioner NAV, broker targets and price.", 12.5)
 bk_ = {r[0]: r for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
 para(f"The sell-side sits close to the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "
@@ -441,27 +441,27 @@ para("A valuation at one date hides how the market has priced news in the past. 
 fig("event_macro", "Figure 99 — Three-day abnormal returns around seventeen macro, regulatory and REIT events.", 13.5)
 para(f"Shocks hit hard but briefly. Demonetisation cost DLF {pc(mcar('Demonetisation','DLF'),0)} in three days, the COVID lockdown {pc(mcar('COVID national lockdown','DLF'),0)}, "
      f"the IL&FS credit freeze cost Godrej {pc(mcar('IL&FS / DHFL credit shock','GPL'),0)}; yet a year later DLF was {pc(mb('Demonetisation','DLF'),0)} and {pc(mb('COVID national lockdown','DLF'),0)} ahead of the Nifty "
-     f"and Godrej {pc(mb('IL&FS / DHFL credit shock','GPL'),0)} ahead (H11). These were repricings of timing, not of franchise value. REIT listings barely registered (|CAR| ≤ 4%, none significant): "
+     f"and Godrej {pc(mb('IL&FS / DHFL credit shock','GPL'),0)} ahead (H11). The market was repricing timing; franchise value was intact. REIT listings barely registered (|CAR| ≤ 4%, none significant): "
      "the market already knew rental assets could be monetised. Rate decisions moved prices less than the rate-sensitivity debate suggests, and cuts were often 'sold on the news'. "
      "Single-event figures can be contaminated by same-week company news (Godrej's jump at RERA's start, Phoenix's fall in late August 2020), so we rely on averages and t-statistics.")
-para(f"Company news tells a sharper story. Asset monetisations — GIC's purchase of a third of DCCDL (2017), Phoenix's GIC platform (2020–21) and its CPPIB buy-out (2025) — earned "
-     f"{pc(BK['monetisation']['ann'])} on average (t {BK['monetisation']['t_cs']:.1f}): the market rewards proof that private capital values rental assets above book. DLF's sell-out "
+para(f"Company news tells a sharper story. Asset monetisations (GIC's purchase of a third of DCCDL in 2017, Phoenix's GIC platform in 2020–21 and its CPPIB buy-out in 2025) earned "
+     f"{pc(BK['monetisation']['ann'])} on average (t {BK['monetisation']['t_cs']:.1f}): investors reward evidence that private capital values rental assets above book. DLF's sell-out "
      f"launches averaged {pc(BK['launch']['ann'])} (The Arbour, ₹8,000 cr in three days: +7.4%, t 3.0). Results days are different: across {sum(v['n'] for v in ER.values())} results announcements "
      f"since 2008, the EPS surprise explains only {pc(min(v['r2'] for v in ER.values()),0)}–{pc(max(v['r2'] for v in ER.values()),0)} of the price move and gets its direction right about half the time (H10). "
      "Under completion accounting, profit is old news; bookings and launches are the information. This is the strongest evidence for valuing developers on cash and pre-sales rather than earnings. "
-     f"Equity issues show the mirror image: the five equity-issue announcements followed run-ups of {pc(BK['equity issue']['run'])}, mostly near the top of their three-year range (Godrej's three QIPs at the 85th–100th percentile), "
+     f"Equity issues show the opposite pattern: the five equity-issue announcements followed run-ups of {pc(BK['equity issue']['run'])}, mostly near the top of their three-year range (Godrej's three QIPs at the 85th–100th percentile), "
      f"and were followed by a drift of {pc(BK['equity issue']['drift'])} over sixty days (H12). Godrej's ₹6,000 cr QIP of November 2024 preceded a 33% fall relative to the Nifty.")
 fig("survivors_reit", "Figure 99 — Left: survivors versus developers that failed. Right: REIT distribution yields against the 10-year G-Sec.", 13.5)
 para(f"Survivorship and delivery. A sector index built from today's listed names flatters history. An equal-weighted basket of nine survivors returned {pc(SV['total']['survivors'],0)} since January 2008; "
-     f"six developers that failed or stalled — Unitech, HDIL, Parsvnath, Ansal, Omaxe, Peninsula — lost {pc(-SV['total']['failed'],0)}, four of them more than 99%. Their betas were higher "
-     f"(Unitech {SV['beta_2010_19']['UNITECH']:.2f}, HDIL {SV['beta_2010_19']['HDIL']:.2f}), so excluding them biases the industry beta down: our lens-A beta is a floor, not a midpoint. "
+     f"six developers that failed or stalled (Unitech, HDIL, Parsvnath, Ansal, Omaxe, Peninsula) lost {pc(-SV['total']['failed'],0)}, four of them more than 99%. Their betas were higher "
+     f"(Unitech {SV['beta_2010_19']['UNITECH']:.2f}, HDIL {SV['beta_2010_19']['HDIL']:.2f}), so excluding them biases the industry beta down: our lens-A beta is best read as a floor. "
      f"Between demonetisation and COVID, quality developers rose {pc(SV['flight_to_quality']['quality'],0)} while the stressed basket fell {pc(-SV['flight_to_quality']['stressed'],0)}: RERA, escrow and the credit freeze turned "
      f"on-time delivery into a moat. Delay has a price even for survivors. If every cash flow slips a year, value falls by V × r/(1+r): ₹{DLY['dlf_ps']:.0f} a share for DLF on our DCF, ₹{DLY['gpl_ps']:.0f} for Godrej, "
      f"₹{DLY['pml_ps']:.0f} for Phoenix; on management's own cash-flow case DLF loses ₹{DLY['mgmt_ps']:.0f} a share per year of slippage. With H1 FY27 bookings at 45% of pro-rata guidance, that is a live risk.")
-para(f"REITs as instruments. Listed REITs distribute at least 90% of cash and now yield {pc(E['reit']['latest_median'])} against a G-Sec of {pc(E['reit']['latest_gsec'])} — a spread of "
+para(f"REITs as instruments. Listed REITs distribute at least 90% of cash and now yield {pc(E['reit']['latest_median'])} against a G-Sec of {pc(E['reit']['latest_gsec'])}, a spread of "
      f"{pc(E['reit']['latest_spread'])}, averaging {pc(E['reit']['mean_spread'])} since 2020: investors accept less than the risk-free rate because distributions grow. Yet monthly changes in REIT yields do not "
-     f"explain developer returns (|t| < 1): DLF and Phoenix are priced as growth stocks, not yield vehicles (H8). The REIT market is nonetheless Phoenix's exit option: at the mall REIT's yield its retail EBITDA "
-     f"is worth {cr(RO['at_reit'])}, against {cr(RO['at_capm'])} on our CAPM rate — {pc(RO['prem'],0)} more. The CPPIB and GIC transactions show that option being exercised, and it explains why "
+     f"explain developer returns (|t| < 1): DLF and Phoenix are priced as growth stocks rather than yield vehicles (H8). The REIT market is nonetheless Phoenix's exit option: at the mall REIT's yield its retail EBITDA "
+     f"is worth {cr(RO['at_reit'])}, against {cr(RO['at_capm'])} on our CAPM rate, {pc(RO['prem'],0)} more. The CPPIB and GIC transactions show that option being exercised, and it explains why "
      "practitioner NAVs sit above our DCF.")
 
 # ================================================================ 9 LOOSE ENDS
@@ -470,7 +470,7 @@ module_tag("Module 9 · cross holdings, minority interests, distress, liquidity"
 bullets([("Cross holdings.", "DCCDL is valued separately and added to operating value rather than mixed into EBIT; consolidating it would double-count."),
          ("Minority interests.", "CPPIB and GIC own stakes in Phoenix's mall platforms; we deduct their share of value in proportion to their share of profit (about 21%). Phoenix is buying out CPPIB's 49% of Island Star Mall Developers for about ₹5,450 cr in four tranches over three years (its stake has reached 68.1%). Bought at a fair price this is value-neutral — cash out, minority leakage down — so we keep the FY26 minority share."),
          ("Distress.", f"Godrej's original Altman Z is in the distress zone and its cash cover is {G['Cash interest coverage: EBIT / interest paid (x)'][3]:.1f}x; we add an expected distress cost in the APV check."),
-         ("Liquidity and control.", f"All three are liquid — average daily traded value over the past year ₹{N['EV']['amihud']['DLF']['adv_cr']:,.0f} cr (DLF), ₹{N['EV']['amihud']['GPL']['adv_cr']:,.0f} cr (Godrej), ₹{N['EV']['amihud']['PML']['adv_cr']:,.0f} cr (Phoenix), with Amihud illiquidity a fraction of small peers such as Sobha and of the Nexus REIT — so no illiquidity discount applies; no control premium is relevant to a minority investor.")])
+         ("Liquidity and control.", f"All three are liquid: average daily traded value over the past year ₹{N['EV']['amihud']['DLF']['adv_cr']:,.0f} cr (DLF), ₹{N['EV']['amihud']['GPL']['adv_cr']:,.0f} cr (Godrej), ₹{N['EV']['amihud']['PML']['adv_cr']:,.0f} cr (Phoenix), with Amihud illiquidity a fraction of small peers such as Sobha and of the Nexus REIT, so no illiquidity discount applies; no control premium is relevant to a minority investor.")])
 
 # ================================================================ 10 SYNTHESIS
 doc.add_heading("12. Synthesis: what you have to believe", 1)
@@ -480,13 +480,13 @@ para("The methods disagree, and the disagreement is the finding. Relative valuat
      "India's economy for ever; that the right long-run cost of equity for Indian real estate is close to the government bond yield; or that land banks hold option "
      "value our cash-flow model does not capture. Each is defensible for some investors. None is a margin of safety.")
 callout("Recommendation (relative, within the sector)", [
-    f"Godrej Properties — preferred. Multiples at the peer median and the lowest of our three; the highest chance in our simulation of value exceeding price; valued above price on 12x embedded profit. Watch: collections vs ₹24,000 cr guidance, land spend, net debt.",
-    f"DLF — neutral. Best balance sheet and a rental platform worth roughly its book value; fully priced for long-run growth. Watch: luxury demand, DCCDL monetisation.",
-    f"Phoenix Mills — least preferred. Excellent assets priced at a {pc(CAP['yield'])} yield. Watch: rental growth on new malls, consumption, minority leakage."])
+    f"Godrej Properties: preferred. Multiples at the peer median and the lowest of our three; the highest chance in our simulation of value exceeding price; valued above price on 12x embedded profit. Watch: collections vs ₹24,000 cr guidance, land spend, net debt.",
+    f"DLF: neutral. Best balance sheet and a rental platform worth roughly its book value; fully priced for long-run growth. Watch: luxury demand, DCCDL monetisation.",
+    f"Phoenix Mills: least preferred. Excellent assets priced at a {pc(CAP['yield'])} yield. Watch: rental growth on new malls, consumption, minority leakage."])
 doc.add_heading("Limitations", 2)
-bullets(["Four years of statements from one aggregated source, plus prices from 2007; operating KPIs and broker views come from public reports of company "
-         "results and broker notes, not from the original filings, and should be checked against investor presentations.",
-         "Two credible cost-of-capital lenses give materially different values; we report both rather than pretend one is correct.",
+bullets(["Four years of statements from one aggregated source, plus prices from 2007. DLF and Godrej tie to their audited FY26 annual reports; Phoenix's "
+         "filings could not be retrieved, and some operating KPIs and broker views come from press reports of results and broker notes.",
+         "Two credible cost-of-capital lenses give materially different values, and we report both.",
          "Growth and margin paths are judgements; the scenario grid, reverse DCF and Monte Carlo show how much each matters.",
          "Book-value metrics are distorted by cost-based accounting for land and investment property.",
          "Timing: the RBI's October 2026 rate hike and rising unsold inventory are the main near-term risks to the developers; our valuation does not depend on them, but the market prices will."])

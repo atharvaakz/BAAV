@@ -36,7 +36,7 @@ for i, k in enumerate(["DLF", "GPL", "PML"]):
     r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(10.3 + i * 0.85), Inches(5.5), Inches(0.7), Inches(0.7))
     r.fill.solid(); r.fill.fore_color.rgb = rgb(COL[k]); r.line.fill.background(); r.shadow.inherit = False
     tb(s, 10.3 + i * 0.85, 6.25, 0.7, 0.3, k, 9, MUTE, BODY, True, PP_ALIGN.CENTER)
-notes(s, "We valued the three business models of Indian real estate. Our title is our conclusion: today's prices pay for growth that is many years — arguably decades — away.")
+notes(s, "We valued the three business models of Indian real estate. Our title sums up the result. Today's prices pay for growth that is many years, perhaps decades, away.")
 
 # 2 ANSWER FIRST -------------------------------------------------------
 n += 1
@@ -52,7 +52,7 @@ table(s, 0.6, 3.65, 12.13, [["₹ per share", "DLF", "Godrej", "Phoenix"],
                             ["Versus 10 peers (P/E, P/B)", "Above median, in IQR", "At median", "Top of range"],
                             ["Relative ranking", "2", "1", "3"]], [5.4, 2.25, 2.25, 2.23], 11.5, 0.36)
 method(s, "Seven valuation routes (FCFF ×2 lenses, residual income, EVA, DDM, multiples, cap rates) + reverse DCF + Monte Carlo · same numbers in the Excel model")
-notes(s, "We start with the answer. Holding our discount rates, the prices of all three imply perpetual growth of 10 to 12 percent — about India's nominal GDP growth — double the 5.5 percent the textbook allows. Under either cost-of-capital lens, intrinsic value is well below price; in 10,000 simulations the chance that value exceeds price is negligible for DLF and Phoenix and about one in twenty for Godrej. Relative to peers, Godrej is the cheapest of the three and Phoenix the most expensive.")
+notes(s, "We start with the answer. Holding our discount rates, the prices of all three imply perpetual growth of 10 to 12 percent, about India's nominal GDP growth and double the 5.5 percent the textbook allows. Under either cost-of-capital lens, intrinsic value is well below price; in 10,000 simulations the chance that value exceeds price is negligible for DLF and Phoenix and about one in twenty for Godrej. Relative to peers, Godrej is the cheapest of the three and Phoenix the most expensive.")
 
 # 3 HOW WE WORKED + HYPOTHESES ----------------------------------------
 n += 1
@@ -77,7 +77,7 @@ for i, (h, t, res) in enumerate(H):
     clr = {"Supported": ACC, "Rejected": RUST, "Weak": OCH}.get(res.split(" ")[0], ACC)
     tb(s, x + 4.65, y + 0.03, 1.4, 0.4, res, 11, clr, BODY, True)
 method(s, f"13 developers (12 in the beta work) × FY23–FY26 + 5 quarters · prices since 2007 (Sensex 1997) · BIS house prices 2009–26 · G-Sec IMF+OECD 2005–26 · Damodaran India industry data (156 firms) · 4 REITs")
-notes(s, "Before modelling we wrote down twelve hypotheses. Ten are supported, one is weak, and one — that realty stocks follow house prices — is rejected. We'll point to the evidence for each as we go. The data run as far back as we could reach: statements for 13 developers, prices since 2007, house prices since 2009.")
+notes(s, "Before modelling we wrote down twelve hypotheses. Ten are supported, one is weak, and one, that realty stocks follow house prices, is rejected. We'll point to the evidence for each as we go. The data run as far back as we could reach: statements for 13 developers, prices since 2007, house prices since 2009.")
 
 # 4 CYCLE ----------------------------------------------------------------
 n += 1
@@ -87,7 +87,7 @@ card(s, 9.1, 1.85, 3.63, 1.15, f"{LC['DLF'][2]:.1%}", "DLF annual total return s
 card(s, 9.1, 3.1, 3.63, 1.15, f"{LC['DLF'][3]:.0%}", "DLF's worst drawdown; Phoenix fell 90% too", RUST, 26)
 card(s, 9.1, 4.35, 3.63, 1.15, f"{HS['Real house-price CAGR']:.1%}", "real growth in Indian house prices a year since 2009 (BIS)", OCH, 26)
 method(s, f"Dividend-adjusted monthly prices; drawdown = price ÷ running peak − 1 (live formulas) · BIS nominal & real indices · correlation of annual changes stocks vs houses = {HS['Correlation: realty YoY vs house-price YoY (same quarter)']:.2f} (H5 rejected)")
-notes(s, "This is the context most valuations miss. DLF listed at the top of the 2007 boom and is still below its December 2007 peak nineteen years later — a 2 percent annual return. Phoenix fell 90 percent in 2008. Meanwhile house prices grew only 3.5 percent a year in real terms. Equities swing far more than the physical market and don't track it quarter to quarter, so we reject the idea that realty stocks simply follow house prices.")
+notes(s, "This is the context most valuations miss. DLF listed at the top of the 2007 boom and is still below its December 2007 peak nineteen years later, a 2 percent annual return. Phoenix fell 90 percent in 2008. Meanwhile house prices grew only 3.5 percent a year in real terms. Equities swing far more than the physical market and don't track it quarter to quarter, so we reject the idea that realty stocks simply follow house prices.")
 
 # 5 STRATEGY ------------------------------------------------------------
 n += 1
@@ -132,7 +132,7 @@ pic(s, "industry_bench", 0.6, 4.3, h=1.85)
 tb(s, 8.4, 4.35, 4.3, 1.8, [f"DLF: margin {pc(D['DP Net profit margin'][2],0)}, turnover {D['DP Asset turnover'][2]:.2f}×", f"Godrej: leverage {G['DP Equity multiplier'][2]:.1f}×; {pc(G['DP Non-operating (JV, exceptional) contribution'][2],0)} of ROE non-operating",
                            f"Phoenix: turnover {P['DP Asset turnover'][2]:.2f}×; ROE almost all operating", f"Industry ROE {pc(IB['ROE'][0])}; ours 10–11%"], 12)
 method(s, "50 ratios × 4 yrs · DuPont 3-step → 5-step (tax & JV, interest burden) → Palepu ROE = RNOA + (RNOA − NBC) × NFL · EVA & CVA · Altman Z vs Z'' · Damodaran India benchmark", y=6.3, h=0.55)
-notes(s, "All three earn about 10 to 11 percent ROE but through different engines: DLF margin, Godrej leverage, Phoenix turnover. Palepu's split shows most of Godrej's ROE is non-operating. EVA is negative for all three — on current accounting returns none earns its cost of capital, so value must come from the future. Against Damodaran's India industry, our firms are more profitable than average.")
+notes(s, "All three earn about 10 to 11 percent ROE but through different engines: DLF margin, Godrej leverage, Phoenix turnover. Palepu's split shows most of Godrej's ROE is non-operating. EVA is negative for all three. On current accounting returns none earns its cost of capital, so value must come from the future. Against Damodaran's India industry, our firms are more profitable than average.")
 
 # 8 COST OF CAPITAL -------------------------------------------------------
 n += 1
@@ -149,7 +149,7 @@ table(s, 8.05, 1.8, 4.68, [["", "DLF", "GPL", "PML"],
 tb(s, 6.0, 4.3, 6.7, 1.9, [f"Rf {pc(I['Rupee risk-free rate = G-Sec − default spread'],2)} = G-Sec {pc(I['India 10-yr G-Sec yield'],2)} − default spread", f"ERP {pc(I['India total ERP = mature ERP + CRP'],2)} implied; history 2005–26: {pc(N['HistERP']['Geometric excess (total)'],1)} ± {pc(N['HistERP']['Standard error of arithmetic mean'],0)}",
                            "Industry β pulled down by thin trading: Dimson median 1.47 → 1.59", f"Rates: −{pc(-RF['DLF'][2],0)} to −{pc(-RF['Godrej'][2],0)} per +100bp, t ≈ {RF['DLF'][4]:.1f}"], 11.5)
 method(s, f"60 monthly + 156 weekly returns · SE, t, 95% CI · rolling 36-m SLOPE · Hamada unlever/relever, median of {len(N['BU'])} developers · Damodaran industry β · LINEST two-factor with ΔG-Sec · synthetic rating on cash interest", y=6.3, h=0.55)
-notes(s, "This is the decision that decides the answer. Beta is not stable — Phoenix's rolling beta has moved between 0.5 and 1.9. Our base, lens A, uses the median beta of 12 large developers. Lens B uses Damodaran's India industry beta across 156 developers, which is lower because thinly traded small caps react to the market with a lag. The two lenses differ by four to five points of WACC. A two-factor model shows developers lose about 5 percent per 100bp rise in bond yields, but the evidence is statistically weak.")
+notes(s, "This is the decision that decides the answer. Beta is not stable. Phoenix's rolling beta has moved between 0.5 and 1.9. Our base, lens A, uses the median beta of 12 large developers. Lens B uses Damodaran's India industry beta across 156 developers, which is lower because thinly traded small caps react to the market with a lag. The two lenses differ by four to five points of WACC. A two-factor model shows developers lose about 5 percent per 100bp rise in bond yields, but the evidence is statistically weak.")
 
 # 9 DCF DESIGN -------------------------------------------------------------
 n += 1
@@ -172,7 +172,7 @@ tb(s, 0.6, 4.6, 12.1, 1.5, [[("Implied margin  ", True, ACC), (f"{pc(D['implied 
                             [("Implied WACC  ", True, ACC), (f"{pc(D['implied WACC'])} · {pc(G['implied WACC'])} · {pc(P['implied WACC'])} (Phoenix ≈ the G-Sec).", False, INK)],
                             [("Implied perpetual g  ", True, ACC), (f"{pc(imp['DLF']['terminal_g'])} · {pc(imp['GPL']['terminal_g'])} · {pc(imp['PML']['terminal_g'])} ≈ India's nominal GDP growth; spread to WACC only 0.4–1.3 pts.", False, INK)]], 13)
 method(s, "Value is linear in target margin → exact solution; implied WACC and g by bisection on a Python replica verified to the rupee · lens B fades to the same stable WACC (β → 1)")
-notes(s, "We then ran the model backwards. Could margins explain the price? No — it would need margins above 100 percent. Could the discount rate? Only if it were close to the government bond yield. The most meaningful answer is growth: holding our discount rates, prices imply these firms grow at 10 to 12 percent a year for ever, roughly India's nominal GDP growth. That's defensible as a belief about India, but it leaves almost no gap between growth and the discount rate — no margin of safety.")
+notes(s, "We then ran the model backwards. Margins cannot explain the price, because it would need margins above 100 percent. Could the discount rate? Only if it were close to the government bond yield. The most meaningful answer is growth: holding our discount rates, prices imply these firms grow at 10 to 12 percent a year for ever, roughly India's nominal GDP growth. That's defensible as a belief about India, but it leaves almost no gap between growth and the discount rate, which leaves no margin of safety.")
 
 # 11 UNCERTAINTY + OTHER ROUTES -------------------------------------------------
 n += 1
@@ -185,7 +185,7 @@ cards = [(f"{rs(scn['GPL']['bear'])}–{scn['GPL']['bull']:,.0f}", "Godrej bear�
 for i, (b, t, c) in enumerate(cards):
     card(s, 0.6 + i * 3.06, 4.95, 2.9, 1.15, b, t, c, 20)
 method(s, "MC draws: growth scale, margin, S/C, high-growth & stable WACC, g · residual income (Palepu) with ROE fading to 15% · FCFE/APV · two-stage DDM · Black–Scholes land option", y=6.3, h=0.55)
-notes(s, "We stress-tested the result. Across 10,000 draws on every key input, DLF and Phoenix almost never reach their prices; Godrej does about 5 percent of the time under lens A and 12 percent under lens B, because its value depends most on margins normalising. Residual income tells the same story: DLF's justified price-to-book is about half, versus a market multiple above four — partly because land bought decades ago sits in book value at cost. Land banks also carry option value, one possible reason markets pay above DCF.")
+notes(s, "We stress-tested the result. Across 10,000 draws on every key input, DLF and Phoenix almost never reach their prices; Godrej does about 5 percent of the time under lens A and 12 percent under lens B, because its value depends most on margins normalising. Residual income tells the same story: DLF's justified price-to-book is about half, versus a market multiple above four, partly because land bought decades ago sits in book value at cost. Land banks also carry option value, one possible reason markets pay above DCF.")
 
 # 12 RELATIVE + CAP RATES -----------------------------------------------------
 n += 1
@@ -213,7 +213,7 @@ card(s, 8.85, 4.1, 3.88, 1.05, f"₹{NV['gpl_emb_ps']:,.0f}", "Godrej at 12x FY2
 tb(s, 0.6, below(pp, 0.1), 8.0, 1.2, [[("Data check  ", True, ACC), ("profit lines match company filings (Godrej, Phoenix exact); DLF's JV share = 66.66% of DCCDL profit within 1%.", False, INK)],
                                        [("Godrej cash  ", True, ACC), ("statutory CFO −₹2,003 cr vs management pre-land OCF +₹7,830 cr: land is inventory.", False, INK)]], 11.5)
 method(s, "DCCDL EBITDA × (1+g) ÷ 7.5% cap − net debt × 66.66% · pipeline: ₹20k cr/yr × 40% margin × (1−t), 5 yrs, 12% · Phoenix: retail 7%, office 8%, hotels 12x, CWIP at cost · Godrej: 12x embedded PAT · g in a cap rate = r − cap", y=6.3, h=0.55)
-notes(s, "A sector analyst would also look at bookings, collections and NAV, so we rebuilt the sell-side method from company disclosures. DLF's identifiable assets — the DCCDL stake at a 7.5 percent cap rate, five years of pipeline margin and net cash — come to about 312 rupees a share, close to our DCF. So 59 percent of DLF's market value is the land beyond its visible pipeline: about 7,600 rupees per square foot of unscheduled potential. Phoenix trades at well over double our sum-of-the-parts NAV; even brokers add a 70 percent growth premium. Godrej is the one stock the practitioner method values above its price. Note too that Godrej's negative cash flow is mostly land buying: management's pre-land operating cash flow was 7,830 crore. From the companies' own calls: about ₹11,200 crore of DLF's ₹14,155 crore net cash is RERA escrow, not free cash. Using management's own guidance of ₹7,000–8,000 crore development free cash flow a year, DLF is worth about ₹" + f"{N['MGMT']['ps']:,.0f}" + " a share, or ₹" + f"{N['MGMT']['ps_nav']:,.0f}" + " with DCCDL at a broker cap rate — still below the price.")
+notes(s, "A sector analyst would also look at bookings, collections and NAV, so we rebuilt the sell-side method from company disclosures. DLF's identifiable assets (the DCCDL stake at a 7.5 percent cap rate, five years of pipeline margin and net cash) come to about 312 rupees a share, close to our DCF. So 59 percent of DLF's market value is the land beyond its visible pipeline: about 10,000 rupees per square foot of unscheduled potential. Phoenix trades at well over double our sum-of-the-parts NAV; even brokers add a 70 percent growth premium. Godrej is the one stock the practitioner method values above its price. Note too that Godrej's negative cash flow is mostly land buying: management's pre-land operating cash flow was 7,830 crore. From the companies' own calls: about ₹11,200 crore of DLF's ₹14,155 crore net cash is held in RERA escrow and is not yet free. Using management's own guidance of ₹7,000–8,000 crore development free cash flow a year, DLF is worth about ₹" + f"{N['MGMT']['ps']:,.0f}" + " a share, or ₹" + f"{N['MGMT']['ps_nav']:,.0f}" + " with DCCDL at a broker cap rate. Both are below the price.")
 
 # 12c THROUGH TIME -----------------------------------------------------------
 n += 1
@@ -228,7 +228,7 @@ tb(s, 0.6, below(pp, 0.08), 8.2, 1.3, [[("Shocks  ", True, ACC), ("demonetisatio
                                        [("Equity issues  ", True, ACC), (f"follow run-ups of {pc(BK['equity issue']['run'])} and precede {pc(BK['equity issue']['drift'])} drift — market timing.", False, INK)],
                                        [("REITs  ", True, ACC), (f"yield {pc(E['reit']['latest_median'])} vs G-Sec {pc(E['reit']['latest_gsec'])}; Phoenix's malls are worth {pc(N['REITopt']['prem'],0)} more at a REIT yield than on CAPM.", False, INK)]], 11)
 method(s, "Market model vs Nifty, estimation [−250,−30] days, CAR [−1,+1], t = CAR/(σ√3) · BHAR 250d · survivors: 9 listed vs 6 failed (Unitech, HDIL, Parsvnath, Ansal, Omaxe, Peninsula), EW from Jan-2008 · delay cost = V·r/(1+r)", y=6.3, h=0.55)
-notes(s, "We also looked back through time. Using daily prices since 2007 we measured abnormal returns — the move beyond what the market explains — around seventeen macro shocks and twelve company announcements. Shocks like demonetisation, the IL&FS freeze and COVID cost 9 to 16 percent in three days, but all reversed within a year. What moves these stocks is deal and launch news: asset monetisations earned about 5 percent, significant at the 5 percent level. Profit surprises explain almost nothing — profit under completion accounting is old news. Survivorship matters: the developers that failed lost over 90 percent, so the industry looks safer than it was. And delay has a price: each year of slippage costs DLF about " + f"{DLY['mgmt_ps']:.0f}" + " rupees a share on management's own numbers.")
+notes(s, "We also looked back through time. Using daily prices since 2007 we measured abnormal returns, the part of each move the market does not explain, around seventeen macro shocks and twelve company announcements. Shocks like demonetisation, the IL&FS freeze and COVID cost 9 to 16 percent in three days, but all reversed within a year. Deal and launch news moves these stocks: asset monetisations earned about 5 percent, significant at the 5 percent level. Profit surprises explain almost nothing, because profit under completion accounting reports sales made years earlier. Survivorship matters: the developers that failed lost over 90 percent, so the industry looks safer than it was. And delay has a price: each year of slippage costs DLF about " + f"{DLY['mgmt_ps']:.0f}" + " rupees a share on management's own numbers.")
 
 # 13 SYNTHESIS -----------------------------------------------------------------
 n += 1
@@ -238,7 +238,7 @@ tb(s, 0.6, below(pp, 0.05), 12.1, 1.0, [[("Godrej · preferred  ", True, OCH), (
                                          ("DLF · neutral  ", True, ACC), ("best balance sheet, priced for long-run growth.   ", False, INK),
                                          ("Phoenix · least preferred  ", True, RUST), ("great assets at a 2.6% yield.", False, INK)]], 12.5)
 method(s, "Believe one of: cash flows grow with India's GDP for ever · long-run cost of equity ≈ bond yield · land banks hold option value the DCF misses — each defensible, none a margin of safety", y=6.3, h=0.55)
-notes(s, "The methods disagree, and that is the finding. Relative valuation can't see a sector-wide premium because the peers are also expensive; intrinsic valuation can. To own these stocks today you must believe that their cash flows grow with India for ever, or that the long-run cost of equity is near the bond yield, or that land banks hold option value our model misses. Within the sector we prefer Godrej, are neutral on DLF and least prefer Phoenix.")
+notes(s, "The methods disagree, and the disagreement is informative. Relative valuation can't see a sector-wide premium because the peers are also expensive; intrinsic valuation can. To own these stocks today you must believe that their cash flows grow with India for ever, or that the long-run cost of equity is near the bond yield, or that land banks hold option value our model misses. Within the sector we prefer Godrej, are neutral on DLF and least prefer Phoenix.")
 
 # 14 LIMITS -----------------------------------------------------------------------
 n += 1
@@ -265,7 +265,7 @@ card(s, 9.2, 5.0, 3.53, 1.0, "88 to 17 months", "NCR unsold-inventory overhang, 
 tb(s, 0.6, below(pp, 0.08), 8.4, 1.2, [[("Cycle  ", True, ACC), ("sales −60% from the 2014 peak to 2020, record 2023; 2025 volume −14% but value +6% (premiumisation); RBI HPI +2–4%.", False, INK)],
                                        [("Rent  ", True, ACC), ("record office leasing 83–89 msf (2025); Grade-A mall vacancy ~6%, yet a fifth of India's malls are near-empty.", False, INK)]], 11)
 method(s, "ANAROCK annual reports 2024–25 and releases; RBI HPI 2025-26; JLL/C&W/CBRE/Knight Frank 2025; MahaRERA data. Company bookings FY vs industry CY.", y=6.3, h=0.5)
-notes(s, "Backup for questions on the industry. The top-seven-city housing market has barely grown in volume since 2014; it went through a five-year bust, a COVID trough and a record 2023. About 6.3 lakh homes are stuck or delayed. Our firms are taking share — Godrej grew bookings 16 percent while the market's value grew 6 — and they deliver on or ahead of guidance.")
+notes(s, "Backup for questions on the industry. The top-seven-city housing market has barely grown in volume since 2014; it went through a five-year bust, a COVID trough and a record 2023. About 6.3 lakh homes are stuck or delayed. Our firms are taking share. Godrej grew bookings 16 percent while the market's value grew 6, and they deliver on or ahead of guidance.")
 
 # BACKUP B: LITERATURE ------------------------------------------------------------
 n += 1
