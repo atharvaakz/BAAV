@@ -6,7 +6,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]; V2 = ROOT / "data/processed/
 N = json.loads((ROOT / "data/processed/numbers.json").read_text())
 INK, MUTE, GRID = "#1F2A30", "#7A858C", "#E3E7E8"
 C = {"DLF": "#2F5D62", "GPL": "#C08A3E", "PML": "#8C4A3C", "IDX": "#9AA5AA", "N50": "#1F2A30"}
-plt.rcParams.update({"font.family": "Carlito", "font.size": 10, "axes.edgecolor": MUTE, "axes.spines.top": False, "axes.spines.right": False,
+plt.rcParams.update({"font.family": "Inter", "font.size": 10, "axes.edgecolor": MUTE, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True, "axes.titleweight": "bold",
                      "axes.titlesize": 11, "axes.titlelocation": "left", "axes.facecolor": "none", "savefig.bbox": "tight"})
 def save(fig, name):

@@ -121,3 +121,37 @@ def fig(name, caption, width=16.5):
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 
+
+
+def bridge(text):
+    """Short 'what we did and why' note at the start of each section."""
+    p = doc.add_paragraph(); p.paragraph_format.left_indent = Cm(0.4); p.paragraph_format.space_after = Pt(6)
+    r_ = p.add_run(text); r_.italic = True; r_.font.size = Pt(9.5); r_.font.color.rgb = ACC
+
+
+def callout(title, lines, fill="E6EEEE"):
+    t = doc.add_table(rows=1, cols=1); t.alignment = WD_TABLE_ALIGNMENT.CENTER
+    c = t.rows[0].cells[0]; shade(c, fill); c.width = Cm(16.5)
+    p = c.paragraphs[0]; r = p.add_run(title); r.bold = True; r.font.color.rgb = ACC; r.font.size = Pt(10)
+    for ln in lines:
+        p = c.add_paragraph(); r = p.add_run(ln); r.font.size = Pt(9.5); p.paragraph_format.space_after = Pt(2)
+    doc.add_paragraph().paragraph_format.space_after = Pt(2)
+
+
+def cover(title, subtitle, kicker, headers, rows, authors, submitted, note):
+    p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(90)
+    r = p.add_run(kicker.upper()); r.font.size = Pt(9); r.bold = True; r.font.color.rgb = MUTE
+    p = doc.add_paragraph(); r = p.add_run(title); r.font.name = "Cambria"; r.font.size = Pt(34); r.bold = True; r.font.color.rgb = INK
+    p = doc.add_paragraph(); r = p.add_run(subtitle); r.font.size = Pt(14); r.font.color.rgb = ACC
+    doc.add_paragraph()
+    table(headers, rows, [5.0, 3.8, 3.9, 3.8], size=9)
+    para(f"{submitted} · {authors}", size=10)
+    para(note, size=8.5, italic=True)
+    doc.add_page_break()
+
+
+def references(refs):
+    for ref in refs:
+        p = doc.add_paragraph(ref, style="List Number"); p.paragraph_format.space_after = Pt(2)
+        for r in p.runs:
+            r.font.size = Pt(9)

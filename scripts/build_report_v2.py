@@ -1,16 +1,13 @@
 """Project report v2 — investment-memo structure, all modules, every number from the model."""
 import pathlib
-exec(open(pathlib.Path(__file__).resolve().parent / "report_common.py").read())
+import os as _os
+_BACKEND = _os.environ.get("BAV_REPORT", "docx")
+exec(open(pathlib.Path(__file__).resolve().parent / ("report_html_common.py" if _BACKEND == "html" else "report_common.py")).read())
 import re as _re
-def bridge(text):
-    """Short 'what we did and why' note at the start of each section."""
-    p = doc.add_paragraph(); p.paragraph_format.left_indent = Cm(0.4); p.paragraph_format.space_after = Pt(6)
-    r_ = p.add_run(text); r_.italic = True; r_.font.size = Pt(9.5); r_.font.color.rgb = ACC
 _fig0, _FIGN = fig, [0]
 def fig(name, caption, width=16.5):
     _FIGN[0] += 1
     _fig0(name, _re.sub(r"^Figure \d+", f"Figure {_FIGN[0]}", caption), width)
-from docx.enum.text import WD_BREAK
 
 MC, SC, A2 = N["MC"], N["SC"], N["A2"]
 import openpyxl as _ox
@@ -33,32 +30,21 @@ vA = {c: N[c]["DCF"]["Intrinsic value per share (Rs)"] for c in ("DLF", "GPL", "
 vB = {c: N[c]["lensB"]["vps"] for c in ("DLF", "GPL", "PML")}
 
 
-def callout(title, lines, fill="E6EEEE"):
-    t = doc.add_table(rows=1, cols=1); t.alignment = WD_TABLE_ALIGNMENT.CENTER
-    c = t.rows[0].cells[0]; shade(c, fill); c.width = Cm(16.5)
-    p = c.paragraphs[0]; r = p.add_run(title); r.bold = True; r.font.color.rgb = ACC; r.font.size = Pt(10)
-    for ln in lines:
-        p = c.add_paragraph(); r = p.add_run(ln); r.font.size = Pt(9.5); p.paragraph_format.space_after = Pt(2)
-    doc.add_paragraph().paragraph_format.space_after = Pt(2)
-
-
 # ================================================================ COVER
-p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(90)
-r = p.add_run("ECON F355 · BUSINESS ANALYSIS & VALUATION · END-SEMESTER PROJECT"); r.font.size = Pt(9); r.bold = True; r.font.color.rgb = MUTE
-p = doc.add_paragraph(); r = p.add_run("Paying for the Future"); r.font.name = "Cambria"; r.font.size = Pt(34); r.bold = True; r.font.color.rgb = INK
-p = doc.add_paragraph(); r = p.add_run("How the market prices Indian real estate: DLF, Godrej Properties and Phoenix Mills"); r.font.size = Pt(14); r.font.color.rgb = ACC
-doc.add_paragraph()
-table(["", "DLF", "Godrej Properties", "Phoenix Mills"],
-      [["Business model", "Luxury developer + 66.66% of DCCDL rental JV", "National developer, land-led growth", "Mall-led rental annuity"],
-       ["Price (₹)", rs(price['DLF']), rs(price['GPL']), rs(price['PML'])],
-       ["DCF value, lens A / lens B (₹)", f"{vA['DLF']:,.0f} / {vB['DLF']:,.0f}", f"{vA['GPL']:,.0f} / {vB['GPL']:,.0f}", f"{vA['PML']:,.0f} / {vB['PML']:,.0f}"],
-       ["Perpetual growth the price implies", pc(imp['DLF']['terminal_g']), pc(imp['GPL']['terminal_g']), pc(imp['PML']['terminal_g'])],
-       ["Versus peers (P/E, P/B)", "Above median, inside IQR", "At the median", "Top of the range"],
-       ["Relative ranking", "2", "1", "3"]], [5.0, 3.8, 3.9, 3.8], size=9)
-para("Submitted to Prof. Mohit Kumar · BITS Pilani, K K Birla Goa Campus · Group 27: Saatvik Nagpal, Atharvaa Khanzode", size=10)
-para(f"Pricing date {I['Valuation date']}. Financial statements FY23–FY26 and Q1–Q2 FY27; market data from 2007. ₹ crore unless stated. "
-     f"All figures trace to the accompanying Excel model ({NSHEETS} sheets, live formulas).", size=8.5, italic=True)
-doc.add_page_break()
+cover(title="Paying for the Future",
+      subtitle="How the market prices Indian real estate: DLF, Godrej Properties and Phoenix Mills",
+      kicker="ECON F355 · Business Analysis & Valuation · End-semester project",
+      headers=["", "DLF", "Godrej Properties", "Phoenix Mills"],
+      rows=[["Business model", "Luxury developer + 66.66% of DCCDL rental JV", "National developer, land-led growth", "Mall-led rental annuity"],
+            ["Our view", "Neutral", "Preferred", "Least preferred"],
+            ["Price (₹)", rs(price['DLF']), rs(price['GPL']), rs(price['PML'])],
+            ["DCF value, base / industry beta (₹)", f"{vA['DLF']:,.0f} / {vB['DLF']:,.0f}", f"{vA['GPL']:,.0f} / {vB['GPL']:,.0f}", f"{vA['PML']:,.0f} / {vB['PML']:,.0f}"],
+            ["Perpetual growth the price implies", pc(imp['DLF']['terminal_g']), pc(imp['GPL']['terminal_g']), pc(imp['PML']['terminal_g'])],
+            ["Versus peers (P/E, P/B)", "Above median, inside IQR", "At the median", "Top of the range"]],
+      authors="Group 27 · Saatvik Nagpal · Atharvaa Khanzode",
+      submitted="Submitted to Prof. Mohit Kumar · BITS Pilani, K K Birla Goa Campus",
+      note=f"Pricing date {I['Valuation date']}. Financial statements FY23–FY26 and Q1–Q2 FY27; market data from 2007. ₹ crore unless stated. "
+           f"All figures trace to the accompanying Excel model ({NSHEETS} sheets, live formulas).")
 
 # ================================================================ EXEC SUMMARY
 doc.add_heading("Executive summary", 1)
@@ -499,6 +485,7 @@ bullets(["Four years of statements from one aggregated source, plus prices from 
          "Book-value metrics are distorted by cost-based accounting for land and investment property.",
          "Timing: the RBI's October 2026 rate hike and rising unsold inventory are the main near-term risks to the developers; our valuation does not depend on them, but the market prices will."])
 
+REFS = []
 doc.add_heading("References", 1)
 for ref in ["Palepu, K., Healy, P. & Bernard, V. Business Analysis & Valuation: Using Financial Statements (3rd ed.). Cengage.",
             "Damodaran, A. Damodaran on Valuation (2nd ed.). Wiley.  ·  Damodaran, A. The Dark Side of Valuation (2nd ed.). Pearson, 2010.",
@@ -516,9 +503,8 @@ for ref in ["Palepu, K., Healy, P. & Bernard, V. Business Analysis & Valuation: 
             "Real Estate (Regulation and Development) Act, 2016; Ind AS 23, 40, 111, 115.",
             "DLF Ltd, Integrated Annual Report 2025-26 (audited consolidated statements); Q4 FY26 earnings call transcript (May 2026); DLF Business Responsibility & Sustainability Report FY2024-25; DCCDL Sustainability Report FY2025-26.",
             "Godrej Properties Ltd, Integrated Annual Report 2025-26 (audited statements and BRSR); Q2 FY27 earnings call (October 2026). Phoenix Mills Ltd, Q4 FY26 earnings call transcript (April 2026)."]:
-    p = doc.add_paragraph(ref, style="List Number"); p.paragraph_format.space_after = Pt(2)
-    for r in p.runs:
-        r.font.size = Pt(9)
+    REFS.append(ref)
+references(REFS)
 doc.add_heading("Appendix A — Further valuation routes", 1)
 para(f"Residual income (Palepu). With ROE fading to 15% over ten years, abnormal-earnings value is {rs(N['DLF']['RI']['Value per share — lens A (₹)'])} for DLF and {rs(N['GPL']['RI']['Value per share — lens A (₹)'])} for Godrej under lens A. "
      f"The justified P/B on current ROE is {N['DLF']['RI']['Justified P/B on current ROE — lens A']:.2f} for DLF against a market P/B of {RV['DLF Ltd'][13]:.2f}; put the other way, DLF's price "

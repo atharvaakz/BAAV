@@ -12,7 +12,7 @@ wb = openpyxl.load_workbook(ROOT / "models/excel/_recalc/BAV_RealEstate_Model.xl
 INK, MUTE, GRID = "#1F2A30", "#7A858C", "#E3E7E8"
 C = {"DLF": "#2F5D62", "GPL": "#C08A3E", "PML": "#8C4A3C"}
 NM = {"DLF": "DLF", "GPL": "Godrej Properties", "PML": "Phoenix Mills"}
-plt.rcParams.update({"font.family": "Carlito", "font.size": 10, "axes.edgecolor": MUTE, "axes.labelcolor": INK,
+plt.rcParams.update({"font.family": "Inter", "font.size": 10, "axes.edgecolor": MUTE, "axes.labelcolor": INK,
                      "xtick.color": INK, "ytick.color": INK, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True,
                      "figure.dpi": 200, "savefig.bbox": "tight", "axes.titleweight": "bold", "axes.titlesize": 11,
