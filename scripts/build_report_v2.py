@@ -56,6 +56,27 @@ para("We worked in six steps, and the report follows them. We first studied the 
      "the cleaned numbers (section 5). We set the hurdle rate two defensible ways (section 6), valued each company with a cash-flow model, peer multiples and the "
      "brokers' net-asset-value method (sections 7–9), and finally tested what we found against market history and the companies' own disclosures (section 10). "
      "The main findings are:")
+# ---- professor review: lead with a clear, quantified view (rating, fair value, upside) ----
+_NMV = {"DLF": "DLF Ltd", "GPL": "Godrej Properties", "PML": "Phoenix Mills"}
+_PRAC = {"DLF": N["NAV"]["dlf_nav_ps"], "GPL": N["NAV"]["gpl_emb_ps"], "PML": N["NAV"]["pml_nav_ps"]}
+FV = {}
+for _c in ("DLF", "GPL", "PML"):
+    _dcf = (vA[_c] + vB[_c]) / 2
+    _pe = price[_c] * med[0] / RV[_NMV[_c]][12]
+    FV[_c] = {"dcf": _dcf, "pe": _pe, "prac": _PRAC[_c], "fv": 0.5 * _dcf + 0.25 * _pe + 0.25 * _PRAC[_c]}
+    FV[_c]["up"] = FV[_c]["fv"] / price[_c] - 1
+RATING = {"DLF": ("Neutral", "Reduce"), "GPL": ("Preferred", "Hold"), "PML": ("Least preferred", "Sell")}
+table(["Valuation summary (₹ per share, prices at 30-Oct-2026)", "DLF", "Godrej Properties", "Phoenix Mills"],
+      [["Relative preference / absolute view", *[f"{RATING[c][0]} / {RATING[c][1]}" for c in ("DLF", "GPL", "PML")]],
+       ["Share price", *[rs(price[c]) for c in ("DLF", "GPL", "PML")]],
+       ["DCF, average of the two cost-of-capital versions (50% weight)", *[rs(FV[c]["dcf"]) for c in ("DLF", "GPL", "PML")]],
+       ["Value at peer-median P/E (25%)", *[rs(FV[c]["pe"]) for c in ("DLF", "GPL", "PML")]],
+       ["Practitioner value: NAV (DLF, Phoenix) / 12x embedded profit (Godrej) (25%)", *[rs(FV[c]["prac"]) for c in ("DLF", "GPL", "PML")]],
+       ["Weighted fair value", *[rs(FV[c]["fv"]) for c in ("DLF", "GPL", "PML")]],
+       ["Upside / (downside) to price", *[pc(FV[c]["up"], 0) for c in ("DLF", "GPL", "PML")]]],
+      [7.0, 3.2, 3.2, 3.2], "Weights: half on intrinsic value, because only cash flows can test whether the sector as a whole is overpriced; a quarter each on peers and on "
+      "the practitioner method, because they show what the market and the sell-side currently pay for. Ratings: 'Hold' where fair value is within 15% of price, 'Reduce' 15–50% below, 'Sell' more than 50% below.", size=8.5)
+
 bullets([
     ("The reported numbers flatter in different ways.", f"For DLF, {pc(D['JV/associate share of PAT'][3],0)} of FY26 profit is its share of joint-venture income, mainly the DCCDL rental platform, and treasury income adds a large slice; core development EBIT was {cr(D['RC Core operating EBIT'][3])}. "
      f"Godrej's core operations lost money ({cr(G['RC Core operating EBIT'][3])} before tax) while it capitalised {cr(G['RC Interest capitalised (cash paid − P&L cost)'][3])} of interest into inventory. Phoenix is the only one whose profit is genuinely operating."),
@@ -328,6 +349,17 @@ para(f"Sensitivity grids move DLF between {rs(D['gridA_min'])} and {rs(D['gridA_
      "(nominal growth slowed to 8–8.5% in FY26 on low inflation), but it "
      "abandons the textbook discipline that terminal growth should not exceed the risk-free rate, and it leaves little margin of safety: the spread between the stable "
      f"discount rate and the implied growth is only {(D['DCF stableWACC']-imp['DLF']['terminal_g'])*100:.1f}, {(G['DCF stableWACC']-imp['GPL']['terminal_g'])*100:.1f} and {(P['DCF stableWACC']-imp['PML']['terminal_g'])*100:.1f} percentage points (H1).")
+doc.add_heading("How sensitive is value to the long-run assumptions?", 2)
+_rows = []
+for _c, _n in [("DLF", "DLF"), ("GPL", "Godrej"), ("PML", "Phoenix")]:
+    _gr = imp[_c]["terminal_grid"]
+    for _w in sorted(_gr, key=float):
+        _base = abs(float(_w) - imp[_c]["stable_wacc"]) < 1e-9 or _w not in ("0.0900", "0.1000", "0.1100", "0.1200")
+        _rows.append([f"{_n} · stable cost of capital {float(_w):.1%}" + (" (base)" if _base else ""),
+                      *[("—" if _gr[_w][g] is None else f"{_gr[_w][g]:,.0f}") for g in ("0.055", "0.065", "0.075", "0.085")], rs(price[_c])])
+table(["₹ per share", "g = 5.5%", "6.5%", "7.5%", "8.5%", "Price"], _rows, [6.6, 2.0, 2.0, 2.0, 2.0, 2.0],
+      "Terminal growth (columns) against the cost of capital in the stable phase (rows); '—' where growth would equal or exceed the discount rate. "
+      "Even at 8.5% growth for ever and a 9% stable cost of capital, no cell reaches today's price for DLF or Phoenix.", size=7.5)
 doc.add_heading("Scenarios and simulation", 2)
 table(["₹ per share", "Bear", "Base", "Bull", "Bull + lens B", "Price"],
       [[n, *[f"{scn[c][k]:,.0f}" for k in ("bear", "base", "bull", "bull_lensB", "price")]] for n, c in [("DLF", "DLF"), ("Godrej Properties", "GPL"), ("Phoenix Mills", "PML")]],
@@ -477,6 +509,13 @@ callout("Recommendation (relative, within the sector)", [
     f"Godrej Properties: preferred. Multiples slightly below the peer median and the lowest of our three; the highest chance in our simulation of value exceeding price; valued above price on 12x embedded profit. Watch: collections vs ₹24,000 cr guidance, land spend, net debt.",
     f"DLF: neutral. Best balance sheet and a rental platform worth roughly its book value; fully priced for long-run growth. Watch: luxury demand, DCCDL monetisation.",
     f"Phoenix Mills: least preferred. Excellent assets priced at a {pc(CAP['yield'])} yield. Watch: rental growth on new malls, consumption, minority leakage."])
+doc.add_heading("Catalysts and risks to our view", 2)
+table(["", "Upside triggers (would make us more positive)", "Downside risks (would make us more negative)"],
+      [["DLF", "Sale or listing of part of DCCDL at a cap rate near 7%; second-half FY27 launches selling out at guided prices; release of RERA escrow cash", "Luxury demand in Gurugram slowing; launches slipping further (H1 FY27 at 45% of pro-rata guidance); higher rates compressing rental values"],
+       ["Godrej Properties", "Collections catching up with bookings (H2 FY27 target ₹15,000 cr); margins on new projects moving towards 22%; fewer, larger land purchases", "Net debt rising as land buying continues; bookings not converting to cash; another equity raise near the price lows"],
+       ["Phoenix Mills", "Kolkata and Surat malls opening on time (FY28); office occupancy rising from 70%; REIT listing of retail assets at a mall-REIT yield", "Consumption slowing; renewals below the guided ~20% uplift; minority buy-outs at prices above intrinsic value"],
+       ["Sector", "Rate cuts and lower bond yields; continued consolidation towards listed developers", "RBI tightening (repo 5.50% from October 2026); unsold inventory rising again (≈19 months in Q2 2026); credit stress among smaller developers"]],
+      [2.6, 6.9, 6.9], size=8)
 doc.add_heading("Limitations", 2)
 bullets(["Four years of statements from one aggregated source, plus prices from 2007. DLF and Godrej tie to their audited FY26 annual reports; Phoenix's "
          "filings could not be retrieved, and some operating KPIs and broker views come from press reports of results and broker notes.",
