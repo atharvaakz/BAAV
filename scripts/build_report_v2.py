@@ -40,7 +40,7 @@ cover(title="Paying for the Future",
             ["Price (₹)", rs(price['DLF']), rs(price['GPL']), rs(price['PML'])],
             ["DCF value, base / industry beta (₹)", f"{vA['DLF']:,.0f} / {vB['DLF']:,.0f}", f"{vA['GPL']:,.0f} / {vB['GPL']:,.0f}", f"{vA['PML']:,.0f} / {vB['PML']:,.0f}"],
             ["Perpetual growth the price implies", pc(imp['DLF']['terminal_g']), pc(imp['GPL']['terminal_g']), pc(imp['PML']['terminal_g'])],
-            ["Versus peers (P/E, P/B)", "Above median, inside IQR", "At the median", "Top of the range"]],
+            ["Versus peers (P/E, P/B)", "Above median, inside IQR", "Slightly below the median", "Top of the range"]],
       authors="Group 27 · Saatvik Nagpal · Atharvaa Khanzode",
       submitted="Submitted to Prof. Mohit Kumar · BITS Pilani, K K Birla Goa Campus",
       note=f"Pricing date {I['Valuation date']}. Financial statements FY23–FY26 and Q1–Q2 FY27; market data from 2007. ₹ crore unless stated. "
@@ -68,7 +68,7 @@ bullets([
      "The market is pricing these firms as perpetual claims on Indian growth."),
     ("The practitioner view agrees on the ranking.", f"Rebuilding the sell-side's NAV method from company disclosures, DLF's identifiable assets are worth {rs(N['NAV']['dlf_nav_ps'])} a share, close to our DCF, so {pc(N['NAV']['dlf_land']/N['NAV']['dlf_mcap'],0)} of its market value is land beyond the visible pipeline. "
      f"Phoenix trades at {pc(N['NAV']['pml_prem'],0)} above our sum-of-the-parts NAV. Godrej is the one stock a practitioner multiple values above its price ({rs(N['NAV']['gpl_emb_ps'])} on 12x embedded profit; broker consensus about ₹2,300)."),
-    ("Against peers, the ranking is clear.", f"Godrej sits at the peer median, the cheapest of our three, at {xx(RV['Godrej Properties'][12])} earnings and {xx(RV['Godrej Properties'][13],2)} book; DLF at {xx(RV['DLF Ltd'][12])} and {xx(RV['DLF Ltd'][13],2)}; Phoenix at {xx(RV['Phoenix Mills'][12])} and {xx(RV['Phoenix Mills'][13],2)}. Peer medians are of {xx(med[0])} and {xx(med[1],2)} across {N['n_peers']} listed developers. "
+    ("Against peers, the ranking is clear.", f"Godrej sits slightly below the peer median, the cheapest of our three, at {xx(RV['Godrej Properties'][12])} earnings and {xx(RV['Godrej Properties'][13],2)} book; DLF at {xx(RV['DLF Ltd'][12])} and {xx(RV['DLF Ltd'][13],2)}; Phoenix at {xx(RV['Phoenix Mills'][12])} and {xx(RV['Phoenix Mills'][13],2)}. Peer medians are {xx(med[0])} and {xx(med[1],2)} across {N['n_peers']} listed developers. "
      f"DLF sits above the median but inside the inter-quartile range; Phoenix has the highest P/B in the set. Phoenix's EBITDA yield of {pc(CAP['yield'])} is less than half the {pc(CAP['reit_median'])} cash yield on listed REITs."),
 ])
 callout("Our view", [f"1. Godrej Properties: the cheapest of the three relative to peers and the only one the practitioner method values above price; the risk is that land buying keeps statutory cash flow negative.",
@@ -416,7 +416,7 @@ para(f"Phoenix's call supports our forecast: retail rental growth guided at 14�
      "and they explain DCCDL's 98–99% non-SEZ occupancy. Godrej's FY26 BRSR is the contrast: women are 38% of permanent staff (DLF 10%), renewables 33% of energy (15% a year earlier), zero lost-time injuries. Its reporting boundary covers only its own sites and excludes contractors, so the energy totals cannot be compared with DLF's. Phoenix's filings could not be retrieved; we did not use second-hand ESG figures for it.")
 fig("practitioner_vs_textbook", "Figure 18 — Textbook DCF, practitioner NAV, broker targets and price.", 12.5)
 bk_ = {r[0]: r for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
-para(f"The sell-side sits close to the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "
+para(f"The sell-side sits above the market: median targets are {rs(bk_['DLF Ltd'][1])} for DLF, {rs(bk_['Godrej Properties'][1])} for Godrej and {rs(bk_['Phoenix Mills'][1])} for Phoenix, against prices of "
      f"{rs(price['DLF'])}, {rs(price['GPL'])} and {rs(price['PML'])}. The difference from our DCF is not arithmetic; it is the required return (asset-level 11.75–12% and cap rates of 6.5–8%, "
      "against CAPM rates of 13–15%) and the willingness to pay for land and growth beyond any explicit forecast. Brokers and our model agree on the ranking: "
      "Godrej offers the most upside, DLF is roughly fair, Phoenix is fully priced (H9).")
@@ -474,7 +474,7 @@ para("The methods disagree, and the disagreement is the finding. Relative valuat
      "India's economy for ever; that the right long-run cost of equity for Indian real estate is close to the government bond yield; or that land banks hold option "
      "value our cash-flow model does not capture. Each is defensible for some investors. None is a margin of safety.")
 callout("Recommendation (relative, within the sector)", [
-    f"Godrej Properties: preferred. Multiples at the peer median and the lowest of our three; the highest chance in our simulation of value exceeding price; valued above price on 12x embedded profit. Watch: collections vs ₹24,000 cr guidance, land spend, net debt.",
+    f"Godrej Properties: preferred. Multiples slightly below the peer median and the lowest of our three; the highest chance in our simulation of value exceeding price; valued above price on 12x embedded profit. Watch: collections vs ₹24,000 cr guidance, land spend, net debt.",
     f"DLF: neutral. Best balance sheet and a rental platform worth roughly its book value; fully priced for long-run growth. Watch: luxury demand, DCCDL monetisation.",
     f"Phoenix Mills: least preferred. Excellent assets priced at a {pc(CAP['yield'])} yield. Watch: rental growth on new malls, consumption, minority leakage."])
 doc.add_heading("Limitations", 2)

@@ -227,18 +227,18 @@ story(s, "We built a ten-year cash-flow model for each company, where growth has
       f"In 10,000 simulations, value beats price {pc(MC['GPL']['A']['prob_above_price'],0)} of the time for Godrej and almost never for the other two.")
 source(s, "Free cash flow to the firm; 5 explicit + 5 fade years; beta moves to 1 in the stable phase; mid-year discounting. Model assumptions and the Monte Carlo are in the backup section.")
 notes(s, "Step five valued the companies, first with a discounted cash-flow model. We made growth pay for itself: to grow revenue, a company has to reinvest. "
-         "Our values sit well below the share prices. Rather than stop there, we asked what the price is assuming. Running the model backwards, the prices need cash flows to grow 10 to 12 percent a year for ever, "
+         "Our values sit well below the share prices. Rather than stop there, we asked what the price is assuming. Running the model backwards, the prices need cash flows to grow 9 to 12 percent a year for ever, "
          "roughly India's nominal growth rate. We allow 5.5 percent. That is the central finding of the project. We also stress-tested the model with bear and bull cases and ten thousand simulations; even the bull case does not reach the price for DLF or Phoenix.")
 
 # ===================================================================== 10 STEP 5b — CROSS-CHECKS
 s = slide("Step 5: peers, the brokers' NAV method and our DCF agree on the ranking", 5, "RelVal, NAV_SOTP, Broker_Views, CapRates")
 pic(s, "practitioner_vs_textbook", 0.6, 1.75, w=8.05)
 story(s, "We compared each company with ten listed peers on P/E and P/B, rebuilt the brokers' net-asset-value method from company disclosures, and collected broker targets.",
-      f"Godrej trades at the peer median; Phoenix at the top of the range. On the NAV method DLF's identifiable assets are worth {rs(NAV['dlf_nav_ps'])} a share; "
-      f"the rest of the price is the market's value for its land. Broker targets cluster near the prices.",
+      f"Godrej trades slightly below the peer median; Phoenix at the top of the range. On the NAV method DLF's identifiable assets are worth {rs(NAV['dlf_nav_ps'])} a share; "
+      f"the rest of the price is the market's value for its land. Broker targets sit 10–50% above the prices.",
       "Brokers get closer to the price by using lower discount rates and paying for land and growth.")
 source(s, f"Peer median P/E {med[0]:.0f}x, P/B {med[1]:.1f}x. NAV: DCCDL at a 7.5% cap rate, pipeline margin, net cash. Broker medians: DLF ₹{BKMED['DLF Ltd']:,.0f}, Godrej ₹{BKMED['Godrej Properties']:,.0f}, Phoenix ₹{BKMED['Phoenix Mills']:,.0f}.")
-notes(s, "We then checked the DCF two other ways. Against ten listed peers, Godrej sits at the median and Phoenix at the top. We also rebuilt the net-asset-value method that brokers use. "
+notes(s, "We then checked the DCF two other ways. Against ten listed peers, Godrej sits just below the median and Phoenix at the top. We also rebuilt the net-asset-value method that brokers use. "
          "It gets closer to the price only by using lower discount rates and by giving value to land beyond any visible project pipeline. All three methods rank the companies the same way.")
 
 # ===================================================================== 11 STEP 6 — THROUGH TIME
@@ -259,7 +259,7 @@ s = slide("What we concluded: Godrej preferred, DLF neutral, Phoenix least prefe
 pic(s, "conclusion_methods", 0.6, 1.8, w=8.05)
 story(s, "We put the main methods side by side, each shown as a percentage of today's share price: two DCF versions, peer multiples, the brokers' NAV method and broker targets.",
       "No DCF reaches today's prices; broker targets do, and so does the NAV method for Godrej. Godrej comes closest on every method. DLF has the strongest balance sheet but is priced for long-run growth. "
-      "Phoenix owns excellent malls at a 2.6% yield and is the most fully priced.",
+      "Phoenix owns excellent malls at a 3% yield and is the most fully priced.",
       "To own these shares you must believe they grow with India for ever, or that the right discount rate is close to the bond yield.")
 source(s, "Ranking from relative valuation, simulation odds and the practitioner cross-check; intrinsic values under both cost-of-capital versions in the backup section.")
 notes(s, "This chart brings every method together. The methods disagree, and the disagreement is informative: comparing with peers cannot see a sector-wide premium, because the peers are expensive too, "

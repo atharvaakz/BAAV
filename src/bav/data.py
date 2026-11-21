@@ -80,7 +80,7 @@ def load(company: str, years=(2023, 2024, 2025, 2026)) -> pd.DataFrame:
 
 def fy_end_prices(company: str) -> pd.Series:
     px = pd.read_csv(RAW / company / "px_monthly.csv", index_col=0)
-    px.index = pd.to_datetime(px.index, utc=True).tz_convert(None)
+    px.index = pd.to_datetime(px.index, utc=True).tz_convert("Asia/Kolkata").tz_localize(None)
     m = px[px.index.month == 3]["Close"]
     m.index = m.index.year
     return m
@@ -88,7 +88,7 @@ def fy_end_prices(company: str) -> pd.Series:
 
 def last_price(company: str):
     px = pd.read_csv(RAW / company / "px_daily.csv", index_col=0)
-    px.index = pd.to_datetime(px.index, utc=True).tz_convert(None)
+    px.index = pd.to_datetime(px.index, utc=True).tz_convert("Asia/Kolkata").tz_localize(None)
     c = px["Close"].dropna()
     return c.index[-1].date(), float(c.iloc[-1]), float(c.iloc[-126:].mean())
 

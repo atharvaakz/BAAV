@@ -2,6 +2,7 @@
 # Rebuild every deliverable from raw data, in dependency order.
 set -e
 cd "$(dirname "$0")/.."
+python3 -W ignore scripts/apply_cutoff.py              # data cutoff: nothing after 31-Oct-2026
 python3 -W ignore src/bav/data.py >/dev/null          # standardise raw statements
 python3 -W ignore scripts/events.py >/dev/null       # event studies, survivorship, REIT spread, issuance timing
 python3 -W ignore scripts/build_model.py              # workbook (formulas)
@@ -20,4 +21,5 @@ python3 -W ignore scripts/build_deck_v3.py
 python3 -W ignore scripts/build_viva.py
 python3 -W ignore scripts/build_script.py
 (cd reports && for f in ProjectBaav_Group27_Presentation.pptx Viva_Prep_Pack.docx Presenter_Script.docx; do soffice --headless --convert-to pdf "$f" >/dev/null 2>&1; done)
+python3 -W ignore scripts/check_cutoff.py
 pdfinfo reports/ProjectBaav_Group27_Report.pdf | grep Pages

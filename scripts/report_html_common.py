@@ -152,7 +152,7 @@ def cover(title, subtitle, kicker, headers, rows, authors, submitted, note):
     tr = "".join("<tr>" + "".join(f'<td class="{"n" if i else ""}">{esc(v)}</td>' for i, v in enumerate(r)) + "</tr>" for r in rows)
     doc.add(f"""<section class="cover">
 <div class="cbar"></div>
-<div class="ctop"><span>ECON F355 · Business Analysis &amp; Valuation</span><span>Sector report · November 2026</span></div>
+<div class="ctop"><span>ECON F355 · Business Analysis &amp; Valuation</span><span>Sector report · October 2026</span></div>
 <div class="cmain">
   <div class="ckicker">DLF · Godrej Properties · Phoenix Mills</div>
   <div class="ctitle1">{esc(title)}</div>

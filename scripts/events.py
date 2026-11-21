@@ -138,8 +138,10 @@ def earnings(tk, s):
         day = ist.normalize().tz_localize(None)
         if ist.hour * 60 + ist.minute >= 15 * 60 + 30:  # after the close: reaction is next trading day
             day = day + pd.Timedelta(days=1)
+        if day > pd.Timestamp("2026-10-31"):
+            continue  # data cutoff: reaction falls after 31-Oct-2026
         es = event_study(s, day)
-        if es and es["ann"] is not None:
+        if es and es["ann"] is not None and pd.Timestamp(es["date0"]) <= pd.Timestamp("2026-10-31"):
             rows.append({"co": s, "date": str(day.date()), "surprise": float(r["Surprise(%)"]) if pd.notna(r["Surprise(%)"]) else None,
                          "car01": es["w5"], "ann": es["ann"], "ann_t": es["ann_t"]})
     return rows
@@ -295,7 +297,7 @@ DD = {s: drawdowns(CLOSE[s]) for s in ["DLF", "GPL", "PML", "REALTY"]}
 AMI = {}
 for s in ["DLF", "GPL", "PML", "OBEROI", "PRESTIGE", "SOBHA", "BRIGADE", "LODHA", "EMBASSY", "NEXUS"]:
     d = P[s]
-    d = d[d.index >= "2025-11-01"]
+    d = d[(d.index >= "2025-11-01") & (d.index <= "2026-10-31")]
     val = (d["Close"] * d["Volume"]) / 1e7  # ₹ crore traded
     ami = (d["Close"].pct_change().abs() / val.replace(0, np.nan)).mean() * 1e3
     AMI[s] = {"adv_cr": float(val.mean()), "amihud": float(ami)}

@@ -822,7 +822,7 @@ for i, (lab, v, fmt, s_) in enumerate(MCX):
     r_ = 5 + i
     put(mcx, r_, 1, lab); put(mcx, r_, 2, v, fmt, F_IN if not isinstance(v, str) else F_N, FILL_IN if not isinstance(v, str) else None); put(mcx, r_, 3, s_, font=F_NOTE)
 note(mcx, 19, "Late-cycle signals: sales volumes flat, inventory and launches rising, prices still up, and policy rates turning higher.")
-note(mcx, 20, "Implied perpetual growth of 10–12% (Scenarios_Implied) sits at or above projected nominal GDP growth — little room for a slowdown.")
+note(mcx, 20, "Implied perpetual growth of 9–12% (Scenarios_Implied) sits at or above projected nominal GDP growth — little room for a slowdown.")
 
 # NAV_SOTP additions: DLF embedded margin on sold units (upper-bound reconciling item) and Godrej sensitivity grid
 put(nv, 26, 1, "Memo: gross margin still to be recognised on units already sold (management)", font=F_N); put(nv, 26, 2, 24500, NUM, F_IN, FILL_IN)

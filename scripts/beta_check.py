@@ -1,7 +1,7 @@
 import pandas as pd, numpy as np, pathlib
 RAW = pathlib.Path(__file__).resolve().parents[1]/"data"/"raw"
 def px(c, f):
-    d = pd.read_csv(RAW/c/f, index_col=0); d.index = pd.to_datetime(d.index, utc=True).tz_convert(None)
+    d = pd.read_csv(RAW/c/f, index_col=0); d.index = pd.to_datetime(d.index, utc=True).tz_convert("Asia/Kolkata").tz_localize(None)
     return d["Close"].dropna()
 cos = ["DLF","GODREJPROP","PHOENIXLTD","OBEROIRLTY","PRESTIGE","BRIGADE","SOBHA","LODHA","NIFTYREALTY"]
 for f, n, lab in [("px_monthly.csv", 61, "5y monthly"), ("px_weekly.csv", 157, "3y weekly")]:

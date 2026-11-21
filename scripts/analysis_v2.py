@@ -81,6 +81,7 @@ erp = dict(start=int(hist.index[0].year), end=int(hist.index[-1].year), n=len(hi
            geo_sensex_price=float((sx.iloc[-1] / sx.loc[sx.index.year == hist.index[0].year - 1].iloc[0]) ** (1 / len(hist)) - 1),
            avg_gsec=float(hist["g_sec_avg"].mean()), se_mean=float(hist["excess_price"].std() / np.sqrt(len(hist))))
 erp["geo_excess_total"] = erp["geo_sensex_price"] + DY - erp["avg_gsec"]
+hist.index = [min(i, pd.Timestamp("2026-10-31")) if hasattr(i, "year") else i for i in hist.index]
 hist.to_csv(OUT / "historical_erp.csv"); R["historical_erp"] = erp
 
 # B5 housing cycle (BIS residential property prices, India)

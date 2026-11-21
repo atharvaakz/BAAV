@@ -465,7 +465,7 @@ for co in TARGETS:
 # =====================================================================================
 def prices(tk, f):
     d = pd.read_csv(RAW / tk / f, index_col=0)
-    d.index = pd.to_datetime(d.index, utc=True).tz_convert(None)
+    d.index = pd.to_datetime(d.index, utc=True).tz_convert("Asia/Kolkata").tz_localize(None)
     return d["Close"].dropna()
 
 
