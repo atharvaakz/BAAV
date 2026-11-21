@@ -58,9 +58,14 @@ class _Doc:
 
     def save(self, _path=None):
         OUTDIR.mkdir(parents=True, exist_ok=True)
-        fu = (ROOT / "assets/fonts").as_uri()
-        css = (ROOT / "assets/fonts/source-serif-4.css").read_text().replace("url(ss4_", f"url({fu}/ss4_") + \
-              (ROOT / "assets/fonts/inter.css").read_text().replace("url(inter_", f"url({fu}/inter_")
+        fu = (ROOT / "assets/fonts/plex").as_uri()
+        faces = []
+        for fam, files in [("Plex Serif", [("IBMPlexSerif-Regular", 400, "normal"), ("IBMPlexSerif-Italic", 400, "italic"), ("IBMPlexSerif-Medium", 500, "normal"), ("IBMPlexSerif-SemiBold", 600, "normal")]),
+                           ("Plex Sans", [("IBMPlexSans-Regular", 400, "normal"), ("IBMPlexSans-Italic", 400, "italic"), ("IBMPlexSans-Medium", 500, "normal"), ("IBMPlexSans-SemiBold", 600, "normal"), ("IBMPlexSans-Bold", 700, "normal")]),
+                           ("Plex Mono", [("IBMPlexMono-Regular", 400, "normal"), ("IBMPlexMono-Medium", 500, "normal"), ("IBMPlexMono-SemiBold", 600, "normal")])]:
+            for f, w, st in files:
+                faces.append(f"@font-face{{font-family:'{fam}';src:url('{fu}/{f}.ttf') format('truetype');font-weight:{w};font-style:{st}}}")
+        css = "\n".join(faces)
         page = f"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>Paying for the Future</title>
 <style>{css}\n{CSS}</style></head><body>{''.join(self.parts)}</body></html>"""
         hp = OUTDIR / "ProjectBaav_Group27_Report.html"
@@ -150,19 +155,19 @@ def callout(title, lines, fill=None):
 def cover(title, subtitle, kicker, headers, rows, authors, submitted, note):
     th = "".join(f'<th class="{"n" if i else ""}">{esc(h)}</th>' for i, h in enumerate(headers))
     tr = "".join("<tr>" + "".join(f'<td class="{"n" if i else ""}">{esc(v)}</td>' for i, v in enumerate(r)) + "</tr>" for r in rows)
+    t1, t2 = (title.split(" ", 2)[0] + " " + title.split(" ", 2)[1], title.split(" ", 2)[2]) if title.count(" ") >= 2 else (title, "")
     doc.add(f"""<section class="cover">
-<div class="cbar"></div>
-<div class="ctop"><span>ECON F355 · Business Analysis &amp; Valuation</span><span>Sector report · October 2026</span></div>
-<div class="cmain">
-  <div class="ckicker">DLF · Godrej Properties · Phoenix Mills</div>
-  <div class="ctitle1">{esc(title)}</div>
-  <div class="csub">{esc(subtitle)}</div>
-  <div class="crule"></div>
-  <table class="t ctab"><colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table>
+<div class="cmeta"><span>ECON F355 / Business Analysis &amp; Valuation</span><span>Sector report / 31 October 2026</span></div>
+<div class="csq"></div>
+<div class="ctitle1">{esc(t1)}<br>{esc(t2)}</div>
+<div class="csub">{esc(subtitle)}</div>
+<div class="cgrid">
+  <div class="clab">At a glance</div>
+  <table class="t ctab"><colgroup><col style="width:28%"><col style="width:24%"><col style="width:24%"><col style="width:24%"></colgroup><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table>
 </div>
 <div class="cfoot">
-  <div class="cauth">{esc(authors)}</div>
-  <div class="csubm">{esc(submitted)}</div>
+  <div><div class="clab">Authors</div><div class="cauth">{esc(authors.replace("Group 27 · ", ""))}</div><div class="csubm">Group 27</div></div>
+  <div><div class="clab">Submitted to</div><div class="csubm">{esc(submitted.replace("Submitted to ", ""))}</div></div>
   <div class="cnote">{esc(note)}</div>
 </div>
 </section>""")
@@ -173,70 +178,67 @@ def references(refs):
 
 
 CSS = r"""
-:root{--ink:#1d262c;--acc:#24545a;--acc2:#3d7177;--mute:#6b767d;--rule:#c9cfd2;--hair:#e4e7e8;--tint:#f2f5f4}
-@page{size:A4;margin:24mm 21mm 20mm 21mm;
-  @top-left{content:"Paying for the Future";font:600 7pt InterW;color:#6b767d;letter-spacing:.08em;text-transform:uppercase;vertical-align:bottom;padding-bottom:3mm}
-  @top-right{content:"ECON F355 · Group 27";font:500 7pt InterW;color:#6b767d;letter-spacing:.06em;vertical-align:bottom;padding-bottom:3mm}
-  @bottom-left{content:"Indian Real Estate · DLF · Godrej Properties · Phoenix Mills";font:400 6.8pt InterW;color:#8a949a}
-  @bottom-right{content:counter(page);font:600 7.5pt InterW;color:#1d262c}}
-@page cover{margin:0;@top-left{content:none;border:none}@top-right{content:none;border:none}@bottom-left{content:none}@bottom-right{content:none}}
+:root{--ink:#111418;--sig:#D9481C;--navy:#1F3A5F;--mute:#6E737A;--rule:#D6D8DB;--hair:#E6E7E9;--paper:#F4F5F6}
+@page{size:A4;margin:21mm 17mm 17mm 17mm;
+  @top-left{content:"Paying for the Future";font:500 7.2pt "Plex Mono";color:#111418;vertical-align:bottom;padding-bottom:3mm}
+  @top-right{content:"Indian Real Estate / Group 27";font:400 7.2pt "Plex Mono";color:#6E737A;vertical-align:bottom;padding-bottom:3mm}
+  @bottom-left{content:"DLF · Godrej Properties · Phoenix Mills";font:400 6.8pt "Plex Sans";color:#8b9096}
+  @bottom-right{content:counter(page);font-family:"Plex Mono",monospace;font-size:8pt;font-weight:500;color:#D9481C}}
+@page cover{margin:0;@top-left{content:none}@top-right{content:none}@bottom-left{content:none}@bottom-right{content:none}}
 html{counter-reset:page -1}
-body{margin:0;font-family:"Source Serif 4",Georgia,serif;font-size:9.8pt;line-height:1.45;color:var(--ink);font-optical-sizing:auto;
-  text-rendering:optimizeLegibility;font-variant-numeric:lining-nums proportional-nums;hyphens:auto;-webkit-hyphens:auto}
-p{margin:0 0 6pt;text-align:justify;orphans:3;widows:3}
-p.small{font-size:8.6pt;color:#3c474e}
+body{margin:0;font-family:"Plex Serif",Georgia,serif;font-size:9.25pt;line-height:1.43;color:var(--ink);hyphens:auto;-webkit-hyphens:auto;font-variant-numeric:lining-nums}
+p{margin:0 0 5.5pt;text-align:justify;orphans:3;widows:3}
+p.small{font-size:8.5pt;color:#333a40}
 p.it{font-style:italic}
-.runin{font-family:InterW,sans-serif;font-weight:600;font-size:8.6pt;letter-spacing:.01em;color:var(--acc)}
+.runin{font-family:"Plex Sans",sans-serif;font-weight:600;font-size:9pt;color:var(--ink)}
 b,strong{font-weight:600}
-h1{font-family:InterW,sans-serif;font-weight:600;font-size:14.5pt;letter-spacing:-.01em;color:var(--ink);margin:20pt 0 3pt;padding-top:7pt;
-  border-top:1.1pt solid var(--ink);break-after:avoid;page-break-after:avoid;line-height:1.2}
-h1 .num{color:var(--acc);margin-right:9pt;font-weight:700}
-h1.plain{font-size:14.5pt}
-h3{font-family:InterW,sans-serif;font-weight:600;font-size:10pt;color:var(--acc);margin:12pt 0 4pt;break-after:avoid;page-break-after:avoid}
-h4{font-family:InterW,sans-serif;font-weight:600;font-size:9pt;margin:9pt 0 3pt;break-after:avoid}
-.tag{font-family:InterW,sans-serif;font-size:6.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 7pt;break-after:avoid}
-.bridge{font-style:italic;font-size:9.3pt;color:#33444a;border-left:2pt solid var(--acc2);padding:1pt 0 1pt 9pt;margin:0 0 9pt;text-align:left;break-after:avoid}
-ul{margin:2pt 0 8pt;padding-left:13pt}
-ul li{margin:0 0 3.5pt;text-align:justify;padding-left:2pt}
-ul li::marker{color:var(--acc);content:"▪  ";font-size:8pt}
-.tbl{margin:6pt 0 10pt;break-inside:avoid;page-break-inside:avoid}
-.tbl.long{break-inside:auto;page-break-inside:auto}
+h1{font-family:"Plex Sans",sans-serif;font-weight:500;font-size:15pt;letter-spacing:-.005em;color:var(--ink);margin:16pt 0 3pt;padding-top:6pt;border-top:1.5pt solid var(--ink);break-after:avoid;line-height:1.15}
+h1 .num{font-family:"Plex Mono",monospace;font-weight:500;color:var(--sig);font-size:11pt;display:block;margin-bottom:3pt}
+h3{font-family:"Plex Sans",sans-serif;font-weight:600;font-size:10pt;color:var(--ink);margin:13pt 0 4pt;break-after:avoid}
+h3::before{content:"";display:inline-block;width:6pt;height:6pt;background:var(--sig);margin-right:6pt;vertical-align:1pt}
+h4{font-family:"Plex Sans",sans-serif;font-weight:600;font-size:9pt;margin:9pt 0 3pt;break-after:avoid}
+.tag{font-family:"Plex Mono",monospace;font-size:7pt;color:var(--mute);margin:0 0 8pt;break-after:avoid}
+.bridge{font-family:"Plex Sans",sans-serif;font-size:8.8pt;line-height:1.45;color:#2b3137;margin:0 0 10pt;padding:5pt 0 6pt;border-top:.5pt solid var(--rule);border-bottom:.5pt solid var(--rule);text-align:left;break-after:avoid}
+.bridge::before{content:"Approach — ";font-family:"Plex Mono",monospace;font-size:7.5pt;color:var(--sig)}
+ul{margin:2pt 0 8pt;padding-left:12pt;list-style:none}
+ul li{margin:0 0 4pt;text-align:justify;position:relative}
+ul li::before{content:"";position:absolute;left:-11pt;top:5pt;width:5pt;height:1.2pt;background:var(--ink)}
+.tbl{margin:7pt 0 11pt;break-inside:avoid}
+.tbl.long{break-inside:auto}
 table.t thead{display:table-header-group}
 table.t tr{break-inside:avoid}
-table.t{width:100%;border-collapse:collapse;font-family:InterW,sans-serif;font-size:7.7pt;line-height:1.3;font-variant-numeric:tabular-nums lining-nums;
-  border-top:1.1pt solid var(--ink);border-bottom:1.1pt solid var(--ink)}
-table.t.sm{font-size:7.2pt}
-table.t th{font-weight:600;font-size:6.9pt;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);text-align:left;padding:4pt 5pt 3.5pt;border-bottom:.6pt solid var(--ink);vertical-align:bottom}
+table.t{width:100%;border-collapse:collapse;font-family:"Plex Sans",sans-serif;font-size:7.6pt;line-height:1.32;font-variant-numeric:tabular-nums lining-nums;border-top:1.5pt solid var(--ink);border-bottom:.8pt solid var(--ink)}
+table.t.sm{font-size:7.1pt}
+table.t th{font-family:"Plex Mono",monospace;font-weight:500;font-size:6.8pt;color:var(--mute);text-align:left;padding:4pt 5pt 4pt;border-bottom:.5pt solid var(--ink);vertical-align:bottom}
 table.t th.n{text-align:right}
-table.t td{letter-spacing:-.006em;padding:3pt 5pt;border-bottom:.35pt solid var(--hair);vertical-align:top;text-align:left}
-table.t td:first-child{font-weight:500;color:#26323a}
+table.t td{padding:3pt 5pt;border-bottom:.3pt solid var(--hair);vertical-align:top;text-align:left}
+table.t td:first-child{font-weight:500}
 table.t td.n{text-align:right;white-space:nowrap}
 table.t tbody tr:last-child td{border-bottom:none}
-.tnote{font-family:InterW,sans-serif;font-size:6.8pt;color:var(--mute);margin-top:3pt;line-height:1.35}
-figure{margin:8pt 0 11pt;text-align:center;break-inside:avoid;page-break-inside:avoid}
-figure img{display:block;margin:0 auto 4pt}
-figcaption{font-family:InterW,sans-serif;font-size:7.2pt;color:var(--mute);text-align:left;line-height:1.35;border-top:.35pt solid var(--hair);padding-top:3pt}
-figcaption b{color:var(--ink)}
-.callout{background:var(--tint);border-left:2.5pt solid var(--acc);padding:8pt 11pt 4pt;margin:8pt 0 12pt;break-inside:avoid}
-.callout .ctitle{font-family:InterW,sans-serif;font-weight:700;font-size:7.4pt;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:5pt}
-.callout p{font-size:9.3pt;margin:0 0 4pt;text-align:left}
-ol.refs{font-size:8pt;line-height:1.38;padding-left:16pt;color:#2c373e}
+.tnote{font-family:"Plex Sans",sans-serif;font-size:6.8pt;color:var(--mute);margin-top:3pt;line-height:1.35}
+figure{margin:7pt 0 9pt;break-inside:avoid}
+figure img{display:block;margin:0 auto 5pt}
+figcaption{font-family:"Plex Sans",sans-serif;font-size:7.2pt;color:#3b4248;text-align:left;line-height:1.38}
+figcaption b{font-family:"Plex Mono",monospace;font-weight:500;color:var(--sig)}
+.callout{border-top:1.5pt solid var(--ink);border-bottom:.5pt solid var(--ink);padding:7pt 0 3pt;margin:9pt 0 13pt;break-inside:avoid}
+.callout .ctitle{font-family:"Plex Mono",monospace;font-weight:500;font-size:7.5pt;color:var(--sig);margin-bottom:5pt}
+.callout p{font-family:"Plex Sans",sans-serif;font-size:9pt;margin:0 0 4pt;text-align:left}
+ol.refs{font-family:"Plex Sans",sans-serif;font-size:7.6pt;line-height:1.4;padding-left:18pt;color:#2b3137}
 ol.refs li{margin-bottom:3pt}
-.pb{break-after:page;page-break-after:always}
-/* ---------- title page ---------- */
-section.cover{page:cover;position:relative;height:297mm;width:210mm;box-sizing:border-box;padding:0;break-after:page;overflow:hidden}
-.cbar{position:absolute;left:0;top:0;bottom:0;width:13mm;background:var(--acc)}
-.ctop{position:absolute;left:27mm;right:20mm;top:20mm;display:flex;justify-content:space-between;font-family:InterW,sans-serif;font-size:7pt;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-bottom:.5pt solid var(--rule);padding-bottom:4mm}
-.cmain{position:absolute;left:27mm;right:20mm;top:68mm}
-.ckicker{font-family:InterW,sans-serif;font-size:8pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:7mm}
-.ctitle1{font-family:"Source Serif 4",serif;font-weight:600;font-size:48pt;line-height:1.02;letter-spacing:-.015em;color:var(--ink);font-optical-sizing:auto}
-.csub{font-family:"Source Serif 4",serif;font-style:italic;font-size:15pt;line-height:1.3;color:#3b4a51;margin-top:6mm;max-width:150mm}
-.crule{width:22mm;height:1.6pt;background:var(--acc);margin:14mm 0 9mm}
-table.ctab{font-size:8pt}
-table.ctab td{padding:4pt 5pt}
-.cfoot{position:absolute;left:27mm;right:20mm;bottom:20mm;border-top:.5pt solid var(--rule);padding-top:5mm;font-family:InterW,sans-serif}
-.cauth{font-size:9.5pt;font-weight:600;color:var(--ink);margin-bottom:1.5mm}
-.csubm{font-size:8.5pt;color:#3b4a51;margin-bottom:4mm}
-.cnote{font-size:7pt;color:var(--mute);line-height:1.4;max-width:150mm}
+ol.refs li::marker{font-family:"Plex Mono",monospace;color:var(--sig)}
+.pb{break-after:page}
+/* ---------- title page: Swiss grid ---------- */
+section.cover{page:cover;position:relative;height:297mm;width:210mm;box-sizing:border-box;break-after:page;overflow:hidden;font-family:"Plex Sans",sans-serif}
+.cmeta{position:absolute;left:20mm;right:20mm;top:16mm;display:flex;justify-content:space-between;font-family:"Plex Mono",monospace;font-size:7.6pt;color:var(--ink);border-bottom:1.2pt solid var(--ink);padding-bottom:3mm}
+.csq{position:absolute;left:20mm;top:52mm;width:11mm;height:11mm;background:var(--sig)}
+.ctitle1{position:absolute;left:20mm;right:20mm;top:70mm;font-family:"Plex Sans",sans-serif;font-weight:500;font-size:60pt;line-height:.98;letter-spacing:-.025em;color:var(--ink)}
+.csub{position:absolute;left:20mm;width:125mm;top:128mm;font-family:"Plex Serif",serif;font-size:14.5pt;line-height:1.35;color:var(--ink)}
+.cgrid{position:absolute;left:20mm;right:20mm;top:160mm}
+.clab{font-family:"Plex Mono",monospace;font-size:7.2pt;color:var(--sig);margin-bottom:2.5mm}
+table.ctab{font-size:7.8pt}
+table.ctab td{padding:3.6pt 5pt}
+.cfoot{position:absolute;left:20mm;right:20mm;bottom:16mm;border-top:.6pt solid var(--ink);padding-top:4mm;display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:7mm}
+.cauth{font-size:9pt;font-weight:600;color:var(--ink);margin-bottom:1mm}
+.csubm{font-size:8pt;color:#2b3137;line-height:1.4}
+.cnote{font-size:6.8pt;color:var(--mute);line-height:1.45;padding-top:4.5mm}
 """

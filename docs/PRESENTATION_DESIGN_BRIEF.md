@@ -43,3 +43,17 @@ What the research says makes slides work, and how each point is applied in `scri
 ## Sources consulted
 
 Garner & Alley (IJEE 2013; ASEE 2011, 2013) · Mayer's principles (Dartmouth, UNH, Notre Dame, OSU summaries) · Sweller on split attention (press accounts; UCSD guide) · Knaflic and Ajani et al. 2021 (Northwestern) · Tableau "Where are your eyes drawn?" · Minto / Pyramid Principle (think-cell, Deckary) · Duarte, *Resonate* · Tufte (Wikipedia, IEEE Spectrum, Georgia Tech notes) · Reynolds, *Presentation Zen* (O'Reilly, IEEE ProComm) · Schwabish (PolicyViz) · PolicyViz, Flourish, Datawrapper, think-cell on labelling · ONS, Datawrapper, Konstanz on colour · Practical Typography, Macmillan Speaker's Guide on type · Williams CRAP (UW–Madison Design Lab) · CFA Research Challenge guides, Darden, McGill, Mergers & Inquisitions · Times Higher Education, MIT CommLab, Northwestern, AJE, r/AskAcademia on academic talks · Hamilton, UNSW, RMIT, Portsmouth on signposting · PsyPost on eye-tracking highlighting · Nulab, Creately, ConceptDraw on flowcharts.
+
+## 5. Visual identity (v4): avoiding the generic "AI" look
+
+Research on what makes AI-made design recognisable (Anthropic's frontend-aesthetics guidance; DEV/UX Collective/Creative Bloq articles; anti-slop checklists) points to defaults: Inter, purple gradients, and — once told to avoid those — warm cream backgrounds with a terracotta/teal accent and serif display headings, letter-spaced all-caps labels, cards with a coloured left border, tinted panels. Our v3 deck and report used most of these.
+
+The fix is a concept-level choice, applied consistently, not a swap of one default for another:
+
+- **Concept:** Swiss / International Typographic Style — white page, strict grid, flush-left type, black hairline rules, one signal colour.
+- **Type:** IBM Plex superfamily — Plex Sans for headings and tables, Plex Serif for report body, Plex Mono for numbering, labels and table headers (a "data desk" voice). No Inter, no letter-spaced capitals.
+- **Colour:** ink #111418 on white; signal vermilion #D9481C (also Godrej, our preferred stock); DLF deep navy #1F3A5F; Phoenix blue-grey #8E9AAF. No gradients, no tints behind text.
+- **Devices:** numbered mono labels (01, 02 …), a hairline step indicator, rules instead of boxes, small square markers, native flowcharts and a mind map drawn as shapes, not images.
+- **Diagrams added to the deck:** mind map of value drivers (slide 3), numbered six-step flowchart (slide 4), accounting-recast flow (step 2), cost-of-capital build-up flow (step 4), DCF mechanics flow (step 5).
+
+Note: the .pptx uses IBM Plex. Present from the PDF, or install IBM Plex (free, Google Fonts / github.com/IBM/plex) on the presenting computer.

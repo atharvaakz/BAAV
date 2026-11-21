@@ -14,25 +14,35 @@ price = {c: N[c]["DCF"]["Current market price (Rs)"] for c in ("DLF", "GPL", "PM
 vA = {c: N[c]["DCF"]["Intrinsic value per share (Rs)"] for c in ("DLF", "GPL", "PML")}
 vB = {c: N[c]["lensB"]["vps"] for c in ("DLF", "GPL", "PML")}
 BKMED = {r[0]: r[1] for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
-COL = {"DLF": ACC, "GPL": OCH, "PML": RUST}
-LIGHT, PANEL = "E4E8E6", "FFFFFF"
+COL = {"DLF": NAVY, "GPL": ACC, "PML": RUST}
 cr = lambda x: f"₹{x:,.0f} cr"
 GLO = min(imp[c]["terminal_g"] for c in ("DLF", "GPL", "PML")); GHI = max(imp[c]["terminal_g"] for c in ("DLF", "GPL", "PML"))
 OUT = ROOT / "reports/ProjectBaav_Group27_Presentation.pptx"
+from pptx.oxml.ns import qn as _qn
+from lxml import etree as _et
 
-STEPS = [("1", "Understand the business"), ("2", "Clean the accounts"), ("3", "Measure performance"),
-         ("4", "Set the hurdle rate"), ("5", "Value it three ways"), ("6", "Test it through time")]
+STEPS = [("01", "Understand the business"), ("02", "Clean the accounts"), ("03", "Measure performance"),
+         ("04", "Set the hurdle rate"), ("05", "Value it three ways"), ("06", "Test it through time")]
+GRID_X, GRID_W = 0.6, 12.13
+
+
+def bar(s, x, y, w, h, color):
+    r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
+    r.fill.solid(); r.fill.fore_color.rgb = rgb(color); r.line.fill.background(); r.shadow.inherit = False
+    return r
 
 
 def tracker(s, cur):
-    """Signposting: six-step progress bar at the top of every step slide."""
-    w = 12.13 / 6
+    """Signposting, Swiss style: six numbered labels on a hairline; the current step carries the signal colour."""
+    w = GRID_W / 6
+    bar(s, GRID_X, 0.62, GRID_W, 0.008, RULE)
     for i, (k, lab) in enumerate(STEPS):
-        on = (i + 1) == cur
-        done = (i + 1) < cur
-        r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.6 + i * w), Inches(0.3), Inches(w - 0.05), Inches(0.3))
-        r.fill.solid(); r.fill.fore_color.rgb = rgb(ACC if on else ("C9D3D1" if done else "ECE9E1")); r.line.fill.background(); r.shadow.inherit = False
-        tb(s, 0.6 + i * w + 0.06, 0.32, w - 0.15, 0.26, f"{k}  {lab}", 9.5, "FFFFFF" if on else (INK if done else MUTE), BODY, on)
+        on, done = (i + 1) == cur, (i + 1) < cur
+        x = GRID_X + i * w
+        if on:
+            bar(s, x, 0.585, w - 0.08, 0.05, ACC)
+        tb(s, x, 0.3, 0.42, 0.26, k, 9, ACC if on else (INK if done else "A7ABB0"), MONO, on)
+        tb(s, x + 0.36, 0.3, w - 0.45, 0.26, lab, 9, INK if (on or done) else "A7ABB0", BODY, on)
 
 
 def slide(title, cur=None, sheet=None, kicker=None):
@@ -41,39 +51,38 @@ def slide(title, cur=None, sheet=None, kicker=None):
     if cur:
         tracker(s, cur)
     elif kicker:
-        tb(s, 0.6, 0.32, 9, 0.3, kicker.upper(), 10, MUTE, BODY, True)
-    tb(s, 0.6, 0.72, 12.1, 0.9, title, 24, INK, HEAD, True)
-    rule(s, 0.6, 1.5, 12.13)
+        tb(s, GRID_X, 0.3, 9, 0.3, kicker, 10, ACC, MONO, False)
+        bar(s, GRID_X, 0.62, GRID_W, 0.008, RULE)
+    tb(s, GRID_X, 0.78, 12.1, 0.9, title, 25 if len(title) <= 58 else (22 if len(title) <= 70 else 20), INK, HEAD, False)
     num = len(prs.slides)
-    tb(s, 12.2, 7.05, 0.6, 0.3, str(num), 10, MUTE, BODY, align=PP_ALIGN.RIGHT)
+    bar(s, GRID_X, 7.0, GRID_W, 0.008, RULE)
+    tb(s, 12.13, 7.06, 0.6, 0.3, f"{num:02d}", 9, INK, MONO, align=PP_ALIGN.RIGHT)
     if sheet:
-        tb(s, 0.6, 7.05, 10, 0.3, f"Workbook › {sheet}", 9, MUTE, MONO)
+        tb(s, GRID_X, 7.06, 10, 0.3, f"Workbook / {sheet}", 8.5, MUTE, MONO)
     return s
 
 
-def story(s, did, found, sowhat=None, x=8.85, y=1.7, w=3.88, h=4.55):
-    """Read-aloud panel: plain sentences a presenter can say as written."""
-    r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
-    r.fill.solid(); r.fill.fore_color.rgb = rgb(PANEL); r.line.color.rgb = rgb(RULE); r.shadow.inherit = False
-    rule(s, x, y, w, ACC, 0.05)
-    blocks = [("WHAT WE DID", did, MUTE), ("WHAT WE FOUND", found, ACC)] + ([("SO WHAT", sowhat, RUST)] if sowhat else [])
+def story(s, did, found, sowhat=None, x=9.05, y=1.75, w=3.68, h=4.6):
+    """Read-aloud column: no box — a vertical hairline separates it from the evidence, labels are numbered."""
+    bar(s, x - 0.22, y, 0.008, h, INK)
+    blocks = [("What we did", did, MUTE), ("What we found", found, INK)] + ([("So what", sowhat, ACC)] if sowhat else [])
     import math
     def need(txt, fs):
-        cpl = (w - 0.35) * 72 / (fs * 0.5)       # characters per line at this size (Calibri ≈ 0.5 em average)
-        return 0.27 + math.ceil(len(txt) / cpl) * fs * 1.32 / 72 + 0.12
+        cpl = (w - 0.1) * 72 / (fs * 0.52)
+        return 0.3 + math.ceil(len(txt) / cpl) * fs * 1.3 / 72 + 0.14
     fs = 13.5
-    while sum(need(tx, fs) for _, tx, _ in blocks) > h - 0.25 and fs > 11:
+    while sum(need(tx, fs) for _, tx, _ in blocks) > h and fs > 11:
         fs -= 0.5
-    yy = y + 0.15
-    for lab, txt, c in blocks:
+    yy = y
+    for i, (lab, txt, c) in enumerate(blocks):
         hh = need(txt, fs)
-        tb(s, x + 0.18, yy, w - 0.3, 0.25, lab, 9.5, c, BODY, True)
-        tb(s, x + 0.18, yy + 0.27, w - 0.3, hh - 0.3, txt, fs, INK)
+        tb(s, x, yy, w, 0.26, [[(f"{i + 1:02d}  ", False, ACC), (lab, True, INK)]], 10, INK, MONO)
+        tb(s, x, yy + 0.3, w, hh - 0.3, txt, fs, INK if c != ACC else ACC, BODY, c == ACC)
         yy += hh
 
 
-def source(s, text, y=6.45):
-    tb(s, 0.6, y, 12.1, 0.5, text, 9.5, MUTE, BODY, italic=True)
+def source(s, text, y=6.55):
+    tb(s, GRID_X, y, 12.1, 0.4, text, 8.5, MUTE, BODY)
 
 
 def leftalign(tbl):
@@ -83,74 +92,137 @@ def leftalign(tbl):
 
 
 def card(s, x, y, w, h, big, small, color=ACC, bigsize=26):
+    bar(s, x, y, w, 0.02, INK)
+    tb(s, x, y + 0.08, w, h * 0.5, big, bigsize, color, HEAD)
+    tb(s, x, y + h * 0.55, w, h * 0.45, small, 11, INK)
+
+
+# ---------- diagram primitives: boxes, arrows, mind maps ----------
+def box(s, x, y, w, h, text, fill="FFFFFF", line=INK, color=INK, size=11, bold=False, font=None, lw=0.75):
     r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
-    r.fill.solid(); r.fill.fore_color.rgb = rgb("FFFFFF"); r.line.color.rgb = rgb(RULE); r.shadow.inherit = False
-    rule(s, x, y, 0.06, color, h)
-    tb(s, x + 0.2, y + 0.08, w - 0.3, h * 0.5, big, bigsize, color, HEAD, True)
-    tb(s, x + 0.2, y + h * 0.55, w - 0.3, h * 0.45, small, 11.5, INK)
+    if fill:
+        r.fill.solid(); r.fill.fore_color.rgb = rgb(fill)
+    else:
+        r.fill.background()
+    if line:
+        r.line.color.rgb = rgb(line); r.line.width = Pt(lw)
+    else:
+        r.line.fill.background()
+    r.shadow.inherit = False
+    tf = r.text_frame; tf.word_wrap = True; tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    tf.margin_left = tf.margin_right = Inches(0.06); tf.margin_top = tf.margin_bottom = Inches(0.03)
+    lines = text if isinstance(text, list) else [text]
+    for i, ln in enumerate(lines):
+        p_ = tf.paragraphs[0] if i == 0 else tf.add_paragraph(); p_.alignment = PP_ALIGN.CENTER
+        r_ = p_.add_run(); r_.text = ln; r_.font.size = Pt(size if i == 0 else size - 1.5); r_.font.name = font or (HEAD if (bold and i == 0) else BODY)
+        r_.font.color.rgb = rgb(color if i == 0 else (MUTE if color == INK else color))
+    return r
 
 
-# ===================================================================== 1 TITLE
+def arrow(s, x1, y1, x2, y2, color=INK, w=1.0):
+    c = s.shapes.add_connector(1, Inches(x1), Inches(y1), Inches(x2), Inches(y2))
+    c.line.color.rgb = rgb(color); c.line.width = Pt(w)
+    ln = c.line._get_or_add_ln()
+    tail = _et.SubElement(ln, _qn("a:tailEnd")); tail.set("type", "triangle"); tail.set("w", "med"); tail.set("len", "med")
+    return c
+
+
+def flow(s, x, y, w, h, items, gap=0.32, hi=None, size=10.5):
+    """Left-to-right flowchart strip: equal boxes joined by arrows; item `hi` carries the signal colour."""
+    n = len(items); bw = (w - gap * (n - 1)) / n
+    for i, it in enumerate(items):
+        bx = x + i * (bw + gap)
+        on = hi is not None and (i == hi or (isinstance(hi, (list, tuple)) and i in hi))
+        box(s, bx, y, bw, h, it, fill=(ACC if on else "FFFFFF"), line=(ACC if on else INK), color=("FFFFFF" if on else INK), size=size, bold=True)
+        if i < n - 1:
+            arrow(s, bx + bw + 0.03, y + h / 2, bx + bw + gap - 0.03, y + h / 2)
+
+
+# ===================================================================== 1 TITLE  (Swiss: big flush-left type, grid, one signal colour)
 s = prs.slides.add_slide(BLANK); s.background.fill.solid(); s.background.fill.fore_color.rgb = rgb(BG)
-rule(s, 0.6, 2.0, 0.9, ACC, 0.06)
-tb(s, 0.6, 2.25, 12, 1.1, "Paying for the Future", 50, INK, HEAD, True)
-tb(s, 0.6, 3.35, 11.5, 0.9, "What the market is pricing into DLF, Godrej Properties and Phoenix Mills", 20, ACC)
-tb(s, 0.6, 5.5, 8, 0.9, ["ECON F355 · Business Analysis & Valuation · Prof. Mohit Kumar", "Group 27 · Saatvik Nagpal · Atharvaa Khanzode"], 13, MUTE)
-for i, k in enumerate(["DLF", "GPL", "PML"]):
-    r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(10.3 + i * 0.85), Inches(5.5), Inches(0.7), Inches(0.7))
-    r.fill.solid(); r.fill.fore_color.rgb = rgb(COL[k]); r.line.fill.background(); r.shadow.inherit = False
-    tb(s, 10.3 + i * 0.85, 6.25, 0.7, 0.3, k, 9, MUTE, BODY, True, PP_ALIGN.CENTER)
+tb(s, GRID_X, 0.5, 6, 0.3, "ECON F355  /  Business Analysis & Valuation", 10, INK, MONO)
+tb(s, 7.0, 0.5, 5.73, 0.3, "Group 27  /  October 2026", 10, INK, MONO, align=PP_ALIGN.RIGHT)
+bar(s, GRID_X, 0.86, GRID_W, 0.012, INK)
+bar(s, GRID_X, 2.05, 0.42, 0.42, ACC)
+tb(s, GRID_X, 2.6, 12, 1.4, "Paying for", 64, INK, HEAD)
+tb(s, GRID_X, 3.65, 12, 1.4, "the Future", 64, INK, HEAD)
+tb(s, GRID_X, 4.95, 8.5, 0.8, "What the market is pricing into DLF, Godrej Properties and Phoenix Mills", 20, INK, SERIF)
+bar(s, GRID_X, 6.25, GRID_W, 0.008, INK)
+tb(s, GRID_X, 6.38, 6, 0.6, ["Saatvik Nagpal  ·  Atharvaa Khanzode", "Prof. Mohit Kumar  ·  BITS Pilani, K K Birla Goa Campus"], 11, INK, BODY)
+for i, (k, nm) in enumerate([("DLF", "DLF"), ("GPL", "Godrej"), ("PML", "Phoenix")]):
+    x = 9.3 + i * 1.15
+    bar(s, x, 6.42, 0.18, 0.18, COL[k]); tb(s, x + 0.25, 6.38, 0.9, 0.3, nm, 10, INK, BODY)
 notes(s, "Good evening. We valued three Indian real-estate companies that represent the sector's three business models: DLF, which sells luxury homes and owns offices; "
          "Godrej Properties, which builds housing across many cities; and Phoenix Mills, which owns and runs malls. Over the next ten minutes we will walk you through "
          "the question we asked, how we went about answering it, and what we concluded.")
 
 # ===================================================================== 2 THE QUESTION (SCQA)
-s = slide("The question we set out to answer", kicker="Where we started", sheet="Summary")
+s = slide("The question we set out to answer", kicker="00 / Where we started", sheet="Summary")
 pe = {k: RV[n_][12] for k, n_ in [("DLF", "DLF Ltd"), ("GPL", "Godrej Properties"), ("PML", "Phoenix Mills")]}
-BLK = [("SITUATION", "Real estate is one of India's largest sectors. We chose one company for each business model: luxury homes and offices (DLF), "
+BLK = [("Situation", "Real estate is one of India's largest sectors. We chose one company for each business model: luxury homes and offices (DLF), "
                      "housing across many cities (Godrej) and shopping malls (Phoenix)."),
-       ("COMPLICATION", f"The shares trade at {pe['DLF']:.0f}, {pe['GPL']:.0f} and {pe['PML']:.0f} times earnings, well above the market. Yet developers book revenue only "
+       ("Complication", f"The shares trade at {pe['DLF']:.0f}, {pe['GPL']:.0f} and {pe['PML']:.0f} times earnings, well above the market. Yet developers book revenue only "
                         "when a project is finished, so their reported profits lag their sales by years."),
-       ("QUESTION", "Can today's share prices be justified by the cash these businesses will generate? And if not, what does an investor have to believe to pay them?"),
-       ("OUR SHORT ANSWER", f"The prices assume all three grow with India's economy for ever, about {GLO:.0%}–{GHI:.0%} a year. "
+       ("Question", "Can today's share prices be justified by the cash these businesses will generate? And if not, what does an investor have to believe to pay them?"),
+       ("Our short answer", f"The prices assume all three grow with India's economy for ever, about {GLO:.0%}–{GHI:.0%} a year. "
                             "Godrej is the cheapest of the three; Phoenix is the most fully priced.")]
 for i, (lab, txt) in enumerate(BLK):
-    x = 0.6 + i * 3.06
+    x = GRID_X + i * 3.06
     last = i == 3
-    r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(1.85), Inches(2.9), Inches(4.2))
-    r.fill.solid(); r.fill.fore_color.rgb = rgb(ACC if last else "FFFFFF"); r.line.color.rgb = rgb(RULE); r.shadow.inherit = False
-    tb(s, x + 0.2, 2.0, 2.5, 0.3, lab, 11, "FFFFFF" if last else ACC, BODY, True)
-    tb(s, x + 0.2, 2.4, 2.55, 3.5, txt, 14.5, "FFFFFF" if last else INK)
+    bar(s, x, 1.9, 2.86, 0.03 if not last else 0.08, ACC if last else INK)
+    tb(s, x, 2.05, 2.86, 0.3, [[(f"{chr(65 + i)}  ", False, ACC), (lab, True, INK)]], 12, INK, MONO)
+    tb(s, x, 2.5, 2.8, 3.5, txt, 15, ACC if last else INK, BODY, last)
+    if i < 3:
+        arrow(s, x + 2.88, 2.12, x + 3.04, 2.12, MUTE, 0.75)
 source(s, "Structure: situation, complication, question, answer (Minto). Multiples from the RelVal sheet; implied growth from the reverse DCF.")
 notes(s, "We framed the project as one question. These companies trade at very high multiples of earnings, but their accounting makes earnings look small because revenue arrives only on completion. "
          "So we asked whether the cash these businesses will generate can justify today's prices, and if not, what you have to believe to pay them. "
          "Our short answer is on the right: the prices only work if the companies grow with the Indian economy for ever. We will now show how we got there.")
 
-# ===================================================================== 3 HOW WE WENT ABOUT IT
-s = slide("How we went about it: six steps, following the course", kicker="Our approach", sheet="Index, Concept_Map")
+# ===================================================================== 2b MIND MAP — what drives value in this sector
+s = slide("What drives value in Indian real estate: the map we worked from", kicker="00 / The landscape", sheet="Concept_Map")
+cx, cy, cw, ch = 5.17, 3.55, 3.0, 1.0
+box(s, cx, cy, cw, ch, ["Equity value", "of a developer or landlord"], fill=INK, line=INK, color="FFFFFF", size=16, bold=True)
+NODES = [("Land bank", "bought years ago, held at cost", 0.6, 1.85), ("Pre-sales & advances", "customers fund construction", 4.67, 1.85),
+         ("Rental assets", "offices and malls, valued on yield", 8.73, 1.85),
+         ("Cost of capital", "beta, bond yield, risk premium", 0.6, 5.35), ("Regulation (RERA)", "escrow, disclosure, delivery", 4.67, 5.35),
+         ("Cycle & credit", "rates, NBFC funding, demand", 8.73, 5.35)]
+for lab, sub, x, y in NODES:
+    box(s, x, y, 4.0, 0.95, [lab, sub], fill="FFFFFF", line=INK, size=14, bold=True)
+    nx, ny = x + 2.0, (y + 0.95 if y < cy else y)
+    tx, ty = cx + cw / 2 + (nx - (cx + cw / 2)) * 0.35, (cy if y < cy else cy + ch)
+    arrow(s, nx, ny, tx, ty, ACC, 1.25)
+tb(s, 0.6, 3.6, 4.2, 0.9, "Each branch is tested in one of our six steps.", 12, MUTE, SERIF)
+tb(s, 8.6, 3.6, 4.1, 0.9, "Accounting hides three of them: land, advances and rental assets.", 12, MUTE, SERIF, align=PP_ALIGN.RIGHT)
+notes(s, "Before modelling, we mapped what drives value in this sector. Six things matter: the land bank, which sits in the books at old cost; pre-sales and customer advances, which fund construction; "
+         "rental assets such as offices and malls, valued on their yield; the cost of capital; regulation, especially RERA's escrow and disclosure rules; and the property and credit cycle. "
+         "The accounts hide three of these, which is why cleaning the accounts was such an important step.")
+
+# ===================================================================== 3 HOW WE WENT ABOUT IT  (numbered flowchart)
+s = slide("How we went about it: six steps, following the course", kicker="00 / Our approach", sheet="Index, Concept_Map")
 DESC = ["Twenty years of prices, industry data, strategy (Porter, BCG, SWOT)", "Recast statements: separate operating profit from JV, treasury and one-off income",
         "Ratios, DuPont, EVA and distress scores against peers and the industry", "Cost of capital: betas, risk-free rate and equity risk premium, two versions",
         "DCF, relative multiples, and the practitioner's NAV method", "Event studies, survivors vs failures, company filings and guidance"]
 MODS = ["Module 2", "Modules 3–4", "Module 5", "Module 6", "Modules 7–8", "Extension"]
+bw, gap = 1.75, 0.326
 for i, ((k, lab), d, m) in enumerate(zip(STEPS, DESC, MODS)):
-    x = 0.6 + i * 2.03
-    r = s.shapes.add_shape(MSO_SHAPE.CHEVRON if i else MSO_SHAPE.PENTAGON, Inches(x), Inches(1.9), Inches(2.0), Inches(0.95))
-    r.fill.solid(); r.fill.fore_color.rgb = rgb(ACC if i % 2 == 0 else "3F7479"); r.line.fill.background(); r.shadow.inherit = False
-    tb(s, x + 0.28, 1.98, 1.5, 0.8, [k, lab], 12, "FFFFFF", BODY, True, PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
-    tb(s, x + 0.08, 3.0, 1.85, 1.6, d, 12, INK)
-    tb(s, x + 0.08, 4.55, 1.85, 0.3, m, 10, MUTE, BODY, True)
-r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.6), Inches(5.1), Inches(12.13), Inches(1.15))
-r.fill.solid(); r.fill.fore_color.rgb = rgb("FFFFFF"); r.line.color.rgb = rgb(RULE); r.shadow.inherit = False
-tb(s, 0.8, 5.2, 11.8, 1.0, [[("Before building anything, we wrote down twelve hypotheses ", True, ACC),
+    x = GRID_X + i * (bw + gap)
+    tb(s, x, 1.85, bw, 0.6, k, 30, ACC, MONO)
+    box(s, x, 2.55, bw, 0.95, lab, fill=INK if i == 4 else "FFFFFF", line=INK, color="FFFFFF" if i == 4 else INK, size=12.5, bold=True)
+    if i < 5:
+        arrow(s, x + bw + 0.03, 3.02, x + bw + gap - 0.03, 3.02)
+    tb(s, x, 3.65, bw, 1.4, d, 11.5, INK)
+    tb(s, x, 4.95, bw, 0.3, m, 9.5, MUTE, MONO)
+bar(s, GRID_X, 5.45, GRID_W, 0.008, INK)
+tb(s, GRID_X, 5.55, 12.1, 0.9, [[("Before building anything, we wrote down twelve hypotheses ", True, ACC),
                              ("about how these companies are priced, so the analysis could prove us wrong. We collected statements for 13 developers, prices back to 2007 "
-                              "and house prices back to 2009, and checked our data against the companies' audited annual reports.", False, INK)]], 14)
-source(s, "Every number in the deck comes from one Excel model with live formulas; a Python copy of the DCF reproduces it to the rupee.")
-notes(s, "This is our road map, and the bar at the top of each following slide shows where we are on it. We followed the order of the course: understand the business, clean up the accounts, "
+                              "and house prices back to 2009, and checked our data against the companies' audited annual reports.", False, INK)]], 13.5)
+notes(s, "This is our road map, and the strip at the top of each following slide shows where we are on it. We followed the order of the course: understand the business, clean up the accounts, "
          "measure performance, set the hurdle rate, value the companies three different ways, and finally test our conclusions against what has actually happened in the market over time. "
          "Before modelling we wrote down twelve hypotheses, so the analysis could prove us wrong rather than simply confirm what we expected.")
 
 # ===================================================================== 4 HYPOTHESES
-s = slide("What we expected before we started, and what the data said", kicker="Hypotheses", sheet="Index")
+s = slide("What we expected before we started, and what the data said", kicker="00 / Hypotheses", sheet="Index")
 GROUPS = [("How the price is set", [("H1", "Prices embed growth beyond a normal long-run rate", "Supported"), ("H7", "Book value understates the real capital", "Supported"),
                                     ("H8", "Phoenix is priced for growth, not yield", "Supported"), ("H9", "Brokers reach the price only with land and growth premia", "Supported")]),
           ("Risk", [("H2", "Big developers are riskier than the industry average", "Supported"), ("H3", "Beta changes through the cycle", "Supported"),
@@ -163,13 +235,16 @@ cols = [(0.6, GROUPS[0]), (0.6, GROUPS[1]), (6.75, GROUPS[2]), (6.75, GROUPS[3])
 yy = {0.6: 1.75, 6.75: 1.75}
 for x, (g, items) in cols:
     y = yy[x]
-    tb(s, x, y, 5.9, 0.3, g.upper(), 10.5, ACC, BODY, True); y += 0.32
+    bar(s, x, y, 5.9, 0.02, INK); tb(s, x, y + 0.06, 5.9, 0.3, g, 11, INK, HEAD); y += 0.42
     for h, t, res in items:
-        clr = {"Supported": ACC, "Rejected": RUST, "Weak": OCH}.get(res.split(" ")[0], ACC)
-        tb(s, x, y, 0.6, 0.35, h, 12.5, clr, HEAD, True); tb(s, x + 0.6, y + 0.02, 4.0, 0.35, t, 12.5, INK)
-        tb(s, x + 4.65, y + 0.02, 1.3, 0.35, res, 11.5, clr, BODY, True); y += 0.4
-    yy[x] = y + 0.15
-source(s, "Ten supported, one weak, one rejected. The evidence for each is on the step slides that follow and in the report (section 1).", y=6.5)
+        clr = {"Supported": INK, "Rejected": ACC, "Weak": MUTE}.get(res.split(" ")[0], INK)
+        mk = bar(s, x, y + 0.1, 0.14, 0.14, clr)
+        if res.startswith("Weak"):
+            mk.fill.background(); mk.line.color.rgb = rgb(MUTE)
+        tb(s, x + 0.25, y, 0.6, 0.35, h, 12, INK, MONO); tb(s, x + 0.85, y + 0.02, 3.75, 0.5, t, 12, INK)
+        tb(s, x + 4.7, y + 0.02, 1.3, 0.35, res, 11, clr, BODY, res.startswith("Rejected")); y += 0.5
+    yy[x] = y + 0.12
+source(s, "■ supported   □ weak   ■ rejected (in red). Ten supported, one weak, one rejected; the evidence for each is on the step slides that follow and in the report (section 1).", y=6.55)
 notes(s, "These are the twelve hypotheses, grouped by theme. Ten held up, one had only weak support, and one was rejected: we expected realty shares to follow house prices, and they do not. "
          "We will point to the evidence for each as we go through the steps.")
 
@@ -186,7 +261,8 @@ notes(s, "Step one was to understand the business and the cycle. We went back as
 
 # ===================================================================== 6 STEP 2 — ACCOUNTS
 s = slide("Step 2: once we strip out one-offs, core profit looks very different", 2, "Recast, Quarterly")
-pic(s, "profit_mix", 0.6, 1.75, w=8.05)
+flow(s, GRID_X, 1.8, 8.0, 0.72, ["Reported profit", "less treasury income", "less one-off gains", "less JV share", "Core operating profit"], gap=0.28, hi=4, size=10.5)
+pic(s, "profit_mix", 0.9, 2.75, h=3.65)
 story(s, "We rebuilt each income statement and balance sheet, separating operating profit from joint-venture income, interest earned on cash and one-off gains.",
       f"Godrej's core operations lost money in FY26; its profit came from treasury income and one-off gains. About {pc(D['JV/associate share of PAT'][3],0)} of DLF's profit is its share of "
       "the office joint venture. Only Phoenix's profit is mostly operating.",
@@ -208,7 +284,8 @@ notes(s, "Step three measured performance. All three earn about 10 to 11 percent
 
 # ===================================================================== 8 STEP 4 — HURDLE RATE
 s = slide("Step 4: the choice of beta moves the cost of capital by four to five points", 4, "Beta_*, RollingBeta, BottomUp_Beta, WACC")
-pic(s, "rolling_beta", 0.6, 1.75, w=8.05)
+flow(s, GRID_X, 1.8, 8.0, 0.72, ["10-yr G-Sec", "less default spread", "plus beta × risk premium", "Cost of equity", "with debt after tax", "WACC"], gap=0.22, hi=5, size=9.5)
+pic(s, "rolling_beta", 0.6, 2.75, w=8.0)
 story(s, f"We estimated betas three ways (regression on monthly returns, a median of {len(N['BU'])} developers, and Damodaran's industry figure) and built the cost of capital from the "
          f"government bond yield, adjusted for India's default risk.",
       f"Beta is unstable: Phoenix's has ranged from 0.5 to 1.9. Our base case gives a cost of capital of {pc(D['W WACC'])} (DLF), {pc(G['W WACC'])} (Godrej) and "
@@ -220,7 +297,8 @@ notes(s, "Step four set the hurdle rate. This is where analysts disagree most, s
 
 # ===================================================================== 9 STEP 5a — DCF
 s = slide("Step 5: the prices only work if these firms grow with India for ever", 5, "DCF_DLF, DCF_GPL, DCF_PML, Scenarios_Implied")
-pic(s, "implied_growth", 0.6, 1.75, w=7.6)
+flow(s, GRID_X, 1.8, 8.0, 0.72, ["Revenue path", "× margin = NOPAT", "less reinvestment", "Free cash flow", "discount at WACC", "Equity per share"], gap=0.22, hi=3, size=9.5)
+pic(s, "implied_growth", 0.75, 2.75, h=3.6)
 story(s, "We built a ten-year cash-flow model for each company, where growth has to be paid for by reinvestment, then ran it backwards to find the growth rate the share price needs.",
       f"Our DCF values are {rs(vA['DLF'])}, {rs(vA['GPL'])} and {rs(vA['PML'])} a share, against prices of {rs(price['DLF'])}, {rs(price['GPL'])} and {rs(price['PML'])}. "
       f"To justify the prices, cash flows must grow {GLO:.0%}–{GHI:.0%} a year for ever, against the 5.5% we allow.",
@@ -255,10 +333,10 @@ notes(s, "Our final step tested the story against history. We looked at how the 
          "Comparing survivors with developers that failed showed that delivery, not the macro cycle, is what destroys value permanently. Method in one line: for each event we estimated how the stock normally moves with the market over the previous year, and measured the part of the move on the event days that the market does not explain.")
 
 # ===================================================================== 12 CONCLUSION
-s = slide("What we concluded: Godrej preferred, DLF neutral, Phoenix least preferred", kicker="Conclusion", sheet="Summary")
+s = slide("What we concluded: Godrej preferred, DLF neutral, Phoenix least preferred", kicker="07 / Conclusion", sheet="Summary")
 pic(s, "conclusion_methods", 0.6, 1.8, w=8.05)
 story(s, "We put the main methods side by side, each shown as a percentage of today's share price: two DCF versions, peer multiples, the brokers' NAV method and broker targets.",
-      "No DCF reaches today's prices; broker targets do, and so does the NAV method for Godrej. Godrej comes closest on every method. DLF has the strongest balance sheet but is priced for long-run growth. "
+      "No DCF reaches today's prices; broker targets do, and for Godrej so do the NAV method and peer multiples. Godrej comes closest on every method. DLF has the strongest balance sheet but is priced for long-run growth. "
       "Phoenix owns excellent malls at a 3% yield and is the most fully priced.",
       "To own these shares you must believe they grow with India for ever, or that the right discount rate is close to the bond yield.")
 source(s, "Ranking from relative valuation, simulation odds and the practitioner cross-check; intrinsic values under both cost-of-capital versions in the backup section.")
@@ -267,27 +345,27 @@ notes(s, "This chart brings every method together. The methods disagree, and the
          "or accept a discount rate close to the government bond yield. Each of those is defensible, but none leaves a margin of safety, which is why we rank rather than recommend buying any of them outright.")
 
 # ===================================================================== 13 LIMITS
-s = slide("What could change our answer, and what we would watch", kicker="Limits")
+s = slide("What could change our answer, and what we would watch", kicker="08 / Limits")
 tb(s, 0.6, 1.85, 6.4, 4.4, [[("Data. ", True, ACC), ("Four years of statements, tied to DLF's and Godrej's audited reports; Phoenix's filings we could not retrieve.", False, INK)],
                             [("Cost of capital. ", True, ACC), ("Two defensible versions, four to five points apart. We show both.", False, INK)],
                             [("Terminal value. ", True, ACC), ("Most of the value sits beyond year ten, so the long-run growth rule matters more than any forecast.", False, INK)],
                             [("Accounting. ", True, ACC), (f"Land is held at about ₹{NAV['dlf_book_psf']:,.0f} per sq ft in DLF's books against roughly ₹{NAV['dlf_psf']:,.0f} implied by the market.", False, INK)],
                             [("Cycle. ", True, ACC), ("The RBI raised rates to 5.50% in October and unsold stock is rising again.", False, INK)]], 14)
-r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(7.4), Inches(1.85), Inches(5.33), Inches(3.3))
-r.fill.solid(); r.fill.fore_color.rgb = rgb("FFFFFF"); r.line.color.rgb = rgb(RULE); r.shadow.inherit = False
-tb(s, 7.6, 1.95, 5.0, 3.1, [[("What we would watch", True, INK)], "Godrej: bookings turning into collections", "DLF: second-half launches against guidance",
+bar(s, 7.4, 1.85, 5.33, 0.03, INK)
+tb(s, 7.4, 1.95, 5.0, 3.1, [[("What we would watch", True, ACC)], "Godrej: bookings turning into collections", "DLF: second-half launches against guidance",
                             "Phoenix: rent growth in the new malls", "DLF: any sale of its office stake", "The sector: interest rates and unsold inventory"], 14)
-tb(s, 7.4, 5.5, 5.4, 0.6, "Thank you. We are happy to take questions.", 20, ACC, HEAD, True)
+bar(s, 7.4, 5.35, 0.3, 0.3, ACC)
+tb(s, 7.85, 5.28, 5.0, 0.6, "Thank you. We are happy to take questions.", 20, INK, HEAD)
 notes(s, "To close, these are the main things that could change our answer, and the indicators we would watch. Thank you; we are happy to take questions.")
 
 # ===================================================================== BACKUP
-s = slide("Backup", kicker="For questions")
+s = slide("Backup", kicker="09 / For questions")
 tb(s, 0.6, 2.0, 12, 3.5, ["Strategy: Porter, BCG, SPACE, value chain", "Financial analysis: key ratios", "Cost of capital: betas and WACC under both versions",
                           "DCF assumptions and the Monte Carlo", "Relative valuation and cap rates", "NAV bridge", "Survivors and REIT yields",
                           "The industry in numbers", "What Indian research says"], 16, INK)
 notes(s, "Backup slides for questions.")
 
-s = slide("Backup: strategy — RERA rewards brands that can pre-sell; malls reward location", kicker="Backup · Step 1")
+s = slide("Backup: strategy — RERA rewards brands that can pre-sell; malls reward location", kicker="Backup / Step 1")
 _s1 = table(s, 0.6, 1.85, 6.3, [["Force", "Level", "Driver"], ["Entry", "Low–mod", "Land, approvals, RERA, brand trust"], ["Suppliers", "High", "Owners of prime land"],
                           ["Buyers", "Moderate", "Mid-income price-sensitive; luxury not"], ["Substitutes", "Moderate", "Renting, REITs; e-commerce for malls"],
                           ["Rivalry", "High, falling", "Fragmented, consolidating to listed"]], [1.3, 1.2, 3.8], 12)
@@ -299,7 +377,7 @@ tb(s, 0.6, 4.4, 12.1, 1.8, [[("SPACE: ", True, ACC), ("DLF aggressive · Godrej 
 leftalign(_s1); leftalign(_s2)
 notes(s, "Backup: strategy frameworks.")
 
-s = slide("Backup: financial analysis — key ratios, FY26", kicker="Backup · Step 3", sheet="Ratios, DuPont, AltmanZ, Growth_EVA")
+s = slide("Backup: financial analysis — key ratios, FY26", kicker="Backup / Step 3", sheet="Ratios, DuPont, AltmanZ, Growth_EVA")
 table(s, 0.6, 1.85, 12.13, [["FY26", "DLF", "Godrej", "Phoenix"],
                             ["Return on net operating assets", pc(D['DP Return on net operating assets (RNOA)'][2], 1), pc(G['DP Return on net operating assets (RNOA)'][2], 1), pc(P['DP Return on net operating assets (RNOA)'][2], 1)],
                             ["Net profit margin", pc(D['DP Net profit margin'][2], 1), pc(G['DP Net profit margin'][2], 1), pc(P['DP Net profit margin'][2], 1)],
@@ -313,7 +391,7 @@ table(s, 0.6, 1.85, 12.13, [["FY26", "DLF", "Godrej", "Phoenix"],
       [5.2, 2.31, 2.31, 2.31], 13, 0.42)
 notes(s, "Backup: ratio table.")
 
-s = slide("Backup: cost of capital under both versions", kicker="Backup · Step 4", sheet="Beta_*, BottomUp_Beta, WACC")
+s = slide("Backup: cost of capital under both versions", kicker="Backup / Step 4", sheet="Beta_*, BottomUp_Beta, WACC")
 table(s, 0.6, 1.85, 12.13, [["", "DLF", "Godrej", "Phoenix"],
                             ["Regression beta (60 months)", f"{N['Beta_Monthly']['DLF Ltd']['Raw beta (SLOPE)']:.2f}", f"{N['Beta_Monthly']['Godrej Propert']['Raw beta (SLOPE)']:.2f}", f"{N['Beta_Monthly']['Phoenix Mills']['Raw beta (SLOPE)']:.2f}"],
                             ["Base-case beta (median of large developers)", f"{D['W Beta used']:.2f}", f"{G['W Beta used']:.2f}", f"{P['W Beta used']:.2f}"],
@@ -326,7 +404,7 @@ table(s, 0.6, 1.85, 12.13, [["", "DLF", "Godrej", "Phoenix"],
 source(s, f"Rates: about {pc(-RF['DLF'][2],0)} fall in DLF per +100bp in bond yields, t ≈ {RF['DLF'][4]:.1f} (weak). Historical equity premium 2005–26 too noisy to use; implied premium used.", y=5.9)
 notes(s, "Backup: the two cost-of-capital versions and what each does to value.")
 
-s = slide("Backup: DCF assumptions and 10,000 simulations", kicker="Backup · Step 5", sheet="DCF_*, MonteCarlo")
+s = slide("Backup: DCF assumptions and 10,000 simulations", kicker="Backup / Step 5", sheet="DCF_*, MonteCarlo")
 pic(s, "monte_carlo", 0.6, 1.7, w=12.1)
 table(s, 0.6, 4.85, 12.13, [["Assumption", "DLF", "Godrej", "Phoenix"],
                             ["Growth FY27–31 (then fades to 5.5%)", " · ".join(pc(g, 0) for g in D['DCF growth']), " · ".join(pc(g, 0) for g in G['DCF growth']), " · ".join(pc(g, 0) for g in P['DCF growth'])],
@@ -335,7 +413,7 @@ table(s, 0.6, 4.85, 12.13, [["Assumption", "DLF", "Godrej", "Phoenix"],
       [3.8, 2.8, 2.8, 2.73], 12, 0.33)
 notes(s, "Backup: model assumptions and the simulation.")
 
-s = slide("Backup: relative valuation and cap rates", kicker="Backup · Step 5", sheet="RelVal, CapRates")
+s = slide("Backup: relative valuation and cap rates", kicker="Backup / Step 5", sheet="RelVal, CapRates")
 rows = [["", "P/E", "P/B", "EV/EBITDA", "ROE"]]
 for nm in ["DLF Ltd", "Godrej Properties", "Phoenix Mills"]:
     r_ = RV[nm]; rows.append([nm.replace(" Ltd", ""), f"{r_[12]:.1f}", f"{r_[13]:.2f}", f"{r_[15]:.1f}", pc(r_[11])])
@@ -345,22 +423,22 @@ pic(s, "cap_rates", 6.8, 1.75, w=5.9)
 tb(s, 0.6, 4.6, 6.0, 1.5, f"Phoenix's EBITDA yield is {pc(CAP['yield'])}, against {pc(CAP['reit_median'])} for listed REITs and the G-Sec above both: investors pay for growth.", 14)
 notes(s, "Backup: peers and cap rates.")
 
-s = slide("Backup: rebuilding the brokers' NAV from public data", kicker="Backup · Step 5", sheet="NAV_SOTP")
+s = slide("Backup: rebuilding the brokers' NAV from public data", kicker="Backup / Step 5", sheet="NAV_SOTP")
 pic(s, "nav_bridge", 0.6, 1.7, w=12.1)
 source(s, f"DLF: identifiable NAV {rs(NAV['dlf_nav_ps'])}/share; residual land implied at ~₹{NAV['dlf_psf']:,.0f}/sq ft vs book ~₹{NAV['dlf_book_psf']:,.0f}. Phoenix: price {pc(NAV['pml_prem'],0)} above NAV.", y=6.2)
 notes(s, "Backup: the NAV bridge.")
 
-s = slide("Backup: survivors vs failed developers; REIT yields vs the bond yield", kicker="Backup · Step 6", sheet="Survivorship, REIT_Spread")
+s = slide("Backup: survivors vs failed developers; REIT yields vs the bond yield", kicker="Backup / Step 6", sheet="Survivorship, REIT_Spread")
 pic(s, "survivors_reit", 0.6, 1.7, w=12.1)
 source(s, f"REIT yield {pc(E['reit']['latest_median'])} vs G-Sec {pc(E['reit']['latest_gsec'])}. Pre-sale financing saves Godrej about ₹{LQ['save_gpl']:,.0f} cr a year (Dutta et al.; upper bound).", y=6.2)
 notes(s, "Backup: survivorship and REITs.")
 
-s = slide("Backup: the industry in numbers, and where our three stand", kicker="Backup · Step 1", sheet="Industry_Data, Industry_vs_Company")
+s = slide("Backup: the industry in numbers, and where our three stand", kicker="Backup / Step 1", sheet="Industry_Data, Industry_vs_Company")
 pic(s, "industry_cycle", 0.6, 1.7, w=12.1)
 source(s, f"About 6.3 lakh homes stuck or delayed (≈{IV['stuck_yrs']:.1f} years of sales). Godrej share of top-7 sales value {pc(IV['sh_gpl_prev'])} → {pc(IV['sh_gpl'])}; deliveries 121–123% of guidance.", y=6.2)
 notes(s, "Backup: industry data.")
 
-s = slide("Backup: what Indian research says, and what we used", kicker="Backup · Research", sheet="Literature")
+s = slide("Backup: what Indian research says, and what we used", kicker="Backup / Research", sheet="Literature")
 rows = [["Study", "Finding", "What we used"],
         ["Tandel, Gandhi, Nanda & Agnihotri (2025)", "RERA disclosure cut litigated-home prices 4–6%", "Trust is priced: flight to quality"],
         ["Gandhi, Tandel, Tabarrok et al. (2019)", "Litigation adds ~20% to completion time", f"Delay priced: ≈ ₹{LQ['lit_gpl']:.0f}/share for Godrej"],

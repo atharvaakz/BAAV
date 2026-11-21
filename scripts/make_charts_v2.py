@@ -4,13 +4,16 @@ import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 ROOT = pathlib.Path(__file__).resolve().parents[1]; V2 = ROOT / "data/processed/v2"
 N = json.loads((ROOT / "data/processed/numbers.json").read_text())
-INK, MUTE, GRID = "#1F2A30", "#7A858C", "#E3E7E8"
-C = {"DLF": "#2F5D62", "GPL": "#C08A3E", "PML": "#8C4A3C", "IDX": "#9AA5AA", "N50": "#1F2A30"}
-plt.rcParams.update({"font.family": "Inter", "font.size": 10, "axes.edgecolor": MUTE, "axes.spines.top": False, "axes.spines.right": False,
-                     "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True, "axes.titleweight": "bold",
+INK, MUTE, GRID = "#111418", "#6E737A", "#E6E7E9"
+for _f in (pathlib.Path(__file__).resolve().parents[1] / "assets/fonts/plex").glob("*.ttf"):
+    __import__("matplotlib.font_manager").font_manager.fontManager.addfont(str(_f))
+
+C = {"DLF": "#1F3A5F", "GPL": "#D9481C", "PML": "#8E9AAF", "IDX": "#C3C7CC", "N50": "#111418"}
+plt.rcParams.update({"font.family": "IBM Plex Sans", "font.size": 10, "axes.edgecolor": MUTE, "axes.spines.top": False, "axes.spines.right": False,
+                     "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True, "axes.titleweight": "semibold",
                      "axes.titlesize": 11, "axes.titlelocation": "left", "axes.facecolor": "none", "savefig.bbox": "tight"})
 def save(fig, name):
-    for d, fc in [(ROOT / "reports/charts", "white"), (ROOT / "reports/charts/deck", "#F7F5F0")]:
+    for d, fc in [(ROOT / "reports/charts", "white"), (ROOT / "reports/charts/deck", "white")]:
         d.mkdir(parents=True, exist_ok=True); fig.savefig(d / f"{name}.png", dpi=200, facecolor=fc)
     plt.close(fig)
 
@@ -45,7 +48,7 @@ save(fig, "rolling_beta")
 tf = pd.read_csv(V2 / "two_factor.csv", index_col=0)
 fig, ax = plt.subplots(figsize=(7.5, 3.2))
 order = tf["per_100bp"].sort_values().index
-cols = [C["DLF"] if n == "DLF" else C["GPL"] if n.startswith("Godrej") else C["PML"] if n.startswith("Phoenix") else "#B9C6C8" for n in order]
+cols = [C["DLF"] if n == "DLF" else C["GPL"] if n.startswith("Godrej") else C["PML"] if n.startswith("Phoenix") else "#C9CDD2" for n in order]
 ax.barh(order, tf.loc[order, "per_100bp"], color=cols)
 for i, n in enumerate(order):
     ax.text(tf.loc[n, "per_100bp"] - 0.002 if tf.loc[n, "per_100bp"] < 0 else 0.001, i, f"t = {tf.loc[n, 't_rate']:.1f}", va="center",
@@ -74,7 +77,7 @@ vals = {"Lens A (large-cap β)": [N[c]["DCF"]["Intrinsic value per share (Rs)"] 
         "Lens B (industry β)": [N[c]["lensB"]["vps"] for c in cos],
         "Bull + lens B": [N["SC"]["scenarios"][c]["bull_lensB"] for c in cos],
         "Market price": [N[c]["DCF"]["Current market price (Rs)"] for c in cos]}
-colors = ["#B9C6C8", "#88A6A8", "#2F5D62", INK]
+colors = ["#C9CDD2", "#8E9AAF", "#1F3A5F", INK]
 for i, (k, v) in enumerate(vals.items()):
     ax.bar(x + (i - 1.5) * w, v, w, color=colors[i], label=k)
     for xi, vi in zip(x + (i - 1.5) * w, v):
@@ -100,7 +103,7 @@ cap = N["Cap"]
 labs = ["Phoenix (EBITDA / EV)"] + [r[0].split(" (")[0] for r in cap["reits"]] + ["10-yr G-Sec"]
 vals_ = [cap["yield"]] + [r[3] for r in cap["reits"]] + [N["Inputs"]["India 10-yr G-Sec yield"]]
 fig, ax = plt.subplots(figsize=(8, 3))
-ax.barh(labs[::-1], vals_[::-1], color=["#B9C6C8"] + ["#88A6A8"] * 4 + [C["PML"]])
+ax.barh(labs[::-1], vals_[::-1], color=["#C9CDD2"] + ["#8E9AAF"] * 4 + [C["PML"]])
 for i, v in enumerate(vals_[::-1]):
     ax.text(v + 0.001, i, f"{v:.1%}", va="center", fontsize=8.5)
 ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0)); ax.grid(axis="y", visible=False)
@@ -112,7 +115,7 @@ ib = N["Industry"]
 fig, (a1, a2, a3) = plt.subplots(1, 3, figsize=(11, 2.9))
 for ax, key, title, fmt in [(a1, "Levered beta (industry avg)", "Beta", "x"), (a2, "ROE", "ROE", "pct"), (a3, "Trailing P/E (aggregate)", "Trailing P/E", "x")]:
     v = ib[key]; labs_ = ["India RE dev\n(156 firms)", "DLF", "Godrej", "Phoenix"]; vv = [v[0], v[2], v[3], v[4]]
-    ax.bar(labs_, vv, color=["#B9C6C8", C["DLF"], C["GPL"], C["PML"]]); ax.set_title(title); ax.tick_params(axis="x", labelsize=8)
+    ax.bar(labs_, vv, color=["#C9CDD2", C["DLF"], C["GPL"], C["PML"]]); ax.set_title(title); ax.tick_params(axis="x", labelsize=8)
     if fmt == "pct": ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0))
 fig.tight_layout(); save(fig, "industry_bench")
 print("v2 charts done")
@@ -124,7 +127,7 @@ parts = [("DCCDL stake\n(7.5% cap)", nav["dccdl_stake"]), ("5-yr pipeline\nmargi
          ("Residual land bank\n(implied by price)", nav["dlf_land"])]
 cum = 0
 for i, (lab, v) in enumerate(parts):
-    col = "#C08A3E" if i == 3 else C["DLF"]
+    col = "#D9481C" if i == 3 else C["DLF"]
     a1.bar(i, v, bottom=cum, color=col, alpha=0.9 if i < 3 else 0.6); a1.text(i, cum + v / 2, f"₹{v/1000:,.0f}k cr", ha="center", va="center", fontsize=8.5, color="white")
     cum += v
 a1.bar(4, nav["dlf_mcap"], color=INK); a1.text(4, nav["dlf_mcap"] / 2, f"₹{nav['dlf_mcap']/1000:,.0f}k cr", ha="center", va="center", fontsize=8.5, color="white")
@@ -133,7 +136,7 @@ a1.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v/1
 a1.set_title(f"DLF: {nav['dlf_land']/nav['dlf_mcap']:.0%} of market value is land beyond the visible pipeline")
 labs_ = ["Our SOTP NAV", "ICICI Sec NAV", "Broker median target", "Market price"]
 vals_ = [nav["pml_nav_ps"], 1287, 2200, N["PML"]["DCF"]["Current market price (Rs)"]]
-a2.bar(labs_, vals_, color=["#88A6A8", "#B9C6C8", "#C08A3E", INK])
+a2.bar(labs_, vals_, color=["#8E9AAF", "#C9CDD2", "#D9481C", INK])
 for i, v in enumerate(vals_):
     a2.text(i, v + 30, f"₹{v:,.0f}", ha="center", fontsize=8.5)
 a2.tick_params(axis="x", labelsize=8); a2.set_title("Phoenix: NAV vs what investors pay")
@@ -143,9 +146,9 @@ fig.tight_layout(); save(fig, "nav_bridge")
 fig, ax = plt.subplots(figsize=(9.5, 3.3))
 cos_ = ["DLF", "GPL", "PML"]; x = np.arange(3); w = 0.2
 bm_ = {r[0]: r[1] for r in N["Brokers"] if r[0] in ("DLF Ltd", "Godrej Properties", "Phoenix Mills")}
-series_ = [("Our DCF (lens A)", [N[c]["DCF"]["Intrinsic value per share (Rs)"] for c in cos_], "#B9C6C8"),
-           ("Our NAV / embedded-profit", [nav["dlf_nav_ps"], nav["gpl_emb_ps"], nav["pml_nav_ps"]], "#88A6A8"),
-           ("Broker median target", [bm_["DLF Ltd"], bm_["Godrej Properties"], bm_["Phoenix Mills"]], "#C08A3E"),
+series_ = [("Our DCF (lens A)", [N[c]["DCF"]["Intrinsic value per share (Rs)"] for c in cos_], "#C9CDD2"),
+           ("Our NAV / embedded-profit", [nav["dlf_nav_ps"], nav["gpl_emb_ps"], nav["pml_nav_ps"]], "#8E9AAF"),
+           ("Broker median target", [bm_["DLF Ltd"], bm_["Godrej Properties"], bm_["Phoenix Mills"]], "#D9481C"),
            ("Market price", [N[c]["DCF"]["Current market price (Rs)"] for c in cos_], INK)]
 for i, (lab, v, col) in enumerate(series_):
     ax.bar(x + (i - 1.5) * w, v, w, color=col, label=lab)
@@ -234,7 +237,7 @@ for j, (c, col, nm) in enumerate([("DLF", C["DLF"], "DLF"), ("GPL", C["GPL"], "G
     ax.bar(x + (j - 1) * w, pcts, w, color=col, label=nm)
     for xi, v in zip(x, pcts):
         ax.text(xi + (j - 1) * w, v + 2, f"{v:.0f}", ha="center", fontsize=8, color=INK)
-ax.axhline(100, color=INK, lw=1.4, ls="--"); ax.text(-0.45, 103, "share price = 100", ha="left", fontsize=9, color=INK); ax.set_ylim(0, 150)
+ax.axhline(100, color=INK, lw=1.4, ls="--"); ax.text(-0.45, 103, "share price = 100", ha="left", fontsize=9, color=INK); ax.set_ylim(0, max(150, ax.get_ylim()[1] * 1.08))
 ax.set_xticks(x); ax.set_xticklabels(methods, fontsize=10); ax.set_ylabel("value as % of share price")
 ax.legend(frameon=False, fontsize=9, ncol=3, loc="upper left")
 ax.set_title("Each method's value as a percentage of today's share price", fontsize=11)

@@ -9,13 +9,16 @@ from matplotlib import font_manager
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "reports" / "charts"
 wb = openpyxl.load_workbook(ROOT / "models/excel/_recalc/BAV_RealEstate_Model.xlsx", data_only=True)
-INK, MUTE, GRID = "#1F2A30", "#7A858C", "#E3E7E8"
-C = {"DLF": "#2F5D62", "GPL": "#C08A3E", "PML": "#8C4A3C"}
+INK, MUTE, GRID = "#111418", "#6E737A", "#E6E7E9"
+for _f in (pathlib.Path(__file__).resolve().parents[1] / "assets/fonts/plex").glob("*.ttf"):
+    __import__("matplotlib.font_manager").font_manager.fontManager.addfont(str(_f))
+
+C = {"DLF": "#1F3A5F", "GPL": "#D9481C", "PML": "#8E9AAF"}
 NM = {"DLF": "DLF", "GPL": "Godrej Properties", "PML": "Phoenix Mills"}
-plt.rcParams.update({"font.family": "Inter", "font.size": 10, "axes.edgecolor": MUTE, "axes.labelcolor": INK,
+plt.rcParams.update({"font.family": "IBM Plex Sans", "font.size": 10, "axes.edgecolor": MUTE, "axes.labelcolor": INK,
                      "xtick.color": INK, "ytick.color": INK, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True,
-                     "figure.dpi": 200, "savefig.bbox": "tight", "axes.titleweight": "bold", "axes.titlesize": 11,
+                     "figure.dpi": 200, "savefig.bbox": "tight", "axes.titleweight": "semibold", "axes.titlesize": 11,
                      "axes.titlelocation": "left", "axes.facecolor": "none"})
 
 
@@ -33,7 +36,7 @@ def block_rows(ws, label):
 def save(fig, name):
     fig.savefig(OUT / f"{name}.png", facecolor="white")
     (OUT / "deck").mkdir(exist_ok=True)
-    fig.savefig(OUT / "deck" / f"{name}.png", facecolor="#F7F5F0"); plt.close(fig)
+    fig.savefig(OUT / "deck" / f"{name}.png", facecolor="white"); plt.close(fig)
 
 
 cos = ["DLF", "GPL", "PML"]
@@ -126,7 +129,7 @@ for r in range(5, 13):
 med = bu.cell(13, 7).value
 fig, ax = plt.subplots(figsize=(8, 3.2))
 xx = np.arange(len(names))
-ax.bar(xx - 0.2, raw, 0.4, color="#B9C6C8", label="Regression (levered) β")
+ax.bar(xx - 0.2, raw, 0.4, color="#C9CDD2", label="Regression (levered) β")
 ax.bar(xx + 0.2, unl, 0.4, color=C["DLF"], label="Unlevered β")
 ax.axhline(med, color=C["GPL"], lw=1.6, ls="--"); ax.text(len(names) - 0.6, med + 0.04, f"median unlevered β = {med:.2f}", color=C["GPL"], ha="right", fontsize=9)
 ax.set_xticks(xx); ax.set_xticklabels(names, rotation=0, fontsize=8.5); ax.legend(frameon=False, fontsize=8, loc="upper left")
@@ -163,7 +166,7 @@ fig.tight_layout(); save(fig, "football_field")
 imp = json.loads((ROOT / "data/processed/implied.json").read_text())
 fig, ax = plt.subplots(figsize=(6.5, 3))
 xx = np.arange(3)
-ax.bar(xx - 0.2, [imp[c]["base_wacc"] for c in cos], 0.4, color="#B9C6C8", label="Our WACC (CAPM, FY27–31)")
+ax.bar(xx - 0.2, [imp[c]["base_wacc"] for c in cos], 0.4, color="#C9CDD2", label="Our WACC (CAPM, FY27–31)")
 ax.bar(xx + 0.2, [imp[c]["base_wacc"] + imp[c]["dw"] for c in cos], 0.4, color=[C[c] for c in cos], label="WACC implied by today's price")
 for i, c in enumerate(cos):
     ax.text(i - 0.2, imp[c]["base_wacc"] + 0.003, f"{imp[c]['base_wacc']:.1%}", ha="center", fontsize=8.5)
@@ -244,7 +247,7 @@ for co, tk in [("DLF", "DLF"), ("GPL", "GODREJPROP"), ("PML", "PHOENIXLTD")]:
     mix[co] = {"Core operations (NOPAT)": nopat, "JV / associate share": jv,
                "Treasury, exceptional & financing (net, after tax)": ni_mi - nopat - jv, "Minority share": -(ni_mi - ni)}
 fig, ax = plt.subplots(figsize=(8, 3.2))
-cols_ = ["#2F5D62", "#88A6A8", "#C08A3E", "#B9C6C8"]
+cols_ = ["#1F3A5F", "#8E9AAF", "#D9481C", "#C9CDD2"]
 for i, co in enumerate(cos):
     pos, neg = 0, 0
     for (k, v), cc in zip(mix[co].items(), cols_):

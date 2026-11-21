@@ -249,7 +249,7 @@ para(f"The three companies reach similar ROEs in opposite ways: DLF through marg
      f"{pc(D['ROEattr' + 'from margin'],1)} of DLF's {pc(D['ROEattr' + 'total = ΔROE'],1)} rise in ROE came from margin; Godrej's {pc(G['ROEattr' + 'from margin'],1)} margin gain was partly offset by a {pc(G['ROEattr' + 'from asset turnover'],1)} turnover drag.")
 para(f"Palepu's split of ROE into operating return and financing is the most revealing view. Godrej's return on net operating assets was {pc(G['DP Return on net operating assets (RNOA)'][2])}; "
      f"{pc(G['DP Non-operating (JV, exceptional) contribution'][2])} of its ROE came from non-operating items. DLF's RNOA was {pc(D['DP Return on net operating assets (RNOA)'][2])}, and Phoenix's "
-     f"{pc(P['DP Return on net operating assets (RNOA)'][2])} , almost all of its ROE.")
+     f"{pc(P['DP Return on net operating assets (RNOA)'][2])}, almost all of its ROE.")
 doc.add_heading("EVA, CVA, distress and the scorecard", 2)
 para(f"EVA was negative throughout. In FY26 it was {cr(D['EVA = NOPAT − WACC × opening NOA'][2])} (DLF), {cr(G['EVA = NOPAT − WACC × opening NOA'][2])} (Godrej), {cr(P['EVA = NOPAT − WACC × opening NOA'][2])} (Phoenix). "
      f"Cash value added tells a different story for DLF: free cash flow of {cr(D['Free cash flow = CFO − capex'][3])} exceeds its capital charge because customers pay early. "

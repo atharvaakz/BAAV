@@ -11,8 +11,9 @@ N = json.loads((ROOT / "data/processed/numbers.json").read_text())
 CH = ROOT / "reports/charts/deck"
 OUT = ROOT / "reports/ProjectBaav_Group27_Presentation.pptx"
 D, G, P, I = N["DLF"], N["GPL"], N["PML"], N["Inputs"]
-BG, INK, MUTE, ACC, OCH, RUST, RULE = "F7F5F0", "1F2A30", "6B7780", "2F5D62", "C08A3E", "8C4A3C", "D8D4CA"
-HEAD, BODY, MONO = "Cambria", "Calibri", "Consolas"
+BG, INK, MUTE, ACC, OCH, RUST, RULE = "FFFFFF", "111418", "6E737A", "D9481C", "D9481C", "8E9AAF", "D6D8DB"
+NAVY, PAPER = "1F3A5F", "F4F5F6"
+HEAD, BODY, MONO, SERIF = "IBM Plex Sans", "IBM Plex Sans", "IBM Plex Mono", "IBM Plex Serif"
 
 
 def rgb(h):
@@ -90,7 +91,7 @@ def table(slide, x, y, w, rows, colw=None, size=11, h_row=0.34, first_bold=True)
     for i, row in enumerate(rows):
         for j, v in enumerate(row):
             c = t.cell(i, j); c.text = ""
-            c.fill.solid(); c.fill.fore_color.rgb = rgb(ACC if i == 0 else ("FFFFFF" if i % 2 else "F1EFE9"))
+            c.fill.solid(); c.fill.fore_color.rgb = rgb(INK if i == 0 else ("FFFFFF" if i % 2 else PAPER))
             p = c.text_frame.paragraphs[0]; r = p.add_run(); r.text = str(v)
             r.font.size = Pt(size); r.font.name = BODY; r.font.color.rgb = rgb("FFFFFF" if i == 0 else INK)
             r.font.bold = (i == 0) or (j == 0 and first_bold)
